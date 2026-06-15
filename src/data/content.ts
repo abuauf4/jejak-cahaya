@@ -743,57 +743,256 @@ Kota itu bernama Makkah.`,
     journeyId: 'fase-0',
     collectionId: 'perjalanan-rasulullah',
     title: 'Makkah: Kota di Lembah Gersang',
-    subtitle: 'Lembah kering yang menyimpan sejarah besar',
+    subtitle: 'Lembah Gersang yang Menyimpan Sejarah Besar',
     year: 'Sebelum 570 M',
     yearNum: -570,
     description: 'Lokasi Makkah, posisi strategis, jalur perdagangan.',
-    story: `Jika ada seorang pengelana yang menembus gurun dari utara menuju selatan, ia akan melewati dataran tinggi, padang pasir, dan deretan gunung batu yang membentang seperti dinding raksas. Namun di suatu titik, dinding itu terbelah. Sebuah celah sempit membuka jalan masuk ke lembah yang hampir tidak terlihat dari luar — seolah tanah ini menyembunyikan sesuatu yang tidak ingin ditemukan oleh sembarang orang.
+    story: `Gunung-gunung batu membentang di kedua sisi.
+
+Seolah menutup jalan.
+
+Seolah tidak mengizinkan siapa pun masuk.
+
+Namun di antara celah-celah batu itu, ada lorong.
+
+Sempit.
+
+Tersembunyi.
+
+Sulit ditemukan jika tidak tahu keberadaannya.
+
+Di balik lorong itu, terbentang sebuah lembah.
 
 Lembah itu bernama Makkah.
 
-Dari atas bukit, Makkah tampak seperti cekungan di antara gunung-gunung batu kelabu. Tidak ada sungai yang membelahnya. Tidak danau yang memantulkan cahaya. Tanahnya kering, berbatu, dan gersang. Angin yang masuk ke lembah ini membawa debu, bukan kesegaran. Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dinding batu yang mengelilingi kota.
+Dari atas, Makkah tampak seperti cekungan di antara gunung-gunung kelabu.
 
-Mengapa siapa pun mau tinggal di tempat seperti ini?
+Tidak ada sungai yang membelahnya.
+
+Tidak ada danau yang memantulkan cahaya.
+
+Tanahnya kering.
+
+Berbatu.
+
+Gersang.
+
+Angin yang masuk ke lembah ini membawa debu, bukan kesegaran.
+
+Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dinding batu yang mengelilingi kota.
+
+Sebuah lembah yang seharusnya tidak ada alasan untuk ditinggali.
+
+Namun manusia tetap datang.
 
 ◆
+
+Mengapa?
 
 Jawabannya ada di bawah tanah.
 
-Di suatu titik di lembah ini, air memancar dari dalam bumi — sebuah sumur yang disebut Zamzam. Di tanah yang hampir tidak mengenal hujan, keberadaan satu sumber air adalah segalanya. Zamzam bukan sekadar sumur. Zamzam adalah alasan Makkah ada. Tanpa air ini, lembah ini tidak lebih dari celah antara gunung yang tidak bernilai. Dengan air ini, lembah ini menjadi titik hidup di tengah kegersangan.
+Di suatu titik di lembah ini, air memancar dari dalam bumi.
 
-Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini. Bukan karena Makkah indah, tapi karena Makkah adalah satu-satunya tempat di sepanjang rute ini yang memiliki air cukup untuk puluhan unta dan ratusan orang. Dari Yaman ke Syam, jaraknya berminggu-minggu. Makkah adalah titik di tengah jalan — tempat muatan diturunkan, unta diberi minum, dan pedagang bertemu pedagang lain.
+Sebuah sumur.
 
-Posisi ini bukan kebetulan. Jazirah Arab terletak di persimpangan tiga benua, dan Makkah terletak di persimpangan Jazirah Arab sendiri. Dari selatan datang kemenyan dan emas. Dari utara datang kain dan gandum. Dari timur datang rempah dan minyak wangi. Dan dari barat, melintasi Laut Merah, datang pengaruh peradaban Mesir dan Abyssinia. Semuanya bertemu di pasar-pasar Makkah.
+Sumur yang disebut Zamzam.
+
+Di tanah yang hampir tidak mengenal hujan, satu sumber air adalah segalanya.
+
+Zamzam bukan sekadar sumur.
+
+Zamzam adalah alasan Makkah ada.
+
+Tanpa air ini, lembah ini tidak lebih dari celah antara gunung yang tidak bernilai.
+
+Dengan air ini, lembah ini menjadi titik hidup di tengah kegersangan.
+
+Menurut riwayat, sumur ini bermula dari doa seorang ibu.
+
+Hajar.
+
+Ibu dari Nabi Ismail عليه السلام.
+
+Ketika ia berlari bolak-balik antara bukit Shafa dan bukit Marwah mencari air untuk anaknya yang kehausan.
+
+Air itu datang.
+
+Dari bawah tanah.
+
+Atas izin Allah Subhanahu wa Ta'ala.
+
+Air yang tidak habis.
+
+Air yang terus mengalir.
+
+Hingga berabad-abad kemudian.
 
 ◆
 
-Makkah bukan kota terbesar di Jazirah Arab. Thaif lebih hijau. Yatsrib lebih subur. Tapi Makkah memiliki sesuatu yang tidak dimiliki kota-kota lain: Ka'bah.
+Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini.
 
-Sebuah bangunan kubus berdiri di tengah lembah ini — bangunan tua yang usianya sudah tidak bisa diingat oleh siapa pun yang hidup saat itu. Menurut cerita yang diwariskan dari mulut ke mulut, bangunan ini dibangun oleh seorang nabi dan putranya berabad-abad yang lalu. Cerita itu mengatakan bahwa Nabi Ibrahim a.s. dan Nabi Ismail a.s. yang membangunnya, mendoakan tempat ini menjadi pusat yang dikunjungi manusia dari segala penjuru.
+Bukan karena Makkah indah.
 
-Apakah cerita itu benar atau hanya legenda, yang pasti Ka'bah sudah berdiri di lembah ini jauh sebelum siapa pun yang hidup saat itu lahir. Dan yang pasti pula, bangunan ini menjadi alasan lain — alasan yang lebih besar daripada perdagangan — mengapa orang-orang datang ke Makkah.
+Tapi karena Makkah adalah satu-satunya tempat di sepanjang rute ini yang memiliki air cukup untuk puluhan unta dan ratusan orang.
 
-Setiap tahun, suku-suku dari seluruh Jazirah Arab berdatangan untuk berziarah ke Ka'bah. Mereka membawa persembahan, menyembah berhala-berhala yang mengelilinginya, dan melaksanakan ritual yang sudah menjadi tradisi turun-temurun. Di musim haji, perdagangan berhenti bersaing dengan ibadah — atau lebih tepatnya, keduanya berjalan bersamaan. Ka'bah menjadikan Makkah bukan sekadar kota pasar, tapi kota suci.
+Dari Yaman ke Syam, jaraknya berminggu-minggu.
+
+Makkah adalah titik di tengah jalan.
+
+Tempat muatan diturunkan.
+
+Unta diberi minum.
+
+Dan pedagang bertemu pedagang lain.
+
+Dari selatan datang kemenyan dan emas.
+
+Dari utara datang kain dan gandum.
+
+Dari timur datang rempah dan minyak wangi.
+
+Dan dari barat, melintasi Laut Merah, datang pengaruh peradaban Mesir dan Abyssinia.
+
+Semuanya bertemu di pasar-pasar Makkah.
+
+Jazirah Arab terletak di persimpangan tiga benua.
+
+Dan Makkah terletak di persimpangan Jazirah Arab.
+
+Posisi ini bukan kebetulan.
 
 ◆
 
-Siapa yang mengelola kota seperti ini? Kota yang menjadi persimpangan perdagangan dan persimpangan spiritual sekaligus?
+Makkah bukan kota terbesar di Jazirah Arab.
+
+Thaif lebih hijau.
+
+Yatsrib lebih subur.
+
+Tapi Makkah memiliki sesuatu yang tidak dimiliki kota-kota lain.
+
+Ka'bah.
+
+Sebuah bangunan kubus berdiri di tengah lembah ini.
+
+Bangunan tua yang usianya sudah tidak bisa diingat oleh siapa pun yang hidup saat itu.
+
+Menurut riwayat yang diwariskan turun-temurun, bangunan ini dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.
+
+Bukan untuk berhala.
+
+Bukan untuk patung.
+
+Tetapi sebagai tempat beribadah kepada Allah Subhanahu wa Ta'ala.
+
+Dan bangunan ini menjadi alasan lain.
+
+Alasan yang lebih besar daripada perdagangan.
+
+Mengapa orang-orang datang ke Makkah.
+
+Setiap tahun, suku-suku dari seluruh Jazirah Arab berdatangan untuk berziarah ke Ka'bah.
+
+Mereka membawa persembahan.
+
+Mereka melaksanakan ritual yang sudah menjadi tradisi turun-temurun.
+
+Di musim haji, perdagangan dan ibadah berjalan bersamaan.
+
+Ka'bah menjadikan Makkah bukan sekadar kota pasar.
+
+Tapi kota suci.
+
+◆
+
+Siapa yang mengelola kota seperti ini?
+
+Kota yang menjadi persimpangan perdagangan dan persimpangan spiritual sekaligus?
 
 Suku Quraisy.
 
-Mereka adalah penghuni Makkah yang paling berkuasa. Mereka menguasai sumur Zamzam, mengelola pasar-pasar, dan menjadi penjaga Ka'bah. Kedudukan ini bukan hanya soal kekayaan — ini soal kehormatan. Menjaga Ka'bah berarti menjadi pintu gerbang antara manusia dan tuhan-tuhan mereka. Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
+Mereka adalah penghuni Makkah yang paling berkuasa.
 
-Dan suku Quraisy memanfaatkan posisi ini dengan cerdik. Mereka mengadakan perjanjian dengan suku-suku lain — perjanjian perdagangan yang menjamin keamanan kafilah Quraisy di jalur utara-selatan, dan perjanjian keagamaan yang menjamin bahwa bulan-bulan suci tidak akan dilanggar oleh peperangan. Dalam bulan-bulan suci itu, semua suku boleh datang ke Makkah tanpa takut diserang. Dan saat mereka datang, mereka berdagang.
+Mereka menguasai sumur Zamzam.
 
-Agama dan perdagangan, berjalan berdampingan.
+Mereka mengelola pasar-pasar.
 
-Itulah Makkah. Sebuah lembah gersang yang seharusnya tidak punya alasan untuk ada — tapi hidup karena air dari bumi, emas dari kafilah, dan doa dari ribuan orang yang datang menemu bangunan kubus di tengahnya.
+Mereka menjadi penjaga Ka'bah.
 
-⟩ Di tanah yang paling kering, air menembus dari bawah. Di lembah yang paling tersembunyi, kafilah menemukan jalan. Dan di bangunan yang paling tua, orang-orang mencari tuhan — meskipun mereka belum mengenal Tuhan yang sebenarnya. Makkah sudah siap. Tinggal menunggu siapa yang datang untuk mengubah segalanya.`,
+Kedudukan ini bukan hanya soal kekayaan.
+
+Ini soal kehormatan.
+
+Menjaga Ka'bah berarti menjadi pintu gerbang antara manusia dan Tuhan mereka.
+
+Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
+
+Dan suku Quraisy memanfaatkan posisi ini dengan cerdik.
+
+Mereka mengadakan perjanjian dengan suku-suku lain.
+
+Perjanjian perdagangan yang menjamin keamanan kafilah Quraisy di jalur utara-selatan.
+
+Perjanjian keagamaan yang menjamin bahwa bulan-bulan suci tidak akan dilanggar oleh peperangan.
+
+Dalam bulan-bulan suci itu, semua suku boleh datang ke Makkah tanpa takut diserang.
+
+Dan saat mereka datang, mereka berdagang.
+
+Agama dan perdagangan.
+
+Berjalan berdampingan.
+
+◆
+
+Itulah Makkah.
+
+Sebuah lembah gersang yang seharusnya tidak punya alasan untuk ada.
+
+Tapi hidup karena air dari bumi.
+
+Hidup karena emas dari kafilah.
+
+Hidup karena doa dari ribuan orang yang datang menemu bangunan kubus di tengahnya.
+
+Sebuah kota yang seharusnya kosong.
+
+Namun selalu penuh.
+
+Sebuah lembah yang seharusnya mati.
+
+Namun selalu ramai.
+
+⟩ Di tanah yang paling kering, air menembus dari bawah.
+
+Di lembah yang paling tersembunyi, kafilah menemukan jalan.
+
+Dan di bangunan yang paling tua, orang-orang mencari Tuhan — meskipun mereka belum mengenal Allah Subhanahu wa Ta'ala sebagaimana mestinya.
+
+Makkah sudah siap.
+
+Air sudah mengalir.
+
+Pasar sudah ramai.
+
+Ka'bah sudah berdiri.
+
+Tinggal menunggu seseorang.
+
+Seseorang yang lahir di kota ini.
+
+Yang akan mengubah segalanya.`,
     featured: false,
     characterIds: [],
     locationId: 'makkah',
-    references: ['Ibnu Hisyam, As-Sirah An-Nabawiyah', 'Al-Azraqi, Akhbar Makkah', 'Al-Fasi, Shifa\' al-Gharam', 'Yaqut al-Hamawi, Mu\'jam al-Buldan'],
+    references: [
+      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr asl al-\'Arab wa amr \'Amr ibn \'Amir, Hal. 1–70, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+      'Al-Azraqi, Akhbar Makkah wa-ma Ja\'a fiha min al-Athar, Juz\' 1, Bab: Dhikr Bina\' Quraisy al-Ka\'bah fi al-Jahiliyyah, Hal. 157–174, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas',
+      'Al-Azraqi, Akhbar Makkah wa-ma Ja\'a fiha min al-Athar, Juz\' 2, Bab: Ma Ja\'a fi Ikhraj Jibril Zamzam li-Umm Isma\'il, Hal. 39–61, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas',
+      'Al-Fasi, Shifa\' al-Gharam bi-Akhbar al-Balad al-Haram, Jilid 1, al-Bab al-Awwal: fi Dhikr Asma\' al-Madinah wa-Awwal Man Sakaniha, Dar al-Kitab al-\'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri',
+      'Al-Fasi, Shifa\' al-Gharam bi-Akhbar al-Balad al-Haram, Jilid 2, al-Bab al-\'Ishrun: fi Dhikr Hafr Bi\'r Zamzam wa-\'Ilajiha, Dar al-Kitab al-\'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri',
+      'Yaqut al-Hamawi, Mu\'jam al-Buldan, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M',
+    ],
     order: 2,
   },
   {
