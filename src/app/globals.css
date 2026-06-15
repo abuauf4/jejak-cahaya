@@ -136,7 +136,7 @@ html { scroll-behavior: smooth; }
   font-size: 18px;
   line-height: 1.65;
 }
-.reader-content p { margin-bottom: 1.75rem; }
+.reader-content p { margin-bottom: 1.5rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
 /* Closing punchline — dramatic standalone line at end of reflection */
