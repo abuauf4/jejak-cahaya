@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Jejak Cahaya — Menelusuri Jejak Kehidupan Rasulullah ﷺ",
   description:
-    "Ikuti perjalanan hidup Rasulullah ﷺ melalui kisah, timeline, lokasi, dan referensi terpercaya. Platform storytelling Sirah Nabawiyah interaktif.",
+    "Perpustakaan digital kisah Islam. Ikuti perjalanan hidup Rasulullah ﷺ melalui kisah, timeline, lokasi, dan referensi terpercaya.",
   keywords: [
     "Sirah Nabawiyah",
     "Rasulullah",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jejak Cahaya — Menelusuri Jejak Kehidupan Rasulullah ﷺ",
     description:
-      "Ikuti perjalanan hidup Rasulullah ﷺ melalui kisah, timeline, lokasi, dan referensi terpercaya.",
+      "Perpustakaan digital kisah Islam — ikuti perjalanan hidup Rasulullah ﷺ melalui kisah, timeline, lokasi, dan referensi terpercaya.",
     type: "website",
     siteName: "Jejak Cahaya",
   },
@@ -46,9 +46,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning className="dark">
+    <html lang="id" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${playfair.variable} antialiased`}
       >
         {children}
       </body>

@@ -14,8 +14,12 @@ interface NavigationState {
   selectedEventId: string | null;
   selectedCharacterId: string | null;
   selectedLocationId: string | null;
+  selectedCollectionId: string | null;
+  readerTheme: "light" | "dark";
   navigateTo: (view: ViewType, id?: string | null) => void;
   goHome: () => void;
+  setSelectedCollection: (collectionId: string | null) => void;
+  toggleReaderTheme: () => void;
 }
 
 export const useNavigation = create<NavigationState>((set) => ({
@@ -23,6 +27,8 @@ export const useNavigation = create<NavigationState>((set) => ({
   selectedEventId: null,
   selectedCharacterId: null,
   selectedLocationId: null,
+  selectedCollectionId: null,
+  readerTheme: "light",
   navigateTo: (view, id = null) => {
     set(() => {
       const update: Partial<NavigationState> = { currentView: view };
@@ -42,6 +48,14 @@ export const useNavigation = create<NavigationState>((set) => ({
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
   },
+  setSelectedCollection: (collectionId) => {
+    set({ selectedCollectionId: collectionId });
+  },
+  toggleReaderTheme: () => {
+    set((state) => ({
+      readerTheme: state.readerTheme === "light" ? "dark" : "light",
+    }));
+  },
 }));
 
 interface ReadingProgress {
@@ -52,7 +66,7 @@ interface ReadingProgress {
   getProgress: () => { read: number; total: number; percentage: number };
 }
 
-const TOTAL_EVENTS = 12;
+const TOTAL_EVENTS = 17;
 
 export const useReadingProgress = create<ReadingProgress>()(
   persist(

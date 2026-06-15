@@ -1,211 +1,205 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Moon, Menu, X, ArrowLeft, Sun, Clock, MapPin, Users, Search, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Menu, X, ArrowLeft, Clock, Users, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose, SheetDescription } from '@/components/ui/sheet';
 import { useNavigation, useReadingProgress } from '@/lib/store';
+import { getActiveCollection } from '@/data/content';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
 
 const navItems = [
-  { label: 'Timeline', view: 'timeline' as const, icon: Clock },
-  { label: 'Tokoh', view: 'character' as const, icon: Users },
-  { label: 'Lokasi', view: 'location' as const, icon: MapPin },
+  { view: 'timeline' as const, label: 'Timeline', icon: Clock },
+  { view: 'character' as const, label: 'Tokoh', icon: Users },
+  { view: 'location' as const, label: 'Lokasi', icon: MapPin },
+  { view: 'search' as const, label: 'Cari', icon: Search },
 ];
 
 export default function Navigation() {
-  const { currentView, navigateTo, goHome } = useNavigation();
+  const { currentView, navigateTo, goHome, readerTheme, toggleReaderTheme } = useNavigation();
   const { getProgress } = useReadingProgress();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const progress = getProgress();
+  const activeCollection = getActiveCollection();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isReader = currentView === 'reader';
   const isHome = currentView === 'home';
 
   return (
     <>
-      <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          scrolled || !isHome
-            ? 'bg-[#080B16]/90 backdrop-blur-md border-b border-[rgba(245,215,142,0.08)]'
-            : 'bg-transparent'
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isReader
+            ? readerTheme === 'light'
+              ? 'bg-[#FAF9F6]/95 border-b border-black/[0.06]'
+              : 'bg-[#1a1a1a]/95 border-b border-white/[0.06]'
+            : `bg-[#080B16]/95 border-b border-[rgba(245,215,142,0.08)] ${scrolled ? 'backdrop-blur-xl' : 'backdrop-blur-md'}`
         }`}
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Left: Back + Logo */}
+          <div className="flex items-center justify-between h-14 sm:h-16">
+            {/* Left: Back or Logo */}
             <div className="flex items-center gap-3">
-              <AnimatePresence>
-                {!isHome && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={goHome}
-                      className="text-[#8B8070] hover:text-[#F5D78E] hover:bg-transparent"
-                    >
-                      <ArrowLeft className="h-5 w-5" />
-                    </Button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {!isHome && (
+                <button
+                  onClick={goHome}
+                  className={`p-1.5 rounded-lg transition-colors ${
+                    isReader
+                      ? readerTheme === 'light'
+                        ? 'hover:bg-black/5 text-[#4a4a4a]'
+                        : 'hover:bg-white/10 text-[#b0b0b0]'
+                      : 'hover:bg-white/5 text-[#C4B59A]'
+                  }`}
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+              )}
 
               <button
                 onClick={goHome}
                 className="flex items-center gap-2 group"
               >
-                <Moon className="h-5 w-5 text-[#F5D78E] lantern-pulse" />
-                <span className="font-serif-display text-lg sm:text-xl text-gradient-gold">
+                <div className="relative">
+                  <Moon className="w-5 h-5 text-[#F5D78E]" />
+                  <div className="absolute inset-0 w-5 h-5 bg-[#F5D78E]/20 rounded-full blur-md group-hover:bg-[#F5D78E]/30 transition-all" />
+                </div>
+                <span
+                  className={`font-serif-display text-base font-bold tracking-wide ${
+                    isReader
+                      ? readerTheme === 'light'
+                        ? 'text-[#1a1a1a]'
+                        : 'text-[#e0e0e0]'
+                      : 'text-gradient-gold'
+                  }`}
+                >
                   Jejak Cahaya
                 </span>
               </button>
+
+              {/* Collection name */}
+              {activeCollection && !isReader && (
+                <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs bg-[#1A2038] text-[#C4B59A] border border-[rgba(245,215,142,0.1)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843]" />
+                  {activeCollection.title}
+                </span>
+              )}
             </div>
 
-            {/* Center/Right: Nav Items (Desktop) */}
-            <nav className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => (
-                <Button
-                  key={item.view}
-                  variant="ghost"
-                  onClick={() => navigateTo(item.view)}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    currentView === item.view
-                      ? 'text-[#F5D78E] bg-[rgba(245,215,142,0.08)]'
-                      : 'text-[#8B8070] hover:text-[#F5D78E] hover:bg-transparent'
+            {/* Center: Nav items (desktop) */}
+            <div className="hidden md:flex items-center gap-1">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = currentView === item.view;
+                return (
+                  <button
+                    key={item.view}
+                    onClick={() => navigateTo(item.view)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all ${
+                      isActive
+                        ? 'text-[#F5D78E] bg-[rgba(245,215,142,0.1)]'
+                        : 'text-[#8B8070] hover:text-[#C4B59A] hover:bg-white/5'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right: Theme toggle (reader) + Mobile menu */}
+            <div className="flex items-center gap-2">
+              {/* Reader theme toggle */}
+              {isReader && (
+                <button
+                  onClick={toggleReaderTheme}
+                  className={`p-2 rounded-lg transition-colors ${
+                    readerTheme === 'light'
+                      ? 'hover:bg-black/5 text-[#4a4a4a]'
+                      : 'hover:bg-white/10 text-[#b0b0b0]'
                   }`}
+                  title={readerTheme === 'light' ? 'Mode gelap' : 'Mode terang'}
                 >
-                  <item.icon className="h-4 w-4 mr-2" />
-                  {item.label}
-                </Button>
-              ))}
-              <Button
-                variant="ghost"
-                onClick={() => navigateTo('search')}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  currentView === 'search'
-                    ? 'text-[#F5D78E] bg-[rgba(245,215,142,0.08)]'
-                    : 'text-[#8B8070] hover:text-[#F5D78E] hover:bg-transparent'
-                }`}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                Cari
-              </Button>
-            </nav>
+                  {readerTheme === 'light' ? (
+                    <Moon className="w-4 h-4" />
+                  ) : (
+                    <Sun className="w-4 h-4" />
+                  )}
+                </button>
+              )}
 
-            {/* Mobile: Hamburger */}
-            <div className="md:hidden">
-              <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="text-[#8B8070] hover:text-[#F5D78E]">
-                    <Menu className="h-5 w-5" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent
-                  side="right"
-                  className="bg-[#0F1629] border-l border-[rgba(245,215,142,0.1)] w-72"
-                >
-                  <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
-                  <SheetDescription className="sr-only">Navigasi ke berbagai bagian Jejak Cahaya</SheetDescription>
-                  <div className="flex items-center justify-between mb-8 mt-2">
-                    <span className="font-serif-display text-lg text-gradient-gold">
-                      Jejak Cahaya
-                    </span>
-                    <SheetClose asChild>
-                      <Button variant="ghost" size="icon" className="text-[#8B8070] hover:text-[#F5D78E]">
-                        <X className="h-5 w-5" />
-                      </Button>
-                    </SheetClose>
-                  </div>
-
-                  <nav className="flex flex-col gap-2">
-                    {navItems.map((item) => (
-                      <button
-                        key={item.view}
-                        onClick={() => {
-                          navigateTo(item.view);
-                          setMobileOpen(false);
-                        }}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors duration-200 ${
-                          currentView === item.view
-                            ? 'text-[#F5D78E] bg-[rgba(245,215,142,0.08)]'
-                            : 'text-[#C4B59A] hover:text-[#F5D78E] hover:bg-[rgba(245,215,142,0.05)]'
-                        }`}
-                      >
-                        <item.icon className="h-5 w-5" />
-                        <span className="font-medium">{item.label}</span>
-                      </button>
-                    ))}
+              {/* Mobile menu */}
+              <div className="md:hidden">
+                <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+                  <SheetTrigger asChild>
                     <button
-                      onClick={() => {
-                        navigateTo('search');
-                        setMobileOpen(false);
-                      }}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors duration-200 ${
-                        currentView === 'search'
-                          ? 'text-[#F5D78E] bg-[rgba(245,215,142,0.08)]'
-                          : 'text-[#C4B59A] hover:text-[#F5D78E] hover:bg-[rgba(245,215,142,0.05)]'
+                      className={`p-1.5 rounded-lg ${
+                        isReader
+                          ? readerTheme === 'light'
+                            ? 'hover:bg-black/5 text-[#4a4a4a]'
+                            : 'hover:bg-white/10 text-[#b0b0b0]'
+                          : 'hover:bg-white/5 text-[#C4B59A]'
                       }`}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                      <span className="font-medium">Cari</span>
+                      <Menu className="w-5 h-5" />
                     </button>
-                  </nav>
-
-                  {/* Reading progress in mobile menu */}
-                  {progress.read > 0 && (
-                    <div className="mt-8 px-4">
-                      <p className="text-xs text-[#8B8070] mb-2">
-                        Kemajuan Membaca
-                      </p>
-                      <div className="w-full h-1.5 bg-[#1A2038] rounded-full overflow-hidden">
-                        <motion.div
-                          className="h-full bg-gradient-to-r from-[#8B6914] via-[#D4A843] to-[#F5D78E] rounded-full"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${progress.percentage}%` }}
-                          transition={{ duration: 0.8, ease: 'easeOut' }}
-                        />
-                      </div>
-                      <p className="text-xs text-[#8B8070] mt-1">
-                        {progress.read}/{progress.total} peristiwa
-                      </p>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="bg-[#0F1629] border-[rgba(245,215,142,0.1)] w-72">
+                    <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
+                    <div className="flex flex-col gap-2 mt-8">
+                      <button
+                        onClick={() => { goHome(); setMobileOpen(false); }}
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg text-[#C4B59A] hover:bg-white/5 transition-colors"
+                      >
+                        <Home className="w-5 h-5" />
+                        <span className="text-sm">Beranda</span>
+                      </button>
+                      {navItems.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <button
+                            key={item.view}
+                            onClick={() => { navigateTo(item.view); setMobileOpen(false); }}
+                            className="flex items-center gap-3 px-4 py-3 rounded-lg text-[#C4B59A] hover:bg-white/5 transition-colors"
+                          >
+                            <Icon className="w-5 h-5" />
+                            <span className="text-sm">{item.label}</span>
+                          </button>
+                        );
+                      })}
+                      {activeCollection && (
+                        <div className="mt-4 pt-4 border-t border-[rgba(245,215,142,0.1)] px-4">
+                          <p className="text-xs text-[#8B8070] mb-1">Koleksi Aktif</p>
+                          <p className="text-sm text-[#F5D78E] font-medium">{activeCollection.title}</p>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </SheetContent>
-              </Sheet>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
           </div>
         </div>
+      </nav>
 
-        {/* Progress bar at bottom of nav */}
-        {progress.read > 0 && (
-          <div className="h-0.5 bg-[#1A2038]">
-            <motion.div
-              className="h-full bg-gradient-to-r from-[#8B6914] via-[#D4A843] to-[#F5D78E]"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress.percentage}%` }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            />
-          </div>
-        )}
-      </motion.header>
+      {/* Progress bar at bottom */}
+      {progress.read > 0 && !isReader && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 h-1 bg-[#0F1629]">
+          <motion.div
+            className="h-full bg-gradient-to-r from-[#8B6914] via-[#D4A843] to-[#F5D78E]"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress.percentage}%` }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          />
+        </div>
+      )}
     </>
   );
 }

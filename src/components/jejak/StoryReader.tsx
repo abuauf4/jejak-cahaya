@@ -1,347 +1,260 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  ArrowLeft,
-  BookOpen,
-  MapPin,
-  Users,
-  Calendar,
-  ChevronRight,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
+import { ChevronLeft, ChevronRight, MapPin, Users, BookOpen, Calendar, Clock } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
-import { events } from '@/data/events';
-import { getCharacterById } from '@/data/characters';
-import { getLocationById } from '@/data/locations';
+import {
+  getEventById,
+  getCharactersByEvent,
+  getLocationById,
+  getActiveCollection,
+  getJourneysByCollection,
+  getEventsByJourney,
+} from '@/data/content';
 
 export default function StoryReader() {
-  const { selectedEventId, navigateTo, goHome } = useNavigation();
+  const { selectedEventId, navigateTo, readerTheme } = useNavigation();
   const { markEventRead, readEvents } = useReadingProgress();
-  const [readProgress, setReadProgress] = useState(0);
-  const storyEndRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const storyRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const event = events.find((e) => e.id === selectedEventId);
+  const event = selectedEventId ? getEventById(selectedEventId) : null;
+  const characters = event ? getCharactersByEvent(event.id) : [];
   const location = event ? getLocationById(event.locationId) : undefined;
-  const characters = event
-    ? event.characterIds.map((id) => getCharacterById(id)).filter(Boolean)
-    : [];
 
-  // Find previous and next events
-  const eventIndex = event
-    ? events.findIndex((e) => e.id === event.id)
-    : -1;
-  const prevEvent = eventIndex > 0 ? events[eventIndex - 1] : null;
-  const nextEvent =
-    eventIndex >= 0 && eventIndex < events.length - 1
-      ? events[eventIndex + 1]
-      : null;
+  // Get all events for prev/next navigation
+  const activeCollection = getActiveCollection();
+  const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
+  const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
+  const currentIndex = allEvents.findIndex((e) => e.id === selectedEventId);
+  const prevEvent = currentIndex > 0 ? allEvents[currentIndex - 1] : null;
+  const nextEvent = currentIndex >= 0 && currentIndex < allEvents.length - 1 ? allEvents[currentIndex + 1] : null;
 
-  // Reading progress based on scroll
+  // Scroll progress
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight > 0) {
-        setReadProgress(Math.min((scrollTop / docHeight) * 100, 100));
-      }
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Mark as read when user scrolls to bottom
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && event) {
-          markEventRead(event.id);
-        }
-      },
-      { threshold: 0.5 }
-    );
+  // Auto-mark as read via IntersectionObserver
+  const storyEndRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (observerRef.current) observerRef.current.disconnect();
+      if (!node || !selectedEventId) return;
 
-    if (storyEndRef.current) {
-      observer.observe(storyEndRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [event, markEventRead]);
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && selectedEventId) {
+              markEventRead(selectedEventId);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      observerRef.current.observe(node);
+    },
+    [selectedEventId, markEventRead]
+  );
 
   if (!event) {
     return (
-      <div className="min-h-screen pt-24 pb-16 px-4 flex items-center justify-center">
-        <div className="text-center">
-          <BookOpen className="h-12 w-12 text-[#8B6914] mx-auto mb-4" />
-          <p className="text-[#8B8070]">
-            Pilih peristiwa untuk mulai membaca
-          </p>
-          <Button
-            variant="ghost"
-            onClick={() => navigateTo('timeline')}
-            className="mt-4 text-[#F5D78E]"
-          >
-            Kembali ke Timeline
-          </Button>
-        </div>
+      <div className="min-h-screen flex items-center justify-center bg-[#FAF9F6]">
+        <p className="text-[#4a4a4a]">Kisah tidak ditemukan</p>
       </div>
     );
   }
 
-  // Split story into paragraphs
-  const paragraphs = event.story
-    .split('\n')
-    .filter((p) => p.trim().length > 0);
+  const isLight = readerTheme === 'light';
+  const bgClass = isLight ? 'bg-[#FAF9F6]' : 'bg-[#1a1a1a]';
+  const textClass = isLight ? 'text-[#1a1a1a]' : 'text-[#e0e0e0]';
+  const textMutedClass = isLight ? 'text-[#4a4a4a]' : 'text-[#b0b0b0]';
+  const textSecondaryClass = isLight ? 'text-[#6a6a6a]' : 'text-[#909090]';
+  const borderClass = isLight ? 'border-black/[0.06]' : 'border-white/[0.06]';
+  const cardBgClass = isLight ? 'bg-white/80' : 'bg-[#252525]';
+  const hoverBgClass = isLight ? 'hover:bg-black/[0.03]' : 'hover:bg-white/[0.05]';
 
-  const isRead = readEvents.includes(event.id);
+  // Parse story into paragraphs
+  const paragraphs = event.story.split('\n').filter((p) => p.trim());
 
   return (
-    <div className="min-h-screen pt-16 pb-16">
-      {/* Reading progress bar */}
-      <div className="fixed top-16 left-0 right-0 z-40 h-0.5 bg-[#1A2038]">
+    <div className={`min-h-screen ${bgClass} transition-colors duration-300`}>
+      {/* Thin progress bar */}
+      <div className={`fixed top-14 sm:top-16 left-0 right-0 z-40 h-[2px] ${isLight ? 'bg-black/[0.04]' : 'bg-white/[0.04]'}`}>
         <motion.div
-          className="h-full bg-gradient-to-r from-[#8B6914] via-[#D4A843] to-[#F5D78E]"
-          style={{ width: `${readProgress}%` }}
+          className={`h-full ${isLight ? 'bg-[#D4A843]/50' : 'bg-[#F5D78E]/40'}`}
+          style={{ width: `${scrollProgress}%` }}
           transition={{ duration: 0.1 }}
         />
       </div>
 
-      {/* Hero Section */}
-      <div
-        className="relative pt-12 pb-16 px-4 sm:px-6"
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(245,215,142,0.04) 0%, transparent 100%)',
-        }}
-      >
-        <div className="max-w-3xl mx-auto">
-          <motion.div
+      {/* Content */}
+      <div className="pt-24 sm:pt-28 pb-16 px-4 sm:px-6">
+        <div className="max-w-[65ch] mx-auto">
+          {/* Hero */}
+          <motion.header
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
+            className="mb-10 sm:mb-14"
           >
-            {/* Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-6">
-              <Badge
-                variant="outline"
-                className="border-[rgba(245,215,142,0.2)] text-[#F5D78E] gap-1"
-              >
-                <Calendar className="h-3 w-3" />
+            {/* Year badge */}
+            <div className="flex items-center gap-2 mb-4">
+              <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full ${isLight ? 'bg-[#D4A843]/10 text-[#8B6914]' : 'bg-[#F5D78E]/10 text-[#F5D78E]'}`}>
+                <Calendar className="w-3 h-3" />
                 {event.year}
-              </Badge>
+              </span>
               {location && (
-                <Badge
-                  variant="outline"
-                  className="border-[rgba(245,215,142,0.2)] text-[#C4B59A] gap-1 cursor-pointer hover:text-[#F5D78E] transition-colors"
-                  onClick={() => navigateTo('location', location.id)}
+                <button
+                  onClick={() => navigateTo('location', event.locationId)}
+                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full transition-colors ${isLight ? 'bg-black/[0.04] text-[#4a4a4a] hover:bg-black/[0.08]' : 'bg-white/[0.06] text-[#b0b0b0] hover:bg-white/[0.1]'}`}
                 >
-                  <MapPin className="h-3 w-3" />
+                  <MapPin className="w-3 h-3" />
                   {location.name}
-                </Badge>
-              )}
-              {isRead && (
-                <Badge className="bg-[rgba(212,168,67,0.15)] text-[#D4A843] border-0">
-                  Sudah dibaca
-                </Badge>
+                </button>
               )}
             </div>
 
             {/* Title */}
-            <h1 className="font-serif-display text-3xl sm:text-4xl md:text-5xl text-[#F0EBE0] mb-3 leading-tight">
+            <h1 className={`font-serif-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold leading-tight mb-3 ${textClass}`}>
               {event.title}
             </h1>
-            <p className="font-serif-display text-lg sm:text-xl text-[#C4B59A] mb-6">
+            <p className={`font-serif-display text-lg ${textMutedClass} italic`}>
               {event.subtitle}
             </p>
+          </motion.header>
 
-            {/* Gold divider */}
-            <div className="w-24 line-gold" />
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Story Content */}
-      <div ref={contentRef} className="px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
+          {/* Story */}
+          <motion.article
+            ref={storyRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className={`font-serif-display text-[17px] sm:text-[18px] leading-[1.9] sm:leading-[2] ${textClass}`}
           >
-            {paragraphs.map((paragraph, idx) => (
-              <div key={idx}>
-                <p className="text-[#C4B59A] text-base sm:text-lg leading-relaxed sm:leading-loose mb-6">
-                  {paragraph}
-                </p>
-                {/* Subtle gold line divider between some paragraphs */}
-                {idx < paragraphs.length - 1 &&
-                  idx % 3 === 2 && (
-                    <div className="flex items-center justify-center my-8">
-                      <div className="w-8 line-gold opacity-30" />
-                      <div className="w-1 h-1 rounded-full bg-[#D4A843] opacity-40 mx-3" />
-                      <div className="w-8 line-gold opacity-30" />
-                    </div>
-                  )}
-              </div>
+            {paragraphs.map((paragraph, i) => (
+              <p
+                key={i}
+                className="mb-8"
+                ref={i === paragraphs.length - 1 ? storyEndRef : undefined}
+              >
+                {paragraph.trim()}
+              </p>
             ))}
+          </motion.article>
 
-            {/* End marker for IntersectionObserver */}
-            <div ref={storyEndRef} className="h-1" />
-
-            {/* End ornament */}
-            <div className="flex items-center justify-center my-12">
-              <div className="w-16 line-gold opacity-40" />
-              <div className="w-2 h-2 rounded-full bg-[#D4A843] opacity-50 mx-4" />
-              <div className="w-16 line-gold opacity-40" />
+          {/* Read indicator */}
+          {readEvents.includes(event.id) && (
+            <div className={`mt-8 pt-6 border-t ${borderClass} flex items-center gap-2 text-xs ${textSecondaryClass}`}>
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Sudah dibaca</span>
             </div>
-          </motion.div>
+          )}
 
           {/* Related Characters */}
           {characters.length > 0 && (
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <Users className="h-4 w-4 text-[#D4A843]" />
-                <h3 className="font-serif-display text-lg text-[#F0EBE0]">
-                  Tokoh Terkait
-                </h3>
-              </div>
+            <div className={`mt-10 pt-8 border-t ${borderClass}`}>
+              <h3 className={`text-sm font-semibold mb-4 flex items-center gap-2 ${textMutedClass}`}>
+                <Users className="w-4 h-4" />
+                Tokoh dalam Kisah Ini
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {characters.map(
-                  (char) =>
-                    char && (
-                      <button
-                        key={char.id}
-                        onClick={() =>
-                          navigateTo('character', char.id)
-                        }
-                        className="flex items-center gap-3 p-4 bg-[#0F1629] border border-[rgba(245,215,142,0.08)] rounded-lg text-left hover:border-[rgba(245,215,142,0.2)] transition-colors duration-200 group"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-[rgba(245,215,142,0.08)] flex items-center justify-center flex-shrink-0">
-                          <Users className="h-4 w-4 text-[#D4A843]" />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm font-medium text-[#F0EBE0] group-hover:text-[#F5D78E] transition-colors truncate">
-                            {char.name}
-                          </p>
-                          <p className="text-xs text-[#8B8070] truncate">
-                            {char.title}
-                          </p>
-                        </div>
-                        <ChevronRight className="h-4 w-4 text-[#8B8070] flex-shrink-0 ml-auto" />
-                      </button>
-                    )
-                )}
+                {characters.map((char) => (
+                  <button
+                    key={char.id}
+                    onClick={() => navigateTo('character', char.id)}
+                    className={`text-left p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors`}
+                  >
+                    <h4 className={`font-serif-display font-bold text-sm mb-1 ${textClass}`}>
+                      {char.name}
+                    </h4>
+                    <p className={`text-xs ${textSecondaryClass}`}>{char.title}</p>
+                    <p className={`text-xs mt-2 line-clamp-2 ${textSecondaryClass}`}>{char.shortBio}</p>
+                  </button>
+                ))}
               </div>
-            </motion.div>
+            </div>
           )}
 
-          {/* Related Location */}
+          {/* Location */}
           {location && (
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <MapPin className="h-4 w-4 text-[#D4A843]" />
-                <h3 className="font-serif-display text-lg text-[#F0EBE0]">
-                  Lokasi
-                </h3>
-              </div>
+            <div className={`mt-8 pt-8 border-t ${borderClass}`}>
+              <h3 className={`text-sm font-semibold mb-4 flex items-center gap-2 ${textMutedClass}`}>
+                <MapPin className="w-4 h-4" />
+                Lokasi
+              </h3>
               <button
                 onClick={() => navigateTo('location', location.id)}
-                className="flex items-center gap-4 p-5 bg-[#0F1629] border border-[rgba(245,215,142,0.08)] rounded-lg text-left hover:border-[rgba(245,215,142,0.2)] transition-colors duration-200 group w-full"
+                className={`text-left p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors w-full`}
               >
-                <div className="w-12 h-12 rounded-lg bg-[rgba(245,215,142,0.08)] flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-[#D4A843]" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-base font-medium text-[#F0EBE0] group-hover:text-[#F5D78E] transition-colors">
-                    {location.name}
-                  </p>
-                  <p className="text-sm text-[#8B8070] line-clamp-2">
-                    {location.description}
-                  </p>
-                </div>
-                <ChevronRight className="h-4 w-4 text-[#8B8070] flex-shrink-0" />
+                <h4 className={`font-serif-display font-bold text-sm mb-1 ${textClass}`}>
+                  {location.name}
+                </h4>
+                <p className={`text-xs ${textSecondaryClass}`}>{location.description}</p>
+                <p className={`text-[10px] mt-2 ${textSecondaryClass}`}>{location.coordinates}</p>
               </button>
-            </motion.div>
+            </div>
           )}
 
           {/* References */}
           {event.references.length > 0 && (
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <BookOpen className="h-4 w-4 text-[#D4A843]" />
-                <h3 className="font-serif-display text-lg text-[#F0EBE0]">
-                  Referensi
-                </h3>
-              </div>
-              <ul className="space-y-2">
-                {event.references.map((ref, idx) => (
-                  <li
-                    key={idx}
-                    className="text-sm text-[#8B8070] pl-4 border-l-2 border-[rgba(245,215,142,0.15)]"
-                  >
+            <div className={`mt-8 pt-8 border-t ${borderClass}`}>
+              <h3 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${textMutedClass}`}>
+                <BookOpen className="w-4 h-4" />
+                Referensi
+              </h3>
+              <ul className="space-y-1.5">
+                {event.references.map((ref, i) => (
+                  <li key={i} className={`text-xs ${textSecondaryClass} flex items-start gap-2`}>
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-current opacity-30 flex-shrink-0" />
                     {ref}
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           )}
 
-          <Separator className="bg-[rgba(245,215,142,0.08)] mb-8" />
-
-          {/* Navigation buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-8">
-            <Button
-              variant="outline"
-              onClick={() => navigateTo('timeline')}
-              className="border-[rgba(245,215,142,0.2)] text-[#C4B59A] hover:text-[#F5D78E] hover:bg-[rgba(245,215,142,0.05)] flex-1 sm:flex-none rounded-lg"
-            >
-              Kembali ke Timeline
-            </Button>
-            <div className="flex gap-3 flex-1">
-              {prevEvent && (
-                <Button
-                  variant="ghost"
-                  onClick={() => navigateTo('reader', prevEvent.id)}
-                  className="text-[#8B8070] hover:text-[#F5D78E] flex-1 rounded-lg"
-                >
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  <span className="truncate">{prevEvent.title}</span>
-                </Button>
-              )}
-              {nextEvent && (
-                <Button
-                  onClick={() => navigateTo('reader', nextEvent.id)}
-                  className="bg-gradient-to-r from-[#D4A843] to-[#F5D78E] text-[#080B16] font-semibold hover:from-[#F5D78E] hover:to-[#D4A843] transition-all duration-300 flex-1 rounded-lg"
-                >
-                  <span className="truncate">Lanjutkan Perjalanan</span>
-                  <ArrowRight className="h-4 w-4 ml-2 flex-shrink-0" />
-                </Button>
-              )}
-            </div>
+          {/* Prev/Next Navigation */}
+          <div className={`mt-12 pt-8 border-t ${borderClass} grid grid-cols-2 gap-4`}>
+            {prevEvent ? (
+              <button
+                onClick={() => navigateTo('reader', prevEvent.id)}
+                className={`text-left p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors group`}
+              >
+                <div className={`flex items-center gap-1 text-xs mb-1 ${textSecondaryClass}`}>
+                  <ChevronLeft className="w-3 h-3" />
+                  Sebelumnya
+                </div>
+                <h4 className={`text-sm font-medium ${textClass} group-hover:text-[#D4A843] transition-colors line-clamp-2`}>
+                  {prevEvent.title}
+                </h4>
+              </button>
+            ) : (
+              <div />
+            )}
+            {nextEvent ? (
+              <button
+                onClick={() => navigateTo('reader', nextEvent.id)}
+                className={`text-right p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors group`}
+              >
+                <div className={`flex items-center justify-end gap-1 text-xs mb-1 ${textSecondaryClass}`}>
+                  Selanjutnya
+                  <ChevronRight className="w-3 h-3" />
+                </div>
+                <h4 className={`text-sm font-medium ${textClass} group-hover:text-[#D4A843] transition-colors line-clamp-2`}>
+                  {nextEvent.title}
+                </h4>
+              </button>
+            ) : (
+              <div />
+            )}
           </div>
         </div>
       </div>

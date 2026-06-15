@@ -105,7 +105,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #080B16;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -128,8 +128,8 @@ html {
   color: #F5D78E;
 }
 
-/* Custom font class */
-.font-serif-display {
+/* Custom font class — using @utility for Tailwind v4 compatibility */
+@utility font-serif-display {
   font-family: var(--font-playfair), Georgia, serif;
 }
 

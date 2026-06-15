@@ -4,50 +4,23 @@ import { Moon } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative mt-auto">
-      {/* Decorative gold line at top */}
-      <div className="line-gold w-full" />
+    <footer className="relative bg-[#080B16] pt-8 pb-6">
+      {/* Gold line at top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4A843]/40 to-transparent" />
 
-      <div className="bg-[#080B16] py-10 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <Moon className="h-4 w-4 text-[#D4A843]" />
-              <span className="font-serif-display text-base text-gradient-gold">
-                Jejak Cahaya™
-              </span>
-            </div>
-
-            {/* Description */}
-            <p className="text-xs text-[#8B8070] text-center sm:text-right">
-              Platform Storytelling Sirah Nabawiyah Interaktif
-            </p>
-
-            {/* Links */}
-            <div className="flex items-center gap-4">
-              <button className="text-xs text-[#8B8070] hover:text-[#F5D78E] transition-colors duration-200">
-                Tentang
-              </button>
-              <span className="text-[#8B8070]/30">·</span>
-              <button className="text-xs text-[#8B8070] hover:text-[#F5D78E] transition-colors duration-200">
-                Kontribusi
-              </button>
-              <span className="text-[#8B8070]/30">·</span>
-              <button className="text-xs text-[#8B8070] hover:text-[#F5D78E] transition-colors duration-200">
-                Referensi
-              </button>
-            </div>
-          </div>
-
-          {/* Bottom */}
-          <div className="mt-6 pt-4 border-t border-[rgba(245,215,142,0.05)] text-center">
-            <p className="text-[10px] text-[#8B8070]/50">
-              Konten berdasarkan referensi Sirah terpercaya. Jejak Cahaya tidak
-              mengklaim otoritas keagamaan.
-            </p>
-          </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Moon className="w-4 h-4 text-[#D4A843]" />
+          <span className="font-serif-display text-sm font-bold text-gradient-gold">
+            Jejak Cahaya™
+          </span>
         </div>
+        <p className="text-xs text-[#8B8070]/60 mb-4">
+          Perpustakaan Digital Kisah Islam
+        </p>
+        <p className="text-[10px] text-[#8B8070]/30">
+          Konten bersifat demo dan sedang menunggu proses review ilmiah
+        </p>
       </div>
     </footer>
   );

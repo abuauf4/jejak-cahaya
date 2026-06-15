@@ -1,0 +1,884 @@
+     1→     1→// ═══════════════════════════════════════════════════════
+     2→     2→// JEJAK CAHAYA™ — Scalable Content Architecture
+     3→     3→// Collection → Journey → Event → Story → Character → Location → Reference
+     4→     4→// ═══════════════════════════════════════════════════════
+     5→     5→
+     6→     6→// ── Core Types ──────────────────────────────────────
+     7→     7→
+     8→     8→export interface Collection {
+     9→     9→  id: string;
+    10→    10→  slug: string;
+    11→    11→  title: string;
+    12→    12→  subtitle: string;
+    13→    13→  description: string;
+    14→    14→  coverTheme: string; // color theme for this collection
+    15→    15→  journeyIds: string[];
+    16→    16→  status: 'active' | 'coming_soon';
+    17→    17→  order: number;
+    18→    18→}
+    19→    19→
+    20→    20→export interface Journey {
+    21→    21→  id: string;
+    22→    22→  collectionId: string;
+    23→    23→  title: string;
+    24→    24→  subtitle: string;
+    25→    25→  period: string;
+    26→    26→  yearStart: number;
+    27→    27→  yearEnd: number;
+    28→    28→  description: string;
+    29→    29→  color: string;
+    30→    30→  eventIds: string[];
+    31→    31→  order: number;
+    32→    32→}
+    33→    33→
+    34→    34→export interface StoryEvent {
+    35→    35→  id: string;
+    36→    36→  journeyId: string;
+    37→    37→  collectionId: string;
+    38→    38→  title: string;
+    39→    39→  subtitle: string;
+    40→    40→  year: string;
+    41→    41→  yearNum: number;
+    42→    42→  description: string;
+    43→    43→  story: string; // demo content — will be replaced after review
+    44→    44→  featured: boolean;
+    45→    45→  characterIds: string[];
+    46→    46→  locationId: string;
+    47→    47→  references: string[];
+    48→    48→  order: number;
+    49→    49→}
+    50→    50→
+    51→    51→export interface Character {
+    52→    52→  id: string;
+    53→    53→  name: string;
+    54→    54→  title: string;
+    55→    55→  shortBio: string;
+    56→    56→  fullBio: string;
+    57→    57→  role: string;
+    58→    58→  period: string;
+    59→    59→  eventIds: string[];
+    60→    60→  references: string[];
+    61→    61→}
+    62→    62→
+    63→    63→export interface StoryLocation {
+    64→    64→  id: string;
+    65→    65→  name: string;
+    66→    66→  description: string;
+    67→    67→  fullDescription: string;
+    68→    68→  coordinates: string;
+    69→    69→  eventIds: string[];
+    70→    70→  significance: string;
+    71→    71→}
+    72→    72→
+    73→    73→// ── Collections ─────────────────────────────────────
+    74→    74→
+    75→    75→export const collections: Collection[] = [
+    76→    76→  {
+    77→    77→    id: 'sirah-nabawiyah',
+    78→    78→    slug: 'sirah-nabawiyah',
+    79→    79→    title: 'Sirah Nabawiyah',
+    80→    80→    subtitle: 'Perjalanan Hidup Rasulullah ﷺ',
+    81→    81→    description: 'Menelusuri jejak kehidupan Rasulullah ﷺ dari konteks dunia pra-Islam hingga legacy yang abadi.',
+    82→    82→    coverTheme: '#D4A843',
+    83→    83→    journeyIds: [
+    84→    84→      'dunia-pra-islam',
+    85→    85→      'kelahiran-masa-kecil',
+    86→    86→      'masa-pemuda',
+    87→    87→      'masa-kenabian-awal',
+    88→    88→      'dakwah-terang-terangan',
+    89→    89→      'hijrah-pembangunan-madinah',
+    90→    90→      'masa-pertahanan',
+    91→    91→      'perdamaian-kemenangan',
+    92→    92→    ],
+    93→    93→    status: 'active',
+    94→    94→    order: 1,
+    95→    95→  },
+    96→    96→  {
+    97→    97→    id: 'kisah-sahabat',
+    98→    98→    slug: 'kisah-sahabat',
+    99→    99→    title: 'Kisah Para Sahabat',
+   100→   100→    subtitle: 'Para Pembawa Cahaya',
+   101→   101→    description: 'Kisah para sahabat Rasulullah ﷺ yang mengorbankan segalanya untuk membela risalah Islam.',
+   102→   102→    coverTheme: '#2D6A4F',
+   103→   103→    journeyIds: [],
+   104→   104→    status: 'coming_soon',
+   105→   105→    order: 2,
+   106→   106→  },
+   107→   107→  {
+   108→   108→    id: 'kisah-nabi',
+   109→   109→    slug: 'kisah-nabi',
+   110→   110→    title: 'Kisah Para Nabi',
+   111→   111→    subtitle: 'Rangkaian Risalah Ilahi',
+   112→   112→    description: 'Perjalanan para nabi dan rasul dari Adam hingga Muhammad ﷺ.',
+   113→   113→    coverTheme: '#6B4C8A',
+   114→   114→    journeyIds: [],
+   115→   115→    status: 'coming_soon',
+   116→   116→    order: 3,
+   117→   117→  },
+   118→   118→  {
+   119→   119→    id: 'peradaban-islam',
+   120→   120→    slug: 'peradaban-islam',
+   121→   121→    title: 'Peradaban Islam',
+   122→   122→    subtitle: 'Cahaya yang Menerangi Dunia',
+   123→   123→    description: 'Jejak peradaban Islam dari Andalusia hingga Nusantara.',
+   124→   124→    coverTheme: '#8B4513',
+   125→   125→    journeyIds: [],
+   126→   126→    status: 'coming_soon',
+   127→   127→    order: 4,
+   128→   128→  },
+   129→   129→];
+   130→   130→
+   131→   131→// ── Journeys (Sirah Nabawiyah) ──────────────────────
+   132→   132→
+   133→   133→export const journeys: Journey[] = [
+   134→   134→  {
+   135→   135→    id: 'dunia-pra-islam',
+   136→   136→    collectionId: 'sirah-nabawiyah',
+   137→   137→    title: 'Dunia Sebelum Islam',
+   138→   138→    subtitle: 'Kegelapan yang Menantikan Cahaya',
+   139→   139→    period: 'Sebelum 570 M',
+   140→   140→    yearStart: -3000,
+   141→   141→    yearEnd: 569,
+   142→   142→    description: 'Memahami konteks dunia dan Jazirah Arab sebelum kelahiran Rasulullah ﷺ — dari kondisi masyarakat, tradisi, hingga peristiwa Tahun Gajah.',
+   143→   143→    color: '#6B5B3E',
+   144→   144→    eventIds: ['jazirah-arab', 'makkah-kota', 'kabah-sejarah', 'suku-quraisy', 'tahun-gajah'],
+   145→   145→    order: 1,
+   146→   146→  },
+   147→   147→  {
+   148→   148→    id: 'kelahiran-masa-kecil',
+   149→   149→    collectionId: 'sirah-nabawiyah',
+   150→   150→    title: 'Kelahiran & Masa Kecil',
+   151→   151→    subtitle: 'Cahaya yang Tiba',
+   152→   152→    period: '570–576 M',
+   153→   153→    yearStart: 570,
+   154→   154→    yearEnd: 576,
+   155→   155→    description: 'Kelahiran Nabi Muhammad ﷺ di Makkah, masa penyusuan di Bani Sa\'ad, dan kehilangan kedua orang tua.',
+   156→   156→    color: '#8B6914',
+   157→   157→    eventIds: ['kelahiran', 'penyusuan-bani-saad', 'kematian-aminah'],
+   158→   158→    order: 2,
+   159→   159→  },
+   160→   160→  {
+   161→   161→    id: 'masa-pemuda',
+   162→   162→    collectionId: 'sirah-nabawiyah',
+   163→   163→    title: 'Masa Pemuda',
+   164→   164→    subtitle: 'Al-Amin yang Terpercaya',
+   165→   165→    period: '576–609 M',
+   166→   166→    yearStart: 576,
+   167→   167→    yearEnd: 609,
+   168→   168→    description: 'Bertumbuh di Makkah, dikenal sebagai Al-Amin, berdagang, dan menikah dengan Khadijah.',
+   169→   169→    color: '#D4A843',
+   170→   170→    eventIds: ['perniagaan-khadijah', 'pernikahan-khadijah'],
+   171→   171→    order: 3,
+   172→   172→  },
+   173→   173→  {
+   174→   174→    id: 'masa-kenabian-awal',
+   175→   175→    collectionId: 'sirah-nabawiyah',
+   176→   176→    title: 'Masa Kenabian Awal',
+   177→   177→    subtitle: 'Ketika Langit Berbicara',
+   178→   178→    period: '610–613 M',
+   179→   179→    yearStart: 610,
+   180→   180→    yearEnd: 613,
+   181→   181→    description: 'Menerima wahyu pertama di Gua Hira, dakwah secara sembunyi-sembunyi, dan pengikut awal.',
+   182→   182→    color: '#F5D78E',
+   183→   183→    eventIds: ['wahyu-pertama'],
+   184→   184→    order: 4,
+   185→   185→  },
+   186→   186→  {
+   187→   187→    id: 'dakwah-terang-terangan',
+   188→   188→    collectionId: 'sirah-nabawiyah',
+   189→   189→    title: 'Dakwah Terang-terangan',
+   190→   190→    subtitle: 'Menyeru di Tengah Badai',
+   191→   191→    period: '613–620 M',
+   192→   192→    yearStart: 613,
+   193→   193→    yearEnd: 620,
+   194→   194→    description: 'Dakwah secara terbuka, perlawanan Quraisy, boikot, dan Tahun Kesedihan.',
+   195→   195→    color: '#C4B59A',
+   196→   196→    eventIds: ['dakwah-terang', 'isra-miraj'],
+   197→   197→    order: 5,
+   198→   198→  },
+   199→   199→  {
+   200→   200→    id: 'hijrah-pembangunan-madinah',
+   201→   201→    collectionId: 'sirah-nabawiyah',
+   202→   202→    title: 'Hijrah & Madinah',
+   203→   203→    subtitle: 'Membangun Dunia Baru',
+   204→   204→    period: '620–624 M',
+   205→   205→    yearStart: 620,
+   206→   206→    yearEnd: 624,
+   207→   207→    description: 'Perjalanan dari Makkah ke Madinah, membangun masyarakat baru, dan Piagam Madinah.',
+   208→   208→    color: '#D4A843',
+   209→   209→    eventIds: ['hijrah'],
+   210→   210→    order: 6,
+   211→   211→  },
+   212→   212→  {
+   213→   213→    id: 'masa-pertahanan',
+   214→   214→    collectionId: 'sirah-nabawiyah',
+   215→   215→    title: 'Masa Pertahanan',
+   216→   216→    subtitle: 'Mempertahankan Cahaya',
+   217→   217→    period: '624–628 M',
+   218→   218→    yearStart: 624,
+   219→   219→    yearEnd: 628,
+   220→   220→    description: 'Perang Badar, Uhud, Khandaq, dan tantangan mempertahankan komunitas Muslim.',
+   221→   221→    color: '#8B6914',
+   222→   222→    eventIds: ['perang-badar'],
+   223→   223→    order: 7,
+   224→   224→  },
+   225→   225→  {
+   226→   226→    id: 'perdamaian-kemenangan',
+   227→   227→    collectionId: 'sirah-nabawiyah',
+   228→   228→    title: 'Perdamaian & Kemenangan',
+   229→   229→    subtitle: 'Cahaya yang Menyeluruh',
+   230→   230→    period: '628–632 M',
+   231→   231→    yearStart: 628,
+   232→   232→    yearEnd: 632,
+   233→   233→    description: 'Perjanjian Hudaibiyah, Fathu Makkah, Haji Wada\', dan wafatnya Rasulullah ﷺ.',
+   234→   234→    color: '#F5D78E',
+   235→   235→    eventIds: ['hudaibiyah', 'fathu-makkah'],
+   236→   236→    order: 8,
+   237→   237→  },
+   238→   238→];
+   239→   239→
+   240→   240→// ── Events ──────────────────────────────────────────
+   241→   241→
+   242→   242→export const events: StoryEvent[] = [
+   243→   243→  // ── Dunia Sebelum Islam ──
+   244→   244→  {
+   245→   245→    id: 'jazirah-arab',
+   246→   246→    journeyId: 'dunia-pra-islam',
+   247→   247→    collectionId: 'sirah-nabawiyah',
+   248→   248→    title: 'Jazirah Arab Sebelum Islam',
+   249→   249→    subtitle: 'Dunia yang Menantikan Cahaya',
+   250→   250→    year: 'Sebelum 570 M',
+   251→   251→    yearNum: -500,
+   252→   252→    description: 'Kondisi Jazirah Arab dan dunia sebelum Islam — kegelapan sosial, tradisi jahiliah, dan kerinduan akan risalah baru.',
+   253→   253→    story: `Dunia pada abad ke-6 Masehi berada dalam kegelapan yang panjang. Di barat, Kekaisaran Romawi dan Persia saling berperang tanpa henti, menguras sumber daya dan menumpuk darah. Di Jazirah Arab, kabilah-kabilah saling berperang karena perbedaan yang paling sepele — sebuah unta dicuri, sebuah kata yang menyinggung, dan peperangan bisa berlangsung puluhan tahun.
+   254→   254→
+   255→   255→Masyarakat Arab pra-Islam memiliki kebaikan — kedermawanan, kesetiaan kabilah, keberanian — namun juga terjebak dalam tradisi yang kejam: mengubur bayi perempuan hidup-hidup, merampas hak waris wanita, dan menyembah berhala yang tidak bisa mendengar ataupun menolong.
+   256→   256→
+   257→   257→Ka'bah yang dibangun oleh Ibrahim dan Ismail untuk menyembah Allah, kini dipenuhi 360 berhala. Zaman ini disebut Jahiliah — bukan berarti mereka bodoh, tetapi mereka hidup tanpa petunjuk. Dan di tengah kegelapan itu, dunia menantikan cahaya.`,
+   258→   258→    featured: false,
+   259→   259→    characterIds: [],
+   260→   260→    locationId: 'makkah',
+   261→   261→    references: ['Sirah Ibnu Hisyam 1/33', 'Ar-Rahiq Al-Makhtum hal. 35'],
+   262→   262→    order: 1,
+   263→   263→  },
+   264→   264→  {
+   265→   265→    id: 'makkah-kota',
+   266→   266→    journeyId: 'dunia-pra-islam',
+   267→   267→    collectionId: 'sirah-nabawiyah',
+   268→   268→    title: 'Makkah: Kota di Lembah Gurun',
+   269→   269→    subtitle: 'Sumur Zamzam dan Lembah Teringan',
+   270→   270→    year: 'Sebelum 570 M',
+   271→   271→    yearNum: -400,
+   272→   272→    description: 'Kota Makkah — dari sumur Zamzam hingga menjadi pusat perdagangan dan spiritual Jazirah Arab.',
+   273→   273→    story: `Makkah terletak di lembah gurun yang kering dan gersang, dikelilingi oleh pegunungan hitam yang membatasi langitnya. Kota ini tidak memiliki sungai, tidak memiliki tanah yang subur, dan tidak memiliki sumber daya alam yang menarik. Namun Makkah memiliki sesuatu yang lebih berharga dari semua itu: Sumur Zamzam dan Ka'bah.
+   274→   274→
+   275→   275→Sumur Zamzam adalah sumber air yang tak pernah kering di tengah gurun. Ka'bah adalah bangunan suci yang menarik peziarah dari seluruh Jazirah Arab. Kedua hal ini menjadikan Makkah sebagai titik pertemuan — tempat di mana kabilah-kabilah yang saling bermusuhan berhenti berperang selama bulan-bulan suci.
+   276→   276→
+   277→   277→Makkah juga menjadi pusat perdagangan. Kafilah-kafilah berdatangan dari Syam, Yaman, dan Mesir. Pasar-pasar terbentuk di sekitar Ka'bah. Kota kecil di lembah gurun ini menjadi jantung Jazirah Arab — tempat di mana agama, perdagangan, dan politik berpadu.
+   278→   278→
+   279→   279→Dan di kota inilah, seorang bayi akan lahir dan mengubah segalanya.`,
+   280→   280→    featured: false,
+   281→   281→    characterIds: [],
+   282→   282→    locationId: 'makkah',
+   283→   283→    references: ['Sirah Ibnu Hisyam 1/40', 'Ar-Rahiq Al-Makhtum hal. 42'],
+   284→   284→    order: 2,
+   285→   285→  },
+   286→   286→  {
+   287→   287→    id: 'kabah-sejarah',
+   288→   288→    journeyId: 'dunia-pra-islam',
+   289→   289→    collectionId: 'sirah-nabawiyah',
+   290→   290→    title: 'Ka\'bah: Rumah yang Dibangun Kembali',
+   291→   291→    subtitle: 'Dari Ibrahim hingga Quraisy',
+   292→   292→    year: 'Sebelum 570 M',
+   293→   293→    yearNum: -300,
+   294→   294→    description: 'Sejarah Ka\'bah — dari pembangunan oleh Nabi Ibrahim hingga peristiwa penempatan Hajar Aswad oleh Muhammad muda.',
+   295→   295→    story: `Ka'bah adalah bangunan pertama yang dibangun untuk menyembah Allah. Al-Qur'an menyebutnya "Baitullah" — Rumah Allah. Menurut sejarah, Nabi Ibrahim dan putranya Ismail membangun Ka'bah di tempat yang ditunjukkan oleh Allah, dan sejak saat itu bangunan itu menjadi pusat ibadah.
+   296→   296→
+   297→   297→Namun seiring berjalannya waktu, Ka'bah berubah. Berhala-berhala mulai mengisi interior dan eksteriornya. Tiga ratus enam puluh berhala mengelilingi Ka'bah saat Muhammad ﷺ lahir. Rumah yang dibangun untuk Tuhan Yang Esa kini menjadi rumah bagi ratusan tuhan palsu.
+   298→   298→
+   299→   299→Sebuah peristiwa penting terjadi sebelum kenabian: banjir besar merusak dinding Ka'bah, dan Quraisy memutuskan untuk membangun kembali. Namun ketika tiba saatnya menempatkan kembali Hajar Aswad — batu hitam suci — setiap klan Quraisy bersaing untuk mendapatkan kehormatan itu. Perdebatan hampir berujung pertumpahan darah.
+   300→   300→
+   301→   301→Mereka sepakat: siapa yang pertama kali memasuki gerbang Ka'bah esok pagi akan menjadi penengah. Dan orang yang pertama memasuki gerbang itu adalah Muhammad — pemuda yang dikenal sebagai Al-Amin. Ia meletakkan Hajar Aswad di atas kain, meminta setiap kepala klan memegang satu sisi kain, dan bersama-sama mereka mengangkat batu itu ke tempatnya. Konflik berakhir tanpa darah.
+   302→   302→
+   303→   303→Peristiwa itu menunjukkan apa yang akan menjadi ciri Muhammad ﷺ sepanjang hidupnya: kebijaksanaan yang mencari solusi, bukan kemenangan.`,
+   304→   304→    featured: true,
+   305→   305→    characterIds: ['muhammad'],
+   306→   306→    locationId: 'makkah',
+   307→   307→    references: ['Shahih Bukhari 1584', 'Sirah Ibnu Hisyam 1/152', 'Ar-Rahiq Al-Makhtum hal. 58'],
+   308→   308→    order: 3,
+   309→   309→  },
+   310→   310→  {
+   311→   311→    id: 'suku-quraisy',
+   312→   312→    journeyId: 'dunia-pra-islam',
+   313→   313→    collectionId: 'sirah-nabawiyah',
+   314→   314→    title: 'Suku Quraisy',
+   315→   315→    subtitle: 'Penjaga Ka\'bah, Penguasa Makkah',
+   316→   316→    year: 'Sebelum 570 M',
+   317→   317→    yearNum: -200,
+   318→   318→    description: 'Suku Quraisy — klan yang menguasai Makkah, menjaga Ka\'bah, dan nantinya menjadi penentang terbesar Islam.',
+   319→   319→    story: `Quraisy adalah suku paling berkuasa di Jazirah Arab. Mereka adalah keturunan Fihr bin Malik, dan nama mereka berasal dari kata "taqarrusy" yang berarti berkumpul dan berdagang. Quraisy menguasai Makkah, menjaga Ka'bah, dan mengelola urusan peziarah.
+   320→   320→
+   321→   321→Di antara klan-klan Quraisy, Bani Hasyim adalah yang paling dihormati. Mereka bertanggung jawab memberi makan dan minum para peziarah (rifadah dan siqayah). Abdul Muthalib, kakek Nabi Muhammad ﷺ, adalah pemimpin Bani Hasyim yang sangat dihormati.
+   322→   322→
+   323→   323→Namun kekuasaan Quraisy memiliki sisi gelap. Mereka memonopoli perdagangan, menindas kelas bawah, memperbudak yang lemah, dan menggunakan agama sebagai alat kekuasaan. Ketika Islam datang membawa pesan kesetaraan di hadapan Allah, Quraisy lah yang paling keras menolak — bukan karena mereka tidak mengerti, tetapi karena mereka mengerti terlalu baik: Islam mengancam kekuasaan mereka.
+   324→   324→
+   325→   325→Dunia yang dibangun Quraisy adalah dunia di mana yang kuat menang dan yang lemah tersisih. Dan di dunia itu, seorang yatim piatu dari Bani Hasyim akan membuktikan bahwa kekuatan sejati bukan terletak pada kekuasaan, tetapi pada kebenaran.`,
+   326→   326→    featured: false,
+   327→   327→    characterIds: [],
+   328→   328→    locationId: 'makkah',
+   329→   329→    references: ['QS. Quraisy 1-4', 'Sirah Ibnu Hisyam 1/50'],
+   330→   330→    order: 4,
+   331→   331→  },
+   332→   332→  {
+   333→   333→    id: 'tahun-gajah',
+   334→   334→    journeyId: 'dunia-pra-islam',
+   335→   335→    collectionId: 'sirah-nabawiyah',
+   336→   336→    title: 'Tahun Gajah',
+   337→   337→    subtitle: 'Pasukan yang Dihancurkan dari Langit',
+   338→   338→    year: '570 M',
+   339→   339→    yearNum: 570,
+   340→   340→    description: 'Serangan Aburahah ke Ka\'bah dan kehancuran pasukan gajah — tahun di mana Muhammad ﷺ lahir.',
+   341→   341→    story: `Tahun 570 Masehi dikenal sebagai Tahun Gajah — tahun di mana pasukan gajah yang luar biasa dihancurkan oleh kekuatan dari langit. Peristiwa ini dicatat dalam Al-Qur'an surah Al-Fil.
+   342→   342→
+   343→   343→Aburahah, gubernur Kristen Yaman di bawah kekuasaan Kerajaan Habsyi, membangun sebuah gereja megah di Shan'a. Ia bertekad mengalihkan peziarah dari Ka'bah ke gerejanya. Namun orang-orang Arab tidak tertarik — Ka'bah tetap menjadi tujuan mereka.
+   344→   344→
+   345→   345→Frustrasi, Aburahah berbaris menuju Makkah dengan pasukan besar yang dipimpin seekor gajah raksasa bernama Mahmud. Pasukan itu begitu kuat sehingga tidak ada kabilah yang berani melawan. Makkah tidak memiliki tentara. Quraisy tidak memiliki senjata.
+   346→   346→
+   347→   347→Abdul Muthalib, pemimpin Makkah, berkata kepada kaumnya: "Pergilah ke pegunungan. Ka'bah memiliki Tuhan yang akan melindunginya."
+   348→   348→
+   349→   349→Dan begitulah yang terjadi. Menurut Al-Qur'an, kawanan burung ababil datang membawa batu-batu dari neraka yang dilemparkan ke pasukan itu. Gajah Mahmud menolak maju menuju Ka'bah — ia hanya berjalan ke arah lain. Pasukan yang tak terkalahkan itu hancur dalam sekejap.
+   350→   350→
+   351→   351→Tahun yang sama, di rumah kecil Bani Hasyim, seorang bayi laki-laki lahir. Ia akan menjadi cahaya yang tak bisa dihentikan oleh gajah mana pun.`,
+   352→   352→    featured: true,
+   353→   353→    characterIds: ['muhammad', 'abdul-muthalib'],
+   354→   354→    locationId: 'makkah',
+   355→   355→    references: ['QS. Al-Fil 1-5', 'Shahih Bukhari 3175', 'Sirah Ibnu Hisyam 1/44'],
+   356→   356→    order: 5,
+   357→   357→  },
+   358→   358→
+   359→   359→  // ── Kelahiran & Masa Kecil ──
+   360→   360→  {
+   361→   361→    id: 'kelahiran',
+   362→   362→    journeyId: 'kelahiran-masa-kecil',
+   363→   363→    collectionId: 'sirah-nabawiyah',
+   364→   364→    title: 'Kelahiran Sang Cahaya',
+   365→   365→    subtitle: 'Tiba di Tengah Kegelapan',
+   366→   366→    year: '570 M',
+   367→   367→    yearNum: 570,
+   368→   368→    description: 'Muhammad bin Abdullah ﷺ lahir di Makkah pada Tahun Gajah, membawa cahaya bagi seluruh alam.',
+   369→   369→    story: `Aminah binti Wahb melihat bayinya yang baru lahir. Cahaya memancar dari wajah bayi itu. Abdullah, sang suami, telah wafat sebelum anak ini lahir — pergi meninggalkan dunia saat berdagang ke Madinah, tak pernah menyaksikan wajah putranya.
+   370→   370→
+   371→   371→Bayi itu diberi nama Muhammad — nama yang belum pernah digunakan di kalangan kaum Quraisy. Ketika ditanya mengapa memberi nama demikian, Abdul Muthalib, sang kakek, menjawab, "Aku berharap ia dipuji oleh seluruh penghuni langit dan bumi."
+   372→   372→
+   373→   373→Hari kelahiran itu menjadi awal dari sebuah perjalanan panjang. Perjalanan yang akan membawa cahaya dari sebuah rumah kecil di Makkah, merambah seluruh penjuru dunia, dan terus bersinar hingga akhir zaman.`,
+   374→   374→    featured: true,
+   375→   375→    characterIds: ['muhammad', 'aminah', 'abdul-muthalib'],
+   376→   376→    locationId: 'makkah',
+   377→   377→    references: ['Shahih Bukhari 3851', 'Sirah Ibnu Hisyam 1/166', 'Ar-Rahiq Al-Makhtum hal. 63'],
+   378→   378→    order: 1,
+   379→   379→  },
+   380→   380→  {
+   381→   381→    id: 'penyusuan-bani-saad',
+   382→   382→    journeyId: 'kelahiran-masa-kecil',
+   383→   383→    collectionId: 'sirah-nabawiyah',
+   384→   384→    title: 'Di Padang Bani Sa\'ad',
+   385→   385→    subtitle: 'Bayi di Tengah Gurun',
+   386→   386→    year: '570–574 M',
+   387→   387→    yearNum: 570,
+   388→   388→    description: 'Muhammad kecil disusukan kepada Halimah as-Sa\'diyah di padang pasir Bani Sa\'ad.',
+   389→   389→    story: `Halimah binti Abi Dzu'aib dari Bani Sa'ad datang ke Makkah mencari bayi yang mau disusuinya. Tahun itu tahun kemarau. Setiap bayi yang ia tawari menolak — mereka tidak mau disusui oleh wanita dari suku pedalaman yang miskin. Hanya tersisa satu bayi: Muhammad, anak yatim dari Bani Hasyim.
+   390→   390→
+   391→   391→"Suamiku, ambillah bayi itu," kata Halimah. "Mungkin ia membawa keberkahan."
+   392→   392→
+   393→   393→Sejak Muhammad berada dalam asuhannya, susu Halimah yang hampir habis mengalir deras. Unta yang kurus berjalan gagah. Padang pasir yang gersang seolah bersemi. Selama empat tahun, Muhammad kecil tumbuh di padang Bani Sa'ad, belajar bahasa Arab yang paling murni, menghirup udara gurun yang jernih.`,
+   394→   394→    featured: false,
+   395→   395→    characterIds: ['muhammad', 'halimah'],
+   396→   396→    locationId: 'makkah',
+   397→   397→    references: ['Shahih Muslim 2639', 'Sirah Ibnu Hisyam 1/170'],
+   398→   398→    order: 2,
+   399→   399→  },
+   400→   400→  {
+   401→   401→    id: 'kematian-aminah',
+   402→   402→    journeyId: 'kelahiran-masa-kecil',
+   403→   403→    collectionId: 'sirah-nabawiyah',
+   404→   404→    title: 'Kehilangan Ibu',
+   405→   405→    subtitle: 'Yatim Piatu di Usia Enam',
+   406→   406→    year: '576 M',
+   407→   407→    yearNum: 576,
+   408→   408→    description: 'Aminah wafat di Abwa\', meninggalkan Muhammad kecil sebagai yatim piatu.',
+   409→   409→    story: `Muhammad berusia enam tahun saat ibunya memutuskan untuk membawanya ke Madinah. Di tengah perjalanan, di desa Abwa', Aminah jatuh sakit dan menghembuskan napas terakhirnya.
+   410→   410→
+   411→   411→Seorang anak yang belum mengenal ayahnya, kini kehilangan ibunya. Kakeknya, Abdul Muthalib, merengkuh tangan kecil itu dan membawanya kembali ke Makkah. Di keheningan malam Makkah, seorang yatim piatu belajar bahwa dunia ini tidak kekal, dan bahwa hati yang paling hancur bisa menjadi yang paling kuat.`,
+   412→   412→    featured: false,
+   413→   413→    characterIds: ['muhammad', 'aminah', 'abdul-muthalib'],
+   414→   414→    locationId: 'abwa',
+   415→   415→    references: ['Sirah Ibnu Hisyam 1/182', 'Ar-Rahiq Al-Makhtum hal. 73'],
+   416→   416→    order: 3,
+   417→   417→  },
+   418→   418→
+   419→   419→  // ── Masa Pemuda ──
+   420→   420→  {
+   421→   421→    id: 'perniagaan-khadijah',
+   422→   422→    journeyId: 'masa-pemuda',
+   423→   423→    collectionId: 'sirah-nabawiyah',
+   424→   424→    title: 'Perjalanan Dagang ke Syam',
+   425→   425→    subtitle: 'Al-Amin yang Terpercaya',
+   426→   426→    year: '583 M',
+   427→   427→    yearNum: 583,
+   428→   428→    description: 'Muhammad muda memimpin kafilah dagang Khadijah ke Syam, menunjukkan kejujuran luar biasa.',
+   429→   429→    story: `Khadijah binti Khuwailid membutuhkan seseorang yang terpercaya untuk memimpin kafilahnya ke Syam. Namanya telah bergema: Muhammad bin Abdullah, Al-Amin — Yang Terpercaya.
+   430→   430→
+   431→   431→Perjalanan itu sukses melebihi ekspektasi. Keuntungan dua kali lipat. Lebih dari keuntungan, Maysarah menceritakan hal-hal yang tak bisa diukur dengan dinar: awan yang selalu memberi naung, rahib di Busra yang mengenali tanda kenabian, dan ketenangan yang memancar dari wajah pemuda itu.
+   432→   432→
+   433→   433→Ketika kafilah kembali, Khadijah mendengar semua cerita. Dan di matanya, Muhammad bukan lagi sekadar pegawai yang amanah — ia adalah seseorang yang istimewa.`,
+   434→   434→    featured: true,
+   435→   435→    characterIds: ['muhammad', 'khadijah'],
+   436→   436→    locationId: 'syam',
+   437→   437→    references: ['Shahih Bukhari 3820', 'Sirah Ibnu Hisyam 1/194'],
+   438→   438→    order: 1,
+   439→   439→  },
+   440→   440→  {
+   441→   441→    id: 'pernikahan-khadijah',
+   442→   442→    journeyId: 'masa-pemuda',
+   443→   443→    collectionId: 'sirah-nabawiyah',
+   444→   444→    title: 'Pernikahan dengan Khadijah',
+   445→   445→    subtitle: 'Dua Hati yang Saling Mengisi',
+   446→   446→    year: '595 M',
+   447→   447→    yearNum: 595,
+   448→   448→    description: 'Muhammad menikah dengan Khadijah, wanita terhormat yang mencintainya karena kejujurannya.',
+   449→   449→    story: `Khadijah mengirim Nufaisah, sahabatnya, untuk menyampaikan pesan kepada Muhammad: "Bagaimana jika ada wanita yang memiliki kecantikan, kekayaan, kemuliaan, dan ia sendiri yang menginginkanmu?"
+   450→   450→
+   451→   451→Pernikahan itu berlangsung sederhana namun penuh keberkahan. Selama 25 tahun, Khadijah menjadi rumah bagi Muhammad — bukan sekadar istri, tetapi sahabat, penasihat, pelindung. Ketika seluruh dunia memusuhi, Khadijah berdiri di sisinya. "Demi Allah, Allah tidak akan pernah merendahkanmu."`,
+   452→   452→    featured: false,
+   453→   453→    characterIds: ['muhammad', 'khadijah'],
+   454→   454→    locationId: 'makkah',
+   455→   455→    references: ['Shahih Bukhari 3820', 'Sirah Ibnu Hisyam 1/199'],
+   456→   456→    order: 2,
+   457→   457→  },
+   458→   458→
+   459→   459→  // ── Masa Kenabian Awal ──
+   460→   460→  {
+   461→   461→    id: 'wahyu-pertama',
+   462→   462→    journeyId: 'masa-kenabian-awal',
+   463→   463→    collectionId: 'sirah-nabawiyah',
+   464→   464→    title: 'Wahyu Pertama di Gua Hira',
+   465→   465→    subtitle: 'Ketika Langit Berbicara',
+   466→   466→    year: '610 M',
+   467→   467→    yearNum: 610,
+   468→   468→    description: 'Malaikat Jibril datang ke Gua Hira dan menyampaikan wahyu pertama: Iqra\' — Bacalah!',
+   469→   469→    story: `Malam tanggal 17 Ramadan, tahun ke-40 dari usianya, Muhammad tertidur di dalam Gua Hira. Sosok cahaya yang belum pernah dilihatnya muncul: "Iqra'!" — Bacalah!
+   470→   470→
+   471→   471→Tiga kali pelukan itu terjadi. Pada kali ketiga, ayat-ayat itu terukir dalam cahaya: "Bacalah dengan nama Tuhanmu yang menciptakan. Dia telah menciptakan manusia dari segumpal darah."
+   472→   472→
+   473→   473→Muhammad berlari menuju Khadijah, wajah pucat, tubuh gemetar: "Selimuti aku!" Khadijah memeluk suaminya dan berkata dengan keyakinan yang tak tergoyahkan: "Demi Allah, Allah tidak akan pernah merendahkanmu."
+   474→   474→
+   475→   475→Malam itu mengubah segalanya. Seorang penggembala yatim piatu yang mencari jawaban di sebuah gua kecil, kini menjadi Rasul — utusan Allah bagi seluruh alam.`,
+   476→   476→    featured: true,
+   477→   477→    characterIds: ['muhammad', 'khadijah', 'jibril'],
+   478→   478→    locationId: 'gua-hira',
+   479→   479→    references: ['QS. Al-\'Alaq 1-5', 'Shahih Bukhari 3', 'Shahih Muslim 160'],
+   480→   480→    order: 1,
+   481→   481→  },
+   482→   482→
+   483→   483→  // ── Dakwah Terang-terangan ──
+   484→   484→  {
+   485→   485→    id: 'dakwah-terang',
+   486→   486→    journeyId: 'dakwah-terang-terangan',
+   487→   487→    collectionId: 'sirah-nabawiyah',
+   488→   488→    title: 'Dakwah di Bukit Shafa',
+   489→   489→    subtitle: 'Seruan di Atas Bukit',
+   490→   490→    year: '613 M',
+   491→   491→    yearNum: 613,
+   492→   492→    description: 'Rasulullah ﷺ mengajak kaum Quraisy secara terbuka, menandai dimulainya dakwah terang-terangan.',
+   493→   493→    story: `Muhammad naik ke puncak Bukit Shafa. Ia memanggil setiap klan Quraisy, satu per satu. "Jika aku memberitahu kalian bahwa di balik lembah ini ada pasukan berkuda yang akan menyerang kalian, apakah kalian akan percaya?"
+   494→   494→
+   495→   495→"Ya! Kami tidak pernah mendengarmu berdusta," jawab mereka serempak.
+   496→   496→
+   497→   497→"Maka ketahuilah, aku adalah pemberi peringatan bagi kalian dari siksa yang pedis."
+   498→   498→
+   499→   499→Abu Lahab, paman sendiri, berteriak: "Celakah engkau!" Maka turunlah surah Al-Masad. Malam itu, garis pertempuran ditarik. Dakwah tidak lagi diam-diam.`,
+   500→   500→    featured: false,
+   501→   501→    characterIds: ['muhammad', 'abu-lahab'],
+   502→   502→    locationId: 'makkah',
+   503→   503→    references: ['QS. Al-Masad 1', 'Shahih Bukhari 4770', 'Sirah Ibnu Hisyam 1/280'],
+   504→   504→    order: 1,
+   505→   505→  },
+   506→   506→  {
+   507→   507→    id: 'isra-miraj',
+   508→   508→    journeyId: 'dakwah-terang-terangan',
+   509→   509→    collectionId: 'sirah-nabawiyah',
+   510→   510→    title: 'Isra\' Mi\'raj',
+   511→   511→    subtitle: 'Perjalanan Melampaui Langit',
+   512→   512→    year: '621 M',
+   513→   513→    yearNum: 621,
+   514→   514→    description: 'Perjalanan malam dari Masjidil Haram ke Masjidil Aqsa dan naik ke langit tertinggi.',
+   515→   515→    story: `Tahun Kesedihan baru saja berlalu. Khadijah wafat. Abu Thalib wafat. Maka di malam yang paling gelap itu, datanglah cahaya yang paling terang.
+   516→   516→
+   517→   517→Dari Masjidil Haram ke Masjidil Aqsa, lalu naik melalui tujuh langit. Di Sidratul Muntaha, Muhammad menerima perintah shalat — dari lima puluh waktu dikurangi hingga lima waktu, namun pahalanya tetap lima puluh.
+   518→   518→
+   519→   519→Abu Bakar berdiri dan berkata, "Jika ia yang mengatakannya, maka itu benar." Sejak saat itu ia digelari as-Siddiq. Isra' Mi'raj adalah pengingat bahwa di balik malam tergelap, selalu ada tangga menuju cahaya.`,
+   520→   520→    featured: true,
+   521→   521→    characterIds: ['muhammad', 'jibril', 'abu-bakar'],
+   522→   522→    locationId: 'baitul-maqdis',
+   523→   523→    references: ['QS. Al-Isra\' 1', 'QS. An-Najm 1-18', 'Shahih Bukhari 3207'],
+   524→   524→    order: 2,
+   525→   525→  },
+   526→   526→
+   527→   527→  // ── Hijrah ──
+   528→   528→  {
+   529→   529→    id: 'hijrah',
+   530→   530→    journeyId: 'hijrah-pembangunan-madinah',
+   531→   531→    collectionId: 'sirah-nabawiyah',
+   532→   532→    title: 'Hijrah ke Madinah',
+   533→   533→    subtitle: 'Meninggalkan Segalanya',
+   534→   534→    year: '622 M',
+   535→   535→    yearNum: 622,
+   536→   536→    description: 'Rasulullah ﷺ meninggalkan Makkah menuju Madinah, memulai babak baru dalam sejarah Islam.',
+   537→   537→    story: `"Engkau adalah tanah yang paling kucintai di sisi Allah. Andai kaummu tidak mengusirku, aku tidak akan meninggalkanmu," bisik Muhammad menatap Makkah.
+   538→   538→
+   539→   539→Di Gua Tsur, Muhammad dan Abu Bakar bersembunyi selama tiga hari. Pencari hadiah berdiri tepat di depan gua. Abu Bakar berbisik cemas, Muhammad menjawab dengan tenang: "Jangan takut. Allah bersama kita."
+   540→   540→
+   541→   541→Laba-laba merajut sarang. Burung bertelur di depan mulut gua. Alam semesta bersekongkol melindungi dua manusia yang membawa risalah. Di Madinah, anak-anak bernyanyi: "Thala'a al-badru 'alaina — Telah muncul bulan purnama bagi kami."`,
+   542→   542→    featured: true,
+   543→   543→    characterIds: ['muhammad', 'abu-bakar', 'ali'],
+   544→   544→    locationId: 'gua-tsur',
+   545→   545→    references: ['QS. At-Taubah 40', 'Shahih Bukhari 3905', 'Sirah Ibnu Hisyam 2/137'],
+   546→   546→    order: 1,
+   547→   547→  },
+   548→   548→
+   549→   549→  // ── Masa Pertahanan ──
+   550→   550→  {
+   551→   551→    id: 'perang-badar',
+   552→   552→    journeyId: 'masa-pertahanan',
+   553→   553→    collectionId: 'sirah-nabawiyah',
+   554→   554→    title: 'Perang Badar',
+   555→   555→    subtitle: 'Ketika Sedikit Mengalahkan Banyak',
+   556→   556→    year: '624 M',
+   557→   557→    yearNum: 624,
+   558→   558→    description: '313 Muslim menghadapi 1000 pasukan Quraisy — kemenangan pertama yang mengubah keseimbangan.',
+   559→   559→    story: `313 Muslim berdiri di satu sisi. 1000 pasukan Quraisy di sisi lain. Malam sebelum pertempuran, hujan turun — menguatkan tanah di bawah kaki kaum Muslimin dan menyulitkan langkah Quraisy.
+   560→   560→
+   561→   561→Muhammad mengangkat tangan berdoa sepanjang malam: "Ya Allah, jika Engkau menghancurkan kelompok ini, Engkau tidak akan lagi disembah di muka bumi."
+   562→   562→
+   563→   563→Ketika debu mengendap, Quraisy mundur dalam kekalahan. Tujuh puluh tokoh tewas, termasuk Abu Jahl. Badar membuktikan bahwa iman bisa mengalahkan angka, dan bahwa kebenaran tak perlu menunggu mayoritas.`,
+   564→   564→    featured: true,
+   565→   565→    characterIds: ['muhammad', 'hamzah', 'ali', 'umar'],
+   566→   566→    locationId: 'badar',
+   567→   567→    references: ['QS. Al-Anfal 9-11', 'QS. Ali Imran 123-126', 'Shahih Bukhari 3952'],
+   568→   568→    order: 1,
+   569→   569→  },
+   570→   570→
+   571→   571→  // ── Perdamaian & Kemenangan ──
+   572→   572→  {
+   573→   573→    id: 'hudaibiyah',
+   574→   574→    journeyId: 'perdamaian-kemenangan',
+   575→   575→    collectionId: 'sirah-nabawiyah',
+   576→   576→    title: 'Perjanjian Hudaibiyah',
+   577→   577→    subtitle: 'Kemenangan di Balik Persetujuan',
+   578→   578→    year: '628 M',
+   579→   579→    yearNum: 628,
+   580→   580→    description: 'Perjanjian yang tampak sebagai kekalahan diplomatik ternyata menjadi pintu kemenangan terbesar.',
+   581→   581→    story: `Mereka berangkat untuk beribadah, bukan berperang. 1400 Muslim mengenakan ihram, membawa hewan kurban. Tapi Quraisy menghalangi.
+   582→   582→
+   583→   583→Perjanjian itu tampak merugikan: umrah ditunda, gencatan senjata 10 tahun, barangsiapa dari Makkah yang pergi ke Madinah harus dikembalikan — tapi tidak sebaliknya.
+   584→   584→
+   585→   585→Umar hampir tidak bisa menahan amarahnya. Namun Allah menyebutnya kemenangan: "Sesungguhnya Kami telah memberikan kepadamu kemenangan yang nyata." Dalam dua tahun setelah perjanjian itu, lebih banyak orang memeluk Islam daripada dalam dua puluh tahun sebelumnya.
+   586→   586→
+   587→   587→Hudaibiyah mengajarkan bahwa kadang, kemenangan terbesar datang dari persetujuan yang terasa seperti kekalahan.`,
+   588→   588→    featured: false,
+   589→   589→    characterIds: ['muhammad', 'abu-bakar', 'umar', 'ali'],
+   590→   590→    locationId: 'hudaibiyah',
+   591→   591→    references: ['QS. Al-Fath 1-27', 'Shahih Bukhari 2731', 'Shahih Muslim 1784'],
+   592→   592→    order: 1,
+   593→   593→  },
+   594→   594→  {
+   595→   595→    id: 'fathu-makkah',
+   596→   596→    journeyId: 'perdamaian-kemenangan',
+   597→   597→    collectionId: 'sirah-nabawiyah',
+   598→   598→    title: 'Fathu Makkah',
+   599→   599→    subtitle: 'Kembali dengan Hati yang Luas',
+   600→   600→    year: '630 M',
+   601→   601→    yearNum: 630,
+   602→   602→    description: 'Rasulullah ﷺ memasuki Makkah tanpa pertumpahan darah — kemenangan yang paling agung.',
+   603→   603→    story: `Delapan tahun lalu, ia keluar dari kota ini dalam kegelapan malam. Kini ia kembali sebagai penakluk yang paling agung.
+   604→   604→
+   605→   605→Para pemuka Quraisy berdiri di depannya, menunggu hukuman. Muhammad bertanya: "Apa yang kalian kira akan kulakukan kepada kalian?"
+   606→   606→
+   607→   607→"Engkau adalah saudara yang mulia," jawab mereka gemetar.
+   608→   608→
+   609→   609→"Pergilah kalian. Kalian semua bebas. Tidak ada cela untuk kalian hari ini."
+   610→   610→
+   611→   611→Tidak ada pembalasan dendam. Tidak ada hukuman massal. Hanya ampunan dari seorang yang telah menang atas seluruh musuhnya, namun memilih untuk menang atas dirinya sendiri.`,
+   612→   612→    featured: true,
+   613→   613→    characterIds: ['muhammad', 'abu-bakar', 'umar', 'ali', 'abu-sufyan'],
+   614→   614→    locationId: 'makkah',
+   615→   615→    references: ['QS. An-Nasr 1-3', 'Shahih Bukhari 4280', 'Sirah Ibnu Hisyam 4/36'],
+   616→   616→    order: 2,
+   617→   617→  },
+   618→   618→];
+   619→   619→
+   620→   620→// ── Characters ──────────────────────────────────────
+   621→   621→
+   622→   622→export const characters: Character[] = [
+   623→   623→  {
+   624→   624→    id: 'muhammad',
+   625→   625→    name: 'Nabi Muhammad ﷺ',
+   626→   626→    title: 'Rasulullah — Penutup Para Nabi',
+   627→   627→    shortBio: 'Nabi terakhir yang diutus untuk seluruh umat manusia, membawa risalah Islam dan menjadi teladan terbaik.',
+   628→   628→    fullBio: 'Muhammad bin Abdullah lahir di Makkah tahun 570 M, yatim sejak lahir, dibesarkan oleh kakek lalu pamannya. Dikenal sebagai Al-Amin — Yang Terpercaya. Menerima wahyu pertama di Gua Hira pada usia 40 tahun. Berhijrah ke Madinah, membangun masyarakat Islam, dan wafat tahun 632 M. Warisannya: risalah yang mengubah peradaban manusia.',
+   629→   629→    role: 'Rasulullah — Utusan Allah',
+   630→   630→    period: '570–632 M',
+   631→   631→    eventIds: ['kelahiran', 'kabah-sejarah', 'tahun-gajah', 'penyusuan-bani-saad', 'kematian-aminah', 'perniagaan-khadijah', 'pernikahan-khadijah', 'wahyu-pertama', 'dakwah-terang', 'isra-miraj', 'hijrah', 'perang-badar', 'hudaibiyah', 'fathu-makkah'],
+   632→   632→    references: ['Shahih Bukhari', 'Shahih Muslim', 'Sirah Ibnu Hisyam', 'Ar-Rahiq Al-Makhtum'],
+   633→   633→  },
+   634→   634→  {
+   635→   635→    id: 'khadijah',
+   636→   636→    name: 'Khadijah binti Khuwailid',
+   637→   637→    title: 'Istri Pertama — Pendukung Utama',
+   638→   638→    shortBio: 'Wanita terhormat Makkah yang menjadi istri pertama Rasulullah ﷺ dan mu\'min pertama.',
+   639→   639→    fullBio: 'Khadijah adalah wanita Quraisy paling terhormat, digelari At-Thahirah. Ia mempekerjakan Muhammad untuk memimpin kafilahnya, lalu meminangnya. Selama 25 tahun pernikahan, ia adalah satu-satunya istri. Wafat tahun 619 M — Tahun Kesedihan.',
+   640→   640→    role: 'Istri Pertama Rasulullah ﷺ, Mu\'min Pertama',
+   641→   641→    period: '555–619 M',
+   642→   642→    eventIds: ['perniagaan-khadijah', 'pernikahan-khadijah', 'wahyu-pertama'],
+   643→   643→    references: ['Shahih Bukhari 3820', 'Shahih Muslim 2435'],
+   644→   644→  },
+   645→   645→  {
+   646→   646→    id: 'abu-bakar',
+   647→   647→    name: 'Abu Bakar as-Siddiq',
+   648→   648→    title: 'Sahabat Terdekat — Khalifah Pertama',
+   649→   649→    shortBio: 'Orang pertama dari kalangan dewasa yang memeluk Islam, sahabat terdekat Rasulullah ﷺ.',
+   650→   650→    fullBio: 'Abu Bakar adalah sahabat terdekat sejak sebelum Islam. Orang pertama dewasa yang beriman tanpa ragu. Digelari as-Siddiq setelah membenarkan Isra\' Mi\'raj. Menemani di Gua Tsur saat hijrah. Khalifah pertama setelah wafatnya Rasulullah ﷺ.',
+   651→   651→    role: 'Sahabat Terdekat, Khalifah Pertama',
+   652→   652→    period: '573–634 M',
+   653→   653→    eventIds: ['isra-miraj', 'hijrah', 'hudaibiyah'],
+   654→   654→    references: ['Shahih Bukhari', 'Shahih Muslim'],
+   655→   655→  },
+   656→   656→  {
+   657→   657→    id: 'umar',
+   658→   658→    name: 'Umar bin Khattab',
+   659→   659→    title: 'Al-Faruq — Pemisah Kebenaran',
+   660→   660→    shortBio: 'Khalifah kedua yang tegas dalam kebenaran dan keadilan.',
+   661→   661→    fullBio: 'Sebelum Islam, Umar dikenal tegas dan ditakuti. Berniat membunuh Muhammad, justru memeluk Islam setelah mendengar ayat Al-Qur\'an. Digelari Al-Faruq. Khalifah kedua, memimpin ekspansi ke Persia dan Mesir.',
+   662→   662→    role: 'Khalifah Kedua, Al-Faruq',
+   663→   663→    period: '584–644 M',
+   664→   664→    eventIds: ['perang-badar', 'hudaibiyah', 'fathu-makkah'],
+   665→   665→    references: ['Shahih Bukhari', 'Shahih Muslim'],
+   666→   666→  },
+   667→   667→  {
+   668→   668→    id: 'ali',
+   669→   669→    name: 'Ali bin Abi Thalib',
+   670→   670→    title: 'Sang Pemberani — Khalifah Keempat',
+   671→   671→    shortBio: 'Sepupu dan menantu Rasulullah ﷺ, pejuang pemberani dan ahli ilmu.',
+   672→   672→    fullBio: 'Anak pertama yang memeluk Islam. Tumbuh di bawah asuhan langsung Rasulullah ﷺ. Menunjukkan keberanian luar biasa di Badar dan Khandaq. Menikah dengan Fatimah az-Zahra. Khalifah keempat.',
+   673→   673→    role: 'Khalifah Keempat, Sepupu Rasulullah ﷺ',
+   674→   674→    period: '600–661 M',
+   675→   675→    eventIds: ['hijrah', 'perang-badar', 'hudaibiyah', 'fathu-makkah'],
+   676→   676→    references: ['Shahih Bukhari', 'Shahih Muslim'],
+   677→   677→  },
+   678→   678→  {
+   679→   679→    id: 'hamzah',
+   680→   680→    name: 'Hamzah bin Abdul Muthalib',
+   681→   681→    title: 'Singa Allah — Sayyidus Syuhada',
+   682→   682→    shortBio: 'Paman Rasulullah ﷺ yang gugur sebagai syahid Uhud.',
+   683→   683→    fullBio: 'Paman Rasulullah ﷺ, memeluk Islam setelah Abu Jahal menghina keponakannya. Singa Allah di medan Badar. Gugur sebagai syahid di Uhud.',
+   684→   684→    role: 'Paman Rasulullah ﷺ, Singa Allah',
+   685→   685→    period: '568–625 M',
+   686→   686→    eventIds: ['perang-badar'],
+   687→   687→    references: ['Shahih Bukhari', 'Ar-Rahiq Al-Makhtum'],
+   688→   688→  },
+   689→   689→  {
+   690→   690→    id: 'aminah',
+   691→   691→    name: 'Aminah binti Wahb',
+   692→   692→    title: 'Ibunda Rasulullah ﷺ',
+   693→   693→    shortBio: 'Ibu Nabi Muhammad ﷺ yang wafat saat putranya berusia enam tahun.',
+   694→   694→    fullBio: 'Aminah dari Bani Zuhrah. Suaminya Abdullah wafat sebelum anaknya lahir. Wafat di Abwa\' saat Muhammad berusia enam tahun, meninggalkannya sebagai yatim piatu.',
+   695→   695→    role: 'Ibunda Rasulullah ﷺ',
+   696→   696→    period: '?–576 M',
+   697→   697→    eventIds: ['kelahiran', 'kematian-aminah'],
+   698→   698→    references: ['Sirah Ibnu Hisyam', 'Ar-Rahiq Al-Makhtum'],
+   699→   699→  },
+   700→   700→  {
+   701→   701→    id: 'abdul-muthalib',
+   702→   702→    name: 'Abdul Muthalib',
+   703→   703→    title: 'Kakek Rasulullah ﷺ',
+   704→   704→    shortBio: 'Kakek Nabi Muhammad ﷺ, pemimpin Bani Hasyim yang merawatnya setelah kematian ibunya.',
+   705→   705→    fullBio: 'Pemimpin Bani Hasyim dan penjaga Zamzam. Memberi nama Muhammad. Merawat cucunya setelah wafatnya Aminah. Wafat saat Muhammad berusia delapan tahun.',
+   706→   706→    role: 'Kakek Rasulullah ﷺ, Pemimpin Bani Hasyim',
+   707→   707→    period: '?–578 M',
+   708→   708→    eventIds: ['kelahiran', 'tahun-gajah', 'kematian-aminah'],
+   709→   709→    references: ['Sirah Ibnu Hisyam', 'Ar-Rahiq Al-Makhtum'],
+   710→   710→  },
+   711→   711→  {
+   712→   712→    id: 'jibril',
+   713→   713→    name: 'Malaikat Jibril',
+   714→   714→    title: 'Pembawa Wahyu — Ar-Ruh Al-Amin',
+   715→   715→    shortBio: 'Malaikat pembawa wahyu Allah kepada para nabi dan rasul.',
+   716→   716→    fullBio: 'Ar-Ruh Al-Amin, pembawa wahyu. Menyampaikan ayat pertama di Gua Hira. Mendampingi Isra\' Mi\'raj. Menyampaikan Al-Qur\'an selama 23 tahun.',
+   717→   717→    role: 'Pembawa Wahyu',
+   718→   718→    period: 'Sejak penciptaan',
+   719→   719→    eventIds: ['wahyu-pertama', 'isra-miraj'],
+   720→   720→    references: ['QS. Al-Baqarah 97-98', 'Shahih Bukhari'],
+   721→   721→  },
+   722→   722→  {
+   723→   723→    id: 'halimah',
+   724→   724→    name: 'Halimah as-Sa\'diyah',
+   725→   725→    title: 'Ibu Susu — Wanita yang Diberkahi',
+   726→   726→    shortBio: 'Wanita Bani Sa\'ad yang menjadi ibu susu Rasulullah ﷺ.',
+   727→   727→    fullBio: 'Menerima Muhammad yatim saat bayi lain menolak. Sejak itu, keberkahan mengalir ke keluarganya.',
+   728→   728→    role: 'Ibu Susu Rasulullah ﷺ',
+   729→   729→    period: 'Aktif sekitar 570–574 M',
+   730→   730→    eventIds: ['penyusuan-bani-saad'],
+   731→   731→    references: ['Shahih Muslim 2639', 'Sirah Ibnu Hisyam'],
+   732→   732→  },
+   733→   733→  {
+   734→   734→    id: 'abu-lahab',
+   735→   735→    name: 'Abu Lahab',
+   736→   736→    title: 'Musuh Terdekat dari Keluarga',
+   737→   737→    shortBio: 'Paman Rasulullah ﷺ yang menjadi musuh terbesar dari keluarga sendiri.',
+   738→   738→    fullBio: 'Abdul Uzza bin Abdul Muthalib. Paman yang paling vokal menentang Islam. Dikutuk dalam surah Al-Masad. Wafat beberapa hari setelah Badar.',
+   739→   739→    role: 'Musuh Islam dari Keluarga',
+   740→   740→    period: '?–624 M',
+   741→   741→    eventIds: ['dakwah-terang'],
+   742→   742→    references: ['QS. Al-Masad', 'Shahih Bukhari 4770'],
+   743→   743→  },
+   744→   744→  {
+   745→   745→    id: 'abu-sufyan',
+   746→   746→    name: 'Abu Sufyan bin Harb',
+   747→   747→    title: 'Dari Musuh ke Saudara',
+   748→   748→    shortBio: 'Pemimpin Quraisy yang memusuhi Islam sebelum memeluknya menjelang Fathu Makkah.',
+   749→   749→    fullBio: 'Pemimpin Quraisy, musuh utama Islam selama bertahun-tahun. Memeluk Islam menjelang Fathu Makkah.',
+   750→   750→    role: 'Mantan Musuh, Kemudian Sahabat',
+   751→   751→    period: '560–650 M',
+   752→   752→    eventIds: ['fathu-makkah'],
+   753→   753→    references: ['Shahih Bukhari', 'Sirah Ibnu Hisyam'],
+   754→   754→  },
+   755→   755→];
+   756→   756→
+   757→   757→// ── Locations ───────────────────────────────────────
+   758→   758→
+   759→   759→export const locations: StoryLocation[] = [
+   760→   760→  {
+   761→   761→    id: 'makkah',
+   762→   762→    name: 'Makkah',
+   763→   763→    description: 'Kota kelahiran Rasulullah ﷺ dan pusat dakwah Islam pertama.',
+   764→   764→    fullDescription: 'Kota paling suci dalam Islam, tempat Ka\'bah berdiri. Kelahiran Rasulullah ﷺ, tempat wahyu pertama, dan pusat dakwah awal. Fathu Makkah terjadi 630 M tanpa pertumpahan darah.',
+   765→   765→    coordinates: '21.4225° N, 39.8262° E',
+   766→   766→    eventIds: ['jazirah-arab', 'makkah-kota', 'kabah-sejarah', 'suku-quraisy', 'tahun-gajah', 'kelahiran', 'dakwah-terang', 'fathu-makkah'],
+   767→   767→    significance: 'Kota Suci, Tempat Kelahiran Rasulullah ﷺ',
+   768→   768→  },
+   769→   769→  {
+   770→   770→    id: 'madinah',
+   771→   771→    name: 'Madinah',
+   772→   772→    description: 'Kota suci kedua Islam, tempat hijrah dan pembangunan masyarakat Islam pertama.',
+   773→   773→    fullDescription: 'Dahulu bernama Yatsrib. Menerima Rasulullah ﷺ dengan tangan terbuka. Tempat Masjid Nabawi dan Piagam Madinah.',
+   774→   774→    coordinates: '24.4672° N, 39.6024° E',
+   775→   775→    eventIds: ['hijrah'],
+   776→   776→    significance: 'Kota Suci Kedua Islam, Tempat Hijrah',
+   777→   777→  },
+   778→   778→  {
+   779→   779→    id: 'gua-hira',
+   780→   780→    name: 'Gua Hira',
+   781→   781→    description: 'Gua di puncak Jabal Nur tempat wahyu pertama.',
+   782→   782→    fullDescription: 'Di puncak Jabal Nur, 3 km dari Makkah. Tempat Muhammad ﷺ menerima wahyu pertama pada 17 Ramadan.',
+   783→   783→    coordinates: '21.4575° N, 39.8625° E',
+   784→   784→    eventIds: ['wahyu-pertama'],
+   785→   785→    significance: 'Tempat Wahyu Pertama',
+   786→   786→  },
+   787→   787→  {
+   788→   788→    id: 'gua-tsur',
+   789→   789→    name: 'Gua Tsur',
+   790→   790→    description: 'Gua tempat persembunyian saat hijrah.',
+   791→   791→    fullDescription: 'Di Jabal Tsur, selatan Makkah. Muhammad dan Abu Bakar bersembunyi 3 hari saat hijrah.',
+   792→   792→    coordinates: '21.3667° N, 39.8167° E',
+   793→   793→    eventIds: ['hijrah'],
+   794→   794→    significance: 'Tempat Persembunyian Saat Hijrah',
+   795→   795→  },
+   796→   796→  {
+   797→   797→    id: 'badar',
+   798→   798→    name: 'Badar',
+   799→   799→    description: 'Padang tempat pertempuran pertama dan kemenangan terbesar umat Islam.',
+   800→   800→    fullDescription: '150 km barat daya Madinah. Pertempuran 17 Ramadan tahun ke-2 H. 313 Muslim mengalahkan 1000 Quraisy.',
+   801→   801→    coordinates: '23.7778° N, 38.7833° E',
+   802→   802→    eventIds: ['perang-badar'],
+   803→   803→    significance: 'Kemenangan Pertama Umat Islam',
+   804→   804→  },
+   805→   805→  {
+   806→   806→    id: 'hudaibiyah',
+   807→   807→    name: 'Hudaibiyah',
+   808→   808→    description: 'Tempat perjanjian damai yang menjadi pintu kemenangan.',
+   809→   809→    fullDescription: '20 km dari Makkah. Perjanjian Hudaibiyah tahun 6 H — tampak merugikan tapi menjadi Fathun Mubin.',
+   810→   810→    coordinates: '21.4167° N, 39.6833° E',
+   811→   811→    eventIds: ['hudaibiyah'],
+   812→   812→    significance: 'Tempat Perjanjian Hudaibiyah',
+   813→   813→  },
+   814→   814→  {
+   815→   815→    id: 'syam',
+   816→   816→    name: 'Syam',
+   817→   817→    description: 'Wilayah utara Jazirah Arab, tujuan kafilah dagang.',
+   818→   818→    fullDescription: 'Meliputi Suriah, Yordania, Lebanon, Palestina. Tempat Muhammad muda memimpin kafilah Khadijah.',
+   819→   819→    coordinates: '33–37° N, 35–40° E',
+   820→   820→    eventIds: ['perniagaan-khadijah', 'isra-miraj'],
+   821→   821→    significance: 'Tujuan Kafilah Dagang',
+   822→   822→  },
+   823→   823→  {
+   824→   824→    id: 'baitul-maqdis',
+   825→   825→    name: 'Baitul Maqdis',
+   826→   826→    description: 'Masjidil Aqsa — titik awal Mi\'raj dan kiblat pertama.',
+   827→   827→    fullDescription: 'Tempat suci ketiga Islam. Titik awal perjalanan Mi\'raj. Kiblat pertama umat Islam.',
+   828→   828→    coordinates: '31.7780° N, 35.2354° E',
+   829→   829→    eventIds: ['isra-miraj'],
+   830→   830→    significance: 'Kiblat Pertama, Titik Awal Mi\'raj',
+   831→   831→  },
+   832→   832→  {
+   833→   833→    id: 'abwa',
+   834→   834→    name: 'Abwa\'',
+   835→   835→    description: 'Desa tempat Aminah, ibunda Rasulullah ﷺ, wafat.',
+   836→   836→    fullDescription: 'Desa kecil antara Makkah dan Madinah. Aminah wafat di sini tahun 576 M.',
+   837→   837→    coordinates: '22.4167° N, 39.0833° E',
+   838→   838→    eventIds: ['kematian-aminah'],
+   839→   839→    significance: 'Tempat Wafat Aminah',
+   840→   840→  },
+   841→   841→];
+   842→   842→
+   843→   843→// ── Helper Functions ────────────────────────────────
+   844→   844→
+   845→   845→export function getCollectionById(id: string) {
+   846→   846→  return collections.find((c) => c.id === id);
+   847→   847→}
+   848→   848→
+   849→   849→export function getActiveCollection() {
+   850→   850→  return collections.find((c) => c.status === 'active');
+   851→   851→}
+   852→   852→
+   853→   853→export function getJourneysByCollection(collectionId: string) {
+   854→   854→  return journeys.filter((j) => j.collectionId === collectionId).sort((a, b) => a.order - b.order);
+   855→   855→}
+   856→   856→
+   857→   857→export function getEventsByJourney(journeyId: string) {
+   858→   858→  return events.filter((e) => e.journeyId === journeyId).sort((a, b) => a.order - b.order);
+   859→   859→}
+   860→   860→
+   861→   861→export function getEventById(id: string) {
+   862→   862→  return events.find((e) => e.id === id);
+   863→   863→}
+   864→   864→
+   865→   865→export function getFeaturedEvents() {
+   866→   866→  return events.filter((e) => e.featured);
+   867→   867→}
+   868→   868→
+   869→   869→export function getCharacterById(id: string) {
+   870→   870→  return characters.find((c) => c.id === id);
+   871→   871→}
+   872→   872→
+   873→   873→export function getCharactersByEvent(eventId: string) {
+   874→   874→  return characters.filter((c) => c.eventIds.includes(eventId));
+   875→   875→}
+   876→   876→
+   877→   877→export function getLocationById(id: string) {
+   878→   878→  return locations.find((l) => l.id === id);
+   879→   879→}
+   880→   880→
+   881→   881→export function getLocationsByEvent(eventId: string) {
+   882→   882→  return locations.filter((l) => l.eventIds.includes(eventId));
+   883→   883→}
+   884→   884→
