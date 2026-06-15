@@ -479,11 +479,21 @@ Kadang karena persoalan besar.
 
 Kadang karena sesuatu yang tampak kecil.
 
-Perang Basus adalah salah satunya.
+Perang Al-Basus adalah salah satunya.
 
-Perang itu berlangsung selama empat puluh tahun.
+Konflik itu bermula dari sebuah perselisihan yang melibatkan seekor unta.
 
-Karena seekor unta.
+Namun yang terjadi setelahnya jauh lebih besar.
+
+Balas dendam dibalas balas dendam.
+
+Generasi berganti.
+
+Tetapi permusuhan tetap hidup.
+
+Perang itu berlangsung selama puluhan tahun.
+
+Hampir empat puluh tahun.
 
 ◆
 
