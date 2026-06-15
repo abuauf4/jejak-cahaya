@@ -59,7 +59,7 @@ export const useNavigation = create<NavigationState>((set) => ({
   },
 }));
 
-const TOTAL_EVENTS = 17;
+const TOTAL_EVENTS = 47;
 
 interface ReadingProgress {
   readEvents: string[];
