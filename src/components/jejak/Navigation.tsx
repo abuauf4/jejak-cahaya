@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Moon, Menu, X, ArrowLeft, Sun, Clock, MapPin, Users, Search, Home } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Moon, Menu, ArrowLeft, Sun, Clock, MapPin, Users, Search, Home } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import { getActiveCollection } from '@/data/content';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 
+// Navigation items — only for the active collection experience
 const navItems = [
   { view: 'timeline' as const, label: 'Timeline', icon: Clock },
   { view: 'character' as const, label: 'Tokoh', icon: Users },
@@ -38,7 +38,7 @@ export default function Navigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isReader
             ? readerTheme === 'light'
-              ? 'bg-[#FAF9F6]/95 border-b border-black/[0.06]'
+              ? 'bg-[#FBF8F1]/95 border-b border-[rgba(44,36,24,0.06)]'
               : 'bg-[#1a1a1a]/95 border-b border-white/[0.06]'
             : `bg-[#080B16]/95 border-b border-[rgba(245,215,142,0.08)] ${scrolled ? 'backdrop-blur-xl' : 'backdrop-blur-md'}`
         }`}
@@ -53,7 +53,7 @@ export default function Navigation() {
                   className={`p-1.5 rounded-lg transition-colors ${
                     isReader
                       ? readerTheme === 'light'
-                        ? 'hover:bg-black/5 text-[#4a4a4a]'
+                        ? 'hover:bg-black/5 text-[#6B5E4F]'
                         : 'hover:bg-white/10 text-[#b0b0b0]'
                       : 'hover:bg-white/5 text-[#C4B59A]'
                   }`}
@@ -74,7 +74,7 @@ export default function Navigation() {
                   className={`font-serif-display text-base font-bold tracking-wide ${
                     isReader
                       ? readerTheme === 'light'
-                        ? 'text-[#1a1a1a]'
+                        ? 'text-[#2C2418]'
                         : 'text-[#e0e0e0]'
                       : 'text-gradient-gold'
                   }`}
@@ -83,7 +83,7 @@ export default function Navigation() {
                 </span>
               </button>
 
-              {/* Collection name */}
+              {/* Active collection badge — shown only on homepage/timeline */}
               {activeCollection && !isReader && (
                 <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs bg-[#1A2038] text-[#C4B59A] border border-[rgba(245,215,142,0.1)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843]" />
@@ -92,7 +92,7 @@ export default function Navigation() {
               )}
             </div>
 
-            {/* Center: Nav items (desktop) */}
+            {/* Center: Nav items (desktop only) */}
             <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -122,7 +122,7 @@ export default function Navigation() {
                   onClick={toggleReaderTheme}
                   className={`p-2 rounded-lg transition-colors ${
                     readerTheme === 'light'
-                      ? 'hover:bg-black/5 text-[#4a4a4a]'
+                      ? 'hover:bg-black/5 text-[#6B5E4F]'
                       : 'hover:bg-white/10 text-[#b0b0b0]'
                   }`}
                   title={readerTheme === 'light' ? 'Mode gelap' : 'Mode terang'}
@@ -143,7 +143,7 @@ export default function Navigation() {
                       className={`p-1.5 rounded-lg ${
                         isReader
                           ? readerTheme === 'light'
-                            ? 'hover:bg-black/5 text-[#4a4a4a]'
+                            ? 'hover:bg-black/5 text-[#6B5E4F]'
                             : 'hover:bg-white/10 text-[#b0b0b0]'
                           : 'hover:bg-white/5 text-[#C4B59A]'
                       }`}
@@ -153,6 +153,7 @@ export default function Navigation() {
                   </SheetTrigger>
                   <SheetContent side="right" className="bg-[#0F1629] border-[rgba(245,215,142,0.1)] w-72">
                     <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
+                    <SheetDescription className="sr-only">Navigasi halaman Jejak Cahaya</SheetDescription>
                     <div className="flex flex-col gap-2 mt-8">
                       <button
                         onClick={() => { goHome(); setMobileOpen(false); }}
@@ -174,10 +175,16 @@ export default function Navigation() {
                           </button>
                         );
                       })}
+
+                      {/* Active collection info */}
                       {activeCollection && (
                         <div className="mt-4 pt-4 border-t border-[rgba(245,215,142,0.1)] px-4">
-                          <p className="text-xs text-[#8B8070] mb-1">Koleksi Aktif</p>
-                          <p className="text-sm text-[#F5D78E] font-medium">{activeCollection.title}</p>
+                          <p className="text-[10px] text-[#8B8070]/50 uppercase tracking-wider mb-1">Koleksi</p>
+                          <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843]" />
+                            <p className="text-sm text-[#F5D78E] font-medium">{activeCollection.title}</p>
+                          </div>
+                          <p className="text-xs text-[#8B8070] mt-1">{activeCollection.subtitle}</p>
                         </div>
                       )}
                     </div>
@@ -189,7 +196,7 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Progress bar at bottom */}
+      {/* Progress bar at bottom — shown when user has read events */}
       {progress.read > 0 && !isReader && (
         <div className="fixed bottom-0 left-0 right-0 z-50 h-1 bg-[#0F1629]">
           <motion.div

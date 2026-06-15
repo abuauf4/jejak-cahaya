@@ -7,7 +7,8 @@ export type ViewType =
   | "reader"
   | "character"
   | "location"
-  | "search";
+  | "search"
+  | "collections";
 
 interface NavigationState {
   currentView: ViewType;
@@ -58,15 +59,17 @@ export const useNavigation = create<NavigationState>((set) => ({
   },
 }));
 
+const TOTAL_EVENTS = 17;
+
 interface ReadingProgress {
   readEvents: string[];
   currentEventId: string | null;
   markEventRead: (eventId: string) => void;
   setCurrentEvent: (eventId: string | null) => void;
   getProgress: () => { read: number; total: number; percentage: number };
+  getJourneyProgress: (journeyEventIds: string[]) => { read: number; total: number; percentage: number };
+  getLastReadEventId: () => string | null;
 }
-
-const TOTAL_EVENTS = 17;
 
 export const useReadingProgress = create<ReadingProgress>()(
   persist(
@@ -89,6 +92,19 @@ export const useReadingProgress = create<ReadingProgress>()(
           total: TOTAL_EVENTS,
           percentage: Math.round((read / TOTAL_EVENTS) * 100),
         };
+      },
+      getJourneyProgress: (journeyEventIds: string[]) => {
+        const readEvents = get().readEvents;
+        const read = journeyEventIds.filter((id) => readEvents.includes(id)).length;
+        return {
+          read,
+          total: journeyEventIds.length,
+          percentage: journeyEventIds.length > 0 ? Math.round((read / journeyEventIds.length) * 100) : 0,
+        };
+      },
+      getLastReadEventId: () => {
+        const { readEvents, currentEventId } = get();
+        return currentEventId || (readEvents.length > 0 ? readEvents[readEvents.length - 1] : null);
       },
     }),
     {

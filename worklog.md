@@ -1,74 +1,30 @@
-# Jejak Cahaya™ — Work Log
-
 ---
 Task ID: 1
 Agent: Main Agent
-Task: Build Jejak Cahaya™ Interactive Sirah Experience Platform
+Task: PM Revision Implementation — Jejak Cahaya Platform Upgrade
 
 Work Log:
-- Initialized fullstack project with Next.js 16, Tailwind CSS 4, shadcn/ui
-- Set up Midnight & Lantern color theme (Deep Navy #080B16, Gold #F5D78E/#D4A843, Cream #F0EBE0)
-- Configured fonts: Playfair Display (serif headings) + Inter (sans body)
-- Created comprehensive mock data:
-  - 12 Sirah events with full storytelling narratives (events.ts)
-  - 12 characters with detailed biographies (characters.ts)
-  - 10 locations with rich descriptions (locations.ts)
-  - 7 life phases (phases.ts)
-- Built Zustand store for navigation and reading progress (persisted to localStorage)
-- Built 13 custom components:
-  - Navigation.tsx — Fixed top nav with scroll-aware bg, mobile sheet, progress bar
-  - Hero.tsx — Full-viewport hero with radial gold glow, animated elements
-  - ContinueJourney.tsx — Resume reading section for returning users
-  - TimelinePreview.tsx — Horizontal scrollable timeline preview on homepage
-  - ChooseJourney.tsx — 5 journey cards (Timeline, Tokoh, Lokasi, Peristiwa, Sirah Lengkap)
-  - FeaturedEvents.tsx — Featured events list with year badges
-  - Contribute.tsx — Community contribution section
-  - InteractiveTimeline.tsx — Core feature: vertical expandable timeline with preview panel
-  - StoryReader.tsx — Immersive reading experience with progress tracking
-  - CharacterEncyclopedia.tsx — Character grid with search and detail panel
-  - LocationExplorer.tsx — Location grid with expandable details
-  - SearchSystem.tsx — Full search across events, characters, locations with debounce
-  - Footer.tsx — Minimal footer with gold line
-- Built main page.tsx with AnimatePresence page transitions
-- Generated custom favicon
-- Fixed Dialog accessibility warning
-- All ESLint checks pass
-- Browser verification: ALL CHECKS PASS (homepage, timeline, reader, characters, locations, search, mobile)
+- Read and analyzed all 17+ source files to understand current codebase state
+- Confirmed data model restructuring (Collection → Journey → Event) was already in place in content.ts
+- Updated globals.css: added warm reading mode theme variables (#FBF8F1 paper, #2C2418 ink), reader-light scrollbar/selection styles, .reader-content and .reader-transition utilities
+- Updated store.ts: added getJourneyProgress() and getLastReadEventId() methods for per-journey tracking
+- Rewrote ContinueJourney.tsx: "Perjalanan Kamu" section with per-journey progress bars, emotional "Lanjutkan Perjalanan" CTA
+- Rewrote FeaturedJourney.tsx: professional empty states for coming soon collections with scholarly messaging (e.g., "sedang dalam proses kajian dan penyusunan")
+- Rewrote Navigation.tsx: focused flow, progressive disclosure, only active collection shown, SheetDescription for accessibility
+- Rewrote StoryReader.tsx: warm paper #FBF8F1 default, serif font, 65ch width, line-height: 2, comfortable reading, "Lanjutkan Perjalanan" next button
+- Updated page.tsx: reader-light class management, warm paper background for light reader mode
+- Updated Hero.tsx: "Platform Pengetahuan Islam" headline, deterministic star positions (hydration fix)
+- Updated layout.tsx: SEO metadata updated to "Platform Pengetahuan Islam"
+- Updated Footer.tsx: "Platform Pengetahuan Islam" tagline
+- Updated MainTimeline.tsx: "Sirah Nabawiyah: Dari Kegelapan ke Cahaya" section header
+- Updated Community.tsx: "Pengetahuan Islam yang Terbuka dan Terjaga" header, scholarly review messaging
+- Build successful, browser verification all 5 checks passed
 
 Stage Summary:
-- Complete MVP of Jejak Cahaya™ platform
-- All core features working: Interactive Timeline, Story Reader, Character Encyclopedia, Location Explorer, Search, Reading Progress
-- Midnight & Lantern dark theme with gold accents
-- Premium storytelling experience with smooth animations
-- Mobile-first responsive design
-- Reading progress persisted to localStorage
-
----
-Task ID: 2
-Agent: Main Agent
-Task: PM Revision — Scalable Architecture, Reader Experience, Content Roadmap
-
-Work Log:
-- Restructured entire data layer from Sirah-specific to Collection → Journey → Event → Story → Character → Location → Reference
-- Created unified content.ts with: 4 collections (1 active, 3 coming_soon), 8 journeys, 17 events, 12 characters, 9 locations
-- Added pre-Islam context: "Dunia Sebelum Islam" journey with 5 events (Jazirah Arab, Makkah, Ka'bah, Suku Quraisy, Tahun Gajah)
-- Shortened all demo content per PM direction (focus on experience, not content volume)
-- Overhauled StoryReader: LIGHT MODE default (#FAF9F6 warm paper), Playfair Display serif body, max-w-[65ch], leading-[2], comfortable reading
-- Added reader theme toggle (light/dark) with Zustand store support
-- Simplified homepage to 5 sections: Hero, Continue Journey, Main Timeline, Featured Journey, Community
-- Main Timeline now embedded on homepage (not just preview) — timeline IS the product
-- Featured Journey shows active collection + coming_soon teasers (Kisah Para Sahabat, Kisah Para Nabi, Peradaban Islam)
-- Community section repositioned as "Perpustakaan Digital Kisah Islam yang Dapat Diakses Secara Gratis"
-- Added kajian/review process mention in Community section
-- Fixed serif font rendering: changed .font-serif-display from plain CSS class to @utility (Tailwind v4 syntax)
-- Fixed dark body behind light reader: added useEffect to update body bg + color-scheme dynamically
-- Removed className="dark" from <html>, removed bg-background from body
-- Updated layout.tsx metadata to "Perpustakaan digital kisah Islam"
-- All ESLint checks pass, dev server running clean
-
-Stage Summary:
-- Platform now positioned as scalable digital library (not just Sirah website)
-- Collection structure ready for future: Kisah Para Sahabat, Kisah Para Nabi, Peradaban Islam
-- Reader experience prioritizes reading comfort (Kindle/Apple Books/Medium style)
-- Content starts with pre-Islam context before birth of Rasulullah ﷺ
-- Theme split: dark for navigation/timeline, light for reader
+- Jejak Cahaya upgraded from "Website Sirah" to "Platform Pengetahuan Islam"
+- Reader experience: warm paper, serif, 65ch, leading-2 — Kindle/Apple Books comfort
+- Per-journey progress tracking with visual progress bars
+- Professional empty states for coming soon collections
+- Progressive disclosure in navigation (focus on active collection only)
+- Hydration mismatch fixed with deterministic star positions
+- All changes verified: homepage, reader, timeline, mobile — all pass

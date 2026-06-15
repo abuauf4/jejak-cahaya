@@ -169,10 +169,10 @@ export default function MainTimeline() {
             <span className="text-xs text-[#D4A843] font-medium uppercase tracking-wider">Timeline</span>
           </div>
           <h2 className="font-serif-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#F0EBE0] mb-3">
-            Perjalanan Hidup Rasulullah ﷺ
+            Sirah Nabawiyah: Dari Kegelapan ke Cahaya
           </h2>
           <p className="text-[#8B8070] text-sm sm:text-base max-w-xl leading-relaxed">
-            Ikuti setiap babak kehidupan Rasulullah ﷺ — dari dunia sebelum Islam hingga cahaya yang menyeluruh.
+            Setiap perjalanan adalah babak. Dari konteks dunia pra-Islam hingga cahaya yang menyeluruh — ikuti alurnya.
           </p>
         </motion.div>
 

@@ -16,7 +16,7 @@ export default function Footer() {
           </span>
         </div>
         <p className="text-xs text-[#8B8070]/60 mb-4">
-          Perpustakaan Digital Kisah Islam
+          Platform Pengetahuan Islam
         </p>
         <p className="text-[10px] text-[#8B8070]/30">
           Konten bersifat demo dan sedang menunggu proses review ilmiah

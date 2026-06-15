@@ -15,9 +15,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Jejak Cahaya — Menelusuri Jejak Kehidupan Rasulullah ﷺ",
+  title: "Jejak Cahaya — Platform Pengetahuan Islam",
   description:
-    "Perpustakaan digital kisah Islam. Ikuti perjalanan hidup Rasulullah ﷺ melalui kisah, timeline, lokasi, dan referensi terpercaya.",
+    "Platform pengetahuan Islam. Menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir — dari dunia sebelum Islam hingga cahaya yang menyeluruh.",
   keywords: [
     "Sirah Nabawiyah",
     "Rasulullah",
@@ -26,15 +26,16 @@ export const metadata: Metadata = {
     "Jejak Cahaya",
     "Kisah Islam",
     "Sejarah Islam",
+    "Pengetahuan Islam",
   ],
   authors: [{ name: "Jejak Cahaya" }],
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Jejak Cahaya — Menelusuri Jejak Kehidupan Rasulullah ﷺ",
+    title: "Jejak Cahaya — Platform Pengetahuan Islam",
     description:
-      "Perpustakaan digital kisah Islam — ikuti perjalanan hidup Rasulullah ﷺ melalui kisah, timeline, lokasi, dan referensi terpercaya.",
+      "Platform pengetahuan Islam — menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir.",
     type: "website",
     siteName: "Jejak Cahaya",
   },

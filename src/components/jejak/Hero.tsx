@@ -1,9 +1,18 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Moon, ArrowRight, BookOpen } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
 import { getActiveCollection, getEventsByJourney, getJourneysByCollection } from '@/data/content';
+
+// Deterministic star positions to avoid hydration mismatch
+const STARS = Array.from({ length: 40 }, (_, i) => ({
+  left: ((i * 137.508) % 100),
+  top: ((i * 97.31 + 23.7) % 100),
+  duration: 2 + (i % 5) * 0.8,
+  delay: (i % 7) * 0.35,
+}));
 
 export default function Hero() {
   const { navigateTo } = useNavigation();
@@ -15,22 +24,22 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#080B16]">
       {/* Background decorations */}
       <div className="absolute inset-0">
-        {/* Stars */}
-        {Array.from({ length: 40 }).map((_, i) => (
+        {/* Stars — deterministic positions */}
+        {STARS.map((star, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-[#F5D78E] rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${star.left}%`,
+              top: `${star.top}%`,
             }}
             animate={{
               opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
-              duration: 2 + Math.random() * 3,
+              duration: star.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: star.delay,
             }}
           />
         ))}
@@ -55,25 +64,25 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline — platform positioning */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-serif-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gradient-gold"
         >
-          Menelusuri Jejak Kehidupan Rasulullah ﷺ
+          Platform Pengetahuan Islam
         </motion.h1>
 
-        {/* Subheadline */}
+        {/* Subheadline — storytelling focus */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-[#C4B59A] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Perpustakaan digital kisah Islam yang menghadirkan Sirah Nabawiyah melalui timeline interaktif,
-          ensiklopedia tokoh, dan peta lokasi bersejarah.
+          Menelusuri jejak kehidupan Rasulullah ﷺ melalui perjalanan yang mengalir —
+          dari dunia sebelum Islam hingga cahaya yang menyeluruh.
         </motion.p>
 
         {/* CTAs */}
@@ -103,11 +112,11 @@ export default function Hero() {
             className="flex items-center gap-2 px-8 py-3.5 border border-[rgba(245,215,142,0.2)] text-[#F5D78E] rounded-xl hover:bg-[rgba(245,215,142,0.05)] hover:border-[rgba(245,215,142,0.3)] transition-all active:scale-[0.98]"
           >
             <BookOpen className="w-4 h-4" />
-            Jelajahi Timeline
+            Lihat Timeline
           </button>
         </motion.div>
 
-        {/* Collection info */}
+        {/* Collection info — progressive disclosure */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

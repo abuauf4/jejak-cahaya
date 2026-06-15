@@ -7,27 +7,27 @@ const contributions = [
   {
     icon: Scale,
     title: 'Koreksi Ilmiah',
-    description: 'Memastikan setiap kisah sesuai dengan sumber-sumber sirah yang terpercaya.',
+    description: 'Memastikan setiap kisah sesuai dengan sumber-sumber sirah yang terpercaya dan terverifikasi.',
   },
   {
     icon: BookOpen,
     title: 'Masukan Referensi',
-    description: 'Menambahkan rujukan dan sumber yang memperkuat akurasi setiap peristiwa.',
+    description: 'Menambahkan rujukan dan sumber yang memperkuat akurasi setiap peristiwa dalam kisah.',
   },
   {
     icon: PenLine,
     title: 'Kontribusi Penulisan',
-    description: 'Menulis dan menyempurnakan narasi kisah dengan bahasa yang indah dan akurat.',
+    description: 'Menulis dan menyempurnakan narasi kisah dengan bahasa yang indah, akurat, dan mengalir.',
   },
   {
     icon: FlaskConical,
-    title: 'Dukungan Keilmuan',
-    description: 'Review oleh ulama dan ahli sirah untuk menjaga orisinalitas dan ketepatan.',
+    title: 'Review Keilmuan',
+    description: 'Proses tinjauan oleh ulama dan ahli sirah untuk menjaga orisinalitas dan ketepatan setiap konten.',
   },
   {
     icon: Globe,
     title: 'Dukungan Operasional',
-    description: 'Membantu platform tetap berjalan dan dapat diakses secara gratis oleh semua orang.',
+    description: 'Membantu platform tetap berjalan dan dapat diakses secara gratis oleh siapa saja, kapan saja.',
   },
 ];
 
@@ -48,11 +48,11 @@ export default function Community() {
             <span className="text-xs text-[#D4A843] font-medium uppercase tracking-wider">Komunitas</span>
           </div>
           <h2 className="font-serif-display text-2xl sm:text-3xl font-bold text-[#F0EBE0] mb-4 max-w-lg mx-auto leading-tight">
-            Perpustakaan Digital Kisah Islam yang Dapat Diakses Secara Gratis
+            Pengetahuan Islam yang Terbuka dan Terjaga
           </h2>
           <p className="text-[#8B8070] text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Jejak Cahaya adalah proyek terbuka yang berkomitmen menyajikan kisah-kisah Islam dengan akurat,
-            indah, dan dapat diakses oleh siapa saja tanpa biaya.
+            Jejak Cahaya adalah proyek terbuka yang berkomitmen menyajikan kisah-kisah Islam dengan akurat
+            dan indah — ditinjau secara keilmuan sebelum dipublikasikan.
           </p>
         </motion.div>
 
@@ -79,17 +79,18 @@ export default function Community() {
           })}
         </div>
 
-        {/* Review note */}
+        {/* Review process note */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center"
+          className="relative p-5 rounded-xl bg-[#0F1629]/50 border border-[rgba(245,215,142,0.04)] text-center"
         >
-          <p className="text-xs text-[#8B8070]/60 max-w-md mx-auto leading-relaxed">
-            Setiap konten melewati proses kajian dan review untuk memastikan keakuratan ilmiah
-            sebelum dipublikasikan. Konten demo saat ini sedang menunggu proses review.
+          <p className="text-xs text-[#8B8070]/70 max-w-lg mx-auto leading-relaxed">
+            Setiap konten melewati proses kajian dan review ilmiah untuk memastikan keakuratan
+            sebelum dipublikasikan. Kami memilih menghadirkan materi secara bertahap agar setiap kisah
+            dapat ditinjau dengan lebih baik.
           </p>
         </motion.div>
       </div>

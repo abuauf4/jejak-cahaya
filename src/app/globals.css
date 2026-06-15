@@ -52,11 +52,18 @@
   --color-sand: #C4B59A;
   --color-cream: #F0EBE0;
   --color-warm-muted: #8B8070;
+  /* Reading mode warm colors */
+  --color-reader-paper: #FBF8F1;
+  --color-reader-ink: #2C2418;
+  --color-reader-muted: #6B5E4F;
+  --color-reader-faint: #9C8E7C;
+  --color-reader-border: rgba(44, 36, 24, 0.08);
+  --color-reader-card: rgba(255, 255, 255, 0.85);
 }
 
 :root {
   --radius: 0.625rem;
-  /* Midnight & Lantern Theme - Dark by default */
+  /* Midnight & Lantern Theme - Dark by default (for branding/homepage) */
   --background: #080B16;
   --foreground: #F0EBE0;
   --card: #0F1629;
@@ -122,10 +129,25 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection color */
+/* Selection color — dark mode (branding) */
 ::selection {
   background: rgba(245, 215, 142, 0.2);
   color: #F5D78E;
+}
+
+/* Reading mode scrollbar — warm & subtle */
+.reader-light ::-webkit-scrollbar-thumb {
+  background: rgba(139, 105, 20, 0.15);
+}
+
+.reader-light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 105, 20, 0.25);
+}
+
+/* Reading mode selection — warm paper style */
+.reader-light ::selection {
+  background: rgba(212, 168, 67, 0.2);
+  color: #2C2418;
 }
 
 /* Custom font class — using @utility for Tailwind v4 compatibility */
@@ -190,4 +212,28 @@ html {
 
 .timeline-line-grow {
   animation: timelineGrow 1.5s ease-out forwards;
+}
+
+/* ── Reading Mode Utilities ── */
+
+/* Comfortable reading container */
+.reader-content {
+  max-width: 65ch;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--color-reader-ink);
+}
+
+.reader-content p {
+  margin-bottom: 1.75rem;
+}
+
+.reader-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Reading mode transition */
+.reader-transition {
+  transition: background-color 0.4s ease, color 0.4s ease;
 }

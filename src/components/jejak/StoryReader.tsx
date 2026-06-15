@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, MapPin, Users, BookOpen, Calendar, Clock } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Users, BookOpen, Calendar } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import {
   getEventById,
@@ -66,55 +66,82 @@ export default function StoryReader() {
 
   if (!event) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FAF9F6]">
-        <p className="text-[#4a4a4a]">Kisah tidak ditemukan</p>
+      <div className="min-h-screen flex items-center justify-center bg-[#FBF8F1]">
+        <p className="text-[#6B5E4F]">Kisah tidak ditemukan</p>
       </div>
     );
   }
 
   const isLight = readerTheme === 'light';
-  const bgClass = isLight ? 'bg-[#FAF9F6]' : 'bg-[#1a1a1a]';
-  const textClass = isLight ? 'text-[#1a1a1a]' : 'text-[#e0e0e0]';
-  const textMutedClass = isLight ? 'text-[#4a4a4a]' : 'text-[#b0b0b0]';
-  const textSecondaryClass = isLight ? 'text-[#6a6a6a]' : 'text-[#909090]';
-  const borderClass = isLight ? 'border-black/[0.06]' : 'border-white/[0.06]';
-  const cardBgClass = isLight ? 'bg-white/80' : 'bg-[#252525]';
-  const hoverBgClass = isLight ? 'hover:bg-black/[0.03]' : 'hover:bg-white/[0.05]';
+
+  // Light reading mode — warm paper (primary/default)
+  // Dark reading mode — for preference
+  const bg = isLight ? '#FBF8F1' : '#1a1a1a';
+  const textPrimary = isLight ? '#2C2418' : '#e0e0e0';
+  const textMuted = isLight ? '#6B5E4F' : '#b0b0b0';
+  const textSecondary = isLight ? '#9C8E7C' : '#909090';
+  const borderColor = isLight ? 'rgba(44, 36, 24, 0.08)' : 'rgba(255, 255, 255, 0.06)';
+  const cardBg = isLight ? 'rgba(255, 255, 255, 0.85)' : '#252525';
+  const hoverBg = isLight ? 'rgba(44, 36, 24, 0.03)' : 'rgba(255, 255, 255, 0.05)';
 
   // Parse story into paragraphs
   const paragraphs = event.story.split('\n').filter((p) => p.trim());
 
   return (
-    <div className={`min-h-screen ${bgClass} transition-colors duration-300`}>
-      {/* Thin progress bar */}
-      <div className={`fixed top-14 sm:top-16 left-0 right-0 z-40 h-[2px] ${isLight ? 'bg-black/[0.04]' : 'bg-white/[0.04]'}`}>
+    <div
+      className="min-h-screen reader-transition"
+      style={{ backgroundColor: bg }}
+    >
+      {/* Reading progress bar — thin & subtle */}
+      <div
+        className="fixed top-14 sm:top-16 left-0 right-0 z-40 h-[2px]"
+        style={{ backgroundColor: isLight ? 'rgba(44, 36, 24, 0.04)' : 'rgba(255, 255, 255, 0.04)' }}
+      >
         <motion.div
-          className={`h-full ${isLight ? 'bg-[#D4A843]/50' : 'bg-[#F5D78E]/40'}`}
-          style={{ width: `${scrollProgress}%` }}
+          className="h-full"
+          style={{ backgroundColor: isLight ? 'rgba(212, 168, 67, 0.4)' : 'rgba(245, 215, 142, 0.35)' }}
+          initial={{ width: 0 }}
+          animate={{ width: `${scrollProgress}%` }}
           transition={{ duration: 0.1 }}
         />
       </div>
 
-      {/* Content */}
-      <div className="pt-24 sm:pt-28 pb-16 px-4 sm:px-6">
+      {/* Reading content */}
+      <div className="pt-24 sm:pt-28 pb-20 px-4 sm:px-6">
         <div className="max-w-[65ch] mx-auto">
-          {/* Hero */}
+          {/* Header — title & metadata */}
           <motion.header
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-10 sm:mb-14"
+            className="mb-12 sm:mb-16"
           >
-            {/* Year badge */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full ${isLight ? 'bg-[#D4A843]/10 text-[#8B6914]' : 'bg-[#F5D78E]/10 text-[#F5D78E]'}`}>
+            {/* Year & location badges */}
+            <div className="flex items-center gap-2 mb-5">
+              <span
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full"
+                style={{
+                  backgroundColor: isLight ? 'rgba(212, 168, 67, 0.1)' : 'rgba(245, 215, 142, 0.1)',
+                  color: isLight ? '#8B6914' : '#F5D78E',
+                }}
+              >
                 <Calendar className="w-3 h-3" />
                 {event.year}
               </span>
               {location && (
                 <button
                   onClick={() => navigateTo('location', event.locationId)}
-                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full transition-colors ${isLight ? 'bg-black/[0.04] text-[#4a4a4a] hover:bg-black/[0.08]' : 'bg-white/[0.06] text-[#b0b0b0] hover:bg-white/[0.1]'}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full transition-colors"
+                  style={{
+                    backgroundColor: isLight ? 'rgba(44, 36, 24, 0.04)' : 'rgba(255, 255, 255, 0.06)',
+                    color: textMuted,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = isLight ? 'rgba(44, 36, 24, 0.08)' : 'rgba(255, 255, 255, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = isLight ? 'rgba(44, 36, 24, 0.04)' : 'rgba(255, 255, 255, 0.06)';
+                  }}
                 >
                   <MapPin className="w-3 h-3" />
                   {location.name}
@@ -122,27 +149,33 @@ export default function StoryReader() {
               )}
             </div>
 
-            {/* Title */}
-            <h1 className={`font-serif-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold leading-tight mb-3 ${textClass}`}>
+            {/* Title — comfortable serif */}
+            <h1
+              className="font-serif-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold leading-tight mb-3"
+              style={{ color: textPrimary }}
+            >
               {event.title}
             </h1>
-            <p className={`font-serif-display text-lg ${textMutedClass} italic`}>
+            <p
+              className="font-serif-display text-lg italic"
+              style={{ color: textMuted }}
+            >
               {event.subtitle}
             </p>
           </motion.header>
 
-          {/* Story */}
+          {/* Story body — Kindle/Apple Books comfort */}
           <motion.article
             ref={storyRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className={`font-serif-display text-[17px] sm:text-[18px] leading-[1.9] sm:leading-[2] ${textClass}`}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="reader-content"
+            style={{ color: textPrimary }}
           >
             {paragraphs.map((paragraph, i) => (
               <p
                 key={i}
-                className="mb-8"
                 ref={i === paragraphs.length - 1 ? storyEndRef : undefined}
               >
                 {paragraph.trim()}
@@ -152,7 +185,10 @@ export default function StoryReader() {
 
           {/* Read indicator */}
           {readEvents.includes(event.id) && (
-            <div className={`mt-8 pt-6 border-t ${borderClass} flex items-center gap-2 text-xs ${textSecondaryClass}`}>
+            <div
+              className="mt-10 pt-6 flex items-center gap-2 text-xs"
+              style={{ borderTop: `1px solid ${borderColor}`, color: textSecondary }}
+            >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Sudah dibaca</span>
             </div>
@@ -160,8 +196,11 @@ export default function StoryReader() {
 
           {/* Related Characters */}
           {characters.length > 0 && (
-            <div className={`mt-10 pt-8 border-t ${borderClass}`}>
-              <h3 className={`text-sm font-semibold mb-4 flex items-center gap-2 ${textMutedClass}`}>
+            <div
+              className="mt-12 pt-8"
+              style={{ borderTop: `1px solid ${borderColor}` }}
+            >
+              <h3 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: textMuted }}>
                 <Users className="w-4 h-4" />
                 Tokoh dalam Kisah Ini
               </h3>
@@ -170,13 +209,23 @@ export default function StoryReader() {
                   <button
                     key={char.id}
                     onClick={() => navigateTo('character', char.id)}
-                    className={`text-left p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors`}
+                    className="text-left p-4 rounded-xl border transition-colors"
+                    style={{
+                      backgroundColor: cardBg,
+                      borderColor: borderColor,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = hoverBg;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = cardBg;
+                    }}
                   >
-                    <h4 className={`font-serif-display font-bold text-sm mb-1 ${textClass}`}>
+                    <h4 className="font-serif-display font-bold text-sm mb-1" style={{ color: textPrimary }}>
                       {char.name}
                     </h4>
-                    <p className={`text-xs ${textSecondaryClass}`}>{char.title}</p>
-                    <p className={`text-xs mt-2 line-clamp-2 ${textSecondaryClass}`}>{char.shortBio}</p>
+                    <p className="text-xs" style={{ color: textSecondary }}>{char.title}</p>
+                    <p className="text-xs mt-2 line-clamp-2" style={{ color: textSecondary }}>{char.shortBio}</p>
                   </button>
                 ))}
               </div>
@@ -185,35 +234,51 @@ export default function StoryReader() {
 
           {/* Location */}
           {location && (
-            <div className={`mt-8 pt-8 border-t ${borderClass}`}>
-              <h3 className={`text-sm font-semibold mb-4 flex items-center gap-2 ${textMutedClass}`}>
+            <div
+              className="mt-8 pt-8"
+              style={{ borderTop: `1px solid ${borderColor}` }}
+            >
+              <h3 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: textMuted }}>
                 <MapPin className="w-4 h-4" />
                 Lokasi
               </h3>
               <button
                 onClick={() => navigateTo('location', location.id)}
-                className={`text-left p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors w-full`}
+                className="text-left p-4 rounded-xl border w-full transition-colors"
+                style={{
+                  backgroundColor: cardBg,
+                  borderColor: borderColor,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = hoverBg;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = cardBg;
+                }}
               >
-                <h4 className={`font-serif-display font-bold text-sm mb-1 ${textClass}`}>
+                <h4 className="font-serif-display font-bold text-sm mb-1" style={{ color: textPrimary }}>
                   {location.name}
                 </h4>
-                <p className={`text-xs ${textSecondaryClass}`}>{location.description}</p>
-                <p className={`text-[10px] mt-2 ${textSecondaryClass}`}>{location.coordinates}</p>
+                <p className="text-xs" style={{ color: textSecondary }}>{location.description}</p>
+                <p className="text-[10px] mt-2" style={{ color: textSecondary }}>{location.coordinates}</p>
               </button>
             </div>
           )}
 
           {/* References */}
           {event.references.length > 0 && (
-            <div className={`mt-8 pt-8 border-t ${borderClass}`}>
-              <h3 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${textMutedClass}`}>
+            <div
+              className="mt-8 pt-8"
+              style={{ borderTop: `1px solid ${borderColor}` }}
+            >
+              <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: textMuted }}>
                 <BookOpen className="w-4 h-4" />
                 Referensi
               </h3>
               <ul className="space-y-1.5">
                 {event.references.map((ref, i) => (
-                  <li key={i} className={`text-xs ${textSecondaryClass} flex items-start gap-2`}>
-                    <span className="mt-1.5 w-1 h-1 rounded-full bg-current opacity-30 flex-shrink-0" />
+                  <li key={i} className="text-xs flex items-start gap-2" style={{ color: textSecondary }}>
+                    <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0 opacity-30" style={{ backgroundColor: textSecondary }} />
                     {ref}
                   </li>
                 ))}
@@ -221,18 +286,36 @@ export default function StoryReader() {
             </div>
           )}
 
-          {/* Prev/Next Navigation */}
-          <div className={`mt-12 pt-8 border-t ${borderClass} grid grid-cols-2 gap-4`}>
+          {/* Prev/Next Navigation — emotional journey feel */}
+          <div
+            className="mt-16 pt-8 grid grid-cols-2 gap-4"
+            style={{ borderTop: `1px solid ${borderColor}` }}
+          >
             {prevEvent ? (
               <button
                 onClick={() => navigateTo('reader', prevEvent.id)}
-                className={`text-left p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors group`}
+                className="text-left p-4 rounded-xl border transition-colors group"
+                style={{
+                  backgroundColor: cardBg,
+                  borderColor: borderColor,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = hoverBg;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = cardBg;
+                }}
               >
-                <div className={`flex items-center gap-1 text-xs mb-1 ${textSecondaryClass}`}>
+                <div className="flex items-center gap-1 text-xs mb-1.5" style={{ color: textSecondary }}>
                   <ChevronLeft className="w-3 h-3" />
                   Sebelumnya
                 </div>
-                <h4 className={`text-sm font-medium ${textClass} group-hover:text-[#D4A843] transition-colors line-clamp-2`}>
+                <h4
+                  className="text-sm font-medium line-clamp-2 transition-colors"
+                  style={{ color: textPrimary }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A843'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = textPrimary; }}
+                >
                   {prevEvent.title}
                 </h4>
               </button>
@@ -242,13 +325,28 @@ export default function StoryReader() {
             {nextEvent ? (
               <button
                 onClick={() => navigateTo('reader', nextEvent.id)}
-                className={`text-right p-4 rounded-xl ${cardBgClass} border ${borderClass} ${hoverBgClass} transition-colors group`}
+                className="text-right p-4 rounded-xl border transition-colors group"
+                style={{
+                  backgroundColor: cardBg,
+                  borderColor: borderColor,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = hoverBg;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = cardBg;
+                }}
               >
-                <div className={`flex items-center justify-end gap-1 text-xs mb-1 ${textSecondaryClass}`}>
-                  Selanjutnya
+                <div className="flex items-center justify-end gap-1 text-xs mb-1.5" style={{ color: textSecondary }}>
+                  Lanjutkan Perjalanan
                   <ChevronRight className="w-3 h-3" />
                 </div>
-                <h4 className={`text-sm font-medium ${textClass} group-hover:text-[#D4A843] transition-colors line-clamp-2`}>
+                <h4
+                  className="text-sm font-medium line-clamp-2 transition-colors"
+                  style={{ color: textPrimary }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A843'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = textPrimary; }}
+                >
                   {nextEvent.title}
                 </h4>
               </button>

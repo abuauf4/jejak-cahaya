@@ -1,0 +1,407 @@
+     1→     1→export interface SirahEvent {
+     2→     2→  id: string;
+     3→     3→  title: string;
+     4→     4→  subtitle: string;
+     5→     5→  year: string;
+     6→     6→  yearNum: number;
+     7→     7→  phaseId: string;
+     8→     8→  description: string;
+     9→     9→  story: string;
+    10→    10→  featured: boolean;
+    11→    11→  characterIds: string[];
+    12→    12→  locationId: string;
+    13→    13→  references: string[];
+    14→    14→  order: number;
+    15→    15→}
+    16→    16→
+    17→    17→export const events: SirahEvent[] = [
+    18→    18→  {
+    19→    19→    id: "kelahiran",
+    20→    20→    title: "Kelahiran Sang Cahaya",
+    21→    21→    subtitle: "Tiba di Tengah Kegelapan",
+    22→    22→    year: "570 M",
+    23→    23→    yearNum: 570,
+    24→    24→    phaseId: "kelahiran",
+    25→    25→    description: "Muhammad bin Abdullah ﷺ lahir di Makkah pada Tahun Gajah, membawa cahaya bagi seluruh alam.",
+    26→    26→    story: `Makkah pada tahun 570 Masehi bukanlah kota yang tenang. Aburahah, raja Yaman, baru saja menyerang Ka'bah dengan pasukan gajah yang luar biasa. Langit masih menyimpan cerita tentang burung-burung ababil yang menjatuhkan batu panas menghancurkan pasukan itu. Di tengah suasana itu, sebuah rumah kecil di suku Bani Hasyim menyimpan momen yang akan mengubah sejarah selamanya.
+    27→    27→
+    28→    28→Aminah binti Wahb, seorang ibu yang baru kehilangan suaminya Abdullah, melihat bayinya yang baru lahir. Cahaya yang memancar dari wajah bayi itu membuatnya tersenyum meski duka masih membalut hatinya. Abdullah, sang suami, telah wafat sebelum anak ini lahir — pergi meninggalkan dunia saat berdagang ke Madinah, tak pernah menyaksikan wajah putranya.
+    29→    29→
+    30→    30→Bayi itu diberi nama Muhammad — nama yang belum pernah digunakan di kalangan kaum Quraisy. Ketika ditanya mengapa memberi nama demikian, Abdul Muthalib, sang kakek, menjawab, "Aku berharap ia dipuji oleh seluruh penghuni langit dan bumi."
+    31→    31→
+    32→    32→Hari kelahiran itu menjadi awal dari sebuah perjalanan panjang. Perjalanan yang akan membawa cahaya dari sebuah rumah kecil di Makkah, merambah seluruh penjuru dunia, dan terus bersinar hingga akhir zaman.`,
+    33→    33→    featured: true,
+    34→    34→    characterIds: ["muhammad", "aminah", "abdul-muthalib"],
+    35→    35→    locationId: "makkah",
+    36→    36→    references: ["Shahih Bukhari 3851", "Sirah Ibnu Hisyam 1/166", "Ar-Rahiq Al-Makhtum hal. 63"],
+    37→    37→    order: 1,
+    38→    38→  },
+    39→    39→  {
+    40→    40→    id: "penyusuan-bani-saad",
+    41→    41→    title: "Di Padang Pasir Bani Sa'ad",
+    42→    42→    subtitle: "Bayi di Tengah Gurun",
+    43→    43→    year: "570–574 M",
+    44→    44→    yearNum: 570,
+    45→    45→    phaseId: "kelahiran",
+    46→    46→    description: "Muhammad kecil disusukan kepada Halimah as-Sa'diyah di padang pasir Bani Sa'ad, tumbuh dalam kemurnian bahasa dan alam terbuka.",
+    47→    47→    story: `Di antara tradasi bangsa Arab, menyusukan bayi kepada wanita pedalaman adalah kebiasaan yang dianggap mulia. Keluarga kota menginginkan anak-anak mereka tumbuh dengan bahasa Arab yang murni, napas gunung yang bersih, dan jiwa padang pasir yang tangguh.
+    48→    48→
+    49→    49→Halimah binti Abi Dzu'aib dari Bani Sa'ad datang ke Makkah mencari bayi yang mau disusuinya. Tahun itu tahun kemarau. Unta-untanya kurus, air susunya menyusut, dan bekalnya tipis. Ia berharap menemukan bayi dari keluarga kaya yang bisa memberinya imbalan memadai.
+    50→    50→
+    51→    51→Namun setiap bayi yang ia tawari menolak — mereka tidak mau disusui oleh wanita dari suku pedalaman yang miskin. Hanya tersisa satu bayi: Muhammad, anak yatim dari Bani Hasyim. Bayi yang tak memiliki ayah untuk membayar mahal.
+    52→    52→
+    53→    53→"Suamiku, ambillah bayi itu," kata Halimah. "Mungkin ia membawa keberkahan."
+    54→    54→
+    55→    55→Keputusan itu mengubah segalanya. Susu Halimah yang hampir habis tiba-tiba mengalir deras. Unta yang kurus berjalan gagah. Padang pasir yang gersang seolah bersemi. Keberkahan itu nyata.
+    56→    56→
+    57→    57→Selama empat tahun, Muhammad kecil tumbuh di padang Bani Sa'ad. Ia belajar bahasa Arab yang paling murni, berlari di atas pasir, menghirup udara gurun yang jernih. Di sinilah, jauh dari hiruk-pikuk kota, fondasi kekuatan dan kelembutan jiwa diletakkan.`,
+    58→    58→    featured: false,
+    59→    59→    characterIds: ["muhammad", "halimah"],
+    60→    60→    locationId: "makkah",
+    61→    61→    references: ["Shahih Muslim 2639", "Sirah Ibnu Hisyam 1/170", "Ar-Rahiq Al-Makhtum hal. 69"],
+    62→    62→    order: 2,
+    63→    63→  },
+    64→    64→  {
+    65→    65→    id: "kematian-aminah",
+    66→    66→    title: "Kehilangan Ibu",
+    67→    67→    subtitle: "Yatim Piatu di Usia Enam",
+    68→    68→    year: "576 M",
+    69→    69→    yearNum: 576,
+    70→    70→    phaseId: "kelahiran",
+    71→    71→    description: "Aminah, ibunda Rasulullah ﷺ, wafat di Abwa' saat dalam perjalanan kembali dari Madinah, meninggalkan Muhammad kecil sebagai yatim piatu.",
+    72→    72→    story: `Muhammad berusia enam tahun saat ibunya memutuskan untuk membawanya ke Madinah. Aminah ingin mengenalkan putranya pada kerabat Bani Najjar, dan mungkin, ingin menunjukkan makam Abdullah — suami yang tak pernah ditemui oleh anak itu setelah lahir.
+    73→    73→
+    74→    74→Perjalanan dari Makkah ke Madinah panjang dan melelahkan. Di tengah jalan, mereka singgah di Abwa', sebuah desa kecil di antara dua kota. Di situlah, Aminah jatuh sakit.
+    75→    75→
+    76→    76→Penyakit itu datang tiba-tiba dan tak memberi waktu. Aminah, yang telah menjadi satu-satunya dunia bagi putranya, menghembuskan napas terakhirnya di desa kecil itu. Muhammad kecil berdiri di sisi makam ibunya, mata menatap pasir yang menutupi sosok yang paling ia cintai.
+    77→    77→
+    78→    78→Seorang anak yang belum mengenal ayahnya, kini kehilangan ibunya. Dunia seolah mengerut menjadi sangat kecil. Tidak ada pelukan yang menunggu di rumah. Tidak ada suara lembut yang memanggil namanya saat malam turun.
+    79→    79→
+    80→    80→Kakeknya, Abdul Muthalib, merengkuh tangan kecil itu dan membawanya kembali ke Makkah. Tangan tua itu kokoh, tapi hatinya hancur. Anaknya Abdullah telah pergi, dan kini menantunya menyusul.
+    81→    81→
+    82→    82→Malam-malam berikutnya, Muhammad kecil tidur di pelukan kakeknya. Dan di keheningan malam Makkah, seorang yatim piatu belajar apa yang tak diajarkan oleh siapa pun: bahwa dunia ini tidak kekal, bahwa setiap cinta akan berujung pada perpisahan, dan bahwa hati yang paling hancur bisa menjadi yang paling kuat.`,
+    83→    83→    featured: false,
+    84→    84→    characterIds: ["muhammad", "aminah", "abdul-muthalib"],
+    85→    85→    locationId: "abwa",
+    86→    86→    references: ["Sirah Ibnu Hisyam 1/182", "Ar-Rahiq Al-Makhtum hal. 73"],
+    87→    87→    order: 3,
+    88→    88→  },
+    89→    89→  {
+    90→    90→    id: "perniagaan-khadijah",
+    91→    91→    title: "Perjalanan Dagang ke Syam",
+    92→    92→    subtitle: "Al-Amin yang Terpercaya",
+    93→    93→    year: "583 M",
+    94→    94→    yearNum: 583,
+    95→    95→    phaseId: "pemuda",
+    96→    96→    description: "Muhammad muda memimpin kafilah dagang Khadijah ke Syam, menunjukkan kejujuran dan kecakapan yang luar biasa.",
+    97→    97→    story: `Khadijah binti Khuwailid adalah salah satu wanita paling berhasil di Makkah. Ia menjalankan perdagangan besar, mengirim kafilah ke Syam dan Yaman, dan kekayaannya melimpah. Namun ia butuh seseorang yang terpercaya — bukan sekadar pintar berdagang, tetapi jujur, amanah, dan tak pernah berkhianat.
+    98→    98→
+    99→    99→Namanya telah bergema di seluruh Makkah: Muhammad bin Abdullah. Anak yatim dari Bani Hasyim yang kini tumbuh menjadi pemuda berusia 25 tahun. Semua orang memanggilnya Al-Amin — Yang Terpercaya. Bukan gelar yang diberikan oleh satu orang, tetapi pengakuan dari seluruh kota.
+   100→   100→
+   101→   101→"Kata mereka, ia tidak pernah berdusta. Tidak pernah mengkhianati titipan. Tidak pernah menipu dalam timbangan," kata Maysarah, pelayan Khadijah yang akan menemani perjalanan itu.
+   102→   102→
+   103→   103→Khadijah memutuskan: Muhammad akan memimpin kafilahnya ke Syam.
+   104→   104→
+   105→   105→Perjalanan itu sukses melebihi ekspektasi. Keuntungan yang dibawa pulang dua kali lipat dari biasanya. Maysarah menceritakan bagaimana Muhammad berniaga — adil, tegas, namun lembut. Ia tidak pernah menaikkan harga di luar kewajaran. Ia tidak pernah menyembunyikan cacat barang. Para pedagang Syam mengagumi cara ia bernegosiasi.
+   106→   106→
+   107→   107→Lebih dari keuntungan, Maysarah menceritakan hal-hal yang tak bisa diukur dengan dinar dan dirham: awan yang selalu memberi naung di atas kepala Muhammad saat berjalan di padang pasir yang terik, rahib di Busra yang mengenali tanda kenabian, dan ketenangan yang memancar dari wajah pemuda itu.
+   108→   108→
+   109→   109→Ketika kafilah kembali ke Makkah, Khadijah mendengar semua cerita itu. Dan di matanya, Muhammad bukan lagi sekadar pegawai yang amanah. Ia adalah seseorang yang istimewa.`,
+   110→   110→    featured: true,
+   111→   111→    characterIds: ["muhammad", "khadijah"],
+   112→   112→    locationId: "syam",
+   113→   113→    references: ["Shahih Bukhari 3820", "Sirah Ibnu Hisyam 1/194", "Ar-Rahiq Al-Makhtum hal. 82"],
+   114→   114→    order: 4,
+   115→   115→  },
+   116→   116→  {
+   117→   117→    id: "pernikahan-khadijah",
+   118→   118→    title: "Pernikahan dengan Khadijah",
+   119→   119→    subtitle: "Dua Hati yang Saling Mengisi",
+   120→   120→    year: "595 M",
+   121→   121→    yearNum: 595,
+   122→   122→    phaseId: "pemuda",
+   123→   123→    description: "Muhammad menikah dengan Khadijah binti Khuwailid, wanita terhormat yang mencintainya karena kejujurannya dan mendukungnya selama 25 tahun.",
+   124→   124→    story: `Khadijah berusia 40 tahun saat ia mengirim Nufaisah, sahabatnya, untuk menyampaikan pesan kepada Muhammad. Pesan yang sangat tidak biasa bagi seorang wanita terhormat Quraisy.
+   125→   125→
+   126→   126→"Muhammad, apa yang menghalangimu untuk menikah?" tanya Nufaisah.
+   127→   127→
+   128→   128→"Aku tidak memiliki harta untuk membeli mahar," jawab Muhammad jujur.
+   129→   129→
+   130→   130→"Bagaimana jika ada wanita yang memiliki kecantikan, kekayaan, kemuliaan, dan ia sendiri yang menginginkanmu?" Nufaisish menyampaikan nama Khadijah.
+   131→   131→
+   132→   132→Muhammad terdiam. Seorang yatim dari Bani Hasyim, tanpa kekayaan besar, dipinang oleh wanita paling terhormat di Makkah? Ini bukan sekadar tawaran pernikahan — ini adalah pengakuan atas nilai yang tak bisa dibeli dengan harta.
+   133→   133→
+   134→   134→Pernikahan itu berlangsung sederhana namun penuh keberkahan. Mahar yang diberikan Muhammad adalah 20 ekor unga muda — jumlah yang sederhana dibanding kemewahan Khadijah, namun itulah yang ia mampu.
+   135→   135→
+   136→   136→Selama 25 tahun, Khadijah menjadi rumah bagi Muhammad. Ia bukan sekadar istri — ia adalah sahabat, penasihat, pelindung. Ketika seluruh dunia memusuhi Muhammad kelak, Khadijah berdiri di sisinya. Ketika Muhammad ketakutan setelah menerima wahyu pertama, Khadijah yang memeluknya dan berkata, "Demi Allah, Allah tidak akan pernah merendahkanmu."
+   137→   137→
+   138→   138→Cinta mereka bukan cinta yang membara lalu padam. Ia adalah cinta yang makin kuat saat badai datang, makin dalam saat ujian menimpa. Dan hingga akhir hayatnya, Muhammad tidak pernah lupa Khadijah. Bertahun-tahun setelah wafatnya, setiap ada daging yang dibagikan, beliau selalu mengirimkan ke sahabat-sahabat Khadijah seraya berkata, "Aku mencintai orang yang dicintai olehnya."`,
+   139→   139→    featured: false,
+   140→   140→    characterIds: ["muhammad", "khadijah"],
+   141→   141→    locationId: "makkah",
+   142→   142→    references: ["Shahih Bukhari 3820", "Sirah Ibnu Hisyam 1/199", "Ar-Rahiq Al-Makhtum hal. 87"],
+   143→   143→    order: 5,
+   144→   144→  },
+   145→   145→  {
+   146→   146→    id: "wahyu-pertama",
+   147→   147→    title: "Wahyu Pertama di Gua Hira",
+   148→   148→    subtitle: "Ketika Langit Berbicara",
+   149→   149→    year: "610 M",
+   150→   150→    yearNum: 610,
+   151→   151→    phaseId: "kenabian",
+   152→   152→    description: "Malaikat Jibril datang ke Gua Hira dan menyampaikan wahyu pertama: Iqra' — Bacalah! Dimulailah misi kenabian.",
+   153→   153→    story: `Gua Hira bukan tempat yang nyaman. Terletak di puncak Jabal Nur, kurang lebih 3 kilometer dari Makkah, gua ini sempit, dingin, dan gelap. Tapi bagi Muhammad, gua ini adalah tempat di mana dunia bising kota tak lagi mampu menjangkau pikirannya.
+   154→   154→
+   155→   155→Setiap bulan Ramadan, Muhammad menyendiri di gua ini. Ia bukan sedang lari dari dunia — ia sedang mencari jawaban. Pertanyaan-pertanyaan tentang tuhan, tentang kehidupan, tentang mengapa kaumnya menyembah berhala yang tak bisa mendengar, melihat, ataupun menolong. Pertanyaan-pertanyaan itu mengganggunya seperti debu yang tak bisa dibersihkan dari sanubari.
+   156→   156→
+   157→   157→Malam tanggal 17 Ramadan, tahun ke-40 dari usianya, Muhammad tertidur di dalam gua. Tiba-tiba, sosok cahaya yang belum pernah dilihatnya muncul.
+   158→   158→
+   159→   159→"Iqra'!" — Bacalah!
+   160→   160→
+   161→   161→"Aku tidak bisa membaca," jawab Muhammad, gemetar.
+   162→   162→
+   163→   163→Sosok itu memeluknya hingga sesak, lalu melepaskannya. Sekali lagi: "Iqra'!"
+   164→   164→
+   165→   165→Tiga kali pelukan itu terjadi. Pada kali ketiga, sosok itu membacakan ayat-ayat yang terukir dalam cahaya:
+   166→   166→
+   167→   167→"Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan. Dia telah menciptakan manusia dari segumpal darah. Bacalah, dan Tuhanmulah Yang Maha Pemurah. Yang mengajar (manusia) dengan perantaraan kalam. Dia mengajarkan kepada manusia apa yang tidak diketahuinya."
+   168→   168→
+   169→   169→Muhammad turun dari gunung dengan jantung berdebar keras. Ia berlari menuju Khadijah, wajah pucat, tubuh gemetar.
+   170→   170→
+   171→   171→"Selimuti aku! Selimuti aku!" serunya.
+   172→   172→
+   173→   173→Khadijah memeluk suaminya. Menunggu hingga ketakutan itu mereda. Lalu ia berkata dengan keyakinan yang tak tergoyahkan:
+   174→   174→
+   175→   175→"Berikan kabar gembira, wahai putra paman. Demi Allah, Allah tidak akan pernah merendahkanmu. Kau menyambung silaturahmi, kau berkata jujur, kau memikul beban orang lain, kau menjamu tamu, dan kau menolong orang yang menderita."
+   176→   176→
+   177→   177→Malam itu mengubah segalanya. Seorang penggembala yatim piatu yang mencari jawaban di sebuah gua kecil, kini menjadi Rasul — utusan Allah bagi seluruh alam.`,
+   178→   178→    featured: true,
+   179→   179→    characterIds: ["muhammad", "khadijah", "jibril"],
+   180→   180→    locationId: "gua-hira",
+   181→   181→    references: ["QS. Al-'Alaq 1-5", "Shahih Bukhari 3", "Shahih Muslim 160", "Ar-Rahiq Al-Makhtum hal. 95"],
+   182→   182→    order: 6,
+   183→   183→  },
+   184→   184→  {
+   185→   185→    id: "dakwah-terang",
+   186→   186→    title: "Dakwah di Bukit Shafa",
+   187→   187→    subtitle: "Seruan di Atas Bukit",
+   188→   188→    year: "613 M",
+   189→   189→    yearNum: 613,
+   190→   190→    phaseId: "dakwah-terang",
+   191→   191→    description: "Rasulullah ﷺ mengajak kaum Quraisy secara terbuka di Bukit Shafa, menandai dimulainya dakwah terang-terangan.",
+   192→   192→    story: `Tiga tahun dakwah berjalan secara sembunyi-sembunyi. Tiga puluh orang lebih telah memeluk Islam, berkumpul di rumah Arqam bin Abi Arqam, saling mengajarkan ayat-ayat yang turun dari langit. Namun Allah memerintahkan agar risalah ini tidak lagi disembunyikan.
+   193→   193→
+   194→   194→"Peringatkanlah kerabatmu yang terdekat." — QS. Asy-Syu'ara: 214
+   195→   195→
+   196→   196→Muhammad naik ke puncak Bukit Shafa, tempat di mana orang-orang biasa mengumumkan hal-hal penting. Ia memanggil setiap klan Quraisy, satu per satu.
+   197→   197→
+   198→   198→"Wahai Bani Fihr! Wahai Bani Adi! Wahai Bani Ka'ab!"
+   199→   199→
+   200→   200→Suara itu bergema di lembah Makkah. Orang-orang berkerumun, penasaran. Apa yang ingin dikatakan Al-Amin ini?
+   201→   201→
+   202→   202→"Jika aku memberitahu kalian bahwa di balik lembah ini ada pasukan berkuda yang akan menyerang kalian, apakah kalian akan percaya?"
+   203→   203→
+   204→   204→"Ya! Kami tidak pernah mendengarmu berdusta," jawab mereka serempak.
+   205→   205→
+   206→   206→"Maka ketahuilah, aku adalah pemberi peringatan bagi kalian dari siksa yang pedis."
+   207→   207→
+   208→   208→Siletan suara memecah kerumunan. Abu Lahab, paman sendiri, berdiri dan berteriak, "Celakah engkau! Untuk inikah engkau kumpulkan kami?"
+   209→   209→
+   210→   210→Ayat pun turun: "Binasalah kedua tangan Abu Lahab dan sesungguhnya ia akan binasa."
+   211→   211→
+   212→   212→Malam itu, garis pertempuran ditarik. Dakwah tidak lagi diam-diam. Dan penolakan pun tidak lagi diam-diam. Dari bukit kecil itu, perjalanan yang lebih berat dimulai — perjalanan yang akan diuji dengan boikot, penyiksaan, dan pengusiran.`,
+   213→   213→    featured: false,
+   214→   214→    characterIds: ["muhammad", "abu-lahab"],
+   215→   215→    locationId: "makkah",
+   216→   216→    references: ["QS. Al-Masad 1", "Shahih Bukhari 4770", "Sirah Ibnu Hisyam 1/280", "Ar-Rahiq Al-Makhtum hal. 139"],
+   217→   217→    order: 7,
+   218→   218→  },
+   219→   219→  {
+   220→   220→    id: "isra-miraj",
+   221→   221→    title: "Isra' Mi'raj",
+   222→   222→    subtitle: "Perjalanan Melampaui Langit",
+   223→   223→    year: "621 M",
+   224→   224→    yearNum: 621,
+   225→   225→    phaseId: "dakwah-terang",
+   226→   226→    description: "Perjalanan malam dari Masjidil Haram ke Masjidil Aqsa dan naik ke langit tertinggi — momen yang menguji keimanan dan mengukuhkan shalat.",
+   227→   227→    story: `Tahun Kesedihan baru saja berlalu. Khadijah wafat. Abu Thalib wafat. Dua pelindung terbesar pergi hampir bersamaan. Duka menumpuk di dada Muhammad seperti bebatu yang tak bisa digeser.
+   228→   228→
+   229→   229→Maka di malam yang paling gelap itu, datanglah cahaya yang paling terang.
+   230→   230→
+   231→   231→Jibril datang membawa Buraq — kendaraan cahaya yang mampu melangkah sejauh mata memandang. Dari Masjidil Haram, Muhammad melangkah ke Masjidil Aqsa. Di tempat yang suci itu, semua nabi berkumpul di belakangnya dalam shalat — pengakuan bahwa ia adalah penutup seluruh rangkaian risalah.
+   232→   232→
+   233→   233→Lalu dimulailah perjalanan ke atas. Langit pertama, kedua, ketiga... hingga langit ketujuh. Di setiap pintu, para nabi menyambut. Adam, Isa dan Yahya, Yusuf, Idris, Harun, Musa, Ibrahim. Setiap pertemuan adalah penghormatan, setiap sapaan adalah doa.
+   234→   234→
+   235→   235→Di Sidratul Muntaha, batas terjauh yang tak bisa dilalui siapa pun, Muhammad menerima perintah shalat. Lima puluh waktu, kemudian dikurangi, lagi dan lagi, hingga menjadi lima waktu — tapi pahalanya tetap lima puluh.
+   236→   236→
+   237→   237→Ketika Muhammad kembali ke Makkah dan menceritakan perjalanan itu, kegemparan melanda. Abu Bakar berdiri dan berkata, "Jika ia yang mengatakannya, maka itu benar." Sejak saat itu ia digelari as-Siddiq — Yang Membenarkan.
+   238→   238→
+   239→   239→Isra' Mi'raj bukan sekadar perjalanan ajaib. Ia adalah pengingat bahwa di balik malam tergelap, selalu ada tangga menuju cahaya.`,
+   240→   240→    featured: true,
+   241→   241→    characterIds: ["muhammad", "jibril", "abu-bakar"],
+   242→   242→    locationId: "baitul-maqdis",
+   243→   243→    references: ["QS. Al-Isra' 1", "QS. An-Najm 1-18", "Shahih Bukhari 3207", "Shahih Muslim 164"],
+   244→   244→    order: 8,
+   245→   245→  },
+   246→   246→  {
+   247→   247→    id: "hijrah",
+   248→   248→    title: "Hijrah ke Madinah",
+   249→   249→    subtitle: "Meninggalkan Segalanya",
+   250→   250→    year: "622 M",
+   251→   251→    yearNum: 622,
+   252→   252→    phaseId: "hijrah",
+   253→   253→    description: "Rasulullah ﷺ dan para sahabat meninggalkan Makkah menuju Madinah, memulai babak baru dalam sejarah Islam.",
+   254→   254→    story: `Malam itu, Makkah tidur. Tapi Muhammad tidak. Ia berdiri di Ka'bah, menatap kota yang telah menjadi rumahnya selama 53 tahun. Setiap sudut menyimpan kenangan — kelahiran, masa kecil, pernikahan, wahyu pertama, dan juga boikot, penyiksaan, dan pengkhianatan.
+   255→   255→
+   256→   256→"Engkau adalah tanah yang paling kucintai di sisi Allah. Andai kaummu tidak mengusirku, aku tidak akan meninggalkanmu," bisiknya.
+   257→   257→
+   258→   258→Rencana pembunuhan sudah disusun. Pemuda dari setiap klan Quraisy berdiri di sekeliling rumahnya, pedang terhunus, menunggu fajar. Mereka ingin darahnya ditumpahkan oleh semua klan sekaligus, sehingga Bani Hasyim tak bisa membalas dendam pada satu klan tertentu.
+   259→   259→
+   260→   260→Tapi Muhammad keluar di antara mereka, menebarkan debu ke atas kepala mereka, dan berjalan melewati barisan itu tanpa terlihat. Ayat yang turun menggambarkan momen itu: "Dan Kami jadikan di hadapan mereka dinding dan di belakang mereka dinding."
+   261→   261→
+   262→   262→Di Gua Tsur, Muhammad dan Abu Bakar bersembunyi selama tiga hari. Quraisy memburu mereka dengan segala cara. Pencari hadiah meraup setiap gua, setiap celah. Suatu ketika, mereka berdiri tepat di depan gua tempat keduanya bersembunyi.
+   263→   263→
+   264→   264→Abu Bakar berbisik cemas, "Wahai Rasulullah, jika salah seorang dari mereka melihat ke bawah kakinya, ia akan melihat kita."
+   265→   265→
+   266→   266→Muhammad menjawab dengan ketenangan yang tak tergoyahkan: "Jangan takut. Allah bersama kita."
+   267→   267→
+   268→   268→Labrakah merajut sarang di mulut gua. Burung bertelur di depannya. Pohon menutupi celah. Alam semesta bersekongkol melindungi dua manusia yang membawa risalah yang akan mengubah dunia.
+   269→   269→
+   270→   270→Tiga hari kemudian, mereka melanjutkan perjalanan. Di Quba, dekat Madinah, Muhammad membangun masjid pertama dalam sejarah Islam. Kemudian ia memasuki kota Madinah — bukan sebagai pengungsi yang terpukul, tetapi sebagai pemimpin yang dinanti.
+   271→   271→
+   272→   272→Anak-anak bernyanyi di sepanjang jalan: "Thala'a al-badru 'alaina — Telah muncul bulan purnama bagi kami."`,
+   273→   273→    featured: true,
+   274→   274→    characterIds: ["muhammad", "abu-bakar", "ali"],
+   275→   275→    locationId: "gua-tsur",
+   276→   276→    references: ["QS. At-Taubah 40", "Shahih Bukhari 3905", "Sirah Ibnu Hisyam 2/137", "Ar-Rahiq Al-Makhtum hal. 224"],
+   277→   277→    order: 9,
+   278→   278→  },
+   279→   279→  {
+   280→   280→    id: "perang-badar",
+   281→   281→    title: "Perang Badar",
+   282→   282→    subtitle: "Ketika Sedikit Mengalahkan Banyak",
+   283→   283→    year: "624 M",
+   284→   284→    yearNum: 624,
+   285→   285→    phaseId: "pertahanan",
+   286→   286→    description: "313 Muslim menghadapi 1000 pasukan Quraisy di Badar — kemenangan pertama yang mengubah keseimbangan kekuatan.",
+   287→   287→    story: `Sumur-sumur Badar berdiri di tengah padang pasir yang sunyi. Tempat itu biasanya hanya disinggahi oleh kafilah dagang yang beristirahat sejenak sebelum melanjutkan perjalanan. Tapi pada tanggal 17 Ramadan tahun ke-2 Hijriah, padang itu menjadi saksi pertempuran yang akan diabadikan dalam sejarah.
+   288→   288→
+   289→   289→Tiga ratus tiga belas Muslim berdiri di satu sisi. Sebagian hanya membawa pedang tanpa baju besi. Sebagian berbagi satu untuh untuk bergantian menunggangi. Mereka keluar dari Madinah awalnya hanya untuk menghadang kafilah dagang Quraisy — bukan untuk berperang.
+   290→   290→
+   291→   291→Di sisi lain, seribu pasukan Qurayah berbaris dengan baju besi berkilauan, kuda-kuda perang yang gagah, dan kepercayaan diri yang melimpah. Mereka datang untuk menghancurkan Muhammad dan pengikutnya sekali-kali.
+   292→   292→
+   293→   293→Malam sebelum pertempuran, hujan turun. Tanah yang semula berdebu menjadi padat dan kuat di bawah kaki kaum Muslimin. Sedangkan di sisi Quraisy, tanah menjadi licin dan sulit diinjak. Air itu adalah pertolongan pertama.
+   294→   294→
+   295→   295→Muhammad mengangkat tangan berdoa sepanjang malam: "Ya Allah, jika Engkau menghancurkan kelompok ini, Engkau tidak akan lagi disembah di muka bumi."
+   296→   296→
+   297→   297→Fajar menyingsing. Pertempuran dimulai. Tiga champion Quraisy maju — Utbah, Syaibah, dan Walid. Dari pihak Muslim, Hamzah, Ali, dan Ubaidah bin Harits maju menyambut. Satu per satu, champion Quraisy tumbang.
+   298→   298→
+   299→   299→Kemudian badai pertempuran meledak. Pasukan kecil itu berjuang dengan keberanian yang tak masuk akal. Ayat turun: "Bukanlah kamu yang melempar, tetapi Allah-lah yang melempar." Malaikat turun membantu. Dan ketika debu akhirnya mengendap, Quraisy mundur dalam kekalahan yang memalukan.
+   300→   300→
+   301→   301→Tujuh puluh tokoh Quraisy tewas. Tujuh puluh lainnya ditawan. Di antara yang tewas adalah Abu Jahl — musuh bebuyutan Islam. Umar bin Khattab, yang kelak menjadi khalifah, berdiri di tengah medan dan berkata, "Allah telah memisahkan kebenaran dari kebatatan."
+   302→   302→
+   303→   303→Badar bukan sekadar kemenangan militer. Ia adalah bukti bahwa iman bisa mengalahkan angka, bahwa kebenaran tak perlu menunggu mayoritas, dan bahwa pertolongan Allah datang saat manusia sudah berusaha semaksimal kemampuannya.`,
+   304→   304→    featured: true,
+   305→   305→    characterIds: ["muhammad", "hamzah", "ali", "umar"],
+   306→   306→    locationId: "badar",
+   307→   307→    references: ["QS. Al-Anfal 9-11", "QS. Ali Imran 123-126", "Shahih Bukhari 3952", "Shahih Muslim 1763"],
+   308→   308→    order: 10,
+   309→   309→  },
+   310→   310→  {
+   311→   311→    id: "hudaibiyah",
+   312→   312→    title: "Perjanjian Hudaibiyah",
+   313→   313→    subtitle: "Kemenangan di Balik Persetujuan",
+   314→   314→    year: "628 M",
+   315→   315→    yearNum: 628,
+   316→   316→    phaseId: "perdamaian",
+   317→   317→    description: "Perjanjian yang tampak sebagai kekalahan diplomatik ternyata menjadi pintu kemenangan terbesar — Fathu Makkah.",
+   318→   318→    story: `Mereka berangkat dengan niat beribadah, bukan berperang. Seribu empat ratus Muslim, mengenakan pakaian ihram, membawa hewan kurban, berjalan menuju Makkah untuk melaksanakan umrah. Tidak ada senjata, tidak ada niat permusuhan — hanya keinginan untuk menyembah Allah di Tanah Suci.
+   319→   319→
+   320→   320→Tapi Quraisy tidak mempercayai itu. Mereka mengirim pasukan untuk menghalangi. Muhammad menghindari konfrontasi dan memilih jalur alternatif, hingga rombongan Muslim tiba di Hudaibiyah — perbatasan tanah suci Makkah.
+   321→   321→
+   322→   322→Negosiasi dimulai. Utusan datang dan pergi. Ketegangan meningkat. Qurayah bersikeras: Muslim tidak boleh memasuki Makkah tahun ini.
+   323→   323→
+   324→   324→Maka disusunlah perjanjian. Dan isi perjanjian itu tampak sangat merugikan pihak Muslim:
+   325→   325→
+   326→   326→Barangsiapa dari Makkah yang pergi ke Madinah harus dikembalikan. Barangsiapa dari Madinah yang pergi ke Makkah tidak perlu dikembalikan. Umrah ditunda ke tahun depan. Gencatan senjata selama sepuluh tahun.
+   327→   327→
+   328→   328→Umar bin Khattab hampir tidak bisa menahan amarahnya. Ia mendatangi Abu Bakar: "Bukankah kita di pihak yang benar? Mengapa kita memberikan ini?"
+   329→   329→
+   330→   330→Abu Bakar menjawab tenang, "Dengarkan ia. Ia adalah Rasulullah."
+   331→   331→
+   332→   332→Muhammad memanggil Ali untuk menulis perjanjian. "Tulis: Bismillahirrahmanirrahim."
+   333→   333→
+   334→   334→Suhail bin Amr, perwakilan Quraisy, menolak: "Aku tidak tahu apa itu Ar-Rahman Ar-Rahim. Tulis: Bismikallahumma."
+   335→   335→
+   336→   336→"Hapus dan tulis Bismikallahumma," perintah Muhammad.
+   337→   337→
+   338→   338→"Tulis: Ini perjanjian dari Muhammad Rasulullah."
+   339→   339→
+   340→   340→Suhail menolak lagi: "Jika aku mengakui engkau Rasulullah, aku tidak akan memerangimu. Tulis: Muhammad bin Abdullah."
+   341→   341→
+   342→   342→"Hapus dan tulis Muhammad bin Abdullah."
+   343→   343→
+   344→   344→Setiap kata yang ditolak, Muhammad menerimanya dengan tenang. Bagi para sahabat, ini terasa seperti kekalahan. Tapi Allah menyebutnya kemenangan: "Sesungguhnya Kami telah memberikan kepadamu kemenangan yang nyata." — QS. Al-Fath: 1
+   345→   345→
+   346→   346→Dalam dua tahun setelah perjanjian itu, lebih banyak orang memeluk Islam daripada dalam dua puluh tahun sebelumnya. Perdamaian membuka pintu hati yang peperangan tidak bisa.
+   347→   347→
+   348→   348→Hudaibiyah mengajarkan bahwa kemenangan sejati bukan diukur dari siapa yang mendikte syarat, tetapi dari siapa yang mendapatkan hasilnya. Dan kadang, kemenangan terbesar datang dari persetujuan yang terasa seperti kekalahan.`,
+   349→   349→    featured: false,
+   350→   350→    characterIds: ["muhammad", "abu-bakar", "umar", "ali"],
+   351→   351→    locationId: "hudaibiyah",
+   352→   352→    references: ["QS. Al-Fath 1-27", "Shahih Bukhari 2731", "Shahih Muslim 1784", "Ar-Rahiq Al-Makhtum hal. 346"],
+   353→   353→    order: 11,
+   354→   354→  },
+   355→   355→  {
+   356→   356→    id: "fathu-makkah",
+   357→   357→    title: "Fathu Makkah",
+   358→   358→    subtitle: "Kembali dengan Hati yang Luas",
+   359→   359→    year: "630 M",
+   360→   360→    yearNum: 630,
+   361→   361→    phaseId: "perdamaian",
+   362→   362→    description: "Rasulullah ﷺ memasuki Makkah tanpa pertumpahan darah — kemenangan yang paling agung dalam sejarah Islam.",
+   363→   363→    story: `Delapan tahun lalu, ia keluar dari kota ini dalam kegelapan malam, dikejar oleh pembunuh yang mengintai. Kini ia kembali — bukan sebagai pengungsi, tetapi sebagai penakluk yang paling agung di jazirah Arab.
+   364→   364→
+   365→   365→Sepuluh ribu pasukan Muslim memasuki Makkah dari empat penjuru. Kota yang selama ini menjadi pusat perlawanan terhadap Islam kini berdiri tanpa pertahanan. Abu Sufyan, pemimpin Quraisy yang selama ini menjadi musuh bebuyutan, telah menyatakan keislamanannya malam sebelumnya.
+   366→   366→
+   367→   367→Muhammad menunggu. Ia tidak langsung memasuki kota. Ia membiarkan rasa takut mereda, membiarkan waktu memberikan kesempatan bagi mereka yang ingin menyelamatkan diri. Ia mengumumkan: "Barangsiapa memasuki Masjidil Haram, ia aman. Barangsiapa memasuki rumah Abu Sufyan, ia aman. Barangsiapa mengunci pintu rumahnya, ia aman."
+   368→   368→
+   369→   369→Ketika ia akhirnya memasuki kota, ia melakukannya dengan rendah hati yang luar biasa. Kepalanya menunduk di atas untanya hingga hampir menyentuh pelana — seolah ia tidak berani menengadah ke langit karena rasa syukur yang meluap-luap.
+   370→   370→
+   371→   371→Di Ka'bah, ia menghancurkan tiga ratus enam puluh berhala satu per satu, sambil mengucapkan: "Dan katakanlah, 'Kebenaran telah datang dan kebatilan telah musnah.' Sesungguhnya kebatilan itu pasti musnah."
+   372→   372→
+   373→   373→Kemudian momen yang paling menentukan tiba. Para pemuka Quraisy berdiri di depannya, kepala tertunduk, menunggu hukuman yang mereka yakinkan akan datang. Selama bertahun-tahun mereka menyiksa, memboikot, memerangi, dan mengusir Muslim. Kini mereka ada di tangannya.
+   374→   374→
+   375→   375→Muhammad mengangkat wajah dan bertanya dengan suara yang menggema di seluruh Ka'bah:
+   376→   376→
+   377→   377→"Apa yang kalian kira akan kulakukan kepada kalian?"
+   378→   378→
+   379→   379→"Engkau adalah saudara yang mulia, putra saudara yang mulia," jawab mereka gemetar.
+   380→   380→
+   381→   381→Maka Muhammad mengucapkan kata-kata yang telah mengubah sejarah — kata-kata yang Nabi Yusuf ucapkan kepada saudara-saudaranya ribuan tahun sebelumnya:
+   382→   382→
+   383→   383→"Pergilah kalian. Kalian semua bebas. Tidak ada cela untuk kalian hari ini."
+   384→   384→
+   385→   385→Tidak ada pembalasan dendam. Tidak ada hukuman massal. Tidak ada pengadilan balas dendam. Hanya ampunan yang tak terbatas dari seorang yang telah menang atas seluruh musuhnya, namun memilih untuk menang atas dirinya sendiri.
+   386→   386→
+   387→   387→Hari itu, Makkah bukan saja ditaklukkan secara fisik. Ia ditaklukkan oleh hati yang begitu besar, sehingga kebencian bertahun-tahun larut dalam satu kalimat ampunan.`,
+   388→   388→    featured: true,
+   389→   389→    characterIds: ["muhammad", "abu-bakar", "umar", "ali", "abu-sufyan"],
+   390→   390→    locationId: "makkah",
+   391→   391→    references: ["QS. An-Nasr 1-3", "Shahih Bukhari 4280", "Sirah Ibnu Hisyam 4/36", "Ar-Rahiq Al-Makhtum hal. 406"],
+   392→   392→    order: 12,
+   393→   393→  },
+   394→   394→];
+   395→   395→
+   396→   396→export function getEventById(id: string): SirahEvent | undefined {
+   397→   397→  return events.find((e) => e.id === id);
+   398→   398→}
+   399→   399→
+   400→   400→export function getEventsByPhase(phaseId: string): SirahEvent[] {
+   401→   401→  return events.filter((e) => e.phaseId === phaseId);
+   402→   402→}
+   403→   403→
+   404→   404→export function getFeaturedEvents(): SirahEvent[] {
+   405→   405→  return events.filter((e) => e.featured);
+   406→   406→}
+   407→   407→

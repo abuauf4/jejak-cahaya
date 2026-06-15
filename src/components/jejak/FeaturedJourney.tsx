@@ -1,9 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BookOpen, Lock, Sparkles } from 'lucide-react';
+import { BookOpen, ScrollText } from 'lucide-react';
 import { collections, getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 import { useNavigation } from '@/lib/store';
+
+const emptyStateMessages: Record<string, { message: string; detail: string }> = {
+  'kisah-sahabat': {
+    message: 'Kisah Para Sahabat sedang dalam proses kajian dan penyusunan.',
+    detail: 'Kami memilih menghadirkan materi secara bertahap agar setiap kisah dapat ditinjau dengan lebih baik sebelum dipublikasikan.',
+  },
+  'kisah-nabi': {
+    message: 'Kisah Para Nabi sedang dalam proses kajian dan penyusunan.',
+    detail: 'Setiap kisah nabi memerlukan penelitian mendalam untuk memastikan narasi yang akurat dan penuh hikmah.',
+  },
+  'peradaban-islam': {
+    message: 'Peradaban Islam sedang dalam proses kajian dan penyusunan.',
+    detail: 'Jejak peradaban Islam yang luas memerlukan kurasi cermat agar dapat dihadirkan dengan utuh dan bermakna.',
+  },
+};
 
 export default function FeaturedJourney() {
   const activeCollection = getActiveCollection();
@@ -30,28 +45,28 @@ export default function FeaturedJourney() {
           className="mb-10"
         >
           <div className="flex items-center gap-2 mb-3">
-            <Sparkles className="w-4 h-4 text-[#D4A843]" />
+            <BookOpen className="w-4 h-4 text-[#D4A843]" />
             <span className="text-xs text-[#D4A843] font-medium uppercase tracking-wider">Koleksi</span>
           </div>
           <h2 className="font-serif-display text-2xl sm:text-3xl font-bold text-[#F0EBE0]">
-            Koleksi Jejak Cahaya
+            Perpustakaan Jejak Cahaya
           </h2>
         </motion.div>
 
-        {/* Active collection */}
+        {/* Active collection — prominent card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative p-6 sm:p-8 rounded-2xl bg-[#0F1629] border border-[rgba(245,215,142,0.15)] overflow-hidden mb-6"
+          className="relative p-6 sm:p-8 rounded-2xl bg-[#0F1629] border border-[rgba(245,215,142,0.15)] overflow-hidden mb-8"
         >
-          {/* Glow */}
+          {/* Top gold line */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#8B6914] via-[#D4A843] to-[#F5D78E]" />
 
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#D4A843]/10 flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-[#D4A843]" />
+              <ScrollText className="w-6 h-6 text-[#D4A843]" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
@@ -59,7 +74,7 @@ export default function FeaturedJourney() {
                   {activeCollection.title}
                 </h3>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4A843]/20 text-[#D4A843] font-medium">
-                  Aktif
+                  Tersedia
                 </span>
               </div>
               <p className="text-sm text-[#C4B59A] mb-2">{activeCollection.subtitle}</p>
@@ -73,7 +88,7 @@ export default function FeaturedJourney() {
               </div>
               <button
                 onClick={() => navigateTo('timeline')}
-                className="mt-4 inline-flex items-center gap-1.5 text-sm text-[#D4A843] hover:text-[#F5D78E] transition-colors font-medium"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm text-[#D4A843] hover:text-[#F5D78E] transition-colors font-medium group"
               >
                 Jelajahi koleksi
                 <span className="group-hover:translate-x-0.5 transition-transform">→</span>
@@ -82,29 +97,45 @@ export default function FeaturedJourney() {
           </div>
         </motion.div>
 
-        {/* Coming soon collections */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {comingSoonCollections.map((col, i) => (
-            <motion.div
-              key={col.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-              className="relative p-5 rounded-xl bg-[#0F1629]/50 border border-[rgba(245,215,142,0.06)] overflow-hidden group"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <Lock className="w-3.5 h-3.5 text-[#8B8070]/50" />
-                <span className="text-[10px] text-[#8B8070]/50 font-medium uppercase tracking-wider">Segera Hadir</span>
-              </div>
-              <h4 className="font-medium text-[#C4B59A]/70 text-sm mb-1">{col.title}</h4>
-              <p className="text-xs text-[#8B8070]/50 line-clamp-2">{col.subtitle}</p>
-              <div
-                className="absolute top-0 right-0 w-16 h-16 rounded-full blur-[40px] opacity-20"
-                style={{ backgroundColor: col.coverTheme }}
-              />
-            </motion.div>
-          ))}
+        {/* Coming soon collections — professional empty states */}
+        <div className="space-y-3">
+          {comingSoonCollections.map((col, i) => {
+            const emptyMsg = emptyStateMessages[col.id] || {
+              message: 'Koleksi ini sedang dalam proses kajian dan penyusunan.',
+              detail: 'Kami memilih menghadirkan materi secara bertahap agar setiap kisah dapat ditinjau dengan lebih baik sebelum dipublikasikan.',
+            };
+
+            return (
+              <motion.div
+                key={col.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+                className="relative p-5 sm:p-6 rounded-xl bg-[#0F1629]/40 border border-[rgba(245,215,142,0.04)]"
+              >
+                <div className="flex items-start gap-3">
+                  {/* Subtle collection icon */}
+                  <div
+                    className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${col.coverTheme}10` }}
+                  >
+                    <BookOpen className="w-4 h-4" style={{ color: `${col.coverTheme}80` }} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-[#C4B59A]/80 text-sm mb-0.5">{col.title}</h4>
+                    <p className="text-xs text-[#8B8070]/50 mb-3">{col.subtitle}</p>
+                    <p className="text-xs text-[#8B8070]/70 leading-relaxed">
+                      {emptyMsg.message}
+                    </p>
+                    <p className="text-xs text-[#8B8070]/40 leading-relaxed mt-1">
+                      {emptyMsg.detail}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
