@@ -48,3 +48,25 @@ Stage Summary:
 - Writing format locked: Opening → Story → Reflection → Continue
 - This format scales to any collection (Sahabat, Para Nabi, Peradaban Islam)
 - The "soul" of the platform is the journey, not the features
+---
+Task ID: 1
+Agent: Main Agent
+Task: Replace Bab 1 story content with user's final clean version
+
+Work Log:
+- Read current content.ts, StoryContent.tsx, StoryReader.tsx, globals.css
+- Located Bab 1 story content (lines 300-378 in old content.ts)
+- Replaced entire Bab 1 story with user's final clean version
+- Converted ✦ ✦ ✦ scene breaks to ◆ (system marker)
+- Added ⟩ reflection marker before "Di balik setiap kegelapan..." section
+- Updated subtitle from "Sebelum cahaya Islam menyinari dunia" to "Sebelum Cahaya Menyinari Dunia"
+- Verified Next.js build compiles successfully (64 static pages generated)
+- Confirmed Narrative Bible already at v1.2 with AUTHENTIC ISLAMIC VOICE + CONTENT LAYERS
+
+Stage Summary:
+- Bab 1 story content fully replaced with final clean version
+- 11 scene breaks (◆) placed at each major transition
+- Reflection section starts at "Di balik setiap kegelapan..." with ⟩ marker
+- Closing punchline "Kota itu bernama Makkah." auto-detected (≤120 chars)
+- Build passes, no errors
+- Subtitle updated to match final version

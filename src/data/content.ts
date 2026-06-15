@@ -293,87 +293,427 @@ export const events: StoryEvent[] = [
     journeyId: 'fase-0',
     collectionId: 'perjalanan-rasulullah',
     title: 'Jazirah Arab Sebelum Islam',
-    subtitle: 'Sebelum cahaya Islam menyinari dunia',
+    subtitle: 'Sebelum Cahaya Menyinari Dunia',
     year: 'Sebelum 570 M',
     yearNum: -570,
     description: 'Geografi, gurun, kafilah, dan kehidupan Arab sebelum Islam.',
-    story: `Angin padang pasir berhembus kencang membawa butiran debu merah ke cakrawala barat. Matahari seolah tergantung rendah di atas hamparan pasir yang tak berujung, memancarkan cahaya keemasan yang menyengat kulit.
+    story: `Matahari belum lama terbit.
 
-Tidak ada bangunan tinggi yang meneduhi. Tidak ada sungai yang mengalir. Hanya pasir, batu, dan langit yang membentang seluas mata memandang.
+Namun panasnya sudah terasa membakar kulit.
 
-Ini bukan tanah yang menyambut. Ini adalah tanah yang menguji.
+Seorang pengelana berjalan sendirian di tengah gurun.
 
-Di selatan, gurun Rub' al-Khali — Padang Kosong — membentang begitu luas sehingga tidak ada kafilah yang berani menembusnya tanpa pemandu yang hafal setiap bintang di langit malam. Pasirnya begitu halus dan dalam, seekor unta bisa tenggelam hingga lutut hanya dengan berdiam diri.
+Langkahnya pelan.
 
-Angin di sini bukan sekadar berhembus — angin menyanyikan nyanyian sendu yang bergema di antara bukit-bukit pasir, seolah tanah ini menangis minta disentuh oleh sesuatu yang lebih besar dari kehidupan yang selama ini dikenalnya.
+Air yang dibawanya tidak banyak.
 
-Di utara, gurun An-Nafud membentang dengan warna yang berbeda — pasir kemerahan yang menyala di bawah sinar matahari, bagaikan lautan api yang membeku.
+Ia tidak tahu berapa lama lagi perjalanan ini akan berlangsung.
 
-Di antara dua gurun besar ini, terbentang dataran tinggi Najd — wilayah padang rumput kering yang menjadi batas antara kehidupan dan kesunyian total.
+Yang ia tahu hanya satu.
 
-Jazirah Arab — sepotong tanah yang terletak di persimpangan tiga benua: Asia di timur, Afrika di barat, dan Eropa di utara yang menyeberangi lautan Mediterania.
+Ia harus terus berjalan.
 
-Posisi ini bukan kebetulan. Tanah ini terletak di jalur perdagangan kuno yang menghubungkan kerajaan-kerajaan di selatan dengan peradaban-peradaban besar di utara.
+Di hadapannya terbentang hamparan pasir yang seolah tidak memiliki ujung.
 
-Dari kejauhan, titik-titik hitam bergerak perlahan di bawah matahari. Semakin dekat, titik-titik itu berubah menjadi unta-unta yang berjalan beriringan, langkahnya mantap di atas pasir yang telah diinjak ribuan kaki sebelumnya. Di punggung mereka tergantung karung-karung berisi kemenyan, rempah-rempah, kain, dan barang-barang berharga dari selatan.
+Tidak ada pohon yang bisa dijadikan tempat berteduh.
 
-Mereka adalah kafilah dagang — urat nadi yang menghidupkan Jazirah Arab.
+Tidak ada sungai yang bisa menghilangkan dahaga.
 
-Rute perjalanan ini telah ada ratusan tahun. Jejak-jejak unta yang terbentuk di atas pasir menjadi jalan yang dikenal oleh setiap pedagang, dari generasi ke generasi. Kafilah-kafilah ini bukan sekadar barisan unta yang membawa barang dagangan. Mereka adalah kehidupan yang bergerak — puluhan bahkan ratusan ekor unta berjalan dalam barisan panjang, diiringi oleh pedagang, pemandu jalan, dan penjaga yang siap melindungi muatan berharga dari perampok gurun.
+Tidak ada rumah yang dapat diketuk ketika malam tiba.
 
-Perjalanan satu kafilah dari selatan ke utara bisa memakan waktu berminggu-minggu. Setiap oase menjadi tempat berhenti yang dinanti — titik-titik hijau di tengah lautan pasir yang menyediakan air, naungan, dan tempat berteduh.
+Hanya gurun.
 
-Tanpa oase, tidak ada kafilah yang bisa bertahan. Tanpa kafilah, tidak ada perdagangan. Tanpa perdagangan, tidak ada kehidupan.
+Dan gurun tidak pernah peduli siapa yang melintasinya.
 
-◆
+Angin berembus membawa pasir.
 
-Jika seorang Arab ditanya siapa dirinya, ia tidak akan menyebut pekerjaannya. Ia tidak akan menyebut kekayaannya. Ia akan menyebut sukunya.
+Matahari terus naik.
 
-Karena di tanah ini, suku bukan sekadar kelompok. Suku adalah perlindungan. Suku adalah keluarga. Suku adalah identitas.
+Sementara kantung airnya semakin ringan.
 
-Setiap suku memiliki wilayah penggembalaan sendiri, sumur air sendiri, dan aturan sendiri. Kesetiaan kepada suku adalah segalanya — lebih penting daripada harta, lebih penting daripada nyawa. Seorang Arab tidak pernah berdiri sendiri. Ia berdiri sebagai bagian dari sukunya, dan sukunya berdiri karena kesetiaan setiap anggotanya.
+Di tanah seperti ini, satu kesalahan kecil dapat mengakhiri sebuah perjalanan.
 
-Suku-suku Badui yang mengembara di gurun hidup dari menggembala unta dan kambing. Mereka berpindah-pindah mengikuti sumber air dan padang rumput, mendirikan kemah-kemah dari kain bulu unta yang melindungi dari terik matahari dan dinginnya malam gurun.
+Karena itulah orang-orang Arab belajar memahami gurun sejak kecil.
 
-Kehidupan mereka keras — air langka, makanan sederhana, dan ancaman serangan dari suku lain selalu mengintai.
+Mereka mengenal arah angin.
 
-Namun dari kekerasan ini tumbuh ketangguhan yang luar biasa. Orang-orang gurun menghafal ribuan baris puisi, mengenal setiap bintang di langit sebagai penunjuk arah, dan menjaga kehormatan tamu dengan nyawa mereka sendiri.
+Mereka membaca bintang-bintang.
 
-Di luar kehidupan gurun, ada kota-kota yang tumbuh di sepanjang jalur perdagangan. Makkah, Thaif, Yatsrib, dan lainnya menjadi pusat-pusat kehidupan yang lebih menetap. Di kota-kota inilah perdagangan berkembang, suku-suku berjumpa, dan pengaruh-pengaruh dari peradaban luar mulai terasa.
+Mereka menghafal letak sumur dan oase.
 
-Namun kehidupan kota pun tidak lepas dari norma-norma suku. Kekuasaan berada di tangan mereka yang mampu memimpin, melindungi, dan memenuhi janji. Perdamaian antarsuku hanya bertahan selama kesepakatan dihormati.
+Mereka tahu kapan harus berjalan.
 
-Dan kesepakatan bisa rusak kapan saja — karena satu penghinaan, satu pertumpahan darah, atau satu perebutan air.
+Dan kapan harus berhenti.
 
-◆
+Hidup di Jazirah Arab bukan sekadar bertahan hidup.
 
-Di sini, tidak ada hakim. Yang ada hanya tangan yang lebih kuat.
-
-Yang kuat menang, yang lemah tertindas. Perbudakan dipraktikkan secara luas — tawanan perang menjadi budak, dan budak tidak memiliki hak apa pun. Perempuan sering kali diperlakukan seperti harta benda.
-
-Bayi perempuan bahkan bisa dikubur hidup-hidup oleh ayahnya yang merasa malu — sebuah kebiasaan kejam yang dilakukan oleh sebagian suku demi menjaga kehormatan dan menghindari kemiskinan.
-
-Hampir tidak ada orang yang bisa membaca. Pengetahuan berpindah dari mulut ke mulut — puisi, silsilah, dan cerita-cerita leluhur dihafalkan, bukan ditulis.
-
-Namun dari tradisi lisan ini lahir kebanggaan tertinggi orang Arab: bahasa. Seorang penyair yang mampu menyusun kata-kata indah dihormati melebihi seorang pejuang, dan puisi-puisi yang dilisankan di pasar-pasar menjadi semacam arsip budaya yang hidup.
-
-Di dalam dan sekeliling Ka'bah di Makkah berdiri ratusan patung yang mewakili dewa-dewi yang disembah oleh berbagai suku. Yang paling dihormati adalah Hubal — patung dewa yang berdiri di dalam Ka'bah sendiri. Tujuh panah nasib diletakkan di hadapannya, dan setiap keputusan penting — perang, pernikahan, perjalanan — diagunkan kepada panah-panah itu.
-
-Di samping penyembahan berhala, ada pula sekelompok kecil orang — disebut Hanif — yang menolak menyembah patung-patung itu dan mencari agama nenek moyang mereka, agama Ibrahim.
-
-Keadilan adalah sesuatu yang langka. Tidak ada pengadilan yang berlaku untuk semua suku. Tidak ada hukum tertulis yang melindungi yang lemah. Yang ada hanya hukum balas dendam — nyawa dibalas nyawa, darah dibalas darah.
-
-Perang antarsuku bisa berlangsung bertahun-tahun hanya karena satu insiden yang melibatkan dua orang. Perang Bashus, misalnya, berlangsung selama empat puluh tahun antara suku Taghlib dan suku Bakr — semuanya bermula dari seekor unta.
-
-Inilah dunia sebelum Islam.
-
-Di tanah seperti ini, yang kuat bertahan. Yang lemah sering kali terlupakan. Seorang budak nyaris tidak memiliki harapan. Dan seorang bayi perempuan tidak selalu diberi kesempatan melihat hari esok.
+Hidup di Jazirah Arab adalah ujian yang harus dihadapi setiap hari.
 
 ◆
 
-Namun di balik kegelapan ini, tanah ini menyimpan sesuatu — sebuah bangunan kubus tua yang masih berdiri di lembah gersang, seperti janji yang belum terpenuhi, seperti cahaya yang belum dinyalakan.
+Namun tanah yang keras tidak selalu menjadi tanah yang mati.
 
-⟩ Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala. Jazirah Arab bukan sekadar tanah kosong — ia adalah panggung yang sudah disiapkan. Dan di atas panggung ini, sebentar lagi, sebuah peristiwa akan terjadi yang mengubah segalanya. Bukan karena tanahnya berubah. Bukan karena orang-orangnya berubah. Tapi karena seseorang akan datang — membawa sesuatu yang belum pernah dilihat oleh mata, belum pernah didengar oleh telinga, dan belum pernah dirasakan oleh hati penduduk gurun ini.
+Dari kejauhan tampak titik-titik kecil bergerak di atas gurun.
+
+Sedikit demi sedikit bentuknya menjadi jelas.
+
+Unta.
+
+Puluhan ekor.
+
+Berjalan dalam satu barisan panjang.
+
+Di punggung mereka tergantung berbagai barang dagangan.
+
+Kemenyan.
+
+Rempah-rempah.
+
+Kulit.
+
+Kain.
+
+Dan berbagai barang berharga lainnya.
+
+Mereka adalah kafilah dagang.
+
+Urat nadi yang menghidupkan Jazirah Arab.
+
+Setiap tahun, jalur-jalur gurun dilalui oleh para pedagang yang datang dari berbagai arah.
+
+Dari Yaman di selatan.
+
+Menuju Syam di utara.
+
+Perjalanan itu tidak mudah.
+
+Panas membakar di siang hari.
+
+Dingin menusuk di malam hari.
+
+Badai pasir dapat datang tanpa peringatan.
+
+Dan perampok selalu mengintai kesempatan.
+
+Tetapi mereka tetap berjalan.
+
+Karena jalur perdagangan inilah yang menghubungkan berbagai negeri.
+
+Dan Jazirah Arab berada tepat di tengah jalur itu.
+
+◆
+
+Meski menjadi persimpangan perdagangan yang penting, Jazirah Arab tidak dipimpin oleh satu raja yang menguasai seluruh wilayahnya.
+
+Yang ada adalah suku-suku.
+
+Dan bagi orang Arab saat itu, suku adalah segalanya.
+
+Suku adalah keluarga.
+
+Suku adalah perlindungan.
+
+Suku adalah kehormatan.
+
+Jika seseorang kehilangan sukunya, ia kehilangan hampir seluruh tempat berpijaknya di dunia.
+
+Karena itu kesetiaan kepada suku dijaga dengan sangat kuat.
+
+Terkadang lebih kuat daripada rasa keadilan itu sendiri.
+
+Seorang Arab tidak berdiri sendirian.
+
+Ia berdiri bersama kaumnya.
+
+Dan kaumnya berdiri bersamanya.
+
+Begitulah dunia mereka berjalan.
+
+◆
+
+Sebagian orang Arab hidup berpindah-pindah mengikuti air dan padang rumput.
+
+Mereka dikenal sebagai kaum Badui.
+
+Hari ini mereka mendirikan kemah.
+
+Beberapa waktu kemudian mereka membongkarnya kembali.
+
+Lalu berjalan ke tempat lain.
+
+Mencari kehidupan.
+
+Mencari air.
+
+Mencari tempat bagi ternak mereka untuk bertahan hidup.
+
+Gurun mengajarkan banyak hal kepada mereka.
+
+Kesabaran.
+
+Keberanian.
+
+Ketangguhan.
+
+Tetapi gurun juga mengajarkan bahwa kehidupan tidak selalu berpihak kepada yang lemah.
+
+◆
+
+Di banyak tempat di Jazirah Arab, tidak ada hukum yang berlaku untuk semua orang.
+
+Tidak ada pengadilan yang melindungi setiap manusia.
+
+Kekuatan sering kali menjadi penentu.
+
+Siapa yang kuat akan dihormati.
+
+Siapa yang lemah sering kali harus menerima nasibnya.
+
+Tawanan perang dapat dijadikan budak.
+
+Orang miskin tidak selalu memiliki seseorang yang membela mereka.
+
+Dan pertikaian antarsuku dapat berlangsung sangat lama.
+
+Kadang karena persoalan besar.
+
+Kadang karena sesuatu yang tampak kecil.
+
+Perang Bashus adalah salah satunya.
+
+Perang itu berlangsung selama empat puluh tahun.
+
+Karena seekor unta.
+
+◆
+
+Namun dunia ini tidak hanya berisi kegelapan.
+
+Orang-orang Arab dikenal karena keberanian mereka menjaga kehormatan.
+
+Mereka menghormati tamu.
+
+Menepati janji.
+
+Menghafal silsilah keluarga mereka hingga beberapa generasi ke atas.
+
+Mereka juga mencintai syair.
+
+Di pasar-pasar besar, para penyair berdiri membacakan bait-bait terbaik mereka.
+
+Orang-orang berkumpul.
+
+Mendengarkan.
+
+Menghafal.
+
+Lalu menceritakannya kembali kepada yang lain.
+
+Bagi mereka, kata-kata memiliki nilai yang sangat tinggi.
+
+Kadang lebih berharga daripada pedang.
+
+◆
+
+Tetapi di balik semua itu, ada sesuatu yang perlahan berubah.
+
+Generasi demi generasi.
+
+Warisan para nabi mulai dilupakan.
+
+Sebagian besar manusia tidak lagi menyembah Allah Subhanahu wa Ta'ala semata.
+
+Berhala-berhala mulai memenuhi kehidupan mereka.
+
+Patung-patung diagungkan.
+
+Doa dipanjatkan kepada selain Allah.
+
+Dan kebiasaan yang dahulu dianggap asing mulai menjadi sesuatu yang biasa.
+
+Dunia terus berjalan.
+
+Namun arah yang dahulu dikenal perlahan menghilang.
+
+◆
+
+Di antara kota-kota yang tersebar di Jazirah Arab, ada satu kota yang berbeda.
+
+Kota itu tidak memiliki sungai besar.
+
+Tidak memiliki tanah yang subur.
+
+Tidak pula memiliki kerajaan yang menguasai wilayah-wilayah di sekitarnya.
+
+Namun manusia terus berdatangan ke sana.
+
+Dari utara.
+
+Dari selatan.
+
+Dari timur.
+
+Dari barat.
+
+Tahun demi tahun.
+
+Generasi demi generasi.
+
+Mereka datang membawa barang dagangan.
+
+Mereka datang untuk bertemu kabilah-kabilah lain.
+
+Dan mereka datang untuk mengunjungi sebuah bangunan yang telah dikenal jauh sebelum mereka dilahirkan.
+
+◆
+
+Bangunan itu tidak menjulang tinggi.
+
+Tidak dibangun dari emas.
+
+Tidak pula dikelilingi istana-istana megah.
+
+Namun kedudukannya begitu istimewa di hati masyarakat Arab.
+
+Bangunan itu adalah Ka'bah.
+
+Menurut riwayat yang diwariskan turun-temurun, Ka'bah dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.
+
+Bukan untuk berhala.
+
+Bukan untuk patung.
+
+Tetapi sebagai tempat beribadah kepada Allah Subhanahu wa Ta'ala.
+
+Waktu berlalu.
+
+Generasi berganti.
+
+Berabad-abad pun terlewati.
+
+Namun manusia tidak selalu menjaga apa yang diwariskan kepada mereka.
+
+Dan sedikit demi sedikit, berhala mulai mengambil tempat yang seharusnya tidak mereka miliki.
+
+◆
+
+Orang-orang datang membawa harapan.
+
+Membawa doa.
+
+Membawa persembahan.
+
+Sebagian memang datang untuk mengagungkan Allah.
+
+Tetapi sebagian yang lain datang untuk sesuatu yang berbeda.
+
+Mereka meletakkan doa mereka di hadapan patung-patung batu.
+
+Mereka meminta kepada sesuatu yang tidak bisa mendengar.
+
+Mereka berharap kepada sesuatu yang tidak bisa menjawab.
+
+Ka'bah masih berdiri di tengah semua itu.
+
+Seperti aslinya.
+
+Seperti tujuan awalnya.
+
+Tapi yang mengelilinginya sudah bukan lagi yang seharusnya ada di sana.
+
+◆
+
+Meski demikian, tidak semua orang melupakan kebenaran.
+
+Di tengah masyarakat yang dipenuhi berhala, masih ada segelintir orang yang menolak menyembah selain Allah Subhanahu wa Ta'ala.
+
+Mereka dikenal sebagai kaum Hanif.
+
+Jumlah mereka tidak banyak.
+
+Mereka tidak memiliki kekuasaan.
+
+Mereka juga tidak memiliki pengaruh yang besar.
+
+Tetapi mereka tetap mencari agama Nabi Ibrahim عليه السلام.
+
+Mereka percaya bahwa kebenaran masih ada.
+
+Meski saat itu terasa begitu jauh.
+
+Seperti cahaya kecil yang hampir tidak terlihat di tengah malam yang gelap.
+
+◆
+
+Begitulah Jazirah Arab sebelum Islam.
+
+Tanah yang keras.
+
+Manusia-manusia yang tangguh.
+
+Jalur perdagangan yang ramai.
+
+Suku-suku yang menjaga kehormatan mereka dengan sepenuh hati.
+
+Namun di balik semua itu, ada sesuatu yang hilang.
+
+Manusia masih mencari arah.
+
+Mereka mengenal keberanian.
+
+Tetapi belum mengenal belas kasih sebagaimana mestinya.
+
+Mereka mengenal kesetiaan.
+
+Tetapi sering kali melupakan keadilan.
+
+Mereka mengenal kemuliaan.
+
+Tetapi juga membiarkan berbagai bentuk kezaliman tumbuh di tengah kehidupan mereka.
+
+Dunia terus berjalan.
+
+Hari berganti hari.
+
+Tahun berganti tahun.
+
+Tidak ada yang tampak berbeda.
+
+Tidak ada yang tampak luar biasa.
+
+Namun sering kali, perubahan terbesar datang ketika tidak ada seorang pun yang menduganya.
+
+⟩ Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala.
+
+Jazirah Arab bukan sekadar hamparan gurun.
+
+Bukan sekadar jalur perdagangan.
+
+Bukan sekadar tempat berbagai suku mempertahankan kehormatan mereka.
+
+Tanah ini sedang dipersiapkan.
+
+Seperti sebuah panggung yang menunggu tirainya dibuka.
+
+Dan di atas panggung itu, sebentar lagi, sebuah peristiwa akan terjadi.
+
+Peristiwa yang tidak mengubah bentuk gurunnya.
+
+Tidak mengubah gunung-gunungnya.
+
+Tidak mengubah langit yang menaunginya.
+
+Tetapi akan mengubah manusia yang hidup di bawahnya.
+
+Karena seseorang akan datang.
+
+Membawa petunjuk setelah kebingungan.
+
+Membawa cahaya setelah kegelapan.
+
+Membawa rahmat setelah begitu banyak luka yang diwariskan dari generasi ke generasi.
+
+Dan semuanya akan bermula dari sebuah kota kecil di tengah gurun.
 
 Kota itu bernama Makkah.`,
     featured: false,
