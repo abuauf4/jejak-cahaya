@@ -6,8 +6,7 @@ import { useNavigation } from '@/lib/store';
 import Navigation from '@/components/jejak/Navigation';
 import Hero from '@/components/jejak/Hero';
 import ContinueJourney from '@/components/jejak/ContinueJourney';
-import MainTimeline from '@/components/jejak/MainTimeline';
-import InteractiveTimeline from '@/components/jejak/InteractiveTimeline';
+import JourneyFeed from '@/components/jejak/JourneyFeed';
 import StoryReader from '@/components/jejak/StoryReader';
 import CharacterEncyclopedia from '@/components/jejak/CharacterEncyclopedia';
 import LocationExplorer from '@/components/jejak/LocationExplorer';
@@ -15,10 +14,12 @@ import SearchSystem from '@/components/jejak/SearchSystem';
 import Footer from '@/components/jejak/Footer';
 
 const pageVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+  initial: { opacity: 0, y: 8 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
 };
+
+const pageTransition = { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const };
 
 export default function Home() {
   const { currentView, theme } = useNavigation();
@@ -42,9 +43,11 @@ export default function Home() {
   }, [isLight]);
 
   return (
-    <div className={`min-h-screen flex flex-col reader-transition ${
-      isLight ? 'bg-[#FBF8F1]' : 'bg-[#080B16]'
-    }`}>
+    <div
+      className={`min-h-screen flex flex-col reader-transition ${
+        isLight ? 'bg-[#FBF8F1]' : 'bg-[#080B16]'
+      }`}
+    >
       <Navigation />
 
       <main className="flex-1">
@@ -56,11 +59,11 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.3 }}
+              transition={pageTransition}
             >
               <Hero />
               <ContinueJourney />
-              <MainTimeline />
+              <JourneyFeed />
             </motion.div>
           )}
 
@@ -71,9 +74,9 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.3 }}
+              transition={pageTransition}
             >
-              <InteractiveTimeline />
+              <JourneyFeed standalone />
             </motion.div>
           )}
 
@@ -84,7 +87,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.3 }}
+              transition={pageTransition}
             >
               <StoryReader />
             </motion.div>
@@ -97,7 +100,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.3 }}
+              transition={pageTransition}
             >
               <CharacterEncyclopedia />
             </motion.div>
@@ -110,7 +113,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.3 }}
+              transition={pageTransition}
             >
               <LocationExplorer />
             </motion.div>
@@ -123,7 +126,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.3 }}
+              transition={pageTransition}
             >
               <SearchSystem />
             </motion.div>

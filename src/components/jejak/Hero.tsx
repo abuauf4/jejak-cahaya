@@ -9,13 +9,13 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function Hero() {
@@ -25,16 +25,24 @@ export default function Hero() {
   const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
 
   return (
-    <section className={`relative flex items-center justify-center min-h-screen ${isLight ? 'bg-paper' : 'bg-navy-deep'}`}>
+    <section
+      className={`relative flex items-center justify-center h-[50vh] sm:h-[55vh] ${
+        isLight ? 'bg-paper' : 'bg-navy-deep'
+      }`}
+    >
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-2xl mx-auto px-4 sm:px-6 text-center"
+        className="max-w-2xl mx-auto px-5 sm:px-6 text-center"
       >
         {/* Logo */}
-        <motion.div variants={item} className="mb-14">
-          <span className={`font-serif-display text-base tracking-widest ${isLight ? 'text-gold' : 'text-lantern-mid'}`}>
+        <motion.div variants={item} className="mb-8">
+          <span
+            className={`font-serif-display text-sm tracking-[0.3em] ${
+              isLight ? 'text-gold' : 'text-lantern-mid'
+            }`}
+          >
             JEJAK CAHAYA
           </span>
         </motion.div>
@@ -42,18 +50,14 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={item}
-          className={`font-serif-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold leading-[1.2] mb-6 ${isLight ? 'text-ink' : 'text-cream'}`}
+          className={`font-serif-display text-2xl sm:text-3xl md:text-4xl font-bold leading-[1.25] mb-4 ${
+            isLight ? 'text-ink' : 'text-cream'
+          }`}
         >
-          Menelusuri Jejak Kehidupan Rasulullah ﷺ
+          Menelusuri Jejak Kehidupan
+          <br />
+          Rasulullah ﷺ
         </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p
-          variants={item}
-          className={`text-base sm:text-lg max-w-md mx-auto mb-14 leading-relaxed ${isLight ? 'text-ink-soft' : 'text-sand'}`}
-        >
-          Perpustakaan digital kisah Islam yang disusun berdasarkan sumber terpercaya.
-        </motion.p>
 
         {/* CTA */}
         <motion.div variants={item}>
@@ -67,10 +71,10 @@ export default function Hero() {
                 }
               }
             }}
-            className={`group inline-flex items-center gap-2.5 text-base font-medium transition-all duration-300 ${
+            className={`group inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ${
               isLight
-                ? 'text-gold hover:text-gold-soft hover:gap-3.5'
-                : 'text-lantern-mid hover:text-lantern hover:gap-3.5'
+                ? 'text-gold hover:text-gold-soft hover:gap-3'
+                : 'text-lantern-mid hover:text-lantern hover:gap-3'
             }`}
           >
             Mulai Perjalanan
