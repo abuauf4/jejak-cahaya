@@ -232,15 +232,33 @@ export default function StoryReader({ eventId: eventIdProp }: { eventId?: string
               className="mt-12"
             >
               <div className={`h-px w-16 mb-8 ${isLight ? 'bg-gold/40' : 'bg-lantern-mid/40'}`} />
-              <div className={`reader-content ${isLight ? 'text-ink-soft italic' : 'text-sand italic'}`}>
-                {displayReflection.map((paragraph, i) => (
-                  <p
-                    key={`reflection-${i}`}
-                    ref={i === displayReflection.length - 1 ? storyEndRef : undefined}
-                  >
-                    {paragraph}
-                  </p>
-                ))}
+              <div className={`reader-content text-left ${isLight ? 'text-ink-soft italic' : 'text-sand italic'}`}>
+                {displayReflection.map((paragraph, i) => {
+                  const isClosing =
+                    i === displayReflection.length - 1 &&
+                    displayReflection.length > 1 &&
+                    paragraph.length <= 120;
+
+                  if (isClosing) {
+                    return (
+                      <p
+                        key={`reflection-${i}`}
+                        ref={storyEndRef}
+                        className="reader-closing text-center not-italic font-serif-display font-bold text-xl sm:text-2xl mt-16 mb-0 text-gold dark:text-lantern-mid"
+                      >
+                        {paragraph}
+                      </p>
+                    );
+                  }
+                  return (
+                    <p
+                      key={`reflection-${i}`}
+                      ref={i === displayReflection.length - 1 && !isClosing ? storyEndRef : undefined}
+                    >
+                      {paragraph}
+                    </p>
+                  );
+                })}
               </div>
             </motion.div>
           )}

@@ -119,10 +119,26 @@ export default function StoryContent({
           {parsed.reflection.length > 0 && (
             <div className="mt-12">
               <div className="h-px w-16 mb-8 bg-gold/40 dark:bg-lantern-mid/40" />
-              <div className="reader-content text-ink-soft italic dark:text-sand italic">
-                {parsed.reflection.map((paragraph, i) => (
-                  <p key={`reflection-${i}`}>{paragraph}</p>
-                ))}
+              <div className="reader-content text-left text-ink-soft italic dark:text-sand">
+                {parsed.reflection.map((paragraph, i) => {
+                  // Last paragraph = closing punchline → render standalone
+                  const isClosing =
+                    i === parsed.reflection.length - 1 &&
+                    parsed.reflection.length > 1 &&
+                    paragraph.length <= 120;
+
+                  if (isClosing) {
+                    return (
+                      <p
+                        key={`reflection-${i}`}
+                        className="reader-closing text-center not-italic font-serif-display font-bold text-xl sm:text-2xl mt-16 mb-0 text-gold dark:text-lantern-mid"
+                      >
+                        {paragraph}
+                      </p>
+                    );
+                  }
+                  return <p key={`reflection-${i}`}>{paragraph}</p>;
+                })}
               </div>
             </div>
           )}

@@ -139,6 +139,12 @@ html { scroll-behavior: smooth; }
 .reader-content p { margin-bottom: 1.75rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
+/* Closing punchline — dramatic standalone line at end of reflection */
+.reader-closing {
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 20px rgba(212, 168, 67, 0.15);
+}
+
 .reader-transition {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
