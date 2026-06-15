@@ -307,15 +307,15 @@ Di utara, gurun An-Nafud membentang dengan warna yang berbeda — pasir kemeraha
 
 Jazirah Arab — sepotong tanah yang terletak di persimpangan tiga benua: Asia di timur, Afrika di barat, dan Eropa di utara yang menyeberangi lautan Mediterania. Posisi ini bukan kebetulan. Tanah ini terletak di jalur perdagangan kuno yang menghubungkan kerajaan-kerajaan di selatan dengan peradaban-peradaban besar di utara.
 
-Setiap tahun, kafilah-kafilah dagang melintasi gurun ini membawa kemenyan, rempah-rempah, dan emas dari Yaman di selatan menuju pasar-pasar di Syam di utara. Rute perjalanan ini telah ada ratusan tahun — jejak-jejak unta yang terbentuk di atas pasir menjadi jalan yang dikenal oleh setiap pedagang, dari generasi ke generasi.
+Dari kejauhan, titik-titik hitam bergerak perlahan di bawah matahari. Semakin dekat, titik-titik itu berubah menjadi unta-unta yang berjalan beriringan, langkahnya mantap di atas pasir yang telah diinjak ribuan kaki sebelumnya. Di punggung mereka tergantung karung-karung berisi kemenyan, rempah-rempah, kain, dan barang-barang berharga dari selatan. Mereka adalah kafilah dagang — urat nadi yang menghidupkan Jazirah Arab.
 
-Kafilah-kafilah ini bukan sekadar barisan unta yang membawa barang dagangan. Mereka adalah kehidupan yang bergerak — puluhan bahkan ratusan ekor unta berjalan dalam barisan panjang, diiringi oleh pedagang, pemandu jalan, dan penjaga yang siap melindungi muatan berharga dari perampok gurun.
+Rute perjalanan ini telah ada ratusan tahun. Jejak-jejak unta yang terbentuk di atas pasir menjadi jalan yang dikenal oleh setiap pedagang, dari generasi ke generasi. Kafilah-kafilah ini bukan sekadar barisan unta yang membawa barang dagangan. Mereka adalah kehidupan yang bergerak — puluhan bahkan ratusan ekor unta berjalan dalam barisan panjang, diiringi oleh pedagang, pemandu jalan, dan penjaga yang siap melindungi muatan berharga dari perampok gurun.
 
 Perjalanan satu kafilah dari selatan ke utara bisa memakan waktu berminggu-minggu. Setiap oase menjadi tempat berhenti yang dinanti — titik-titik hijau di tengah lautan pasir yang menyediakan air, naungan, dan tempat berteduh. Tanpa oase, tidak ada kafilah yang bisa bertahan. Tanpa kafilah, tidak ada perdagangan. Tanpa perdagangan, tidak ada kehidupan.
 
 ◆
 
-Kehidupan di Jazirah Arab berpusat pada suku. Setiap suku memiliki wilayah penggembalaan sendiri, sumur air sendiri, dan aturan sendiri. Kesetiaan kepada suku adalah segalanya — lebih penting daripada harta, lebih penting daripada nyawa. Seorang Arab tidak pernah berdiri sendiri. Ia berdiri sebagai bagian dari sukunya, dan sukunya berdiri karena kesetiaan setiap anggotanya.
+Jika seorang Arab ditanya siapa dirinya, ia tidak akan menyebut pekerjaannya. Ia tidak akan menyebut kekayaannya. Ia akan menyebut sukunya. Karena di tanah ini, suku bukan sekadar kelompok. Suku adalah perlindungan. Suku adalah keluarga. Suku adalah identitas. Setiap suku memiliki wilayah penggembalaan sendiri, sumur air sendiri, dan aturan sendiri. Kesetiaan kepada suku adalah segalanya — lebih penting daripada harta, lebih penting daripada nyawa. Seorang Arab tidak pernah berdiri sendiri. Ia berdiri sebagai bagian dari sukunya, dan sukunya berdiri karena kesetiaan setiap anggotanya.
 
 Suku-suku Badui yang mengembara di gurun hidup dari menggembala unta dan kambing. Mereka berpindah-pindah mengikuti sumber air dan padang rumput, mendirikan kemah-kemah dari kain bulu unta yang melindungi dari terik matahari dan dinginnya malam gurun. Kehidupan mereka keras — air langka, makanan sederhana, dan ancaman serangan dari suku lain selalu mengintai.
 
@@ -335,7 +335,7 @@ Di dalam dan sekeliling Ka'bah di Makkah berdiri ratusan patung yang mewakili de
 
 Keadilan adalah sesuatu yang langka. Tidak ada pengadilan yang berlaku untuk semua suku. Tidak ada hukum tertulis yang melindungi yang lemah. Yang ada hanya hukum balas dendam — nyawa dibalas nyawa, darah dibalas darah. Perang antarsuku bisa berlangsung bertahun-tahun hanya karena satu insiden yang melibatkan dua orang. Perang Bashus, misalnya, berlangsung selama empat puluh tahun antara suku Taghlib dan suku Bakr — semuanya bermula dari seekor unta.
 
-Inilah dunia sebelum Islam. Dunia yang keras, dunia yang kasar, dunia di mana kekuatan lebih berharga kasih sayang, dan di mana darah lebih mudah mengalir daripada air. Dunia di mana seorang bayi perempuan tidak selalu diberi kesempatan untuk melihat matahari terbit, dan di mana seorang budak tidak memiliki harapan untuk merasakan kebebasan.
+Inilah dunia sebelum Islam. Di tanah seperti ini, yang kuat bertahan. Yang lemah sering kali terlupakan. Seorang budak nyaris tidak memiliki harapan. Dan seorang bayi perempuan tidak selalu diberi kesempatan melihat hari esok.
 
 Namun di balik kegelapan ini, tanah ini menyimpan sesuatu — sebuah bangunan kubus tua yang masih berdiri di lembah gersang, seperti janji yang belum terpenuhi, seperti cahaya yang belum dinyalakan.
 
@@ -357,11 +357,53 @@ Kota itu bernama Makkah.`,
     year: 'Sebelum 570 M',
     yearNum: -570,
     description: 'Lokasi Makkah, posisi strategis, jalur perdagangan.',
-    story: '[Bab ini menunggu penulisan. Fokus: lokasi Makkah, posisi strategis, jalur perdagangan.]',
+    story: `Jika ada seorang pengelana yang menembus gurun dari utara menuju selatan, ia akan melewati dataran tinggi, padang pasir, dan deretan gunung batu yang membentang seperti dinding raksas. Namun di suatu titik, dinding itu terbelah. Sebuah celah sempit membuka jalan masuk ke lembah yang hampir tidak terlihat dari luar — seolah tanah ini menyembunyikan sesuatu yang tidak ingin ditemukan oleh sembarang orang.
+
+Lembah itu bernama Makkah.
+
+Dari atas bukit, Makkah tampak seperti cekungan di antara gunung-gunung batu kelabu. Tidak ada sungai yang membelahnya. Tidak danau yang memantulkan cahaya. Tanahnya kering, berbatu, dan gersang. Angin yang masuk ke lembah ini membawa debu, bukan kesegaran. Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dinding batu yang mengelilingi kota.
+
+Mengapa siapa pun mau tinggal di tempat seperti ini?
+
+◆
+
+Jawabannya ada di bawah tanah.
+
+Di suatu titik di lembah ini, air memancar dari dalam bumi — sebuah sumur yang disebut Zamzam. Di tanah yang hampir tidak mengenal hujan, keberadaan satu sumber air adalah segalanya. Zamzam bukan sekadar sumur. Zamzam adalah alasan Makkah ada. Tanpa air ini, lembah ini tidak lebih dari celah antara gunung yang tidak bernilai. Dengan air ini, lembah ini menjadi titik hidup di tengah kegersangan.
+
+Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini. Bukan karena Makkah indah, tapi karena Makkah adalah satu-satunya tempat di sepanjang rute ini yang memiliki air cukup untuk puluhan unta dan ratusan orang. Dari Yaman ke Syam, jaraknya berminggu-minggu. Makkah adalah titik di tengah jalan — tempat muatan diturunkan, unta diberi minum, dan pedagang bertemu pedagang lain.
+
+Posisi ini bukan kebetulan. Jazirah Arab terletak di persimpangan tiga benua, dan Makkah terletak di persimpangan Jazirah Arab sendiri. Dari selatan datang kemenyan dan emas. Dari utara datang kain dan gandum. Dari timur datang rempah dan minyak wangi. Dan dari barat, melintasi Laut Merah, datang pengaruh peradaban Mesir dan Abyssinia. Semuanya bertemu di pasar-pasar Makkah.
+
+◆
+
+Makkah bukan kota terbesar di Jazirah Arab. Thaif lebih hijau. Yatsrib lebih subur. Tapi Makkah memiliki sesuatu yang tidak dimiliki kota-kota lain: Ka'bah.
+
+Sebuah bangunan kubus berdiri di tengah lembah ini — bangunan tua yang usianya sudah tidak bisa diingat oleh siapa pun yang hidup saat itu. Menurut cerita yang diwariskan dari mulut ke mulut, bangunan ini dibangun oleh seorang nabi dan putranya berabad-abad yang lalu. Cerita itu mengatakan bahwa Nabi Ibrahim a.s. dan Nabi Ismail a.s. yang membangunnya, mendoakan tempat ini menjadi pusat yang dikunjungi manusia dari segala penjuru.
+
+Apakah cerita itu benar atau hanya legenda, yang pasti Ka'bah sudah berdiri di lembah ini jauh sebelum siapa pun yang hidup saat itu lahir. Dan yang pasti pula, bangunan ini menjadi alasan lain — alasan yang lebih besar daripada perdagangan — mengapa orang-orang datang ke Makkah.
+
+Setiap tahun, suku-suku dari seluruh Jazirah Arab berdatangan untuk berziarah ke Ka'bah. Mereka membawa persembahan, menyembah berhala-berhala yang mengelilinginya, dan melaksanakan ritual yang sudah menjadi tradisi turun-temurun. Di musim haji, perdagangan berhenti bersaing dengan ibadah — atau lebih tepatnya, keduanya berjalan bersamaan. Ka'bah menjadikan Makkah bukan sekadar kota pasar, tapi kota suci.
+
+◆
+
+Siapa yang mengelola kota seperti ini? Kota yang menjadi persimpangan perdagangan dan persimpangan spiritual sekaligus?
+
+Suku Quraisy.
+
+Mereka adalah penghuni Makkah yang paling berkuasa. Mereka menguasai sumur Zamzam, mengelola pasar-pasar, dan menjadi penjaga Ka'bah. Kedudukan ini bukan hanya soal kekayaan — ini soal kehormatan. Menjaga Ka'bah berarti menjadi pintu gerbang antara manusia dan tuhan-tuhan mereka. Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
+
+Dan suku Quraisy memanfaatkan posisi ini dengan cerdik. Mereka mengadakan perjanjian dengan suku-suku lain — perjanjian perdagangan yang menjamin keamanan kafilah Quraisy di jalur utara-selatan, dan perjanjian keagamaan yang menjamin bahwa bulan-bulan suci tidak akan dilanggar oleh peperangan. Dalam bulan-bulan suci itu, semua suku boleh datang ke Makkah tanpa takut diserang. Dan saat mereka datang, mereka berdagang.
+
+Agama dan perdagangan, berjalan berdampingan.
+
+Itulah Makkah. Sebuah lembah gersang yang seharusnya tidak punya alasan untuk ada — tapi hidup karena air dari bumi, emas dari kafilah, dan doa dari ribuan orang yang datang menemu bangunan kubus di tengahnya.
+
+⟩ Di tanah yang paling kering, air menembus dari bawah. Di lembah yang paling tersembunyi, kafilah menemukan jalan. Dan di bangunan yang paling tua, orang-orang mencari tuhan — meskipun mereka belum mengenal Tuhan yang sebenarnya. Makkah sudah siap. Tinggal menunggu siapa yang datang untuk mengubah segalanya.`,
     featured: false,
     characterIds: [],
     locationId: 'makkah',
-    references: [],
+    references: ['Ibnu Hisyam, As-Sirah An-Nabawiyah', 'Al-Azraqi, Akhbar Makkah', 'Al-Fasi, Shifa\' al-Gharam', 'Yaqut al-Hamawi, Mu\'jam al-Buldan'],
     order: 2,
   },
   {
