@@ -5,6 +5,7 @@
 // ══════════════════════════════════════════════════════
 
 import Link from 'next/link';
+import Image from 'next/image';
 import type { StoryEvent, Character, StoryLocation } from '@/data/content';
 
 export interface ParsedStory {
@@ -161,6 +162,21 @@ export default function StoryContent({
               </>
             )}
           </div>
+
+          {/* ─── HERO ILLUSTRATION ─── */}
+          {event.image && (
+            <div className="reader-hero-image -mx-5 sm:-mx-6 mb-8 sm:mb-10">
+              <Image
+                src={event.image}
+                alt=""
+                width={1344}
+                height={768}
+                priority
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 65ch) 100vw, 65ch"
+              />
+            </div>
+          )}
 
           {/* Title */}
           <h1 className="font-serif-display text-3xl sm:text-4xl font-bold leading-[1.15] mb-2 text-ink dark:text-cream">

@@ -47,6 +47,7 @@ export interface StoryEvent {
   yearNum: number;
   description: string;
   story: string; // konten menunggu penulisan
+  image?: string; // hero illustration path (1 per bab — captures emotion, not content)
   featured: boolean;
   characterIds: string[];
   locationId: string;
@@ -297,6 +298,7 @@ export const events: StoryEvent[] = [
     year: 'Sebelum 570 M',
     yearNum: -570,
     description: 'Geografi, gurun, kafilah, dan kehidupan Arab sebelum Islam.',
+    image: '/images/bab/bab-1-hero.png',
     story: `Matahari belum lama terbit.
 
 Namun panasnya sudah terasa membakar kulit.
@@ -747,6 +749,7 @@ Kota itu bernama Makkah.`,
     year: 'Sebelum 570 M',
     yearNum: -570,
     description: 'Lokasi Makkah, posisi strategis, jalur perdagangan.',
+    image: '/images/bab/bab-2-hero.png',
     story: `Gunung-gunung batu membentang di kedua sisi.
 
 Seolah menutup jalan.
@@ -1016,6 +1019,7 @@ Belum ada yang mengetahui apa yang sedang dipersiapkan Allah ﷻ dari kota kecil
     year: 'Zaman Dahulu',
     yearNum: -2000,
     description: 'Nabi Ibrahim عليه السلام, Nabi Ismail عليه السلام, dan Ka\'bah.',
+    image: '/images/bab/bab-3-hero.png',
     story: `Di tengah lembah itu, pandangan manusia selalu kembali ke tempat yang sama.
 
 Tidak peduli dari arah mana mereka datang.
