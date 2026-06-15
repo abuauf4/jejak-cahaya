@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { journeys } from '@/data/content';
-import FasePageClient from './FasePageClient';
+import FasePageShell from './FasePageShell';
+import JourneyFeed from '@/components/jejak/JourneyFeed';
 
 interface FasePageProps {
   params: Promise<{ id: string }>;
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: FasePageProps): Promise<Metad
 
 export async function generateStaticParams() {
   return journeys.map((journey) => ({
-    id: journey.id.replace('fase-', ''),
+    id: journey.id === 'penutup' ? 'penutup' : journey.id.replace('fase-', ''),
   }));
 }
 
@@ -43,5 +44,9 @@ export default async function FasePage({ params }: FasePageProps) {
   const journey = journeys.find((j) => j.id === journeyId);
   if (!journey) notFound();
 
-  return <FasePageClient journeyId={journey.id} />;
+  return (
+    <FasePageShell journeyId={journey.id}>
+      <JourneyFeed standalone highlightJourneyId={journey.id} />
+    </FasePageShell>
+  );
 }

@@ -1,7 +1,15 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { events } from '@/data/content';
-import BabPageClient from './BabPageClient';
+import {
+  events,
+  getCharactersByEvent,
+  getLocationById,
+  getActiveCollection,
+  getJourneysByCollection,
+  getEventsByJourney,
+} from '@/data/content';
+import StoryContent from '@/components/jejak/StoryContent';
+import BabPageShell from './BabPageShell';
 
 interface BabPageProps {
   params: Promise<{ id: string }>;
@@ -41,5 +49,29 @@ export default async function BabPage({ params }: BabPageProps) {
   const event = events.find((e) => e.id === `bab-${id}`);
   if (!event) notFound();
 
-  return <BabPageClient eventId={event.id} />;
+  // Pre-compute ALL data on the server — no client-side fetching needed
+  const characters = getCharactersByEvent(event.id);
+  const location = getLocationById(event.locationId);
+
+  const activeCollection = getActiveCollection();
+  const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
+  const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
+  const currentIndex = allEvents.findIndex((e) => e.id === event.id);
+  const prevEvent = currentIndex > 0 ? allEvents[currentIndex - 1] : null;
+  const nextEvent =
+    currentIndex >= 0 && currentIndex < allEvents.length - 1
+      ? allEvents[currentIndex + 1]
+      : null;
+
+  return (
+    <BabPageShell eventId={event.id}>
+      <StoryContent
+        event={event}
+        characters={characters}
+        location={location}
+        prevEvent={prevEvent}
+        nextEvent={nextEvent}
+      />
+    </BabPageShell>
+  );
 }
