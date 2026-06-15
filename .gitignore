@@ -56,4 +56,4 @@ server.log
 # Generated review files
 generate-*.js
 /download/*.docx
-/download/*.pdf
+/download/*.pdf.env
