@@ -169,6 +169,53 @@ html { scroll-behavior: smooth; }
   background: currentColor;
 }
 
+/* Section divider — ✦ ✦ ✦ between narrative sections */
+.reader-section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 2.5rem 0;
+  opacity: 0.25;
+  user-select: none;
+}
+.reader-section-divider-star {
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* Qur'an verse — distinct from narrative, reverent presentation */
+.reader-quran-verse {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid rgba(212, 168, 67, 0.35);
+  background: rgba(212, 168, 67, 0.04);
+  border-radius: 0 4px 4px 0;
+}
+:is(.dark) .reader-quran-verse {
+  border-left-color: rgba(212, 168, 67, 0.4);
+  background: rgba(212, 168, 67, 0.06);
+}
+.reader-quran-verse-text {
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #5A4D3E;
+}
+:is(.dark) .reader-quran-verse-text {
+  color: #D4A843;
+}
+.reader-quran-verse-ref {
+  margin-top: 0.5rem;
+  font-size: 13px;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  color: #756553;
+}
+:is(.dark) .reader-quran-verse-ref {
+  color: #8B8070;
+}
+
 .reader-transition {
   transition: background-color 0.4s ease, color 0.4s ease;
 }

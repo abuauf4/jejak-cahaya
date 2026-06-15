@@ -1235,7 +1235,7 @@ Lupa bahwa leluhur mereka berdoa bukan kepada patung.
 
 Lupa bahwa di balik setiap batu Ka'bah, ada sejarah yang lebih tua daripada semua berhala yang mereka letakkan di dalamnya.
 
-Ka'bah menunggu.
+⟩ Ka'bah menunggu.
 
 Tidak dengan suara.
 
@@ -1249,9 +1249,7 @@ Seperti kata-kata yang belum diucapkan.
 
 Seperti janji yang belum ditepati.
 
-Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memintanya dibangun.
-
-✦ ✦ ✦`,
+Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memintanya dibangun.`,
     featured: false,
     characterIds: ['ibrahim-as', 'ismail-as'],
     locationId: 'kabah',

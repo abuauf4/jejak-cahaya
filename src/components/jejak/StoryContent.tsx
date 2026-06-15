@@ -13,14 +13,27 @@ export interface ParsedStory {
   reflection: string[];
 }
 
+export interface QuranVerse {
+  text: string;
+  reference: string;
+}
+
+export interface StoryParagraph {
+  type: 'text' | 'scene-break' | 'section-divider' | 'quran-verse';
+  content: string;
+  verse?: QuranVerse; // only for quran-verse type
+}
+
 export function parseStory(storyText: string): ParsedStory {
   const paragraphs = storyText.split('\n').filter((p) => p.trim());
 
   const opening: string[] = [];
-  const story: string[] = [];
+  const story: StoryParagraph[] = [];
   const reflection: string[] = [];
 
   let section: 'opening' | 'story' | 'reflection' = 'opening';
+  let pendingVerseText: string | null = null;
+
   for (const para of paragraphs) {
     const trimmed = para.trim();
 
@@ -28,6 +41,7 @@ export function parseStory(storyText: string): ParsedStory {
       section = 'story';
     }
 
+    // ── Reflection trigger ──
     if (trimmed.startsWith('⟩') || trimmed.startsWith('→')) {
       section = 'reflection';
       reflection.push(trimmed.slice(1).trim());
@@ -39,15 +53,72 @@ export function parseStory(storyText: string): ParsedStory {
       continue;
     }
 
+    // ── Quran verse: » "text" followed by — QS reference ──
+    if (trimmed.startsWith('»')) {
+      // Extract the verse text (between » " and ")
+      const verseMatch = trimmed.match(/^»\s*"(.+?)"/);
+      if (verseMatch) {
+        pendingVerseText = verseMatch[1];
+      }
+      continue; // Don't render the » line as a paragraph
+    }
+
+    // This line might be the Quran reference (— QS ...)
+    if (pendingVerseText && trimmed.startsWith('—')) {
+      const reference = trimmed.replace(/^—\s*/, '');
+      if (section === 'opening') opening.pop(); // shouldn't happen but safety
+      if (section === 'story') {
+        story.push({
+          type: 'quran-verse',
+          content: pendingVerseText,
+          verse: { text: pendingVerseText, reference },
+        });
+      }
+      pendingVerseText = null;
+      continue;
+    }
+
+    // If we had a pending verse but next line isn't reference, flush it
+    if (pendingVerseText) {
+      story.push({
+        type: 'quran-verse',
+        content: pendingVerseText,
+        verse: { text: pendingVerseText, reference: '' },
+      });
+      pendingVerseText = null;
+    }
+
+    // ── Scene break: ◆ ──
+    if (trimmed === '◆') {
+      if (section === 'story') story.push({ type: 'scene-break', content: '' });
+      continue;
+    }
+
+    // ── Section divider: ✦ ✦ ✦ ──
+    if (trimmed === '✦ ✦ ✦' || /^✦\s+✦\s+✦$/.test(trimmed)) {
+      if (section === 'story') story.push({ type: 'section-divider', content: '' });
+      continue;
+    }
+
+    // ── Normal text ──
     if (section === 'opening') opening.push(trimmed);
-    else if (section === 'story') story.push(trimmed);
+    else if (section === 'story') story.push({ type: 'text', content: trimmed });
     else reflection.push(trimmed);
+  }
+
+  // Flush any remaining pending verse
+  if (pendingVerseText) {
+    story.push({
+      type: 'quran-verse',
+      content: pendingVerseText,
+      verse: { text: pendingVerseText, reference: '' },
+    });
   }
 
   const hasSections = opening.length > 0 && story.length > 0;
   return {
     opening: hasSections ? opening : [],
-    story: hasSections ? story : paragraphs,
+    story: hasSections ? story : paragraphs.map((p) => ({ type: 'text' as const, content: p })),
     reflection,
   };
 }
@@ -110,15 +181,40 @@ export default function StoryContent({
 
           {/* ─── STORY ─── */}
           <article className="reader-content text-ink dark:text-cream">
-            {parsed.story.map((paragraph, i) =>
-              paragraph === '◆' ? (
-                <div key={`scene-${i}`} className="reader-scene-break text-ink-soft dark:text-sand" aria-hidden="true">
-                  <span className="reader-scene-break-dot" />
-                </div>
-              ) : (
-                <p key={`story-${i}`}>{paragraph}</p>
-              )
-            )}
+            {parsed.story.map((paragraph, i) => {
+              if (paragraph.type === 'scene-break') {
+                return (
+                  <div key={`scene-${i}`} className="reader-scene-break text-ink-soft dark:text-sand" aria-hidden="true">
+                    <span className="reader-scene-break-dot" />
+                  </div>
+                );
+              }
+
+              if (paragraph.type === 'section-divider') {
+                return (
+                  <div key={`divider-${i}`} className="reader-section-divider text-ink-soft dark:text-sand" aria-hidden="true">
+                    <span className="reader-section-divider-star">✦</span>
+                    <span className="reader-section-divider-star">✦</span>
+                    <span className="reader-section-divider-star">✦</span>
+                  </div>
+                );
+              }
+
+              if (paragraph.type === 'quran-verse' && paragraph.verse) {
+                return (
+                  <div key={`verse-${i}`} className="reader-quran-verse">
+                    <div className="reader-quran-verse-text">
+                      &ldquo;{paragraph.verse.text}&rdquo;
+                    </div>
+                    {paragraph.verse.reference && (
+                      <div className="reader-quran-verse-ref">{paragraph.verse.reference}</div>
+                    )}
+                  </div>
+                );
+              }
+
+              return <p key={`story-${i}`}>{paragraph.content}</p>;
+            })}
           </article>
 
           {/* ─── REFLECTION ─── */}
