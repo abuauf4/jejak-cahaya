@@ -1,4 +1,4 @@
-# JEJAK CAHAYA™ — NARRATIVE BIBLE v1.1
+# JEJAK CAHAYA™ — NARRATIVE BIBLE v1.2
 
 > Dokumen ini adalah konstitusi penulisan Jejak Cahaya.
 > Siapa pun yang menulis, mengedit, atau mereview konten untuk Jejak Cahaya
@@ -254,6 +254,99 @@ Buat mereka melihat sendiri.
 
 ---
 
+## AUTHENTIC ISLAMIC VOICE
+
+Jejak Cahaya bukan sedang pura-pura netral.
+
+Jejak Cahaya sedang berusaha jujur terhadap sejarah yang diceritakannya.
+
+Dan sejarah itu memang sejarah Islam.
+
+### Jangan dakwah di dalam narasi.
+
+Contoh buruk:
+
+> Dan dari sini kita belajar bahwa...
+> Mari kita ambil hikmah...
+> Saudaraku...
+
+Terlalu ceramah.
+
+### Jangan sembunyikan Islam di dalam narasi.
+
+Contoh buruk:
+
+> Seorang tokoh agama datang membawa pesan spiritual.
+
+Terlalu disterilkan.
+
+### Yang benar:
+
+> Malaikat Jibril datang membawa wahyu pertama.
+>
+> "Iqra'."
+>
+> Bacalah.
+>
+> Lalu cerita berjalan.
+
+Pembaca yang merasakan sendiri.
+
+### Aturan:
+
+- Jangan menyamarkan istilah Islam.
+- Jangan mengganti istilah syar'i menjadi istilah generik.
+- Gunakan istilah yang benar dengan adab yang benar.
+- Biarkan pembaca non-Muslim mengenal Islam dari sumbernya, bukan dari versi yang sudah diencerkan.
+
+Ayat Al-Qur'an, hadits, dan istilah syar'i adalah bagian dari cerita — bukan hiasan, bukan hal yang perlu disembunyikan.
+
+Saat momen penting dalam sejarah Islam terjadi, narasi boleh berhenti sejenak dan membiarkan teks suci berbicara sendiri — dengan tipografi yang indah, bukan sebagai dekorasi, tapi sebagai bagian dari cerita.
+
+---
+
+## CONTENT LAYERS
+
+Konten Jejak Cahaya disusun dalam tiga layer:
+
+### Layer 1 — Cerita
+
+Yang dibaca semua orang.
+
+Narasi utama. Dibaca anak SMP sampai dewasa. Tanpa jargon keilmuan. Tanpa catatan kaki di tengah cerita.
+
+### Layer 2 — Referensi
+
+Di bawah cerita.
+
+Sumber utama: ayat Al-Qur'an, hadits, riwayat, kitab sejarah.
+
+Contoh:
+
+> 📖 **Referensi Utama**
+> QS Al-'Alaq 1–5
+> Shahih Bukhari no. xxx
+> Shahih Muslim no. xxx
+> Ar-Raheeq Al-Makhtum hlm. xxx
+
+### Layer 3 — Catatan Keilmuan
+
+Opsional. Untuk yang mau mendalami.
+
+Penjelasan konteks, perbedaan riwayat, pendapat ulama, catatan akademis.
+
+---
+
+**Siapa baca apa:**
+
+- Anak SMP → Layer 1
+- Mahasiswa → Layer 1 + 2
+- Ustadz / akademisi → Layer 1 + 2 + 3
+
+Semuanya dapat.
+
+---
+
 ## TARGET AKHIR
 
 Pembaca tidak merasa sedang belajar sejarah.
@@ -287,3 +380,4 @@ Pembaca merasa sedang berjalan di dalam sejarah.
 
 - **v1.0** — 2026-06-16 — Draft awal berdasarkan seluruh sesi review Bab 1
 - **v1.1** — 2026-06-16 — Tambahan: FORBIDDEN OPENING (jangan menyuruh pembaca membayangkan, buat mereka melihat sendiri)
+- **v1.2** — 2026-06-16 — Tambahan: AUTHENTIC ISLAMIC VOICE + CONTENT LAYERS (jangan dakwah, jangan sembunyikan, istilah syar'i tetap dipakai, 3 layer konten)
