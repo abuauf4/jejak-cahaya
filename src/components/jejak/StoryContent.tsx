@@ -249,7 +249,7 @@ export default function StoryContent({
                     return (
                       <p
                         key={`reflection-${i}`}
-                        className="reader-closing text-center not-italic font-serif-display font-bold text-xl sm:text-2xl mt-16 mb-0 text-gold dark:text-lantern-mid"
+                        className="reader-closing font-medium text-gold dark:text-lantern-mid mt-12 mb-0"
                       >
                         {paragraph}
                       </p>
