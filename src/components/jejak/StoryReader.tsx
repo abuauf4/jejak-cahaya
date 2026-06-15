@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, MapPin, Users, BookOpen, Calendar } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Calendar } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import {
   getEventById,
@@ -17,7 +17,6 @@ export default function StoryReader() {
   const { selectedEventId, navigateTo, readerTheme } = useNavigation();
   const { markEventRead, readEvents } = useReadingProgress();
   const [scrollProgress, setScrollProgress] = useState(0);
-  const storyRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const event = selectedEventId ? getEventById(selectedEventId) : null;
@@ -43,12 +42,11 @@ export default function StoryReader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-mark as read via IntersectionObserver
+  // Auto-mark as read
   const storyEndRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (observerRef.current) observerRef.current.disconnect();
       if (!node || !selectedEventId) return;
-
       observerRef.current = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -67,39 +65,30 @@ export default function StoryReader() {
   if (!event) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FBF8F1]">
-        <p className="text-[#6B5E4F]">Kisah tidak ditemukan</p>
+        <p className="text-[#9C8E7C] text-sm">Kisah tidak ditemukan</p>
       </div>
     );
   }
 
   const isLight = readerTheme === 'light';
-
-  // Light reading mode — warm paper (primary/default)
-  // Dark reading mode — for preference
   const bg = isLight ? '#FBF8F1' : '#1a1a1a';
   const textPrimary = isLight ? '#2C2418' : '#e0e0e0';
   const textMuted = isLight ? '#6B5E4F' : '#b0b0b0';
   const textSecondary = isLight ? '#9C8E7C' : '#909090';
-  const borderColor = isLight ? 'rgba(44, 36, 24, 0.08)' : 'rgba(255, 255, 255, 0.06)';
-  const cardBg = isLight ? 'rgba(255, 255, 255, 0.85)' : '#252525';
-  const hoverBg = isLight ? 'rgba(44, 36, 24, 0.03)' : 'rgba(255, 255, 255, 0.05)';
+  const separator = isLight ? 'rgba(44, 36, 24, 0.06)' : 'rgba(255, 255, 255, 0.05)';
 
-  // Parse story into paragraphs
   const paragraphs = event.story.split('\n').filter((p) => p.trim());
 
   return (
-    <div
-      className="min-h-screen reader-transition"
-      style={{ backgroundColor: bg }}
-    >
-      {/* Reading progress bar — thin & subtle */}
+    <div className="min-h-screen reader-transition" style={{ backgroundColor: bg }}>
+      {/* Progress bar — thin & subtle */}
       <div
-        className="fixed top-14 sm:top-16 left-0 right-0 z-40 h-[2px]"
-        style={{ backgroundColor: isLight ? 'rgba(44, 36, 24, 0.04)' : 'rgba(255, 255, 255, 0.04)' }}
+        className="fixed top-12 sm:top-14 left-0 right-0 z-40 h-[2px]"
+        style={{ backgroundColor: isLight ? 'rgba(44, 36, 24, 0.03)' : 'rgba(255, 255, 255, 0.03)' }}
       >
         <motion.div
           className="h-full"
-          style={{ backgroundColor: isLight ? 'rgba(212, 168, 67, 0.4)' : 'rgba(245, 215, 142, 0.35)' }}
+          style={{ backgroundColor: isLight ? 'rgba(212, 168, 67, 0.3)' : 'rgba(245, 215, 142, 0.25)' }}
           initial={{ width: 0 }}
           animate={{ width: `${scrollProgress}%` }}
           transition={{ duration: 0.1 }}
@@ -107,69 +96,60 @@ export default function StoryReader() {
       </div>
 
       {/* Reading content */}
-      <div className="pt-24 sm:pt-28 pb-20 px-4 sm:px-6">
+      <div className="pt-20 sm:pt-24 pb-20 px-4 sm:px-6">
         <div className="max-w-[65ch] mx-auto">
-          {/* Header — title & metadata */}
-          <motion.header
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-12 sm:mb-16"
+          {/* Meta — year & location */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="mb-8 flex items-center gap-3 text-xs"
+            style={{ color: textSecondary }}
           >
-            {/* Year & location badges */}
-            <div className="flex items-center gap-2 mb-5">
-              <span
-                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full"
-                style={{
-                  backgroundColor: isLight ? 'rgba(212, 168, 67, 0.1)' : 'rgba(245, 215, 142, 0.1)',
-                  color: isLight ? '#8B6914' : '#F5D78E',
-                }}
-              >
-                <Calendar className="w-3 h-3" />
-                {event.year}
-              </span>
-              {location && (
+            <span className="flex items-center gap-1">
+              <Calendar className="w-3 h-3" />
+              {event.year}
+            </span>
+            {location && (
+              <>
+                <span style={{ color: separator }}>·</span>
                 <button
                   onClick={() => navigateTo('location', event.locationId)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full transition-colors"
-                  style={{
-                    backgroundColor: isLight ? 'rgba(44, 36, 24, 0.04)' : 'rgba(255, 255, 255, 0.06)',
-                    color: textMuted,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = isLight ? 'rgba(44, 36, 24, 0.08)' : 'rgba(255, 255, 255, 0.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = isLight ? 'rgba(44, 36, 24, 0.04)' : 'rgba(255, 255, 255, 0.06)';
-                  }}
+                  className="flex items-center gap-1 hover:underline"
+                  style={{ color: textSecondary }}
                 >
                   <MapPin className="w-3 h-3" />
                   {location.name}
                 </button>
-              )}
-            </div>
+              </>
+            )}
+          </motion.div>
 
-            {/* Title — comfortable serif */}
-            <h1
-              className="font-serif-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold leading-tight mb-3"
-              style={{ color: textPrimary }}
-            >
-              {event.title}
-            </h1>
-            <p
-              className="font-serif-display text-lg italic"
-              style={{ color: textMuted }}
-            >
-              {event.subtitle}
-            </p>
-          </motion.header>
-
-          {/* Story body — Kindle/Apple Books comfort */}
-          <motion.article
-            ref={storyRef}
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            className="font-serif-display text-3xl sm:text-4xl font-bold leading-tight mb-3"
+            style={{ color: textPrimary }}
+          >
+            {event.title}
+          </motion.h1>
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="font-serif-display text-lg italic mb-12"
+            style={{ color: textMuted }}
+          >
+            {event.subtitle}
+          </motion.p>
+
+          {/* Story body */}
+          <motion.article
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="reader-content"
             style={{ color: textPrimary }}
           >
@@ -183,176 +163,71 @@ export default function StoryReader() {
             ))}
           </motion.article>
 
-          {/* Read indicator */}
-          {readEvents.includes(event.id) && (
-            <div
-              className="mt-10 pt-6 flex items-center gap-2 text-xs"
-              style={{ borderTop: `1px solid ${borderColor}`, color: textSecondary }}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Sudah dibaca</span>
-            </div>
-          )}
-
-          {/* Related Characters */}
-          {characters.length > 0 && (
-            <div
-              className="mt-12 pt-8"
-              style={{ borderTop: `1px solid ${borderColor}` }}
-            >
-              <h3 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: textMuted }}>
-                <Users className="w-4 h-4" />
-                Tokoh dalam Kisah Ini
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {characters.map((char) => (
-                  <button
-                    key={char.id}
-                    onClick={() => navigateTo('character', char.id)}
-                    className="text-left p-4 rounded-xl border transition-colors"
-                    style={{
-                      backgroundColor: cardBg,
-                      borderColor: borderColor,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = hoverBg;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = cardBg;
-                    }}
-                  >
-                    <h4 className="font-serif-display font-bold text-sm mb-1" style={{ color: textPrimary }}>
+          {/* After story — minimal info */}
+          <div className="mt-16 space-y-6">
+            {/* Characters — simple list, not cards */}
+            {characters.length > 0 && (
+              <div className="pt-6" style={{ borderTop: `1px solid ${separator}` }}>
+                <span className="text-xs" style={{ color: textSecondary }}>Tokoh</span>
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                  {characters.map((char) => (
+                    <button
+                      key={char.id}
+                      onClick={() => navigateTo('character', char.id)}
+                      className="text-sm hover:underline"
+                      style={{ color: textMuted }}
+                    >
                       {char.name}
-                    </h4>
-                    <p className="text-xs" style={{ color: textSecondary }}>{char.title}</p>
-                    <p className="text-xs mt-2 line-clamp-2" style={{ color: textSecondary }}>{char.shortBio}</p>
-                  </button>
-                ))}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-
-          {/* Location */}
-          {location && (
-            <div
-              className="mt-8 pt-8"
-              style={{ borderTop: `1px solid ${borderColor}` }}
-            >
-              <h3 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: textMuted }}>
-                <MapPin className="w-4 h-4" />
-                Lokasi
-              </h3>
-              <button
-                onClick={() => navigateTo('location', location.id)}
-                className="text-left p-4 rounded-xl border w-full transition-colors"
-                style={{
-                  backgroundColor: cardBg,
-                  borderColor: borderColor,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = cardBg;
-                }}
-              >
-                <h4 className="font-serif-display font-bold text-sm mb-1" style={{ color: textPrimary }}>
-                  {location.name}
-                </h4>
-                <p className="text-xs" style={{ color: textSecondary }}>{location.description}</p>
-                <p className="text-[10px] mt-2" style={{ color: textSecondary }}>{location.coordinates}</p>
-              </button>
-            </div>
-          )}
-
-          {/* References */}
-          {event.references.length > 0 && (
-            <div
-              className="mt-8 pt-8"
-              style={{ borderTop: `1px solid ${borderColor}` }}
-            >
-              <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: textMuted }}>
-                <BookOpen className="w-4 h-4" />
-                Referensi
-              </h3>
-              <ul className="space-y-1.5">
-                {event.references.map((ref, i) => (
-                  <li key={i} className="text-xs flex items-start gap-2" style={{ color: textSecondary }}>
-                    <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0 opacity-30" style={{ backgroundColor: textSecondary }} />
-                    {ref}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Prev/Next Navigation — emotional journey feel */}
-          <div
-            className="mt-16 pt-8 grid grid-cols-2 gap-4"
-            style={{ borderTop: `1px solid ${borderColor}` }}
-          >
-            {prevEvent ? (
-              <button
-                onClick={() => navigateTo('reader', prevEvent.id)}
-                className="text-left p-4 rounded-xl border transition-colors group"
-                style={{
-                  backgroundColor: cardBg,
-                  borderColor: borderColor,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = cardBg;
-                }}
-              >
-                <div className="flex items-center gap-1 text-xs mb-1.5" style={{ color: textSecondary }}>
-                  <ChevronLeft className="w-3 h-3" />
-                  Sebelumnya
-                </div>
-                <h4
-                  className="text-sm font-medium line-clamp-2 transition-colors"
-                  style={{ color: textPrimary }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A843'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = textPrimary; }}
-                >
-                  {prevEvent.title}
-                </h4>
-              </button>
-            ) : (
-              <div />
             )}
-            {nextEvent ? (
-              <button
-                onClick={() => navigateTo('reader', nextEvent.id)}
-                className="text-right p-4 rounded-xl border transition-colors group"
-                style={{
-                  backgroundColor: cardBg,
-                  borderColor: borderColor,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = hoverBg;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = cardBg;
-                }}
-              >
-                <div className="flex items-center justify-end gap-1 text-xs mb-1.5" style={{ color: textSecondary }}>
-                  Lanjutkan Perjalanan
-                  <ChevronRight className="w-3 h-3" />
+
+            {/* References — simple list */}
+            {event.references.length > 0 && (
+              <div className="pt-6" style={{ borderTop: `1px solid ${separator}` }}>
+                <span className="text-xs" style={{ color: textSecondary }}>Referensi</span>
+                <div className="mt-2 space-y-1">
+                  {event.references.map((ref, i) => (
+                    <p key={i} className="text-xs" style={{ color: textSecondary }}>{ref}</p>
+                  ))}
                 </div>
-                <h4
-                  className="text-sm font-medium line-clamp-2 transition-colors"
-                  style={{ color: textPrimary }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = '#D4A843'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = textPrimary; }}
-                >
-                  {nextEvent.title}
-                </h4>
-              </button>
-            ) : (
-              <div />
+              </div>
             )}
+
+            {/* Prev/Next — typographic, not cards */}
+            <div className="pt-8" style={{ borderTop: `1px solid ${separator}` }}>
+              {nextEvent ? (
+                <button
+                  onClick={() => navigateTo('reader', nextEvent.id)}
+                  className="group text-left block"
+                >
+                  <span className="text-xs" style={{ color: textSecondary }}>Selanjutnya</span>
+                  <h4 className="font-serif-display text-lg sm:text-xl font-bold mt-1 group-hover:underline" style={{ color: textPrimary }}>
+                    {nextEvent.title}
+                  </h4>
+                  <span className="text-xs mt-1 inline-flex items-center gap-1" style={{ color: textSecondary }}>
+                    {nextEvent.year}
+                    <ChevronRight className="w-3 h-3" />
+                  </span>
+                </button>
+              ) : prevEvent ? (
+                <button
+                  onClick={() => navigateTo('reader', prevEvent.id)}
+                  className="group text-left block"
+                >
+                  <span className="text-xs" style={{ color: textSecondary }}>Sebelumnya</span>
+                  <h4 className="font-serif-display text-lg sm:text-xl font-bold mt-1 group-hover:underline" style={{ color: textPrimary }}>
+                    {prevEvent.title}
+                  </h4>
+                  <span className="text-xs mt-1 inline-flex items-center gap-1" style={{ color: textSecondary }}>
+                    <ChevronLeft className="w-3 h-3" />
+                    {prevEvent.year}
+                  </span>
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>

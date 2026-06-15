@@ -1,16 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Compass } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
-import { getEventById, getActiveCollection, getJourneysByCollection, getEventsByJourney, getLocationById } from '@/data/content';
+import { getEventById, getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 
 export default function ContinueJourney() {
-  const { readEvents, getProgress, getJourneyProgress } = useReadingProgress();
+  const { readEvents, getJourneyProgress } = useReadingProgress();
   const { navigateTo } = useNavigation();
-  const progress = getProgress();
 
-  // Only show if user has started reading
   if (readEvents.length === 0) return null;
 
   const activeCollection = getActiveCollection();
@@ -18,135 +16,77 @@ export default function ContinueJourney() {
 
   const journeys = getJourneysByCollection(activeCollection.id);
 
-  // Find the last read event
-  const lastReadEventId = readEvents[readEvents.length - 1];
-  const lastEvent = lastReadEventId ? getEventById(lastReadEventId) : null;
-  if (!lastEvent) return null;
-
-  const lastLocation = getLocationById(lastEvent.locationId);
-
   // Find next event to continue to
   const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
+  const lastReadEventId = readEvents[readEvents.length - 1];
   const currentIndex = allEvents.findIndex((e) => e.id === lastReadEventId);
   const nextEvent = currentIndex >= 0 && currentIndex < allEvents.length - 1
     ? allEvents[currentIndex + 1]
     : null;
 
-  const displayEvent = nextEvent || lastEvent;
-  const isContinue = !!nextEvent;
+  const displayEvent = nextEvent || (lastReadEventId ? getEventById(lastReadEventId) : null);
+  if (!displayEvent) return null;
 
   return (
-    <section className="relative py-16 sm:py-20 bg-[#080B16]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section className="py-12 sm:py-16 bg-[#080B16]">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+        {/* Continue CTA — quiet, typographic */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative rounded-2xl bg-[#0F1629] border border-[rgba(245,215,142,0.1)] overflow-hidden"
+          transition={{ duration: 0.5 }}
         >
-          {/* Top accent line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A843] to-transparent" />
+          <div className="mb-6">
+            <span className="text-[10px] text-[#D4A843]/50 uppercase tracking-[0.2em] font-medium">
+              Perjalanan Terakhir
+            </span>
+          </div>
 
-          <div className="p-6 sm:p-8">
-            {/* Section label */}
-            <div className="flex items-center gap-2 mb-6">
-              <Compass className="w-4 h-4 text-[#D4A843]" />
-              <span className="text-sm text-[#D4A843] font-medium">Perjalanan Kamu</span>
+          <button
+            onClick={() => navigateTo('reader', displayEvent.id)}
+            className="group text-left block"
+          >
+            <h3 className="font-serif-display text-xl sm:text-2xl font-bold text-[#F0EBE0] group-hover:text-[#F5D78E] transition-colors mb-1">
+              {displayEvent.title}
+            </h3>
+            <div className="flex items-center gap-2 text-sm text-[#8B8070]">
+              <span>{displayEvent.year}</span>
+              <span className="text-[#8B8070]/30">·</span>
+              <span className="group-hover:text-[#D4A843] transition-colors inline-flex items-center gap-1">
+                {nextEvent ? 'Lanjutkan Perjalanan' : 'Baca Lagi'}
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </span>
             </div>
+          </button>
 
-            {/* Journey progress list */}
-            <div className="space-y-3 mb-8">
-              {journeys.map((journey) => {
-                const journeyEvents = getEventsByJourney(journey.id);
-                const jp = getJourneyProgress(journeyEvents.map(e => e.id));
-                const isStarted = jp.read > 0;
-                const isComplete = jp.read === jp.total && jp.total > 0;
+          {/* Journey progress — minimal */}
+          <div className="mt-8 space-y-2">
+            {journeys.map((journey) => {
+              const journeyEvents = getEventsByJourney(journey.id);
+              const jp = getJourneyProgress(journeyEvents.map(e => e.id));
+              if (jp.read === 0) return null; // hide unstarted journeys
 
-                return (
-                  <div key={journey.id} className="flex items-center gap-3 sm:gap-4">
-                    {/* Journey indicator */}
-                    <div
-                      className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
-                        isComplete
-                          ? 'bg-[#F5D78E]'
-                          : isStarted
-                            ? 'bg-[#D4A843] animate-pulse'
-                            : 'bg-[#1A2038] border border-[#8B8070]/30'
-                      }`}
+              return (
+                <div key={journey.id} className="flex items-center gap-3">
+                  <span className="text-[11px] text-[#8B8070]/40 w-32 sm:w-40 truncate flex-shrink-0">
+                    {journey.title}
+                  </span>
+                  <div className="flex-1 h-px bg-[#8B8070]/8 relative">
+                    <motion.div
+                      className="absolute left-0 top-0 h-full bg-[#D4A843]/30"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${jp.percentage}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: 'easeOut' }}
                     />
-                    {/* Journey name */}
-                    <span className={`text-sm flex-shrink-0 min-w-0 ${
-                      isComplete
-                        ? 'text-[#F5D78E] font-medium'
-                        : isStarted
-                          ? 'text-[#C4B59A] font-medium'
-                          : 'text-[#8B8070]/50'
-                    }`}>
-                      {journey.title}
-                    </span>
-                    {/* Progress bar */}
-                    <div className="flex-1 h-1.5 bg-[#1A2038] rounded-full overflow-hidden min-w-[60px]">
-                      <motion.div
-                        className={`h-full rounded-full ${
-                          isComplete
-                            ? 'bg-gradient-to-r from-[#D4A843] to-[#F5D78E]'
-                            : 'bg-[#D4A843]/60'
-                        }`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${jp.percentage}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-                      />
-                    </div>
-                    {/* Percentage */}
-                    <span className={`text-xs tabular-nums flex-shrink-0 ${
-                      isStarted ? 'text-[#C4B59A]' : 'text-[#8B8070]/30'
-                    }`}>
-                      {isStarted ? `${jp.percentage}%` : '—'}
-                    </span>
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Continue reading CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative p-5 sm:p-6 rounded-xl bg-[#080B16]/60 border border-[rgba(245,215,142,0.08)]"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#8B8070]" />
-                    <span className="text-xs text-[#8B8070]">
-                      {lastLocation?.name || lastEvent.year}
-                    </span>
-                  </div>
-                  <h3 className="font-serif-display text-lg sm:text-xl font-bold text-[#F0EBE0] mb-1">
-                    {displayEvent.title}
-                  </h3>
-                  <p className="text-[#8B8070] text-sm line-clamp-2">{displayEvent.subtitle}</p>
+                  <span className="text-[10px] text-[#8B8070]/30 tabular-nums">
+                    {jp.percentage}%
+                  </span>
                 </div>
-
-                <button
-                  onClick={() => navigateTo('reader', displayEvent.id)}
-                  className="flex-shrink-0 group flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#D4A843] to-[#F5D78E] text-[#080B16] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4A843]/20 transition-all text-sm active:scale-[0.98]"
-                >
-                  {isContinue ? 'Lanjutkan Perjalanan' : 'Baca Lagi'}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Overall progress */}
-            <div className="mt-5 flex items-center justify-between text-xs text-[#8B8070]/60">
-              <span>{progress.read} dari {progress.total} kisah telah dibaca</span>
-              <span>{progress.percentage}% selesai</span>
-            </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

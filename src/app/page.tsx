@@ -2,13 +2,11 @@
 
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useNavigation, useReadingProgress } from '@/lib/store';
+import { useNavigation } from '@/lib/store';
 import Navigation from '@/components/jejak/Navigation';
 import Hero from '@/components/jejak/Hero';
 import ContinueJourney from '@/components/jejak/ContinueJourney';
 import MainTimeline from '@/components/jejak/MainTimeline';
-import FeaturedJourney from '@/components/jejak/FeaturedJourney';
-import Community from '@/components/jejak/Community';
 import InteractiveTimeline from '@/components/jejak/InteractiveTimeline';
 import StoryReader from '@/components/jejak/StoryReader';
 import CharacterEncyclopedia from '@/components/jejak/CharacterEncyclopedia';
@@ -17,9 +15,9 @@ import SearchSystem from '@/components/jejak/SearchSystem';
 import Footer from '@/components/jejak/Footer';
 
 const pageVariants = {
-  initial: { opacity: 0, y: 12 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -12 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
 };
 
 export default function Home() {
@@ -70,13 +68,11 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
             >
               <Hero />
               <ContinueJourney />
               <MainTimeline />
-              <FeaturedJourney />
-              <Community />
             </motion.div>
           )}
 
@@ -87,7 +83,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
             >
               <InteractiveTimeline />
             </motion.div>
@@ -100,7 +96,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
             >
               <StoryReader />
             </motion.div>
@@ -113,7 +109,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
             >
               <CharacterEncyclopedia />
             </motion.div>
@@ -126,7 +122,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
             >
               <LocationExplorer />
             </motion.div>
@@ -139,7 +135,7 @@ export default function Home() {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
             >
               <SearchSystem />
             </motion.div>

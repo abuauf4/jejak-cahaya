@@ -28,3 +28,28 @@ Stage Summary:
 - Progressive disclosure in navigation (focus on active collection only)
 - Hydration mismatch fixed with deterministic star positions
 - All changes verified: homepage, reader, timeline, mobile — all pass
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: "Less is More" PM Revision — Remove 50% visual, 50% cards, 50% sections
+
+Work Log:
+- Removed FeaturedJourney and Community sections from homepage entirely
+- Removed their imports from page.tsx
+- Rewrote Hero: Notion-like minimal — just "Jejak Cahaya" logo text, headline, subheadline, one "Mulai Perjalanan" button. No moon icon, no stars, no second CTA, no stats
+- Rewrote MainTimeline: year + title + thin separator line. No cards. No descriptions. Journey headings are small uppercase text
+- Rewrote InteractiveTimeline: same minimal treatment for dedicated timeline page
+- Rewrote ContinueJourney: typographic CTA instead of card, simple progress lines instead of bars
+- Rewrote Navigation: quieter — smaller text, no badges, no glow effects, minimal navbar
+- Rewrote Footer: one line, ultra minimal
+- Rewrote StoryReader: characters as simple text links (not cards), "Selanjutnya" as typographic title (not card), references as plain text list
+- Build successful, browser verification: 0 cards on homepage, Notion/ChatGPT feel confirmed
+
+Stage Summary:
+- Homepage: Hero → Timeline → Footer (3 sections, down from 6)
+- Zero cards on entire homepage
+- Timeline is a clean list: year, title, thin line
+- Reader is warm paper with serif, characters as text names
+- Navigation is quiet — 12px labels, no decorative elements
+- Product now feels like Notion for Islamic stories, not a website
