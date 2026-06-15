@@ -21,25 +21,17 @@ const pageVariants = {
 };
 
 export default function Home() {
-  const { currentView, readerTheme } = useNavigation();
-  const isReader = currentView === 'reader';
-  const isLightReader = isReader && readerTheme === 'light';
-  const isDarkReader = isReader && readerTheme === 'dark';
+  const { currentView, theme } = useNavigation();
+  const isLight = theme === 'light';
 
-  // Update body background and reading mode class
+  // Update body background based on global theme
   useEffect(() => {
-    if (isLightReader) {
+    if (isLight) {
       document.body.style.backgroundColor = '#FBF8F1';
       document.body.style.color = '#2C2418';
       document.documentElement.style.colorScheme = 'light';
       document.documentElement.classList.add('reader-light');
       document.documentElement.classList.remove('dark');
-    } else if (isDarkReader) {
-      document.body.style.backgroundColor = '#1a1a1a';
-      document.body.style.color = '#e0e0e0';
-      document.documentElement.style.colorScheme = 'dark';
-      document.documentElement.classList.remove('reader-light');
-      document.documentElement.classList.add('dark');
     } else {
       document.body.style.backgroundColor = '#080B16';
       document.body.style.color = '#F0EBE0';
@@ -47,15 +39,11 @@ export default function Home() {
       document.documentElement.classList.remove('reader-light');
       document.documentElement.classList.add('dark');
     }
-  }, [isLightReader, isDarkReader]);
+  }, [isLight]);
 
   return (
     <div className={`min-h-screen flex flex-col reader-transition ${
-      isLightReader
-        ? 'bg-[#FBF8F1]'
-        : isDarkReader
-          ? 'bg-[#1a1a1a]'
-          : 'bg-[#080B16]'
+      isLight ? 'bg-[#FBF8F1]' : 'bg-[#080B16]'
     }`}>
       <Navigation />
 

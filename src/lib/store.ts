@@ -16,11 +16,11 @@ interface NavigationState {
   selectedCharacterId: string | null;
   selectedLocationId: string | null;
   selectedCollectionId: string | null;
-  readerTheme: "light" | "dark";
+  theme: "light" | "dark";
   navigateTo: (view: ViewType, id?: string | null) => void;
   goHome: () => void;
   setSelectedCollection: (collectionId: string | null) => void;
-  toggleReaderTheme: () => void;
+  toggleTheme: () => void;
 }
 
 export const useNavigation = create<NavigationState>((set) => ({
@@ -29,7 +29,7 @@ export const useNavigation = create<NavigationState>((set) => ({
   selectedCharacterId: null,
   selectedLocationId: null,
   selectedCollectionId: null,
-  readerTheme: "light",
+  theme: "light",
   navigateTo: (view, id = null) => {
     set(() => {
       const update: Partial<NavigationState> = { currentView: view };
@@ -52,9 +52,9 @@ export const useNavigation = create<NavigationState>((set) => ({
   setSelectedCollection: (collectionId) => {
     set({ selectedCollectionId: collectionId });
   },
-  toggleReaderTheme: () => {
+  toggleTheme: () => {
     set((state) => ({
-      readerTheme: state.readerTheme === "light" ? "dark" : "light",
+      theme: state.theme === "light" ? "dark" : "light",
     }));
   },
 }));

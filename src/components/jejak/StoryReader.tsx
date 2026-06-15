@@ -14,7 +14,7 @@ import {
 } from '@/data/content';
 
 export default function StoryReader() {
-  const { selectedEventId, navigateTo, readerTheme } = useNavigation();
+  const { selectedEventId, navigateTo, theme } = useNavigation();
   const { markEventRead, readEvents } = useReadingProgress();
   const [scrollProgress, setScrollProgress] = useState(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -23,7 +23,6 @@ export default function StoryReader() {
   const characters = event ? getCharactersByEvent(event.id) : [];
   const location = event ? getLocationById(event.locationId) : undefined;
 
-  // Get all events for prev/next navigation
   const activeCollection = getActiveCollection();
   const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
   const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
@@ -31,7 +30,8 @@ export default function StoryReader() {
   const prevEvent = currentIndex > 0 ? allEvents[currentIndex - 1] : null;
   const nextEvent = currentIndex >= 0 && currentIndex < allEvents.length - 1 ? allEvents[currentIndex + 1] : null;
 
-  // Scroll progress
+  const isLight = theme === 'light';
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -42,7 +42,6 @@ export default function StoryReader() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-mark as read
   const storyEndRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (observerRef.current) observerRef.current.disconnect();
@@ -70,25 +69,24 @@ export default function StoryReader() {
     );
   }
 
-  const isLight = readerTheme === 'light';
-  const bg = isLight ? '#FBF8F1' : '#1a1a1a';
-  const textPrimary = isLight ? '#2C2418' : '#e0e0e0';
-  const textMuted = isLight ? '#6B5E4F' : '#b0b0b0';
-  const textSecondary = isLight ? '#9C8E7C' : '#909090';
-  const separator = isLight ? 'rgba(44, 36, 24, 0.06)' : 'rgba(255, 255, 255, 0.05)';
+  const bg = isLight ? '#FBF8F1' : '#080B16';
+  const textPrimary = isLight ? '#2C2418' : '#F0EBE0';
+  const textMuted = isLight ? '#6B5E4F' : '#8B8070';
+  const textSecondary = isLight ? '#9C8E7C' : '#8B8070';
+  const separator = isLight ? 'rgba(44, 36, 24, 0.06)' : 'rgba(139, 128, 112, 0.06)';
 
   const paragraphs = event.story.split('\n').filter((p) => p.trim());
 
   return (
     <div className="min-h-screen reader-transition" style={{ backgroundColor: bg }}>
-      {/* Progress bar — thin & subtle */}
+      {/* Progress bar */}
       <div
         className="fixed top-12 sm:top-14 left-0 right-0 z-40 h-[2px]"
-        style={{ backgroundColor: isLight ? 'rgba(44, 36, 24, 0.03)' : 'rgba(255, 255, 255, 0.03)' }}
+        style={{ backgroundColor: isLight ? 'rgba(44, 36, 24, 0.03)' : 'rgba(139, 128, 112, 0.03)' }}
       >
         <motion.div
           className="h-full"
-          style={{ backgroundColor: isLight ? 'rgba(212, 168, 67, 0.3)' : 'rgba(245, 215, 142, 0.25)' }}
+          style={{ backgroundColor: isLight ? 'rgba(212, 168, 67, 0.3)' : 'rgba(212, 168, 67, 0.25)' }}
           initial={{ width: 0 }}
           animate={{ width: `${scrollProgress}%` }}
           transition={{ duration: 0.1 }}
@@ -98,7 +96,7 @@ export default function StoryReader() {
       {/* Reading content */}
       <div className="pt-20 sm:pt-24 pb-20 px-4 sm:px-6">
         <div className="max-w-[65ch] mx-auto">
-          {/* Meta — year & location */}
+          {/* Meta */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -165,7 +163,7 @@ export default function StoryReader() {
 
           {/* After story — minimal info */}
           <div className="mt-16 space-y-6">
-            {/* Characters — simple list, not cards */}
+            {/* Characters */}
             {characters.length > 0 && (
               <div className="pt-6" style={{ borderTop: `1px solid ${separator}` }}>
                 <span className="text-xs" style={{ color: textSecondary }}>Tokoh</span>
@@ -184,7 +182,7 @@ export default function StoryReader() {
               </div>
             )}
 
-            {/* References — simple list */}
+            {/* References */}
             {event.references.length > 0 && (
               <div className="pt-6" style={{ borderTop: `1px solid ${separator}` }}>
                 <span className="text-xs" style={{ color: textSecondary }}>Referensi</span>
@@ -196,7 +194,7 @@ export default function StoryReader() {
               </div>
             )}
 
-            {/* Prev/Next — typographic, not cards */}
+            {/* Prev/Next */}
             <div className="pt-8" style={{ borderTop: `1px solid ${separator}` }}>
               {nextEvent ? (
                 <button
