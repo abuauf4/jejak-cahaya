@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import {
   getEventById,

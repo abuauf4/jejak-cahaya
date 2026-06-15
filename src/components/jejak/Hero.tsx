@@ -1,15 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
-import { getActiveCollection, getEventsByJourney, getJourneysByCollection } from '@/data/content';
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
   },
 };
 
@@ -19,10 +17,8 @@ const item = {
 };
 
 export default function Hero() {
-  const { navigateTo, theme } = useNavigation();
+  const { theme } = useNavigation();
   const isLight = theme === 'light';
-  const activeCollection = getActiveCollection();
-  const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
 
   return (
     <section
@@ -37,7 +33,7 @@ export default function Hero() {
         className="max-w-2xl mx-auto px-5 sm:px-6 text-center"
       >
         {/* Logo */}
-        <motion.div variants={item} className="mb-8">
+        <motion.div variants={item} className="mb-6">
           <span
             className={`font-serif-display text-sm tracking-[0.3em] ${
               isLight ? 'text-gold' : 'text-lantern-mid'
@@ -50,37 +46,14 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={item}
-          className={`font-serif-display text-2xl sm:text-3xl md:text-4xl font-bold leading-[1.25] mb-4 ${
+          className={`font-serif-display text-2xl sm:text-3xl md:text-4xl font-bold leading-[1.25] mb-3 ${
             isLight ? 'text-ink' : 'text-cream'
           }`}
         >
-          Menelusuri Jejak Kehidupan
+          Perpustakaan Digital
           <br />
-          Rasulullah ﷺ
+          Kisah Islam
         </motion.h1>
-
-        {/* CTA */}
-        <motion.div variants={item}>
-          <button
-            onClick={() => {
-              if (journeys.length > 0) {
-                const firstJourney = journeys[0];
-                const firstEvents = getEventsByJourney(firstJourney.id);
-                if (firstEvents.length > 0) {
-                  navigateTo('reader', firstEvents[0].id);
-                }
-              }
-            }}
-            className={`group inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ${
-              isLight
-                ? 'text-gold hover:text-gold-soft hover:gap-3'
-                : 'text-lantern-mid hover:text-lantern hover:gap-3'
-            }`}
-          >
-            Mulai Perjalanan
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
-        </motion.div>
       </motion.div>
     </section>
   );

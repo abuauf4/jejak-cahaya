@@ -6,6 +6,8 @@ import { useNavigation } from '@/lib/store';
 import Navigation from '@/components/jejak/Navigation';
 import Hero from '@/components/jejak/Hero';
 import ContinueJourney from '@/components/jejak/ContinueJourney';
+import StartFromBeginning from '@/components/jejak/StartFromBeginning';
+import Collections from '@/components/jejak/Collections';
 import JourneyFeed from '@/components/jejak/JourneyFeed';
 import StoryReader from '@/components/jejak/StoryReader';
 import CharacterEncyclopedia from '@/components/jejak/CharacterEncyclopedia';
@@ -63,7 +65,8 @@ export default function Home() {
             >
               <Hero />
               <ContinueJourney />
-              <JourneyFeed />
+              <StartFromBeginning />
+              <Collections />
             </motion.div>
           )}
 
