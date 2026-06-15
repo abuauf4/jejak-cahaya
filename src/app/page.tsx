@@ -7,6 +7,7 @@ import Hero from '@/components/jejak/Hero';
 import ContinueJourney from '@/components/jejak/ContinueJourney';
 import StartFromBeginning from '@/components/jejak/StartFromBeginning';
 import Collections from '@/components/jejak/Collections';
+import Community from '@/components/jejak/Community';
 
 export default function Home() {
   // Ensure store is synced to 'home' view
@@ -27,6 +28,7 @@ export default function Home() {
         <ContinueJourney />
         <StartFromBeginning />
         <Collections />
+        <Community />
       </motion.div>
     </AppShell>
   );

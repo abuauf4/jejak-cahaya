@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Heart, BookOpen, Scale, PenLine, Globe, FlaskConical } from 'lucide-react';
+import { useNavigation } from '@/lib/store';
 
 const contributions = [
   {
@@ -32,8 +33,11 @@ const contributions = [
 ];
 
 export default function Community() {
+  const { theme } = useNavigation();
+  const isLight = theme === 'light';
+
   return (
-    <section className="relative py-16 sm:py-24 bg-[#080B16]">
+    <section className={`relative py-16 sm:py-24 ${isLight ? 'bg-paper' : 'bg-[#080B16]'}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
@@ -44,13 +48,19 @@ export default function Community() {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Heart className="w-4 h-4 text-[#D4A843]" />
-            <span className="text-xs text-[#D4A843] font-medium uppercase tracking-wider">Komunitas</span>
+            <Heart className={`w-4 h-4 ${isLight ? 'text-gold' : 'text-[#D4A843]'}`} />
+            <span className={`text-xs font-medium uppercase tracking-wider ${isLight ? 'text-gold' : 'text-[#D4A843]'}`}>
+              Komunitas
+            </span>
           </div>
-          <h2 className="font-serif-display text-2xl sm:text-3xl font-bold text-[#F0EBE0] mb-4 max-w-lg mx-auto leading-tight">
+          <h2 className={`font-serif-display text-2xl sm:text-3xl font-bold mb-4 max-w-lg mx-auto leading-tight ${
+            isLight ? 'text-ink' : 'text-[#F0EBE0]'
+          }`}>
             Pengetahuan Islam yang Terbuka dan Terjaga
           </h2>
-          <p className="text-[#8B8070] text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className={`text-sm sm:text-base max-w-xl mx-auto leading-relaxed ${
+            isLight ? 'text-ink-soft' : 'text-[#8B8070]'
+          }`}>
             Jejak Cahaya adalah proyek terbuka yang berkomitmen menyajikan kisah-kisah Islam dengan akurat
             dan indah — ditinjau secara keilmuan sebelum dipublikasikan.
           </p>
@@ -67,13 +77,23 @@ export default function Community() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-5 rounded-xl bg-[#0F1629] border border-[rgba(245,215,142,0.06)] hover:border-[rgba(245,215,142,0.12)] transition-colors"
+                className={`p-5 rounded-xl transition-colors ${
+                  isLight
+                    ? 'bg-ink/[0.02] border border-ink/[0.06] hover:border-gold/20'
+                    : 'bg-[#0F1629] border border-[rgba(245,215,142,0.06)] hover:border-[rgba(245,215,142,0.12)]'
+                }`}
               >
-                <div className="w-9 h-9 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-3">
-                  <Icon className="w-4 h-4 text-[#D4A843]" />
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 ${
+                  isLight ? 'bg-gold/10' : 'bg-[#D4A843]/10'
+                }`}>
+                  <Icon className={`w-4 h-4 ${isLight ? 'text-gold' : 'text-[#D4A843]'}`} />
                 </div>
-                <h3 className="font-medium text-[#F0EBE0] text-sm mb-1.5">{item.title}</h3>
-                <p className="text-xs text-[#8B8070] leading-relaxed">{item.description}</p>
+                <h3 className={`font-medium text-sm mb-1.5 ${isLight ? 'text-ink' : 'text-[#F0EBE0]'}`}>
+                  {item.title}
+                </h3>
+                <p className={`text-xs leading-relaxed ${isLight ? 'text-ink-soft' : 'text-[#8B8070]'}`}>
+                  {item.description}
+                </p>
               </motion.div>
             );
           })}
@@ -85,9 +105,15 @@ export default function Community() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative p-5 rounded-xl bg-[#0F1629]/50 border border-[rgba(245,215,142,0.04)] text-center"
+          className={`relative p-5 rounded-xl text-center ${
+            isLight
+              ? 'bg-ink/[0.015] border border-ink/[0.04]'
+              : 'bg-[#0F1629]/50 border border-[rgba(245,215,142,0.04)]'
+          }`}
         >
-          <p className="text-xs text-[#8B8070]/70 max-w-lg mx-auto leading-relaxed">
+          <p className={`text-xs max-w-lg mx-auto leading-relaxed ${
+            isLight ? 'text-ink-soft/70' : 'text-[#8B8070]/70'
+          }`}>
             Setiap konten melewati proses kajian dan review ilmiah untuk memastikan keakuratan
             sebelum dipublikasikan. Kami memilih menghadirkan materi secara bertahap agar setiap kisah
             dapat ditinjau dengan lebih baik.
