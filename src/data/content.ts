@@ -783,11 +783,11 @@ Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dindi
 
 Sebuah lembah yang seharusnya tidak ada alasan untuk ditinggali.
 
-Namun manusia tetap datang.
+Namun manusia tetap datang. Mereka mendirikan kemah di celah-celah batu. Mereka membangun rumah-rumah sederhana dari batu dan tanah. Mereka hidup di sini. Meskipun tanahnya keras. Meskipun udaranya kering. Meskipun tidak ada alasan logis untuk memilih lembah ini daripada lembah-lembah lain yang lebih hijau dan lebih ramah.
+
+Kenapa orang mau tinggal di sini?
 
 ◆
-
-Mengapa?
 
 Jawabannya ada di bawah tanah.
 
@@ -855,9 +855,9 @@ Dan dari barat, melintasi Laut Merah, datang pengaruh peradaban Mesir dan Abyssi
 
 Semuanya bertemu di pasar-pasar Makkah.
 
-Jazirah Arab terletak di persimpangan tiga benua.
+Jalur-jalur perdagangan itu bertemu di sini.
 
-Dan Makkah terletak di persimpangan Jazirah Arab.
+Siapa pun yang berjalan dari selatan ke utara hampir pasti mengenal kota ini.
 
 Posisi ini bukan kebetulan.
 
@@ -923,7 +923,7 @@ Kedudukan ini bukan hanya soal kekayaan.
 
 Ini soal kehormatan.
 
-Menjaga Ka'bah berarti menjadi pintu gerbang antara manusia dan Tuhan mereka.
+Menjaga Ka'bah berarti memikul amanah yang dihormati oleh seluruh suku.
 
 Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
 
@@ -963,25 +963,15 @@ Sebuah lembah yang seharusnya mati.
 
 Namun selalu ramai.
 
-⟩ Di tanah yang paling kering, air menembus dari bawah.
+⟩ Air terus mengalir dari Zamzam.
 
-Di lembah yang paling tersembunyi, kafilah menemukan jalan.
+Kafilah terus berdatangan.
 
-Dan di bangunan yang paling tua, orang-orang mencari Tuhan — meskipun mereka belum mengenal Allah Subhanahu wa Ta'ala sebagaimana mestinya.
+Ka'bah tetap berdiri di tengah lembah itu.
 
-Makkah sudah siap.
+Dan Makkah terus menjalani hari-harinya seperti biasa.
 
-Air sudah mengalir.
-
-Pasar sudah ramai.
-
-Ka'bah sudah berdiri.
-
-Tinggal menunggu seseorang.
-
-Seseorang yang lahir di kota ini.
-
-Yang akan mengubah segalanya.`,
+Belum ada yang mengetahui bahwa dari kota kecil ini, sejarah dunia akan berubah.`,
     featured: false,
     characterIds: [],
     locationId: 'makkah',
