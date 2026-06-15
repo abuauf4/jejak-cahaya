@@ -1,4 +1,4 @@
-# JEJAK CAHAYA™ — NARRATIVE BIBLE v1.0
+# JEJAK CAHAYA™ — NARRATIVE BIBLE v1.1
 
 > Dokumen ini adalah konstitusi penulisan Jejak Cahaya.
 > Siapa pun yang menulis, mengedit, atau mereview konten untuk Jejak Cahaya
@@ -210,6 +210,48 @@ Jangan menulis seperti ceramah.
 
 Jangan menulis seperti novel fiksi.
 
+### FORBIDDEN OPENING
+
+Jangan memulai dengan kata-kata yang menyuruh pembaca membayangkan.
+
+Jejak Cahaya harus membuat pembaca **merasakan langsung** — bukan diperintah membayangkan.
+
+Pembaca harus menemukan sendiri.
+Bukan digandeng masuk.
+
+**Dilarang:**
+
+- Bayangkan...
+- Coba bayangkan...
+- Tahukah kamu...
+- Pernahkah kamu...
+- Mari kita lihat...
+- Mari kita kembali...
+- Sekarang kita akan...
+- Pada bab ini kita akan membahas...
+- Pada masa itu...
+
+Itu bahasa guru, presenter, dan narator YouTube.
+
+**Lakukan:**
+
+Masuk langsung dari dunia.
+
+Contoh:
+
+> Matahari menggantung tinggi di atas gurun.
+
+> Angin membawa pasir ke cakrawala barat.
+
+> Tidak mudah hidup di tanah ini.
+
+Masuk. Langsung. Tanpa pengantar.
+
+**Prinsip:**
+
+Jangan pernah menyuruh pembaca membayangkan.
+Buat mereka melihat sendiri.
+
 ---
 
 ## TARGET AKHIR
@@ -244,3 +286,4 @@ Pembaca merasa sedang berjalan di dalam sejarah.
 ## VERSI
 
 - **v1.0** — 2026-06-16 — Draft awal berdasarkan seluruh sesi review Bab 1
+- **v1.1** — 2026-06-16 — Tambahan: FORBIDDEN OPENING (jangan menyuruh pembaca membayangkan, buat mereka melihat sendiri)
