@@ -1,0 +1,1527 @@
+     1→// ═══════════════════════════════════════════════════════
+     2→// JEJAK CAHAYA™ — Narrative Structure
+     3→// Collection → Fase → Bab → Story → Character → Location → Reference
+     4→//
+     5→// Struktur naratif dikunci berdasarkan alur:
+     6→//   Sejarah asli + rasa petualangan + rasa penasaran
+     7→//   Tanpa dialog fiktif. Tanpa mengubah peristiwa. Tanpa mengarang.
+     8→//
+     9→// 8 Fase + Penutup | 47 Bab
+    10→// ═══════════════════════════════════════════════════════
+    11→
+    12→// ── Core Types ──────────────────────────────────────
+    13→
+    14→export interface Collection {
+    15→  id: string;
+    16→  slug: string;
+    17→  title: string;
+    18→  subtitle: string;
+    19→  description: string;
+    20→  coverTheme: string;
+    21→  journeyIds: string[];
+    22→  status: 'active' | 'coming_soon';
+    23→  order: number;
+    24→}
+    25→
+    26→export interface Journey {
+    27→  id: string;
+    28→  collectionId: string;
+    29→  title: string;
+    30→  subtitle: string;
+    31→  period: string;
+    32→  yearStart: number;
+    33→  yearEnd: number;
+    34→  description: string;
+    35→  color: string;
+    36→  eventIds: string[];
+    37→  order: number;
+    38→}
+    39→
+    40→export interface StoryEvent {
+    41→  id: string;
+    42→  journeyId: string;
+    43→  collectionId: string;
+    44→  title: string;
+    45→  subtitle: string;
+    46→  year: string;
+    47→  yearNum: number;
+    48→  description: string;
+    49→  story: string; // konten menunggu penulisan
+    50→  featured: boolean;
+    51→  characterIds: string[];
+    52→  locationId: string;
+    53→  references: string[];
+    54→  order: number;
+    55→}
+    56→
+    57→export interface Character {
+    58→  id: string;
+    59→  name: string;
+    60→  title: string;
+    61→  shortBio: string;
+    62→  fullBio: string;
+    63→  role: string;
+    64→  period: string;
+    65→  eventIds: string[];
+    66→  references: string[];
+    67→}
+    68→
+    69→export interface StoryLocation {
+    70→  id: string;
+    71→  name: string;
+    72→  description: string;
+    73→  fullDescription: string;
+    74→  coordinates: string;
+    75→  eventIds: string[];
+    76→  significance: string;
+    77→}
+    78→
+    79→// ── Collections ─────────────────────────────────────
+    80→
+    81→export const collections: Collection[] = [
+    82→  {
+    83→    id: 'perjalanan-rasulullah',
+    84→    slug: 'perjalanan-rasulullah',
+    85→    title: 'Perjalanan Rasulullah ﷺ',
+    86→    subtitle: 'Dari dunia sebelum Islam sampai cahaya yang tidak pernah padam',
+    87→    description: 'Mengikuti perjalanan kehidupan Rasulullah ﷺ — bukan sebagai buku pelajaran, tapi sebagai kisah yang membuat kita penasaran bab berikutnya.',
+    88→    coverTheme: '#D4A843',
+    89→    journeyIds: [
+    90→      'fase-0',
+    91→      'fase-1',
+    92→      'fase-2',
+    93→      'fase-3',
+    94→      'fase-4',
+    95→      'fase-5',
+    96→      'fase-6',
+    97→      'fase-7',
+    98→      'fase-8',
+    99→      'penutup',
+   100→    ],
+   101→    status: 'active',
+   102→    order: 1,
+   103→  },
+   104→  {
+   105→    id: 'kisah-sahabat',
+   106→    slug: 'kisah-sahabat',
+   107→    title: 'Kisah Para Sahabat',
+   108→    subtitle: 'Para Pembawa Cahaya',
+   109→    description: 'Kisah-kisah sahabat Rasulullah ﷺ yang mengorbankan segalanya.',
+   110→    coverTheme: '#8B6914',
+   111→    journeyIds: [],
+   112→    status: 'coming_soon',
+   113→    order: 2,
+   114→  },
+   115→  {
+   116→    id: 'kisah-nabi',
+   117→    slug: 'kisah-nabi',
+   118→    title: 'Kisah Para Nabi',
+   119→    subtitle: 'Jejak Para Utusan Allah',
+   120→    description: 'Perjalanan para nabi dan rasul dari Nabi Adam a.s. hingga Nabi Muhammad ﷺ.',
+   121→    coverTheme: '#5A4D3E',
+   122→    journeyIds: [],
+   123→    status: 'coming_soon',
+   124→    order: 3,
+   125→  },
+   126→  {
+   127→    id: 'kisah-peradaban',
+   128→    slug: 'kisah-peradaban',
+   129→    title: 'Kisah Peradaban Islam',
+   130→    subtitle: 'Cahaya yang Menyebar ke Seluruh Dunia',
+   131→    description: 'Dari padang pasir Arab ke Andalusia, dari Baghdad ke Nusantara.',
+   132→    coverTheme: '#756553',
+   133→    journeyIds: [],
+   134→    status: 'coming_soon',
+   135→    order: 4,
+   136→  },
+   137→];
+   138→
+   139→// ── Fase (Journeys) ─────────────────────────────────
+   140→
+   141→export const journeys: Journey[] = [
+   142→  // ── FASE 0 ──────────────────────────────────────
+   143→  {
+   144→    id: 'fase-0',
+   145→    collectionId: 'perjalanan-rasulullah',
+   146→    title: 'Dunia Sebelum Islam',
+   147→    subtitle: 'Memahami dunia sebelum Rasulullah ﷺ lahir',
+   148→    period: 'Sebelum 570 M',
+   149→    yearStart: -3000,
+   150→    yearEnd: 570,
+   151→    description: 'Membuat pembaca memahami dunia sebelum Rasulullah ﷺ lahir.',
+   152→    color: '#756553',
+   153→    eventIds: ['bab-1', 'bab-2', 'bab-3', 'bab-4', 'bab-5'],
+   154→    order: 0,
+   155→  },
+   156→  // ── FASE 1 ──────────────────────────────────────
+   157→  {
+   158→    id: 'fase-1',
+   159→    collectionId: 'perjalanan-rasulullah',
+   160→    title: 'Kelahiran Sang Cahaya',
+   161→    subtitle: 'Dari rahim Aminah ke pangkuan dunia',
+   162→    period: '570–578 M',
+   163→    yearStart: 570,
+   164→    yearEnd: 578,
+   165→    description: 'Kelahiran Muhammad ﷺ dan tahun-tahun pertama kehidupannya.',
+   166→    color: '#D4A843',
+   167→    eventIds: ['bab-6', 'bab-7', 'bab-8', 'bab-9', 'bab-10', 'bab-11'],
+   168→    order: 1,
+   169→  },
+   170→  // ── FASE 2 ──────────────────────────────────────
+   171→  {
+   172→    id: 'fase-2',
+   173→    collectionId: 'perjalanan-rasulullah',
+   174→    title: 'Masa Pemuda',
+   175→    subtitle: 'Gembala, pedagang, dan orang yang dipercaya',
+   176→    period: '583–605 M',
+   177→    yearStart: 583,
+   178→    yearEnd: 605,
+   179→    description: 'Tahun-tahun kejujuran dan kepercayaan sebelum kenabian.',
+   180→    color: '#96751A',
+   181→    eventIds: ['bab-12', 'bab-13', 'bab-14', 'bab-15', 'bab-16'],
+   182→    order: 2,
+   183→  },
+   184→  // ── FASE 3 ──────────────────────────────────────
+   185→  {
+   186→    id: 'fase-3',
+   187→    collectionId: 'perjalanan-rasulullah',
+   188→    title: 'Mencari Kebenaran',
+   189→    subtitle: 'Kesunyian Gua Hira dan malam yang mengubah segalanya',
+   190→    period: '610 M',
+   191→    yearStart: 610,
+   192→    yearEnd: 610,
+   193→    description: 'Pencarian spiritual yang berujung pada wahyu pertama.',
+   194→    color: '#5A4D3E',
+   195→    eventIds: ['bab-17', 'bab-18', 'bab-19', 'bab-20'],
+   196→    order: 3,
+   197→  },
+   198→  // ── FASE 4 ──────────────────────────────────────
+   199→  {
+   200→    id: 'fase-4',
+   201→    collectionId: 'perjalanan-rasulullah',
+   202→    title: 'Dakwah di Makkah',
+   203→    subtitle: 'Cahaya yang dijawab dengan tentangan',
+   204→    period: '610–621 M',
+   205→    yearStart: 610,
+   206→    yearEnd: 621,
+   207→    description: 'Tiga belas tahun menyebarkan Islam di tengah penentangan Quraisy.',
+   208→    color: '#8B6914',
+   209→    eventIds: ['bab-21', 'bab-22', 'bab-23', 'bab-24', 'bab-25', 'bab-26', 'bab-27', 'bab-28'],
+   210→    order: 4,
+   211→  },
+   212→  // ── FASE 5 ──────────────────────────────────────
+   213→  {
+   214→    id: 'fase-5',
+   215→    collectionId: 'perjalanan-rasulullah',
+   216→    title: 'Menuju Madinah',
+   217→    subtitle: 'Meninggalkan Makkah menuju tempat yang baru',
+   218→    period: '621–622 M',
+   219→    yearStart: 621,
+   220→    yearEnd: 622,
+   221→    description: 'Dari baiat hingga hijrah — perjalanan yang mengubah sejarah.',
+   222→    color: '#D4A843',
+   223→    eventIds: ['bab-29', 'bab-30', 'bab-31', 'bab-32', 'bab-33'],
+   224→    order: 5,
+   225→  },
+   226→  // ── FASE 6 ──────────────────────────────────────
+   227→  {
+   228→    id: 'fase-6',
+   229→    collectionId: 'perjalanan-rasulullah',
+   230→    title: 'Membangun Peradaban',
+   231→    subtitle: 'Masjid, persaudaraan, dan piagam',
+   232→    period: '622–624 M',
+   233→    yearStart: 622,
+   234→    yearEnd: 624,
+   235→    description: 'Menata fondasi peradaban baru di Madinah.',
+   236→    color: '#96751A',
+   237→    eventIds: ['bab-34', 'bab-35', 'bab-36'],
+   238→    order: 6,
+   239→  },
+   240→  // ── FASE 7 ──────────────────────────────────────
+   241→  {
+   242→    id: 'fase-7',
+   243→    collectionId: 'perjalanan-rasulullah',
+   244→    title: 'Ujian dan Kemenangan',
+   245→    subtitle: 'Dari Badar hingga Fathu Makkah',
+   246→    period: '624–630 M',
+   247→    yearStart: 624,
+   248→    yearEnd: 630,
+   249→    description: 'Pertempuran, perjanjian, dan kemenangan yang tak terduga.',
+   250→    color: '#756553',
+   251→    eventIds: ['bab-37', 'bab-38', 'bab-39', 'bab-40', 'bab-41', 'bab-42', 'bab-43'],
+   252→    order: 7,
+   253→  },
+   254→  // ── FASE 8 ──────────────────────────────────────
+   255→  {
+   256→    id: 'fase-8',
+   257→    collectionId: 'perjalanan-rasulullah',
+   258→    title: 'Perpisahan',
+   259→    subtitle: 'Haji terakhir dan hari yang membuat Madinah menangis',
+   260→    period: '630–632 M',
+   261→    yearStart: 630,
+   262→    yearEnd: 632,
+   263→    description: 'Wasiat terakhir dan kepergian yang memilu hati seluruh kaum muslimin.',
+   264→    color: '#5A4D3E',
+   265→    eventIds: ['bab-44', 'bab-45', 'bab-46'],
+   266→    order: 8,
+   267→  },
+   268→  // ── PENUTUP ─────────────────────────────────────
+   269→  {
+   270→    id: 'penutup',
+   271→    collectionId: 'perjalanan-rasulullah',
+   272→    title: 'Jejak yang Tidak Pernah Padam',
+   273→    subtitle: 'Warisan Islam dan sahabat yang melanjutkan perjuangan',
+   274→    period: '632 M+',
+   275→    yearStart: 632,
+   276→    yearEnd: 700,
+   277→    description: 'Warisan Islam, para sahabat melanjutkan perjuangan, Islam menyebar ke dunia.',
+   278→    color: '#D4A843',
+   279→    eventIds: ['bab-47'],
+   280→    order: 9,
+   281→  },
+   282→];
+   283→
+   284→// ── 47 Bab (Events) ─────────────────────────────────
+   285→// Konten menunggu penulisan. Struktur naratif sudah dikunci.
+   286→
+   287→export const events: StoryEvent[] = [
+   288→  // ═══════════════════════════════════════════════════
+   289→  // FASE 0 — DUNIA SEBELUM ISLAM
+   290→  // ═══════════════════════════════════════════════════
+   291→  {
+   292→    id: 'bab-1',
+   293→    journeyId: 'fase-0',
+   294→    collectionId: 'perjalanan-rasulullah',
+   295→    title: 'Jazirah Arab Sebelum Islam',
+   296→    subtitle: 'Sebelum cahaya Islam menyinari dunia',
+   297→    year: 'Sebelum 570 M',
+   298→    yearNum: -570,
+   299→    description: 'Geografi, gurun, kafilah, dan kehidupan Arab sebelum Islam.',
+   300→    story: `Angin padang pasir berhembus kencang membawa butiran debu merah ke cakrawala barat. Matahari seolah tergantung rendah di atas hamparan pasir yang tak berujung, memancarkan cahaya keemasan yang menyengat kulit. Tidak ada bangunan tinggi yang meneduhi. Tidak ada sungai yang mengalir. Hanya pasir, batu, dan langit yang membentang seluas mata memandang.
+   301→
+   302→Ini bukan tanah yang menyambut. Ini adalah tanah yang menguji.
+   303→
+   304→Di selatan, gurun Rub' al-Khali — Padang Kosong — membentang begitu luas sehingga tidak ada kafilah yang berani menembusnya tanpa pemandu yang hafal setiap bintang di langit malam. Pasirnya begitu halus dan dalam, seekor unta bisa tenggelam hingga lutut hanya dengan berdiam diri. Angin di sini bukan sekadar berhembus — angin menyanyikan nyanyian sendu yang bergema di antara bukit-bukit pasir, seolah tanah ini menangis minta disentuh oleh sesuatu yang lebih besar dari kehidupan yang selama ini dikenalnya.
+   305→
+   306→Di utara, gurun An-Nafud membentang dengan warna yang berbeda — pasir kemerahan yang menyala di bawah sinar matahari, bagaikan lautan api yang membeku. Di antara dua gurun besar ini, terbentang dataran tinggi Najd, wilayah padang rumput kering yang menjadi batas antara kehidupan dan kesunyian total.
+   307→
+   308→Jazirah Arab — sepotong tanah yang terletak di persimpangan tiga benua: Asia di timur, Afrika di barat, dan Eropa di utara yang menyeberangi lautan Mediterania. Posisi ini bukan kebetulan. Tanah ini terletak di jalur perdagangan kuno yang menghubungkan kerajaan-kerajaan di selatan dengan peradaban-peradaban besar di utara.
+   309→
+   310→Setiap tahun, kafilah-kafilah dagang melintasi gurun ini membawa kemenyan, rempah-rempah, dan emas dari Yaman di selatan menuju pasar-pasar di Syam di utara. Rute perjalanan ini telah ada ratusan tahun — jejak-jejak unta yang terbentuk di atas pasir menjadi jalan yang dikenal oleh setiap pedagang, dari generasi ke generasi. Kafilah-kafilah ini bukan sekadar barisan unta yang membawa barang dagangan. Mereka adalah kehidupan yang bergerak — puluhan bahkan ratusan ekor unta berjalan dalam barisan panjang, diiringi oleh pedagang, pemandu jalan, dan penjaga yang siap melindungi muatan berharga dari perampok gurun.
+   311→
+   312→Perjalanan satu kafilah dari selatan ke utara bisa memakan waktu berminggu-minggu. Setiap oase menjadi tempat berhenti yang dinanti — titik-titik hijau di tengah lautan pasir yang menyediakan air, naungan, dan tempat berteduh. Tanpa oase, tidak ada kafilah yang bisa bertahan. Tanpa kafilah, tidak ada perdagangan. Tanpa perdagangan, tidak ada kehidupan.
+   313→
+   314→Kehidupan di Jazirah Arab berpusat pada suku. Setiap suku memiliki wilayah penggembalaan sendiri, sumur air sendiri, dan aturan sendiri. Kesetiaan kepada suku adalah segalanya — lebih penting daripada harta, lebih penting daripada nyawa. Seorang Arab tidak pernah berdiri sendiri. Ia berdiri sebagai bagian dari sukunya, dan sukunya berdiri karena kesetiaan setiap anggotanya.
+   315→
+   316→Suku-suku Badui yang mengembara di gurun hidup dari menggembala unta dan kambing. Mereka berpindah-pindah mengikuti sumber air dan padang rumput, mendirikan kemah-kemah dari kain bulu unta yang melindungi dari terik matahari dan dinginnya malam gurun. Kehidupan mereka keras — air langka, makanan sederhana, dan ancaman serangan dari suku lain selalu mengintai.
+   317→
+   318→Namun dari kekerasan ini tumbuh ketangguhan yang luar biasa. Orang-orang gurun menghafal ribuan baris puisi, mengenal setiap bintang di langit sebagai penunjuk arah, dan menjaga kehormatan tamu dengan nyawa mereka sendiri.
+   319→
+   320→Di luar kehidupan gurun, ada kota-kota yang tumbuh di sepanjang jalur perdagangan. Makkah, Thaif, Yatsrib, dan lainnya menjadi pusat-pusat kehidupan yang lebih menetap. Di kota-kota inilah perdagangan berkembang, suku-suku berjumpa, dan pengaruh-pengaruh dari peradaban luar mulai terasa.
+   321→
+   322→Namun kehidupan kota pun tidak lepas dari norma-norma suku. Kekuasaan berada di tangan mereka yang mampu memimpin, melindungi, dan memenuhi janji. Perdamaian antarsuku hanya bertahan selama kesepakatan dihormati — dan kesepakatan bisa rusak kapan saja karena satu penghinaan, satu pertumpahan darah, atau satu perebutan air.
+   323→
+   324→Di sini, tidak ada hakim. Yang ada hanya tangan yang lebih kuat. Yang kuat menang, yang lemah tertindas. Perbudakan dipraktikkan secara luas — tawanan perang menjadi budak, dan budak tidak memiliki hak apa pun. Perempuan sering kali diperlakukan seperti harta benda. Bayi perempuan bahkan bisa dikubur hidup-hidup oleh ayahnya yang merasa malu — sebuah kebiasaan kejam yang dilakukan oleh sebagian suku demi menjaga kehormatan dan menghindari kemiskinan.
+   325→
+   326→Hampir tidak ada orang yang bisa membaca. Pengetahuan berpindah dari mulut ke mulut — puisi, silsilah, dan cerita-cerita leluhur dihafalkan, bukan ditulis. Namun dari tradisi lisan ini lahir kebanggaan tertinggi orang Arab: bahasa. Seorang penyair yang mampu menyusun kata-kata indah dihormati melebihi seorang pejuang, dan puisi-puisi yang dilisankan di pasar-pasar menjadi semacam arsip budaya yang hidup.
+   327→
+   328→Di dalam dan sekeliling Ka'bah di Makkah berdiri ratusan patung yang mewakili dewa-dewi yang disembah oleh berbagai suku. Yang paling dihormati adalah Hubal — patung dewa yang berdiri di dalam Ka'bah sendiri, disembah dengan tujuh panah nasib. Setiap suku memiliki berhala kesayangannya sendiri. Di samping penyembahan berhala, ada pula sekelompok kecil orang — disebut Hanif — yang menolak menyembah patung-patung itu dan mencari agama nenek moyang mereka, agama Ibrahim.
+   329→
+   330→Keadilan adalah sesuatu yang langka. Tidak ada pengadilan yang berlaku untuk semua suku. Tidak ada hukum tertulis yang melindungi yang lemah. Yang ada hanya hukum balas dendam — nyawa dibalas nyawa, darah dibalas darah. Perang antarsuku bisa berlangsung bertahun-tahun hanya karena satu insiden yang melibatkan dua orang. Perang Bashus, misalnya, berlangsung selama empat puluh tahun antara suku Taghlib dan suku Bakr — semuanya bermula dari seekor unta.
+   331→
+   332→Inilah dunia sebelum Islam. Dunia yang keras, dunia yang kasar, dunia di mana kekuatan lebih berharga kasih sayang, dan di mana darah lebih mudah mengalir daripada air. Dunia di mana seorang bayi perempuan tidak selalu diberi kesempatan untuk melihat matahari terbit, dan di mana seorang budak tidak memiliki harapan untuk merasakan kebebasan.
+   333→
+   334→Namun di balik kegelapan ini, tanah ini menyimpan sesuatu. Di suatu tempat di lembah yang dikelilingi gunung-gunung batu gersang, berdiri sebuah bangunan kubus tua yang telah ada sejak zaman dahulu — bangunan yang menurut cerita dibangun oleh seorang nabi dan putranya berabad-abad yang lalu. Bangunan itu masih berdiri, meskipun yang mengelilinginya telah berubah. Yang datang untuk menghormatinya bukan lagi orang-orang yang mengenal makna aslinya. Namun bangunan itu tetap berdiri — seperti sebuah janji yang belum terpenuhi, seperti sebuah cahaya yang belum dinyalakan.
+   335→
+   336→⟩ Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala. Jazirah Arab bukan sekadar tanah kosong — ia adalah panggung yang sudah disiapkan. Dan di atas panggung ini, sebentar lagi, sebuah peristiwa akan terjadi yang mengubah segalanya. Bukan karena tanahnya berubah. Bukan karena orang-orangnya berubah. Tapi karena seseorang akan datang — membawa sesuatu yang belum pernah dilihat oleh mata, belum pernah didengar oleh telinga, dan belum pernah dirasakan oleh hati penduduk gurun ini.
+   337→
+   338→Kota itu bernama Makkah.`,
+   339→    featured: false,
+   340→    characterIds: [],
+   341→    locationId: 'jazirah-arab',
+   342→    references: ['Ibnu Hisyam, As-Sirah An-Nabawiyah', 'Ibnu Ishaq, Sirah Rasulullah', 'Al-Baladzuri, Futuh al-Buldan', 'Al-Mas\'udi, Muruj adz-Dzahab', 'Yaqut al-Hamawi, Mu\'jam al-Buldan'],
+   343→    order: 1,
+   344→  },
+   345→  {
+   346→    id: 'bab-2',
+   347→    journeyId: 'fase-0',
+   348→    collectionId: 'perjalanan-rasulullah',
+   349→    title: 'Makkah: Kota di Lembah Gersang',
+   350→    subtitle: 'Lembah kering yang menyimpan sejarah besar',
+   351→    year: 'Sebelum 570 M',
+   352→    yearNum: -570,
+   353→    description: 'Lokasi Makkah, posisi strategis, jalur perdagangan.',
+   354→    story: '[Bab ini menunggu penulisan. Fokus: lokasi Makkah, posisi strategis, jalur perdagangan.]',
+   355→    featured: false,
+   356→    characterIds: [],
+   357→    locationId: 'makkah',
+   358→    references: [],
+   359→    order: 2,
+   360→  },
+   361→  {
+   362→    id: 'bab-3',
+   363→    journeyId: 'fase-0',
+   364→    collectionId: 'perjalanan-rasulullah',
+   365→    title: "Ka'bah: Rumah Tua yang Dimuliakan",
+   366→    subtitle: 'Dari tangan Nabi Ibrahim a.s. ke tangan Quraisy',
+   367→    year: 'Zaman Dahulu',
+   368→    yearNum: -2000,
+   369→    description: 'Nabi Ibrahim a.s., Nabi Ismail a.s., dan Ka\'bah.',
+   370→    story: '[Bab ini menunggu penulisan. Fokus: Nabi Ibrahim a.s., Nabi Ismail a.s., Ka\'bah.]',
+   371→    featured: false,
+   372→    characterIds: ['ibrahim-as', 'ismail-as'],
+   373→    locationId: 'kabah',
+   374→    references: [],
+   375→    order: 3,
+   376→  },
+   377→  {
+   378→    id: 'bab-4',
+   379→    journeyId: 'fase-0',
+   380→    collectionId: 'perjalanan-rasulullah',
+   381→    title: 'Suku Quraisy',
+   382→    subtitle: 'Penjaga Ka\'bah dan penguasa Makkah',
+   383→    year: 'Sebelum 570 M',
+   384→    yearNum: -570,
+   385→    description: 'Struktur suku, kehormatan Quraisy, pengelola Ka\'bah.',
+   386→    story: '[Bab ini menunggu penulisan. Fokus: struktur suku, kehormatan Quraisy, pengelola Ka\'bah.]',
+   387→    featured: false,
+   388→    characterIds: [],
+   389→    locationId: 'makkah',
+   390→    references: [],
+   391→    order: 4,
+   392→  },
+   393→  {
+   394→    id: 'bab-5',
+   395→    journeyId: 'fase-0',
+   396→    collectionId: 'perjalanan-rasulullah',
+   397→    title: 'Tahun Gajah',
+   398→    subtitle: 'Pasukan yang dihancurkan dari langit',
+   399→    year: '570 M',
+   400→    yearNum: 570,
+   401→    description: 'Abrahah, pasukan gajah, QS Al-Fil.',
+   402→    story: '[Bab ini menunggu penulisan. Fokus: Abrahah, pasukan gajah, QS Al-Fil.]\n\nDi tahun yang sama, seorang bayi akan lahir di Makkah...',
+   403→    featured: true,
+   404→    characterIds: ['abrahah'],
+   405→    locationId: 'makkah',
+   406→    references: ['QS Al-Fil: 1-5'],
+   407→    order: 5,
+   408→  },
+   409→
+   410→  // ═══════════════════════════════════════════════════
+   411→  // FASE 1 — KELAHIRAN SANG CAHAYA
+   412→  // ═══════════════════════════════════════════════════
+   413→  {
+   414→    id: 'bab-6',
+   415→    journeyId: 'fase-1',
+   416→    collectionId: 'perjalanan-rasulullah',
+   417→    title: 'Kelahiran Muhammad ﷺ',
+   418→    subtitle: 'Cahaya yang dinantikan selama berabad-abad',
+   419→    year: '570 M',
+   420→    yearNum: 570,
+   421→    description: 'Kelahiran Muhammad ﷺ di Makkah.',
+   422→    story: '[Bab ini menunggu penulisan. Fokus: kelahiran, suasana, keistimewaan.]',
+   423→    featured: true,
+   424→    characterIds: ['aminah', 'abdul-muthalib'],
+   425→    locationId: 'makkah',
+   426→    references: [],
+   427→    order: 6,
+   428→  },
+   429→  {
+   430→    id: 'bab-7',
+   431→    journeyId: 'fase-1',
+   432→    collectionId: 'perjalanan-rasulullah',
+   433→    title: 'Di Pangkuan Halimah',
+   434→    subtitle: 'Susu gurun dan kasih ibu angkat',
+   435→    year: '570–572 M',
+   436→    yearNum: 570,
+   437→    description: 'Muhammad ﷺ di asuh Halimah as-Sa\'diyah di padang pasir.',
+   438→    story: '[Bab ini menunggu penulisan. Fokus: tradisi menyusukan, Halimah, keberkahan.]',
+   439→    featured: false,
+   440→    characterIds: ['halimah'],
+   441→    locationId: 'padang-bani-saad',
+   442→    references: [],
+   443→    order: 7,
+   444→  },
+   445→  {
+   446→    id: 'bab-8',
+   447→    journeyId: 'fase-1',
+   448→    collectionId: 'perjalanan-rasulullah',
+   449→    title: 'Pembelahan Dada',
+   450→    subtitle: 'Peristiwa yang membersihkan hati',
+   451→    year: '~572 M',
+   452→    yearNum: 572,
+   453→    description: 'Peristiwa pembelahan dada. Catatan riwayat dijelaskan.',
+   454→    story: '[Bab ini menunggu penulisan. Fokus: peristiwa pembelahan dada, catatan riwayat dijelaskan.]',
+   455→    featured: false,
+   456→    characterIds: ['halimah'],
+   457→    locationId: 'padang-bani-saad',
+   458→    references: [],
+   459→    order: 8,
+   460→  },
+   461→  {
+   462→    id: 'bab-9',
+   463→    journeyId: 'fase-1',
+   464→    collectionId: 'perjalanan-rasulullah',
+   465→    title: 'Perpisahan dengan Sang Ibu',
+   466→    subtitle: 'Abwa\' dan wafat Aminah — bab emosional',
+   467→    year: '576 M',
+   468→    yearNum: 576,
+   469→    description: 'Perjalanan ke Abwa\', wafat Aminah. Bab emosional.',
+   470→    story: '[Bab ini menunggu penulisan. Fokus: Abwa\', wafat Aminah. Ini bab emosional.]',
+   471→    featured: false,
+   472→    characterIds: ['aminah'],
+   473→    locationId: 'abwa',
+   474→    references: [],
+   475→    order: 9,
+   476→  },
+   477→  {
+   478→    id: 'bab-10',
+   479→    journeyId: 'fase-1',
+   480→    collectionId: 'perjalanan-rasulullah',
+   481→    title: 'Di Bawah Asuhan Abdul Muthalib',
+   482→    subtitle: 'Kakek yang menyayangi lebih dari anaknya sendiri',
+   483→    year: '576–578 M',
+   484→    yearNum: 576,
+   485→    description: 'Muhammad ﷺ di asuh kakeknya Abdul Muthalib.',
+   486→    story: '[Bab ini menunggu penulisan. Fokus: Abdul Muthalib, kasih sayang kakek, posisi di Makkah.]',
+   487→    featured: false,
+   488→    characterIds: ['abdul-muthalib'],
+   489→    locationId: 'makkah',
+   490→    references: [],
+   491→    order: 10,
+   492→  },
+   493→  {
+   494→    id: 'bab-11',
+   495→    journeyId: 'fase-1',
+   496→    collectionId: 'perjalanan-rasulullah',
+   497→    title: 'Rumah Abu Thalib',
+   498→    subtitle: 'Paman yang menjadi pelindung seumur hidup',
+   499→    year: '578–595 M',
+   500→    yearNum: 578,
+   501→    description: 'Muhammad ﷺ di bawah asuhan Abu Thalib.',
+   502→    story: '[Bab ini menunggu penulisan. Fokus: Abu Thalib, perlindungan, masa tinggal bersama paman.]',
+   503→    featured: false,
+   504→    characterIds: ['abu-thalib'],
+   505→    locationId: 'makkah',
+   506→    references: [],
+   507→    order: 11,
+   508→  },
+   509→
+   510→  // ═══════════════════════════════════════════════════
+   511→  // FASE 2 — MASA PEMUDA
+   512→  // ═══════════════════════════════════════════════════
+   513→  {
+   514→    id: 'bab-12',
+   515→    journeyId: 'fase-2',
+   516→    collectionId: 'perjalanan-rasulullah',
+   517→    title: 'Menggembala di Gurun Makkah',
+   518→    subtitle: 'Matahari Makkah belum tinggi...',
+   519→    year: '583–595 M',
+   520→    yearNum: 583,
+   521→    description: 'Muhammad ﷺ menggembala kambing di gurun Makkah.',
+   522→    story: 'Matahari Makkah belum tinggi...\n\n[Bab ini menunggu penulisan. Fokus: menggembala, kesunyian gurun, kontemplasi.]',
+   523→    featured: false,
+   524→    characterIds: [],
+   525→    locationId: 'makkah',
+   526→    references: [],
+   527→    order: 12,
+   528→  },
+   529→  {
+   530→    id: 'bab-13',
+   531→    journeyId: 'fase-2',
+   532→    collectionId: 'perjalanan-rasulullah',
+   533→    title: 'Perjalanan Pertama ke Syam',
+   534→    subtitle: 'Kafilah, padang pasir, dan pendeta yang melihat tanda',
+   535→    year: '583 M',
+   536→    yearNum: 583,
+   537→    description: 'Muhammad ﷺ ikut kafilah Abu Thalib ke Syam, bertemu Bahira.',
+   538→    story: '[Bab ini menunggu penulisan. Fokus: kafilah, perjalanan, pertemuan dengan Bahira.]',
+   539→    featured: false,
+   540→    characterIds: ['abu-thalib', 'bahira'],
+   541→    locationId: 'syam',
+   542→    references: [],
+   543→    order: 13,
+   544→  },
+   545→  {
+   546→    id: 'bab-14',
+   547→    journeyId: 'fase-2',
+   548→    collectionId: 'perjalanan-rasulullah',
+   549→    title: 'Al-Amin',
+   550→    subtitle: 'Orang yang dipercaya',
+   551→    year: '~590 M',
+   552→    yearNum: 590,
+   553→    description: 'Julukan Al-Amin — orang yang dipercaya.',
+   554→    story: '[Bab ini menunggu penulisan. Fokus: julukan Al-Amin, kejujuran, kepercayaan masyarakat Makkah.]',
+   555→    featured: false,
+   556→    characterIds: [],
+   557→    locationId: 'makkah',
+   558→    references: [],
+   559→    order: 14,
+   560→  },
+   561→  {
+   562→    id: 'bab-15',
+   563→    journeyId: 'fase-2',
+   564→    collectionId: 'perjalanan-rasulullah',
+   565→    title: 'Pernikahan dengan Khadijah',
+   566→    subtitle: 'Wanita pertama yang mencintai dan mempercayai',
+   567→    year: '595 M',
+   568→    yearNum: 595,
+   569→    description: 'Pernikahan Muhammad ﷺ dengan Khadijah binti Khuwailid.',
+   570→    story: '[Bab ini menunggu penulisan. Fokus: pernikahan, Khadijah, rumah tangga.]',
+   571→    featured: false,
+   572→    characterIds: ['khadijah'],
+   573→    locationId: 'makkah',
+   574→    references: [],
+   575→    order: 15,
+   576→  },
+   577→  {
+   578→    id: 'bab-16',
+   579→    journeyId: 'fase-2',
+   580→    collectionId: 'perjalanan-rasulullah',
+   581→    title: 'Hajar Aswad dan Perselisihan Quraisy',
+   582→    subtitle: 'Hampir saja perang meledak di Makkah',
+   583→    year: '605 M',
+   584→    yearNum: 605,
+   585→    description: 'Perselisihan Quraisy tentang Hajar Aswad. Ending kuat — semua suku hampir berperang.',
+   586→    story: '[Bab ini menunggu penulisan. Fokus: renovasi Ka\'bah, perselisihan, hikmah Muhammad ﷺ. Ending kuat karena semua suku hampir berperang.]',
+   587→    featured: true,
+   588→    characterIds: [],
+   589→    locationId: 'kabah',
+   590→    references: [],
+   591→    order: 16,
+   592→  },
+   593→
+   594→  // ═══════════════════════════════════════════════════
+   595→  // FASE 3 — MENCARI KEBENARAN
+   596→  // ═══════════════════════════════════════════════════
+   597→  {
+   598→    id: 'bab-17',
+   599→    journeyId: 'fase-3',
+   600→    collectionId: 'perjalanan-rasulullah',
+   601→    title: 'Menyepi di Gua Hira',
+   602→    subtitle: 'Kesunyian yang mencari jawaban',
+   603→    year: '610 M',
+   604→    yearNum: 610,
+   605→    description: 'Muhammad ﷺ menyepi di Gua Hira sebelum wahyu turun.',
+   606→    story: '[Bab ini menunggu penulisan. Fokus: Gua Hira, kontemplasi, mencari makna.]',
+   607→    featured: false,
+   608→    characterIds: [],
+   609→    locationId: 'gua-hira',
+   610→    references: [],
+   611→    order: 17,
+   612→  },
+   613→  {
+   614→    id: 'bab-18',
+   615→    journeyId: 'fase-3',
+   616→    collectionId: 'perjalanan-rasulullah',
+   617→    title: 'Malam yang Mengubah Dunia',
+   618→    subtitle: 'Wahyu pertama turun di malam yang sunyi',
+   619→    year: '610 M',
+   620→    yearNum: 610,
+   621→    description: 'Wahyu pertama turun. Malam yang mengubah segalanya.',
+   622→    story: '[Bab ini menunggu penulisan. Fokus: wahyu pertama, Jibril, malam 17 Ramadhan.]',
+   623→    featured: true,
+   624→    characterIds: ['jibril-as'],
+   625→    locationId: 'gua-hira',
+   626→    references: [],
+   627→    order: 18,
+   628→  },
+   629→  {
+   630→    id: 'bab-19',
+   631→    journeyId: 'fase-3',
+   632→    collectionId: 'perjalanan-rasulullah',
+   633→    title: "Iqra'",
+   634→    subtitle: 'Bacalah — dengan nama Tuhanmu',
+   635→    year: '610 M',
+   636→    yearNum: 610,
+   637→    description: 'Fokus QS Al-Alaq. Perintah pertama: bacalah.',
+   638→    story: '[Bab ini menunggu penulisan. Fokus: QS Al-Alaq 1-5, perintah membaca, makna Iqra\'.]',
+   639→    featured: false,
+   640→    characterIds: ['jibril-as'],
+   641→    locationId: 'gua-hira',
+   642→    references: ['QS Al-Alaq: 1-5'],
+   643→    order: 19,
+   644→  },
+   645→  {
+   646→    id: 'bab-20',
+   647→    journeyId: 'fase-3',
+   648→    collectionId: 'perjalanan-rasulullah',
+   649→    title: 'Kembali kepada Khadijah',
+   650→    subtitle: 'Bab emosional — orang pertama yang beriman',
+   651→    year: '610 M',
+   652→    yearNum: 610,
+   653→    description: 'Muhammad ﷺ pulang kepada Khadijah setelah wahyu. Bab emosional.',
+   654→    story: '[Bab ini menunggu penulisan. Fokus: Khadijah, orang pertama beriman, kasih sayang dan dukungan. Bab emosional.]',
+   655→    featured: false,
+   656→    characterIds: ['khadijah', 'waraqah'],
+   657→    locationId: 'makkah',
+   658→    references: [],
+   659→    order: 20,
+   660→  },
+   661→
+   662→  // ═══════════════════════════════════════════════════
+   663→  // FASE 4 — DAKWAH DI MAKKAH
+   664→  // ═══════════════════════════════════════════════════
+   665→  {
+   666→    id: 'bab-21',
+   667→    journeyId: 'fase-4',
+   668→    collectionId: 'perjalanan-rasulullah',
+   669→    title: 'Dakwah Rahasia',
+   670→    subtitle: 'Cahaya yang bersemi dalam diam',
+   671→    year: '610–613 M',
+   672→    yearNum: 610,
+   673→    description: 'Dakwah rahasia di tahun-tahun pertama kenabian.',
+   674→    story: '[Bab ini menunggu penulisan. Fokus: dakwah rahasia, kelompok pertama, sembunyi-sembunyi.]',
+   675→    featured: false,
+   676→    characterIds: [],
+   677→    locationId: 'makkah',
+   678→    references: [],
+   679→    order: 21,
+   680→  },
+   681→  {
+   682→    id: 'bab-22',
+   683→    journeyId: 'fase-4',
+   684→    collectionId: 'perjalanan-rasulullah',
+   685→    title: 'Orang-Orang Pertama yang Beriman',
+   686→    subtitle: 'Hati-hati yang pertama merespon cahaya',
+   687→    year: '610–613 M',
+   688→    yearNum: 610,
+   689→    description: 'Orang-orang pertama yang beriman: Khadijah, Abu Bakar, Ali, Zaid.',
+   690→    story: '[Bab ini menunggu penulisan. Fokus: Khadijah, Abu Bakar, Ali bin Abi Thalib, Zaid bin Haritsah.]',
+   691→    featured: false,
+   692→    characterIds: ['khadijah', 'abu-bakar', 'ali'],
+   693→    locationId: 'makkah',
+   694→    references: [],
+   695→    order: 22,
+   696→  },
+   697→  {
+   698→    id: 'bab-23',
+   699→    journeyId: 'fase-4',
+   700→    collectionId: 'perjalanan-rasulullah',
+   701→    title: 'Bukit Shafa',
+   702→    subtitle: 'Hari dakwah menjadi terang-terangan',
+   703→    year: '613 M',
+   704→    yearNum: 613,
+   705→    description: 'Dakwah terang-terangan di Bukit Shafa.',
+   706→    story: '[Bab ini menunggu penulisan. Fokus: dakwah terang-terangan, reaksi Quraisy, Bukit Shafa.]',
+   707→    featured: false,
+   708→    characterIds: [],
+   709→    locationId: 'bukit-shafa',
+   710→    references: [],
+   711→    order: 23,
+   712→  },
+   713→  {
+   714→    id: 'bab-24',
+   715→    journeyId: 'fase-4',
+   716→    collectionId: 'perjalanan-rasulullah',
+   717→    title: 'Bilal dan Panasnya Padang Pasir',
+   718→    subtitle: 'Siksaan yang tidak memadamkan iman',
+   719→    year: '614–615 M',
+   720→    yearNum: 614,
+   721→    description: 'Bilal bin Rabah dan penyiksaan sahabat di Makkah.',
+   722→    story: '[Bab ini menunggu penulisan. Fokus: Bilal, penyiksaan, keteguhan iman.]',
+   723→    featured: false,
+   724→    characterIds: ['bilal'],
+   725→    locationId: 'makkah',
+   726→    references: [],
+   727→    order: 24,
+   728→  },
+   729→  {
+   730→    id: 'bab-25',
+   731→    journeyId: 'fase-4',
+   732→    collectionId: 'perjalanan-rasulullah',
+   733→    title: 'Hijrah ke Habasyah',
+   734→    subtitle: 'Meninggalkan tanah air demi kebebasan beriman',
+   735→    year: '615 M',
+   736→    yearNum: 615,
+   737→    description: 'Hijrah pertama ke Habasyah (Ethiopia).',
+   738→    story: '[Bab ini menunggu penulisan. Fokus: hijrah ke Habasyah, Raja Najasyi, perlindungan.]',
+   739→    featured: false,
+   740→    characterIds: [],
+   741→    locationId: 'habasyah',
+   742→    references: [],
+   743→    order: 25,
+   744→  },
+   745→  {
+   746→    id: 'bab-26',
+   747→    journeyId: 'fase-4',
+   748→    collectionId: 'perjalanan-rasulullah',
+   749→    title: 'Boikot Quraisy',
+   750→    subtitle: 'Tiga tahun di lembah yang sepi',
+   751→    year: '616–619 M',
+   752→    yearNum: 616,
+   753→    description: 'Boikot Quraisy terhadap Bani Hasyim di Shi\'b Abi Thalib.',
+   754→    story: '[Bab ini menunggu penulisan. Fokus: boikot, Shi\'b Abi Thalib, kelaparan, kesabaran.]',
+   755→    featured: false,
+   756→    characterIds: ['abu-thalib'],
+   757→    locationId: 'makkah',
+   758→    references: [],
+   759→    order: 26,
+   760→  },
+   761→  {
+   762→    id: 'bab-27',
+   763→    journeyId: 'fase-4',
+   764→    collectionId: 'perjalanan-rasulullah',
+   765→    title: 'Tahun Kesedihan',
+   766→    subtitle: 'Kehilangan dua pelindung',
+   767→    year: '619–620 M',
+   768→    yearNum: 619,
+   769→    description: 'Wafat Abu Thalib dan Khadijah. Tahun Kesedihan.',
+   770→    story: '[Bab ini menunggu penulisan. Fokus: wafat Abu Thalib, wafat Khadijah, Tahun Kesedihan.]',
+   771→    featured: false,
+   772→    characterIds: ['abu-thalib', 'khadijah'],
+   773→    locationId: 'makkah',
+   774→    references: [],
+   775→    order: 27,
+   776→  },
+   777→  {
+   778→    id: 'bab-28',
+   779→    journeyId: 'fase-4',
+   780→    collectionId: 'perjalanan-rasulullah',
+   781→    title: "Isra' Mi'raj",
+   782→    subtitle: 'Perjalanan yang melampaui akal manusia',
+   783→    year: '621 M',
+   784→    yearNum: 621,
+   785→    description: "Isra' Mi'raj — perjalanan malam dari Makkah ke Yerusalem ke Sidratul Muntaha.",
+   786→    story: '[Bab ini menunggu penulisan. Fokus: Isra\', Mi\'raj, Baitul Maqdis, Sidratul Muntaha, shalat lima waktu.]',
+   787→    featured: true,
+   788→    characterIds: ['jibril-as'],
+   789→    locationId: 'baitul-maqdis',
+   790→    references: ['QS Al-Isra\': 1', 'QS An-Najm: 1-18'],
+   791→    order: 28,
+   792→  },
+   793→
+   794→  // ═══════════════════════════════════════════════════
+   795→  // FASE 5 — MENUJU MADINAH
+   796→  // ═══════════════════════════════════════════════════
+   797→  {
+   798→    id: 'bab-29',
+   799→    journeyId: 'fase-5',
+   800→    collectionId: 'perjalanan-rasulullah',
+   801→    title: 'Baiat Aqabah',
+   802→    subtitle: 'Janji di malam gelap yang mengubah arah sejarah',
+   803→    year: '621 M',
+   804→    yearNum: 621,
+   805→    description: 'Baiat Aqabah Pertama dan Kedua dengan penduduk Yatsrib.',
+   806→    story: '[Bab ini menunggu penulisan. Fokus: Baiat Aqabah, orang-orang Yatsrib, janji perlindungan.]',
+   807→    featured: false,
+   808→    characterIds: [],
+   809→    locationId: 'aqabah',
+   810→    references: [],
+   811→    order: 29,
+   812→  },
+   813→  {
+   814→    id: 'bab-30',
+   815→    journeyId: 'fase-5',
+   816→    collectionId: 'perjalanan-rasulullah',
+   817→    title: 'Malam Hijrah',
+   818→    subtitle: 'Malam ketika Makkah kehilangan penghuninya',
+   819→    year: '622 M',
+   820→    yearNum: 622,
+   821→    description: 'Malam hijrah — meninggalkan Makkah.',
+   822→    story: '[Bab ini menunggu penulisan. Fokus: malam hijrah, Ali di tempat tidur, rencana Quraisy.]',
+   823→    featured: true,
+   824→    characterIds: ['abu-bakar', 'ali'],
+   825→    locationId: 'makkah',
+   826→    references: [],
+   827→    order: 30,
+   828→  },
+   829→  {
+   830→    id: 'bab-31',
+   831→    journeyId: 'fase-5',
+   832→    collectionId: 'perjalanan-rasulullah',
+   833→    title: 'Gua Tsur',
+   834→    subtitle: 'Tiga hari bersembunyi sambil mempercayai Allah',
+   835→    year: '622 M',
+   836→    yearNum: 622,
+   837→    description: 'Gua Tsur — bersembunyi dari kejaran Quraisy.',
+   838→    story: '[Bab ini menunggu penulisan. Fokus: Gua Tsur, Abu Bakar, laba-laba dan merpati, tawakkal.]',
+   839→    featured: false,
+   840→    characterIds: ['abu-bakar'],
+   841→    locationId: 'gua-tsur',
+   842→    references: ['QS At-Taubah: 40'],
+   843→    order: 31,
+   844→  },
+   845→  {
+   846→    id: 'bab-32',
+   847→    journeyId: 'fase-5',
+   848→    collectionId: 'perjalanan-rasulullah',
+   849→    title: 'Perjalanan ke Madinah',
+   850→    subtitle: 'Dari Makkah ke Yatsrib — kafilah yang dinantikan',
+   851→    year: '622 M',
+   852→    yearNum: 622,
+   853→    description: 'Perjalanan dari Gua Tsur menuju Madinah.',
+   854→    story: '[Bab ini menunggu penulisan. Fokus: perjalanan, Suraqah, Quba.]',
+   855→    featured: false,
+   856→    characterIds: ['abu-bakar'],
+   857→    locationId: 'quba',
+   858→    references: [],
+   859→    order: 32,
+   860→  },
+   861→  {
+   862→    id: 'bab-33',
+   863→    journeyId: 'fase-5',
+   864→    collectionId: 'perjalanan-rasulullah',
+   865→    title: 'Sambutan Penduduk Madinah',
+   866→    subtitle: 'Nyanyian anak-anak yang menyambut cahaya',
+   867→    year: '622 M',
+   868→    yearNum: 622,
+   869→    description: 'Sambutan penduduk Madinah terhadap Rasulullah ﷺ.',
+   870→    story: '[Bab ini menunggu penulisan. Fokus: sambutan, Tala\'a al-Badru \'Alaina, Yatsrib menjadi Madinah.]',
+   871→    featured: false,
+   872→    characterIds: [],
+   873→    locationId: 'madinah',
+   874→    references: [],
+   875→    order: 33,
+   876→  },
+   877→
+   878→  // ═══════════════════════════════════════════════════
+   879→  // FASE 6 — MEMBANGUN PERADABAN
+   880→  // ═══════════════════════════════════════════════════
+   881→  {
+   882→    id: 'bab-34',
+   883→    journeyId: 'fase-6',
+   884→    collectionId: 'perjalanan-rasulullah',
+   885→    title: 'Masjid Nabawi',
+   886→    subtitle: 'Rumah Allah yang menjadi pusat segalanya',
+   887→    year: '622 M',
+   888→    yearNum: 622,
+   889→    description: 'Pembangunan Masjid Nabawi — masjid pertama dalam Islam.',
+   890→    story: '[Bab ini menunggu penulisan. Fokus: pembangunan masjid, gotong royong, masjid sebagai pusat kehidupan.]',
+   891→    featured: false,
+   892→    characterIds: [],
+   893→    locationId: 'masjid-nabawi',
+   894→    references: [],
+   895→    order: 34,
+   896→  },
+   897→  {
+   898→    id: 'bab-35',
+   899→    journeyId: 'fase-6',
+   900→    collectionId: 'perjalanan-rasulullah',
+   901→    title: 'Persaudaraan Muhajirin dan Anshar',
+   902→    subtitle: 'Saudara bukan karena darah, tapi karena iman',
+   903→    year: '622 M',
+   904→    yearNum: 622,
+   905→    description: 'Persaudaraan antara Muhajirin dan Anshar.',
+   906→    story: '[Bab ini menunggu penulisan. Fokus: persaudaraan, Muhajirin, Anshar, berbagi harta dan rumah.]',
+   907→    featured: false,
+   908→    characterIds: [],
+   909→    locationId: 'madinah',
+   910→    references: [],
+   911→    order: 35,
+   912→  },
+   913→  {
+   914→    id: 'bab-36',
+   915→    journeyId: 'fase-6',
+   916→    collectionId: 'perjalanan-rasulullah',
+   917→    title: 'Piagam Madinah',
+   918→    subtitle: 'Konstitusi pertama yang menyatukan semua golongan',
+   919→    year: '622–624 M',
+   920→    yearNum: 622,
+   921→    description: 'Piagam Madinah — konstitusi yang menyatukan Muslim, Yahudi, dan suku-suku lain.',
+   922→    story: '[Bab ini menunggu penulisan. Fokus: Piagam Madinah, konstitusi, toleransi, hak dan kewajiban.]',
+   923→    featured: false,
+   924→    characterIds: [],
+   925→    locationId: 'madinah',
+   926→    references: [],
+   927→    order: 36,
+   928→  },
+   929→
+   930→  // ═══════════════════════════════════════════════════
+   931→  // FASE 7 — UJIAN DAN KEMENANGAN
+   932→  // ═══════════════════════════════════════════════════
+   933→  {
+   934→    id: 'bab-37',
+   935→    journeyId: 'fase-7',
+   936→    collectionId: 'perjalanan-rasulullah',
+   937→    title: 'Badar',
+   938→    subtitle: '313 melawan 1000 — pertolongan yang datang dari langit',
+   939→    year: '624 M',
+   940→    yearNum: 624,
+   941→    description: 'Perang Badar — pertempuran pertama umat Islam.',
+   942→    story: '[Bab ini menunggu penulisan. Fokus: Badar, 313 vs 1000, pertolongan Allah, QS Al-Anfal.]',
+   943→    featured: true,
+   944→    characterIds: ['abu-bakar', 'umar', 'ali'],
+   945→    locationId: 'badar',
+   946→    references: ['QS Al-Anfal: 9-12', 'QS Ali Imran: 123-126'],
+   947→    order: 37,
+   948→  },
+   949→  {
+   950→    id: 'bab-38',
+   951→    journeyId: 'fase-7',
+   952→    collectionId: 'perjalanan-rasulullah',
+   953→    title: 'Uhud',
+   954→    subtitle: 'Ketika kemenangan berbalik karena satu kesalahan',
+   955→    year: '625 M',
+   956→    yearNum: 625,
+   957→    description: 'Perang Uhud — ujian dan pelajaran.',
+   958→    story: '[Bab ini menunggu penulisan. Fokus: Uhud, pemanah yang meninggati posisi, gugurnya Hamzah, QS Ali Imran.]',
+   959→    featured: false,
+   960→    characterIds: ['hamzah'],
+   961→    locationId: 'uhud',
+   962→    references: ['QS Ali Imran: 152'],
+   963→    order: 38,
+   964→  },
+   965→  {
+   966→    id: 'bab-39',
+   967→    journeyId: 'fase-7',
+   968→    collectionId: 'perjalanan-rasulullah',
+   969→    title: 'Khandaq',
+   970→    subtitle: 'Parit yang memisahkan Makkah dan Madinah',
+   971→    year: '627 M',
+   972→    yearNum: 627,
+   973→    description: 'Perang Khandaq (Ahzab) — parit pertahanan Salman al-Farisi.',
+   974→    story: '[Bab ini menunggu penulisan. Fokus: Khandaq, parit, Salman al-Farisi, pengepungan, QS Al-Ahzab.]',
+   975→    featured: false,
+   976→    characterIds: [],
+   977→    locationId: 'madinah',
+   978→    references: ['QS Al-Ahzab: 9-20'],
+   979→    order: 39,
+   980→  },
+   981→  {
+   982→    id: 'bab-40',
+   983→    journeyId: 'fase-7',
+   984→    collectionId: 'perjalanan-rasulullah',
+   985→    title: 'Hudaibiyah',
+   986→    subtitle: 'Kekalahan yang ternyata kemenangan terbesar',
+   987→    year: '628 M',
+   988→    yearNum: 628,
+   989→    description: 'Perjanjian Hudaibiyah — kekalahan yang ternyata kemenangan.',
+   990→    story: '[Bab ini menunggu penulisan. Fokus: Hudaibiyah, perjanjian, QS Al-Fath: kemenangan yang nyata.]',
+   991→    featured: true,
+   992→    characterIds: ['abu-bakar', 'umar'],
+   993→    locationId: 'hudaibiyah',
+   994→    references: ['QS Al-Fath: 1-6'],
+   995→    order: 40,
+   996→  },
+   997→  {
+   998→    id: 'bab-41',
+   999→    journeyId: 'fase-7',
+  1000→    collectionId: 'perjalanan-rasulullah',
+  1001→    title: 'Khaibar',
+  1002→    subtitle: 'Benteng yang runtuh satu per satu',
+  1003→    year: '628 M',
+  1004→    yearNum: 628,
+  1005→    description: 'Penaklukan Khaibar.',
+  1006→    story: '[Bab ini menunggu penulisan. Fokus: Khaibar, benteng-benteng, Ali dan gerbang Khaibar.]',
+  1007→    featured: false,
+  1008→    characterIds: ['ali'],
+  1009→    locationId: 'khaibar',
+  1010→    references: [],
+  1011→    order: 41,
+  1012→  },
+  1013→  {
+  1014→    id: 'bab-42',
+  1015→    journeyId: 'fase-7',
+  1016→    collectionId: 'perjalanan-rasulullah',
+  1017→    title: 'Hunain',
+  1018→    subtitle: 'Ketika jumlah besar tidak menjamin kemenangan',
+  1019→    year: '630 M',
+  1020→    yearNum: 630,
+  1021→    description: 'Perang Hunain — ujian setelah Fathu Makkah.',
+  1022→    story: '[Bab ini menunggu penulisan. Fokus: Hunain, pasukan besar, serangan mendadak, keteguhan Rasulullah ﷺ.]',
+  1023→    featured: false,
+  1024→    characterIds: [],
+  1025→    locationId: 'hunain',
+  1026→    references: ['QS At-Taubah: 25-26'],
+  1027→    order: 42,
+  1028→  },
+  1029→  {
+  1030→    id: 'bab-43',
+  1031→    journeyId: 'fase-7',
+  1032→    collectionId: 'perjalanan-rasulullah',
+  1033→    title: 'Fathu Makkah',
+  1034→    subtitle: 'Kembali ke kota kelahiran — bukan sebagai musuh, tapi sebagai pembebas',
+  1035→    year: '630 M',
+  1036→    yearNum: 630,
+  1037→    description: 'Fathu Makkah — pembebasan Makkah.',
+  1038→    story: '[Bab ini menunggu penulisan. Fokus: Fathu Makkah, 10.000 pasukan, pengampunan, Ka\'bah dibersihkan.]',
+  1039→    featured: true,
+  1040→    characterIds: ['abu-bakar', 'umar', 'ali', 'bilal'],
+  1041→    locationId: 'makkah',
+  1042→    references: [],
+  1043→    order: 43,
+  1044→  },
+  1045→
+  1046→  // ═══════════════════════════════════════════════════
+  1047→  // FASE 8 — PERPISAHAN
+  1048→  // ═══════════════════════════════════════════════════
+  1049→  {
+  1050→    id: 'bab-44',
+  1051→    journeyId: 'fase-8',
+  1052→    collectionId: 'perjalanan-rasulullah',
+  1053→    title: "Haji Wada'",
+  1054→    subtitle: 'Haji terakhir — wasiat untuk seluruh umat',
+  1055→    year: '632 M',
+  1056→    yearNum: 632,
+  1057→    description: "Haji Wada' — haji perpisahan Rasulullah ﷺ.",
+  1058→    story: '[Bab ini menunggu penulisan. Fokus: Haji Wada\', khutbah terakhir, wasiat untuk umat.]',
+  1059→    featured: true,
+  1060→    characterIds: [],
+  1061→    locationId: 'makkah',
+  1062→    references: [],
+  1063→    order: 44,
+  1064→  },
+  1065→  {
+  1066→    id: 'bab-45',
+  1067→    journeyId: 'fase-8',
+  1068→    collectionId: 'perjalanan-rasulullah',
+  1069→    title: 'Wasiat Terakhir',
+  1070→    subtitle: 'Pesanan yang tidak boleh dilupakan',
+  1071→    year: '632 M',
+  1072→    yearNum: 632,
+  1073→    description: 'Wasiat terakhir Rasulullah ﷺ.',
+  1074→    story: '[Bab ini menunggu penulisan. Fokus: wasiat terakhir, sakit, pesan-pesan penting.]',
+  1075→    featured: false,
+  1076→    characterIds: [],
+  1077→    locationId: 'madinah',
+  1078→    references: [],
+  1079→    order: 45,
+  1080→  },
+  1081→  {
+  1082→    id: 'bab-46',
+  1083→    journeyId: 'fase-8',
+  1084→    collectionId: 'perjalanan-rasulullah',
+  1085→    title: 'Hari yang Membuat Madinah Menangis',
+  1086→    subtitle: 'Wafat Rasulullah ﷺ',
+  1087→    year: '632 M',
+  1088→    yearNum: 632,
+  1089→    description: 'Wafat Rasulullah ﷺ.',
+  1090→    story: '[Bab ini menunggu penulisan. Fokus: wafat, suasana Madinah, Umar tidak percaya, Abu Bakar: "Barangsiapa menyembah Muhammad, maka Muhammad telah wafat..."]',
+  1091→    featured: true,
+  1092→    characterIds: ['abu-bakar', 'umar'],
+  1093→    locationId: 'madinah',
+  1094→    references: ['QS Ali Imran: 144'],
+  1095→    order: 46,
+  1096→  },
+  1097→
+  1098→  // ═══════════════════════════════════════════════════
+  1099→  // PENUTUP
+  1100→  // ═══════════════════════════════════════════════════
+  1101→  {
+  1102→    id: 'bab-47',
+  1103→    journeyId: 'penutup',
+  1104→    collectionId: 'perjalanan-rasulullah',
+  1105→    title: 'Jejak yang Tidak Pernah Padam',
+  1106→    subtitle: 'Warisan Islam dan cahaya yang terus menyala',
+  1107→    year: '632 M+',
+  1108→    yearNum: 632,
+  1109→    description: 'Warisan Islam, para sahabat melanjutkan perjuangan, Islam menyebar ke dunia.',
+  1110→    story: '[Bab ini menunggu penulisan. Fokus: warisan Islam, para sahabat melanjutkan perjuangan, Islam menyebar ke dunia.]',
+  1111→    featured: true,
+  1112→    characterIds: ['abu-bakar', 'umar'],
+  1113→    locationId: 'madinah',
+  1114→    references: [],
+  1115→    order: 47,
+  1116→  },
+  1117→];
+  1118→
+  1119→// ── Characters ──────────────────────────────────────
+  1120→
+  1121→export const characters: Character[] = [
+  1122→  {
+  1123→    id: 'muhammad-saw',
+  1124→    name: 'Muhammad ﷺ',
+  1125→    title: 'Nabi dan Rasul Terakhir',
+  1126→    shortBio: 'Nabi Muhammad ﷺ — rasul terakhir yang diutus kepada seluruh umat manusia.',
+  1127→    fullBio: 'Nabi Muhammad ﷺ lahir di Makkah tahun 570 M, diangkat menjadi rasul pada usia 40 tahun, hijrah ke Madinah tahun 622 M, dan wafat tahun 632 M. Beliau adalah penutup para nabi dan rasul.',
+  1128→    role: 'Nabi & Rasul',
+  1129→    period: '570–632 M',
+  1130→    eventIds: ['bab-6', 'bab-7', 'bab-12', 'bab-13', 'bab-14', 'bab-15', 'bab-17', 'bab-18', 'bab-21', 'bab-23', 'bab-28', 'bab-29', 'bab-30', 'bab-32', 'bab-33', 'bab-34', 'bab-35', 'bab-37', 'bab-38', 'bab-39', 'bab-40', 'bab-41', 'bab-42', 'bab-43', 'bab-44', 'bab-45', 'bab-46'],
+  1131→    references: [],
+  1132→  },
+  1133→  {
+  1134→    id: 'khadijah',
+  1135→    name: 'Khadijah binti Khuwailid',
+  1136→    title: 'Istri pertama Rasulullah ﷺ',
+  1137→    shortBio: 'Orang pertama yang beriman. Istri yang mendukung saat semua meninggalkan.',
+  1138→    fullBio: 'Khadijah binti Khuwailid r.a. adalah istri pertama Rasulullah ﷺ dan orang pertama yang beriman kepada risalah Islam. Beliau mendukung Rasulullah ﷺ dengan seluruh jiwa dan hartanya.',
+  1139→    role: 'Istri Rasulullah ﷺ',
+  1140→    period: '555–619 M',
+  1141→    eventIds: ['bab-15', 'bab-20', 'bab-22', 'bab-27'],
+  1142→    references: [],
+  1143→  },
+  1144→  {
+  1145→    id: 'abu-bakar',
+  1146→    name: 'Abu Bakar as-Siddiq',
+  1147→    title: 'Khalifah pertama',
+  1148→    shortBio: 'Sahabat terdekat. Orang pertama di luar keluarga yang beriman.',
+  1149→    fullBio: 'Abu Bakar as-Siddiq r.a. adalah sahabat terdekat Rasulullah ﷺ, orang pertama di luar keluarga yang beriman, dan khalifah pertama setelah wafatnya Rasulullah ﷺ.',
+  1150→    role: 'Sahabat Terdekat',
+  1151→    period: '573–634 M',
+  1152→    eventIds: ['bab-22', 'bab-30', 'bab-31', 'bab-32', 'bab-37', 'bab-40', 'bab-43', 'bab-46', 'bab-47'],
+  1153→    references: [],
+  1154→  },
+  1155→  {
+  1156→    id: 'umar',
+  1157→    name: 'Umar bin Khattab',
+  1158→    title: 'Khalifah kedua',
+  1159→    shortBio: 'Dari penganiaya Islam menjadi pembela terkuatnya.',
+  1160→    fullBio: 'Umar bin Khattab r.a. adalah khalifah kedua yang dikenal dengan keadilannya. Masuk Islam setelah sebelumnya menjadi musuh, dan menjadi salah satu pilar terkuat umat Islam.',
+  1161→    role: 'Khalifah',
+  1162→    period: '584–644 M',
+  1163→    eventIds: ['bab-37', 'bab-40', 'bab-46', 'bab-47'],
+  1164→    references: [],
+  1165→  },
+  1166→  {
+  1167→    id: 'ali',
+  1168→    name: 'Ali bin Abi Thalib',
+  1169→    title: 'Khalifah keempat',
+  1170→    shortBio: 'Sepupu dan menantu Rasulullah ﷺ. Pahlawan Khaibar.',
+  1171→    fullBio: 'Ali bin Abi Thalib r.a. adalah sepupu dan menantu Rasulullah ﷺ. Beliau tinggal di rumah Rasulullah ﷺ sejak kecil dan termasuk orang-orang pertama yang beriman.',
+  1172→    role: 'Sahabat',
+  1173→    period: '600–661 M',
+  1174→    eventIds: ['bab-11', 'bab-22', 'bab-30', 'bab-37', 'bab-41', 'bab-43'],
+  1175→    references: [],
+  1176→  },
+  1177→  {
+  1178→    id: 'abu-thalib',
+  1179→    name: 'Abu Thalib',
+  1180→    title: 'Paman Rasulullah ﷺ',
+  1181→    shortBio: 'Pelindung yang tidak pernah berhenti membela meski tidak beriman.',
+  1182→    fullBio: 'Abu Thalib adalah paman Rasulullah ﷺ yang mengasuh dan melindungi beliau sejak kecil hingga akhir hayatnya.',
+  1183→    role: 'Paman',
+  1184→    period: '~540–619 M',
+  1185→    eventIds: ['bab-11', 'bab-13', 'bab-26', 'bab-27'],
+  1186→    references: [],
+  1187→  },
+  1188→  {
+  1189→    id: 'abdul-muthalib',
+  1190→    name: 'Abdul Muthalib',
+  1191→    title: 'Kakek Rasulullah ﷺ',
+  1192→    shortBio: 'Pemimpin Quraisy yang menyayangi cucunya lebih dari anaknya sendiri.',
+  1193→    fullBio: 'Abdul Muthalib adalah kakek Rasulullah ﷺ dan pemimpin Quraisy. Beliau mengasuh Muhammad ﷺ setelah wafatnya Aminah.',
+  1194→    role: 'Kakek',
+  1195→    period: '~497–578 M',
+  1196→    eventIds: ['bab-6', 'bab-10'],
+  1197→    references: [],
+  1198→  },
+  1199→  {
+  1200→    id: 'aminah',
+  1201→    name: 'Aminah binti Wahb',
+  1202→    title: 'Ibu Rasulullah ﷺ',
+  1203→    shortBio: 'Ibu yang wafat saat anaknya masih kecil, meninggalkan jejak cinta yang abadi.',
+  1204→    fullBio: 'Aminah binti Wahb adalah ibu Rasulullah ﷺ. Beliau wafat saat Muhammad ﷺ berusia sekitar 6 tahun dalam perjalanan dari Madinah ke Makkah.',
+  1205→    role: 'Ibu',
+  1206→    period: '~540–576 M',
+  1207→    eventIds: ['bab-6', 'bab-9'],
+  1208→    references: [],
+  1209→  },
+  1210→  {
+  1211→    id: 'halimah',
+  1212→    name: 'Halimah as-Sa\'diyah',
+  1213→    title: 'Ibu angkat Rasulullah ﷺ',
+  1214→    shortBio: 'Wanita dari padang pasir yang menyusui dan membesarkan Muhammad ﷺ.',
+  1215→    fullBio: 'Halimah as-Sa\'diyah adalah ibu angkat yang menyusui dan membesarkan Muhammad ﷺ di padang Bani Sa\'ad.',
+  1216→    role: 'Ibu Angkat',
+  1217→    period: '~540–? M',
+  1218→    eventIds: ['bab-7', 'bab-8'],
+  1219→    references: [],
+  1220→  },
+  1221→  {
+  1222→    id: 'bilal',
+  1223→    name: 'Bilal bin Rabah',
+  1224→    title: 'Muadzin Rasulullah ﷺ',
+  1225→    shortBio: 'Budak yang disiksa karena imannya, lalu menjadi suara pertama adzan.',
+  1226→    fullBio: 'Bilal bin Rabah r.a. adalah budak yang disiksa oleh majikannya karena memeluk Islam. Abu Bakar membebaskannya, dan ia menjadi muadzin pertama dalam Islam.',
+  1227→    role: 'Muadzin',
+  1228→    period: '~580–640 M',
+  1229→    eventIds: ['bab-24', 'bab-43'],
+  1230→    references: [],
+  1231→  },
+  1232→  {
+  1233→    id: 'hamzah',
+  1234→    name: 'Hamzah bin Abdul Muthalib',
+  1235→    title: 'Paman dan Syahid Utama',
+  1236→    shortBio: 'Singa Allah dan Rasul-Nya. Paman yang dibunuh di Uhud.',
+  1237→    fullBio: 'Hamzah bin Abdul Muthalib r.a. adalah paman Rasulullah ﷺ yang gugur sebagai syahid dalam Perang Uhud.',
+  1238→    role: 'Paman',
+  1239→    period: '~568–625 M',
+  1240→    eventIds: ['bab-38'],
+  1241→    references: [],
+  1242→  },
+  1243→  {
+  1244→    id: 'abrahah',
+  1245→    name: 'Abrahah',
+  1246→    title: 'Penguasa Yaman',
+  1247→    shortBio: 'Raja yang memimpin pasukan gajah untuk menghancurkan Ka\'bah.',
+  1248→    fullBio: 'Abrahah al-Asyram adalah penguasa Yaman yang memimpin pasukan gajah untuk menghancurkan Ka\'bah pada Tahun Gajah (570 M).',
+  1249→    role: 'Tokoh Sejarah',
+  1250→    period: '~wafat 570 M',
+  1251→    eventIds: ['bab-5'],
+  1252→    references: [],
+  1253→  },
+  1254→  {
+  1255→    id: 'ibrahim-as',
+  1256→    name: 'Nabi Ibrahim a.s.',
+  1257→    title: 'Khalilullah — Kekasih Allah',
+  1258→    shortBio: 'Bapak para nabi yang membangun Ka\'bah bersama Nabi Ismail a.s.',
+  1259→    fullBio: 'Nabi Ibrahim a.s. adalah bapak para nabi yang membangun Ka\'bah bersama putranya Nabi Ismail a.s.',
+  1260→    role: 'Nabi',
+  1261→    period: '~2000 SM',
+  1262→    eventIds: ['bab-3'],
+  1263→    references: [],
+  1264→  },
+  1265→  {
+  1266→    id: 'ismail-as',
+  1267→    name: 'Nabi Ismail a.s.',
+  1268→    title: 'Putra Ibrahim yang ditebus',
+  1269→    shortBio: 'Nabi yang bersama ayahnya membangun Ka\'bah di Makkah.',
+  1270→    fullBio: 'Nabi Ismail a.s. adalah putra Nabi Ibrahim a.s. yang bersama ayahnya membangun Ka\'bah di Makkah.',
+  1271→    role: 'Nabi',
+  1272→    period: '~2000 SM',
+  1273→    eventIds: ['bab-3'],
+  1274→    references: [],
+  1275→  },
+  1276→  {
+  1277→    id: 'jibril-as',
+  1278→    name: 'Malaikat Jibril a.s.',
+  1279→    title: 'Pembawa Wahyu',
+  1280→    shortBio: 'Malaikat yang menyampaikan wahyu Allah kepada para nabi dan rasul.',
+  1281→    fullBio: 'Malaikat Jibril a.s. adalah malaikat yang ditugasi menyampaikan wahyu Allah kepada para nabi dan rasul, termasuk Nabi Muhammad ﷺ.',
+  1282→    role: 'Malaikat',
+  1283→    period: 'Seluruh zaman',
+  1284→    eventIds: ['bab-18', 'bab-19', 'bab-28'],
+  1285→    references: [],
+  1286→  },
+  1287→  {
+  1288→    id: 'bahira',
+  1289→    name: 'Bahira',
+  1290→    title: 'Pendeta Kristen',
+  1291→    shortBio: 'Pendeta di Busra, Syam yang mengenali tanda kenabian pada Muhammad ﷺ.',
+  1292→    fullBio: 'Bahira adalah pendeta Kristen di Busra, Syam yang mengenali tanda-tanda kenabian pada Muhammad ﷺ ketika beliau masih kecil dalam kafilah Abu Thalib.',
+  1293→    role: 'Tokoh Sejarah',
+  1294→    period: '~583 M',
+  1295→    eventIds: ['bab-13'],
+  1296→    references: [],
+  1297→  },
+  1298→  {
+  1299→    id: 'waraqah',
+  1300→    name: 'Waraqah bin Naufal',
+  1301→    title: 'Sepupu Khadijah',
+  1302→    shortBio: 'Orang yang mengenali wahyu pertama sebagai Namus yang sama dengan Musa a.s.',
+  1303→    fullBio: 'Waraqah bin Naufal adalah sepupu Khadijah yang mengenali wahyu pertama yang diterima Rasulullah ﷺ.',
+  1304→    role: 'Tokoh Sejarah',
+  1305→    period: '~wafat 610 M',
+  1306→    eventIds: ['bab-20'],
+  1307→    references: [],
+  1308→  },
+  1309→];
+  1310→
+  1311→// ── Locations ───────────────────────────────────────
+  1312→
+  1313→export const locations: StoryLocation[] = [
+  1314→  {
+  1315→    id: 'jazirah-arab',
+  1316→    name: 'Jazirah Arab',
+  1317→    description: 'Hamparan gurun luas di mana Islam lahir dan berkembang.',
+  1318→    fullDescription: 'Jazirah Arab adalah semenanjung di Asia Barat Daya yang menjadi tempat lahirnya Islam. Terdiri dari gurun pasir yang luas, pegunungan, dan oasis.',
+  1319→    coordinates: '23.5°N 45.0°E',
+  1320→    eventIds: ['bab-1'],
+  1321→    significance: 'Tempat lahirnya Islam',
+  1322→  },
+  1323→  {
+  1324→    id: 'makkah',
+  1325→    name: 'Makkah',
+  1326→    description: 'Kota suci tempat Ka\'bah berdiri dan Rasulullah ﷺ lahir.',
+  1327→    fullDescription: 'Makkah adalah kota suci umat Islam, tempat Ka\'bah berdiri, dan tempat kelahiran Rasulullah ﷺ. Terletak di lembah gersang yang menjadi pusat spiritual dan perdagangan Jazirah Arab.',
+  1328→    coordinates: '21.4225°N 39.8262°E',
+  1329→    eventIds: ['bab-2', 'bab-4', 'bab-6', 'bab-10', 'bab-11', 'bab-12', 'bab-14', 'bab-15', 'bab-20', 'bab-21', 'bab-22', 'bab-24', 'bab-26', 'bab-27', 'bab-30', 'bab-43', 'bab-44'],
+  1330→    significance: 'Kota Suci Islam',
+  1331→  },
+  1332→  {
+  1333→    id: 'kabah',
+  1334→    name: 'Ka\'bah',
+  1335→    description: 'Rumah Allah yang pertama kali dibangun di muka bumi.',
+  1336→    fullDescription: 'Ka\'bah adalah bangunan kubus di tengah Masjidil Haram di Makkah. Menurut tradisi Islam, Ka\'bah pertama kali dibangun oleh Nabi Ibrahim a.s. dan Nabi Ismail a.s.',
+  1337→    coordinates: '21.4225°N 39.8262°E',
+  1338→    eventIds: ['bab-3', 'bab-16'],
+  1339→    significance: 'Kiblat umat Islam',
+  1340→  },
+  1341→  {
+  1342→    id: 'padang-bani-saad',
+  1343→    name: 'Padang Bani Sa\'ad',
+  1344→    description: 'Dataran di luar Makkah tempat Halimah membesarkan Muhammad ﷺ.',
+  1345→    fullDescription: 'Padang Bani Sa\'ad adalah dataran di luar Makkah di mana Muhammad ﷺ disusukan dan dibesarkan oleh Halimah as-Sa\'diyah.',
+  1346→    coordinates: '~Makkah',
+  1347→    eventIds: ['bab-7', 'bab-8'],
+  1348→    significance: 'Tempat masa balita Rasulullah ﷺ',
+  1349→  },
+  1350→  {
+  1351→    id: 'abwa',
+  1352→    name: 'Abwa\'',
+  1353→    description: 'Desa di jalur Makkah-Madinah tempat Aminah wafat.',
+  1354→    fullDescription: 'Abwa\' adalah desa di antara Makkah dan Madinah tempat Aminah binti Wahb, ibu Rasulullah ﷺ, wafat saat Muhammad ﷺ masih kecil.',
+  1355→    coordinates: '~23.5°N 39.5°E',
+  1356→    eventIds: ['bab-9'],
+  1357→    significance: 'Tempat wafat Aminah',
+  1358→  },
+  1359→  {
+  1360→    id: 'syam',
+  1361→    name: 'Syam',
+  1362→    description: 'Wilayah utara Jazirah Arab (kini Suriah, Yordania, Palestina, Lebanon).',
+  1363→    fullDescription: 'Syam adalah wilayah di utara Jazirah Arab yang mencakup Suriah, Yordania, Palestina, dan Lebanon modern. Jalur perdagangan penting dan tempat pertemuan Muhammad ﷺ dengan Bahira.',
+  1364→    coordinates: '33.5°N 36.3°E',
+  1365→    eventIds: ['bab-13'],
+  1366→    significance: 'Jalur perdagangan kuno',
+  1367→  },
+  1368→  {
+  1369→    id: 'gua-hira',
+  1370→    name: 'Gua Hira',
+  1371→    description: 'Gua di Jabal Nur tempat wahyu pertama turun.',
+  1372→    fullDescription: 'Gua Hira adalah gua di Jabal Nur (Bukit Cahaya) di dekat Makkah tempat Rasulullah ﷺ menyepi dan menerima wahyu pertama.',
+  1373→    coordinates: '21.4575°N 39.8583°E',
+  1374→    eventIds: ['bab-17', 'bab-18', 'bab-19'],
+  1375→    significance: 'Tempat wahyu pertama',
+  1376→  },
+  1377→  {
+  1378→    id: 'bukit-shafa',
+  1379→    name: 'Bukit Shafa',
+  1380→    description: 'Bukit di Makkah tempat dakwah terang-terangan pertama.',
+  1381→    fullDescription: 'Bukit Shafa adalah bukit kecil di Makkah tempat Rasulullah ﷺ menyampaikan dakwah terang-terangan kepada penduduk Makkah.',
+  1382→    coordinates: '21.4225°N 39.8262°E',
+  1383→    eventIds: ['bab-23'],
+  1384→    significance: 'Tempat dakwah terang-terangan',
+  1385→  },
+  1386→  {
+  1387→    id: 'habasyah',
+  1388→    name: 'Habasyah',
+  1389→    description: 'Kerajaan di Afrika Timur (kini Ethiopia) yang memberikan suaka kepada Muslim.',
+  1390→    fullDescription: 'Habasyah (Ethiopia) adalah kerajaan Kristen di Afrika Timur yang memberikan perlindungan kepada kaum Muslimin yang hijrah dari penyiksaan Quraisy.',
+  1391→    coordinates: '9.0°N 38.7°E',
+  1392→    eventIds: ['bab-25'],
+  1393→    significance: 'Tempat suaka pertama umat Islam',
+  1394→  },
+  1395→  {
+  1396→    id: 'baitul-maqdis',
+  1397→    name: 'Baitul Maqdis',
+  1398→    description: 'Al-Aqsa — tujuan Isra\' dan titik awal Mi\'raj.',
+  1399→    fullDescription: 'Baitul Maqdis (Yerusalem) adalah tempat tujuan perjalanan Isra\' dan titik awal Mi\'raj Rasulullah ﷺ.',
+  1400→    coordinates: '31.7780°N 35.2354°E',
+  1401→    eventIds: ['bab-28'],
+  1402→    significance: 'Tujuan Isra\' dan awal Mi\'raj',
+  1403→  },
+  1404→  {
+  1405→    id: 'aqabah',
+  1406→    name: 'Aqabah',
+  1407→    description: 'Tempat baiat antara Rasulullah ﷺ dan penduduk Yatsrib.',
+  1408→    fullDescription: 'Aqabah adalah tempat di luar Makkah di mana penduduk Yatsrib (Madinah) berbaiat kepada Rasulullah ﷺ.',
+  1409→    coordinates: '~Mina',
+  1410→    eventIds: ['bab-29'],
+  1411→    significance: 'Tempat Baiat Aqabah',
+  1412→  },
+  1413→  {
+  1414→    id: 'gua-tsur',
+  1415→    name: 'Gua Tsur',
+  1416→    description: 'Gua tempat Rasulullah ﷺ dan Abu Bakar bersembunyi saat hijrah.',
+  1417→    fullDescription: 'Gua Tsur adalah gua di selatan Makkah tempat Rasulullah ﷺ dan Abu Bakar as-Siddiq bersembunyi selama tiga hari dari kejaran Quraisy saat hijrah.',
+  1418→    coordinates: '21.35°N 39.85°E',
+  1419→    eventIds: ['bab-31'],
+  1420→    significance: 'Tempat persembunyian saat hijrah',
+  1421→  },
+  1422→  {
+  1423→    id: 'quba',
+  1424→    name: 'Quba',
+  1425→    description: 'Masjid pertama dalam Islam, tempat singgah sebelum Madinah.',
+  1426→    fullDescription: 'Quba adalah desa di pinggiran Madinah tempat Rasulullah ﷺ singgah dan membangun masjid pertama dalam Islam.',
+  1427→    coordinates: '24.4367°N 39.6175°E',
+  1428→    eventIds: ['bab-32'],
+  1429→    significance: 'Masjid pertama dalam Islam',
+  1430→  },
+  1431→  {
+  1432→    id: 'madinah',
+  1433→    name: 'Madinah',
+  1434→    description: 'Kota suci kedua Islam, tempat hijrah dan peradaban Islam dibangun.',
+  1435→    fullDescription: 'Madinah (dahulu Yatsrib) adalah kota tempat Rasulullah ﷺ berhijrah dan membangun peradaban Islam. Di sinilah Masjid Nabawi dibangun dan Piagam Madinah disusun.',
+  1436→    coordinates: '24.4672°N 39.6024°E',
+  1437→    eventIds: ['bab-33', 'bab-34', 'bab-35', 'bab-36', 'bab-39', 'bab-45', 'bab-46', 'bab-47'],
+  1438→    significance: 'Kota suci kedua Islam',
+  1439→  },
+  1440→  {
+  1441→    id: 'masjid-nabawi',
+  1442→    name: 'Masjid Nabawi',
+  1443→    description: 'Masjid Rasulullah ﷺ — pusat kehidupan Madinah.',
+  1444→    fullDescription: 'Masjid Nabawi adalah masjid yang dibangun oleh Rasulullah ﷺ setelah hijrah ke Madinah. Menjadi pusat ibadah, pendidikan, dan pemerintahan.',
+  1445→    coordinates: '24.4672°N 39.6141°E',
+  1446→    eventIds: ['bab-34'],
+  1447→    significance: 'Masjid Rasulullah ﷺ',
+  1448→  },
+  1449→  {
+  1450→    id: 'badar',
+  1451→    name: 'Badar',
+  1452→    description: 'Tempat pertempuran pertama umat Islam — 313 melawan 1000.',
+  1453→    fullDescription: 'Badar adalah lokasi pertempuran pertama umat Islam pada 17 Ramadhan 2 H / 624 M, di mana 313 Muslim mengalahkan 1000 pasukan Quraisy.',
+  1454→    coordinates: '23.78°N 38.79°E',
+  1455→    eventIds: ['bab-37'],
+  1456→    significance: 'Pertempuran pertama umat Islam',
+  1457→  },
+  1458→  {
+  1459→    id: 'uhud',
+  1460→    name: 'Uhud',
+  1461→    description: 'Gunung di Madinah tempat pertempuran kedua umat Islam.',
+  1462→    fullDescription: 'Uhud adalah gunung di sebelah utara Madinah tempat terjadinya Perang Uhud pada 3 H / 625 M.',
+  1463→    coordinates: '24.52°N 39.61°E',
+  1464→    eventIds: ['bab-38'],
+  1465→    significance: 'Tempat Perang Uhud',
+  1466→  },
+  1467→  {
+  1468→    id: 'hudaibiyah',
+  1469→    name: 'Hudaibiyah',
+  1470→    description: 'Tempat perjanjian damai yang menjadi kemenangan terbesar.',
+  1471→    fullDescription: 'Hudaibiyah adalah tempat di luar Makkah di mana Perjanjian Hudaibiyah ditandatangani antara Muslim dan Quraisy pada 6 H / 628 M.',
+  1472→    coordinates: '~21.4°N 39.7°E',
+  1473→    eventIds: ['bab-40'],
+  1474→    significance: 'Tempat Perjanjian Hudaibiyah',
+  1475→  },
+  1476→  {
+  1477→    id: 'khaibar',
+  1478→    name: 'Khaibar',
+  1479→    description: 'Oasis di utara Madinah dengan benteng-benteng yang tak tertembus.',
+  1480→    fullDescription: 'Khaibar adalah oasis di utara Madinah yang memiliki benteng-benteng pertahanan. Ditaklukkan oleh Muslim pada 7 H / 628 M.',
+  1481→    coordinates: '25.87°N 39.22°E',
+  1482→    eventIds: ['bab-41'],
+  1483→    significance: 'Tempat penaklukan Khaibar',
+  1484→  },
+  1485→  {
+  1486→    id: 'hunain',
+  1487→    name: 'Hunain',
+  1488→    description: 'Lembah di jalur Makkah-Thaif tempat pertempuran setelah Fathu Makkah.',
+  1489→    fullDescription: 'Hunain adalah lembah di jalur antara Makkah dan Thaif tempat terjadinya Perang Hunain pada 8 H / 630 M.',
+  1490→    coordinates: '~21.3°N 40.2°E',
+  1491→    eventIds: ['bab-42'],
+  1492→    significance: 'Tempat Perang Hunain',
+  1493→  },
+  1494→];
+  1495→
+  1496→// ── Helper Functions ────────────────────────────────
+  1497→
+  1498→export function getActiveCollection(): Collection | undefined {
+  1499→  return collections.find((c) => c.status === 'active');
+  1500→}
+  1501→
+  1502→export function getJourneysByCollection(collectionId: string): Journey[] {
+  1503→  return journeys
+  1504→    .filter((j) => j.collectionId === collectionId)
+  1505→    .sort((a, b) => a.order - b.order);
+  1506→}
+  1507→
+  1508→export function getEventsByJourney(journeyId: string): StoryEvent[] {
+  1509→  return events
+  1510→    .filter((e) => e.journeyId === journeyId)
+  1511→    .sort((a, b) => a.order - b.order);
+  1512→}
+  1513→
+  1514→export function getEventById(eventId: string): StoryEvent | undefined {
+  1515→  return events.find((e) => e.id === eventId);
+  1516→}
+  1517→
+  1518→export function getCharactersByEvent(eventId: string): Character[] {
+  1519→  const event = events.find((e) => e.id === eventId);
+  1520→  if (!event) return [];
+  1521→  return characters.filter((c) => event.characterIds.includes(c.id));
+  1522→}
+  1523→
+  1524→export function getLocationById(locationId: string): StoryLocation | undefined {
+  1525→  return locations.find((l) => l.id === locationId);
+  1526→}
+  1527→
