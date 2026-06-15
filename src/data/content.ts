@@ -479,7 +479,7 @@ Kadang karena persoalan besar.
 
 Kadang karena sesuatu yang tampak kecil.
 
-Perang Bashus adalah salah satunya.
+Perang Basus adalah salah satunya.
 
 Perang itu berlangsung selama empat puluh tahun.
 
@@ -719,7 +719,13 @@ Kota itu bernama Makkah.`,
     featured: false,
     characterIds: [],
     locationId: 'jazirah-arab',
-    references: ['Ibnu Hisyam, As-Sirah An-Nabawiyah', 'Ibnu Ishaq, Sirah Rasulullah', 'Al-Baladzuri, Futuh al-Buldan', 'Al-Mas\'udi, Muruj adz-Dzahab', 'Yaqut al-Hamawi, Mu\'jam al-Buldan'],
+    references: [
+      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr asl al-\'Arab wa amr \'Amr ibn \'Amir wa Amr al-Fil, Hal. 1–70, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+      'Ibnu Ishaq, Sirah Rasulullah, riwayat Ibnu Hisyam, dalam: As-Sirah An-Nabawiyah, Jilid 1, Hal. 1–70, Dar al-Ma\'rifah, Beirut',
+      'Al-Baladzuri, Futuh al-Buldan, Hal. 67 (perdagangan pra-Islam), Dar al-Kutub al-\'Ilmiyyah, Beirut, 1419 H, tahqiq Radwan Muhammad Radwan',
+      'Al-Mas\'udi, Muruj adz-Dzahab wa Ma\'adin al-Jawahir, Jilid 2, Bab: Dhikr Makkah wa akhbariha wa bina\' al-Bayt, Hal. 275–310, Dar al-Hijrah, Qom, 1409 H, tahqiq As\'ad Daghir',
+      'Yaqut al-Hamawi, Mu\'jam al-Buldan, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M',
+    ],
     order: 1,
   },
   {
