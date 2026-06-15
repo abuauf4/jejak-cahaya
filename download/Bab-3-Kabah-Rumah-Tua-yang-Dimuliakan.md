@@ -1,6 +1,6 @@
-# Bab 3 — Ka'bah: Rumah Tua yang Dimuliakan
+# Bab 3 — Ka'bah: Bangunan Tua yang Dimuliakan
 
-**Dari tangan Nabi Ibrahim عليه السلام ke tangan Quraisy**
+**Dari Tangan Nabi Ibrahim عليه السلام ke Tangan Quraisy**
 
 *Zaman Dahulu*
 
@@ -98,7 +98,7 @@ Di tempat yang sama di mana air Zamzam memancar.
 
 Di tanah yang sama di mana Hajar berlari mencari harapan.
 
-Mereka membangun rumah Tuhan di atas tanah yang sudah disaksikan oleh doa.
+Mereka membangun rumah Allah Subhanahu wa ta'ala di atas tanah yang sudah disaksikan oleh doa.
 
 ✦ ✦ ✦
 
@@ -129,10 +129,6 @@ Doa itu terdengar.
 
 Dan Allah Subhanahu wa Ta'ala mengabulkannya.
 
-Setiap doa yang Ibrahim panjatkan saat itu, tercatat.
-
-Dan setiap doa itu menjadi kenyataan.
-
 Berabad-abad kemudian.
 
 ✦ ✦ ✦
@@ -155,7 +151,7 @@ Mereka datang untuk beribadah.
 
 Mereka datang karena doa Ibrahim masih hidup di ingatan mereka.
 
-Namun pelan-pelan, sesuatu masuk ke dalam rumah yang seharusnya hanya untuk Tuhan.
+Namun pelan-pelan, sesuatu masuk ke dalam rumah yang seharusnya hanya untuk Allah Subhanahu wa Ta'ala.
 
 Berhala.
 
@@ -171,7 +167,9 @@ Hingga ratusan.
 
 Ka'bah yang dibangun untuk mengesakan Allah Subhanahu wa Ta'ala, kini dipenuhi oleh benda-benda yang manusia buat sendiri.
 
-Rumah Tuhan dijadikan gudang berhala.
+Rumah Allah Subhanahu wa Ta'ala dijadikan gudang berhala.
+
+✦ ✦ ✦
 
 Mereka tidak pernah sengaja meninggalkan kebenaran.
 
@@ -197,7 +195,7 @@ Tapi mereka datang bukan lagi untuk mengesakan Allah Subhanahu wa Ta'ala.
 
 Mereka datang untuk menyentuh patung-patung di dalamnya.
 
-Mereka datang untuk menjalankan ritual yang sudah dicampur aduk dengan kepercayaan yang tidak ada asal-usulnya.
+Mereka datang untuk menjalankan ritual yang sudah tidak ada lagi yang tahu dari mana asalnya.
 
 Mereka datang untuk berdagang.
 
@@ -221,13 +219,15 @@ Doa yang dipanjatkan Ibrahim masih tercatat.
 
 Hanya manusia yang lupa.
 
-Lupa bahwa rumah ini dibangun untuk Tuhan.
+Lupa bahwa rumah ini dibangun untuk Allah Subhanahu wa Ta'ala.
 
 Lupa bahwa leluhur mereka berdoa bukan kepada patung.
 
 Lupa bahwa di balik setiap batu Ka'bah, ada sejarah yang lebih tua daripada semua berhala yang mereka letakkan di dalamnya.
 
-⟩ Ka'bah menunggu.
+✦ ✦ ✦
+
+Ka'bah menunggu.
 
 Tidak dengan suara.
 
@@ -241,7 +241,7 @@ Seperti kata-kata yang belum diucapkan.
 
 Seperti janji yang belum ditepati.
 
-Menunggu seseorang yang akan mengembalikan rumah ini kepada Tuhan yang memintanya dibangun.
+Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah Subhanahu wa Ta'ala yang memintanya dibangun.
 
 ✦ ✦ ✦
 
