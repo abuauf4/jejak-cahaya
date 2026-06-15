@@ -134,7 +134,7 @@ html { scroll-behavior: smooth; }
   max-width: 65ch;
   font-family: var(--font-playfair), Georgia, serif;
   font-size: 18px;
-  line-height: 2;
+  line-height: 1.65;
 }
 .reader-content p { margin-bottom: 1.75rem; }
 .reader-content p:last-child { margin-bottom: 0; }
