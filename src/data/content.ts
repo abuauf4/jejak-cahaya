@@ -765,6 +765,8 @@ Di balik lorong itu, terbentang sebuah lembah.
 
 Lembah itu bernama Makkah.
 
+✦ ✦ ✦
+
 Dari atas, Makkah tampak seperti cekungan di antara gunung-gunung kelabu.
 
 Tidak ada sungai yang membelahnya.
@@ -783,11 +785,23 @@ Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dindi
 
 Sebuah lembah yang seharusnya tidak ada alasan untuk ditinggali.
 
-Namun manusia tetap datang. Mereka mendirikan kemah di celah-celah batu. Mereka membangun rumah-rumah sederhana dari batu dan tanah. Mereka hidup di sini. Meskipun tanahnya keras. Meskipun udaranya kering. Meskipun tidak ada alasan logis untuk memilih lembah ini daripada lembah-lembah lain yang lebih hijau dan lebih ramah.
+Namun manusia tetap datang.
+
+Mereka mendirikan kemah di celah-celah batu.
+
+Mereka membangun rumah-rumah sederhana dari batu dan tanah.
+
+Mereka hidup di sini.
+
+Meskipun tanahnya keras.
+
+Meskipun udaranya kering.
+
+Meskipun tidak ada alasan logis untuk memilih lembah ini daripada lembah-lembah lain yang lebih hijau dan lebih ramah.
 
 Kenapa orang mau tinggal di sini?
 
-◆
+✦ ✦ ✦
 
 Jawabannya ada di bawah tanah.
 
@@ -807,17 +821,33 @@ Tanpa air ini, lembah ini tidak lebih dari celah antara gunung yang tidak bernil
 
 Dengan air ini, lembah ini menjadi titik hidup di tengah kegersangan.
 
+✦ ✦ ✦
+
 Menurut riwayat, sumur ini bermula dari doa seorang ibu.
 
 Hajar.
 
 Ibu dari Nabi Ismail عليه السلام.
 
-Ketika ia berlari bolak-balik antara bukit Shafa dan bukit Marwah mencari air untuk anaknya yang kehausan.
+Ketika putranya kehausan dan tidak ada air di mana pun, ia berlari.
 
-Air itu datang.
+Dari bukit Shafa ke bukit Marwah.
 
-Dari bawah tanah.
+Dari bukit Marwah kembali ke Shafa.
+
+Bolak-balik.
+
+Tujuh kali.
+
+Mencari air.
+
+Mencari harapan.
+
+Dan air itu datang.
+
+Bukan dari arah yang ia cari.
+
+Tapi dari bawah tanah, tepat di bawah kaki putranya.
 
 Atas izin Allah Subhanahu wa Ta'ala.
 
@@ -827,7 +857,7 @@ Air yang terus mengalir.
 
 Hingga berabad-abad kemudian.
 
-◆
+✦ ✦ ✦
 
 Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini.
 
@@ -845,25 +875,25 @@ Unta diberi minum.
 
 Dan pedagang bertemu pedagang lain.
 
-Dari selatan datang kemenyan dan emas.
+Barang-barang dari berbagai penjuru dunia bertemu di pasar-pasar Makkah.
 
-Dari utara datang kain dan gandum.
+Kemenyan dari selatan.
 
-Dari timur datang rempah dan minyak wangi.
+Kain dari utara.
 
-Dan dari barat, melintasi Laut Merah, datang pengaruh peradaban Mesir dan Abyssinia.
+Rempah dari timur.
 
-Semuanya bertemu di pasar-pasar Makkah.
+Pengaruh peradaban dari seberang Laut Merah.
 
-Jalur-jalur perdagangan itu bertemu di sini.
+Semua bertemu di satu lembah.
 
 Siapa pun yang berjalan dari selatan ke utara hampir pasti mengenal kota ini.
 
 Posisi ini bukan kebetulan.
 
-◆
+✦ ✦ ✦
 
-Makkah bukan kota terbesar di Jazirah Arab.
+Namun Makkah bukan kota terbesar di Jazirah Arab.
 
 Thaif lebih hijau.
 
@@ -885,17 +915,11 @@ Bukan untuk patung.
 
 Tetapi sebagai tempat beribadah kepada Allah Subhanahu wa Ta'ala.
 
-Dan bangunan ini menjadi alasan lain.
+Dan bangunan ini menjadi alasan yang lebih besar daripada perdagangan.
 
-Alasan yang lebih besar daripada perdagangan.
-
-Mengapa orang-orang datang ke Makkah.
+Alasan mengapa orang-orang terus datang ke Makkah.
 
 Setiap tahun, suku-suku dari seluruh Jazirah Arab berdatangan untuk berziarah ke Ka'bah.
-
-Mereka membawa persembahan.
-
-Mereka melaksanakan ritual yang sudah menjadi tradisi turun-temurun.
 
 Di musim haji, perdagangan dan ibadah berjalan bersamaan.
 
@@ -903,13 +927,11 @@ Ka'bah menjadikan Makkah bukan sekadar kota pasar.
 
 Tapi kota suci.
 
-◆
+✦ ✦ ✦
 
-Siapa yang mengelola kota seperti ini?
+Kota seperti ini butuh penjaga.
 
-Kota yang menjadi persimpangan perdagangan dan persimpangan spiritual sekaligus?
-
-Suku Quraisy.
+Suku Quraisy yang memegang amanah itu.
 
 Mereka adalah penghuni Makkah yang paling berkuasa.
 
@@ -927,13 +949,13 @@ Menjaga Ka'bah berarti memikul amanah yang dihormati oleh seluruh suku.
 
 Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
 
-Dan suku Quraisy memanfaatkan posisi ini dengan cerdik.
+Dan Quraisy memanfaatkan posisi ini dengan cerdik.
 
 Mereka mengadakan perjanjian dengan suku-suku lain.
 
-Perjanjian perdagangan yang menjamin keamanan kafilah Quraisy di jalur utara-selatan.
+Perjanjian yang menjamin keamanan kafilah di jalur perdagangan.
 
-Perjanjian keagamaan yang menjamin bahwa bulan-bulan suci tidak akan dilanggar oleh peperangan.
+Perjanjian yang menjamin bahwa bulan-bulan suci tidak akan dilanggar oleh peperangan.
 
 Dalam bulan-bulan suci itu, semua suku boleh datang ke Makkah tanpa takut diserang.
 
@@ -943,9 +965,7 @@ Agama dan perdagangan.
 
 Berjalan berdampingan.
 
-◆
-
-Itulah Makkah.
+✦ ✦ ✦
 
 Sebuah lembah gersang yang seharusnya tidak punya alasan untuk ada.
 
@@ -953,7 +973,7 @@ Tapi hidup karena air dari bumi.
 
 Hidup karena emas dari kafilah.
 
-Hidup karena doa dari ribuan orang yang datang menemu bangunan kubus di tengahnya.
+Hidup karena doa dari ribuan orang yang datang menuju bangunan kubus di tengahnya.
 
 Sebuah kota yang seharusnya kosong.
 
@@ -971,7 +991,9 @@ Ka'bah tetap berdiri di tengah lembah itu.
 
 Dan Makkah terus menjalani hari-harinya seperti biasa.
 
-Belum ada yang mengetahui bahwa dari kota kecil ini, sejarah dunia akan berubah.`,
+Belum ada yang mengetahui apa yang sedang dipersiapkan Allah Subhanahu wa Ta'ala dari kota kecil ini.
+
+✦ ✦ ✦`,
     featured: false,
     characterIds: [],
     locationId: 'makkah',
