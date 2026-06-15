@@ -14,7 +14,7 @@ import {
   getEventsByJourney,
 } from '@/data/content';
 
-export default function StoryReader() {
+export default function StoryReader({ eventId: eventIdProp }: { eventId?: string }) {
   const { selectedEventId, theme } = useNavigation();
   const { goToBab, goToCharacter, goToLocation } = useJejakNav();
   const { markEventRead, readEvents } = useReadingProgress();
@@ -22,14 +22,16 @@ export default function StoryReader() {
   const [showReferences, setShowReferences] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const event = selectedEventId ? getEventById(selectedEventId) : null;
+  // Prefer explicit eventId prop (from route), fall back to Zustand store
+  const activeEventId = eventIdProp || selectedEventId;
+  const event = activeEventId ? getEventById(activeEventId) : null;
   const characters = event ? getCharactersByEvent(event.id) : [];
   const location = event ? getLocationById(event.locationId) : undefined;
 
   const activeCollection = getActiveCollection();
   const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
   const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
-  const currentIndex = allEvents.findIndex((e) => e.id === selectedEventId);
+  const currentIndex = allEvents.findIndex((e) => e.id === activeEventId);
   const prevEvent = currentIndex > 0 ? allEvents[currentIndex - 1] : null;
   const nextEvent =
     currentIndex >= 0 && currentIndex < allEvents.length - 1
@@ -50,17 +52,17 @@ export default function StoryReader() {
 
   useEffect(() => {
     setShowReferences(false);
-  }, [selectedEventId]);
+  }, [activeEventId]);
 
   const storyEndRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (observerRef.current) observerRef.current.disconnect();
-      if (!node || !selectedEventId) return;
+      if (!node || !activeEventId) return;
       observerRef.current = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting && selectedEventId) {
-              markEventRead(selectedEventId);
+            if (entry.isIntersecting && activeEventId) {
+              markEventRead(activeEventId);
             }
           });
         },
@@ -68,7 +70,7 @@ export default function StoryReader() {
       );
       observerRef.current.observe(node);
     },
-    [selectedEventId, markEventRead]
+    [activeEventId, markEventRead]
   );
 
   if (!event) {

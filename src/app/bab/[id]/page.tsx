@@ -1,45 +1,45 @@
-'use client';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { events } from '@/data/content';
+import BabPageClient from './BabPageClient';
 
-import { useParams } from 'next/navigation';
-import AppShell from '@/components/jejak/AppShell';
-import StoryReader from '@/components/jejak/StoryReader';
-import { pathToId } from '@/lib/routes';
-import { getEventById } from '@/data/content';
-import { useNavigation } from '@/lib/store';
-import { useEffect } from 'react';
+interface BabPageProps {
+  params: Promise<{ id: string }>;
+}
 
-export default function BabPage() {
-  const params = useParams();
-  const slug = params.id as string;
-  const eventId = pathToId(slug, 'bab');
-  const { navigateTo } = useNavigation();
-
-  // Sync URL → store
-  useEffect(() => {
-    navigateTo('reader', eventId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eventId]);
-
-  const event = getEventById(eventId);
+export async function generateMetadata({ params }: BabPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const event = events.find((e) => e.id === `bab-${id}`);
 
   if (!event) {
-    return (
-      <AppShell>
-        <div className="max-w-2xl mx-auto px-5 py-20 text-center">
-          <h1 className="font-serif-display text-2xl font-bold text-ink dark:text-cream">
-            Bab tidak ditemukan
-          </h1>
-          <p className="mt-2 text-ink-soft dark:text-sand">
-            Bab &quot;{slug}&quot; tidak ada dalam perjalanan ini.
-          </p>
-        </div>
-      </AppShell>
-    );
+    return { title: 'Bab tidak ditemukan — Jejak Cahaya' };
   }
 
-  return (
-    <AppShell>
-      <StoryReader />
-    </AppShell>
-  );
+  return {
+    title: `${event.title} — Jejak Cahaya`,
+    description: event.subtitle
+      ? `${event.subtitle}. ${event.description}`
+      : event.description,
+    openGraph: {
+      title: `${event.title} — Jejak Cahaya`,
+      description: event.subtitle || event.description,
+      type: 'article',
+      siteName: 'Jejak Cahaya',
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  return events.map((event) => ({
+    id: event.id.replace('bab-', ''),
+  }));
+}
+
+export default async function BabPage({ params }: BabPageProps) {
+  const { id } = await params;
+
+  const event = events.find((e) => e.id === `bab-${id}`);
+  if (!event) notFound();
+
+  return <BabPageClient eventId={event.id} />;
 }

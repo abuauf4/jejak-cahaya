@@ -1,39 +1,47 @@
-'use client';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { journeys } from '@/data/content';
+import FasePageClient from './FasePageClient';
 
-import { useParams } from 'next/navigation';
-import AppShell from '@/components/jejak/AppShell';
-import JourneyFeed from '@/components/jejak/JourneyFeed';
-import { pathToId } from '@/lib/routes';
-import { getActiveCollection, getJourneysByCollection } from '@/data/content';
+interface FasePageProps {
+  params: Promise<{ id: string }>;
+}
 
-export default function FasePage() {
-  const params = useParams();
-  const slug = params.id as string;
-  const journeyId = pathToId(slug, 'fase');
+export async function generateMetadata({ params }: FasePageProps): Promise<Metadata> {
+  const { id } = await params;
+  const journeyId = id === 'penutup' ? 'penutup' : `fase-${id}`;
+  const journey = journeys.find((j) => j.id === journeyId);
 
-  // Validate the fase exists
-  const activeCollection = getActiveCollection();
-  const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
-  const exists = journeys.some((j) => j.id === journeyId);
-
-  if (!exists) {
-    return (
-      <AppShell>
-        <div className="max-w-2xl mx-auto px-5 py-20 text-center">
-          <h1 className="font-serif-display text-2xl font-bold text-ink dark:text-cream">
-            Fase tidak ditemukan
-          </h1>
-          <p className="mt-2 text-ink-soft dark:text-sand">
-            Fase &quot;{slug}&quot; tidak ada dalam koleksi ini.
-          </p>
-        </div>
-      </AppShell>
-    );
+  if (!journey) {
+    return { title: 'Fase tidak ditemukan — Jejak Cahaya' };
   }
 
-  return (
-    <AppShell>
-      <JourneyFeed standalone highlightJourneyId={journeyId} />
-    </AppShell>
-  );
+  return {
+    title: `${journey.title} — Jejak Cahaya`,
+    description: journey.subtitle
+      ? `${journey.subtitle}. ${journey.description}`
+      : journey.description,
+    openGraph: {
+      title: `${journey.title} — Jejak Cahaya`,
+      description: journey.subtitle || journey.description,
+      type: 'article',
+      siteName: 'Jejak Cahaya',
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  return journeys.map((journey) => ({
+    id: journey.id.replace('fase-', ''),
+  }));
+}
+
+export default async function FasePage({ params }: FasePageProps) {
+  const { id } = await params;
+
+  const journeyId = id === 'penutup' ? 'penutup' : `fase-${id}`;
+  const journey = journeys.find((j) => j.id === journeyId);
+  if (!journey) notFound();
+
+  return <FasePageClient journeyId={journey.id} />;
 }
