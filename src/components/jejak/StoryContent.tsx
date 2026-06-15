@@ -110,9 +110,15 @@ export default function StoryContent({
 
           {/* ─── STORY ─── */}
           <article className="reader-content text-ink dark:text-cream">
-            {parsed.story.map((paragraph, i) => (
-              <p key={`story-${i}`}>{paragraph}</p>
-            ))}
+            {parsed.story.map((paragraph, i) =>
+              paragraph === '◆' ? (
+                <div key={`scene-${i}`} className="reader-scene-break text-ink-soft dark:text-sand" aria-hidden="true">
+                  <span className="reader-scene-break-dot" />
+                </div>
+              ) : (
+                <p key={`story-${i}`}>{paragraph}</p>
+              )
+            )}
           </article>
 
           {/* ─── REFLECTION ─── */}

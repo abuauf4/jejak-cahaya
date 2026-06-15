@@ -212,14 +212,20 @@ export default function StoryReader({ eventId: eventIdProp }: { eventId?: string
             transition={{ duration: 0.5, delay: displayOpening.length > 0 ? 0.2 : 0.15 }}
             className={`reader-content ${isLight ? 'text-ink' : 'text-cream'}`}
           >
-            {displayStory.map((paragraph, i) => (
-              <p
-                key={`story-${i}`}
-                ref={i === displayStory.length - 1 && displayReflection.length === 0 ? storyEndRef : undefined}
-              >
-                {paragraph}
-              </p>
-            ))}
+            {displayStory.map((paragraph, i) =>
+              paragraph === '◆' ? (
+                <div key={`scene-${i}`} className={`reader-scene-break ${isLight ? 'text-ink-soft' : 'text-sand'}`} aria-hidden="true">
+                  <span className="reader-scene-break-dot" />
+                </div>
+              ) : (
+                <p
+                  key={`story-${i}`}
+                  ref={i === displayStory.length - 1 && displayReflection.length === 0 ? storyEndRef : undefined}
+                >
+                  {paragraph}
+                </p>
+              )
+            )}
           </motion.article>
 
           {/* ─── REFLECTION ─── */}

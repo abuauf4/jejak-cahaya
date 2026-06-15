@@ -313,6 +313,8 @@ Kafilah-kafilah ini bukan sekadar barisan unta yang membawa barang dagangan. Mer
 
 Perjalanan satu kafilah dari selatan ke utara bisa memakan waktu berminggu-minggu. Setiap oase menjadi tempat berhenti yang dinanti — titik-titik hijau di tengah lautan pasir yang menyediakan air, naungan, dan tempat berteduh. Tanpa oase, tidak ada kafilah yang bisa bertahan. Tanpa kafilah, tidak ada perdagangan. Tanpa perdagangan, tidak ada kehidupan.
 
+◆
+
 Kehidupan di Jazirah Arab berpusat pada suku. Setiap suku memiliki wilayah penggembalaan sendiri, sumur air sendiri, dan aturan sendiri. Kesetiaan kepada suku adalah segalanya — lebih penting daripada harta, lebih penting daripada nyawa. Seorang Arab tidak pernah berdiri sendiri. Ia berdiri sebagai bagian dari sukunya, dan sukunya berdiri karena kesetiaan setiap anggotanya.
 
 Suku-suku Badui yang mengembara di gurun hidup dari menggembala unta dan kambing. Mereka berpindah-pindah mengikuti sumber air dan padang rumput, mendirikan kemah-kemah dari kain bulu unta yang melindungi dari terik matahari dan dinginnya malam gurun. Kehidupan mereka keras — air langka, makanan sederhana, dan ancaman serangan dari suku lain selalu mengintai.
@@ -322,6 +324,8 @@ Namun dari kekerasan ini tumbuh ketangguhan yang luar biasa. Orang-orang gurun m
 Di luar kehidupan gurun, ada kota-kota yang tumbuh di sepanjang jalur perdagangan. Makkah, Thaif, Yatsrib, dan lainnya menjadi pusat-pusat kehidupan yang lebih menetap. Di kota-kota inilah perdagangan berkembang, suku-suku berjumpa, dan pengaruh-pengaruh dari peradaban luar mulai terasa.
 
 Namun kehidupan kota pun tidak lepas dari norma-norma suku. Kekuasaan berada di tangan mereka yang mampu memimpin, melindungi, dan memenuhi janji. Perdamaian antarsuku hanya bertahan selama kesepakatan dihormati — dan kesepakatan bisa rusak kapan saja karena satu penghinaan, satu pertumpahan darah, atau satu perebutan air.
+
+◆
 
 Di sini, tidak ada hakim. Yang ada hanya tangan yang lebih kuat. Yang kuat menang, yang lemah tertindas. Perbudakan dipraktikkan secara luas — tawanan perang menjadi budak, dan budak tidak memiliki hak apa pun. Perempuan sering kali diperlakukan seperti harta benda. Bayi perempuan bahkan bisa dikubur hidup-hidup oleh ayahnya yang merasa malu — sebuah kebiasaan kejam yang dilakukan oleh sebagian suku demi menjaga kehormatan dan menghindari kemiskinan.
 
