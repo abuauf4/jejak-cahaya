@@ -134,9 +134,9 @@ html { scroll-behavior: smooth; }
   max-width: 65ch;
   font-family: var(--font-playfair), Georgia, serif;
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.4;
 }
-.reader-content p { margin-bottom: 1.5rem; }
+.reader-content p { margin-bottom: 1.2rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
 /* Closing punchline — dramatic standalone line at end of reflection */
