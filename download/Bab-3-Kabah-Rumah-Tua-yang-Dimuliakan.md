@@ -48,13 +48,13 @@ Lelaki yang meninggalkan kaumnya karena mereka menyembah berhala.
 
 Lelaki yang dilempar ke dalam api tapi tidak terbakar.
 
-Lelaki yang berjalan meninggalkan segalanya karena Allah Subhanahu wa Ta'ala memintanya pergi.
+Lelaki yang berjalan meninggalkan segalanya karena Allah ﷻ memintanya pergi.
 
 Ibrahim tidak membangun Ka'bah untuk dirinya sendiri.
 
 Ia membangunnya karena diperintahkan.
 
-Allah Subhanahu wa Ta'ala berfirman agar ia mendirikan rumah peribadatan di lembah itu.
+Allah ﷻ berfirman agar ia mendirikan rumah peribadatan di lembah itu.
 
 Rumah untuk manusia datang menghadap Tuhan mereka.
 
@@ -62,7 +62,7 @@ Bukan rumah untuk patung.
 
 Bukan rumah untuk berhala.
 
-Tapi rumah untuk mengesakan Allah Subhanahu wa Ta'ala.
+Tapi rumah untuk mengesakan Allah ﷻ.
 
 ✦ ✦ ✦
 
@@ -72,7 +72,7 @@ Putranya menemani pembangunan itu.
 
 Ismail.
 
-Anak yang ia tinggalkan bersama ibunya, Hajar, di lembah yang gersang bertahun-tahun yang lalu.
+Anak yang ia tinggalkan bersama ibunya, Hajar رضي الله عنها, di lembah yang gersang bertahun-tahun yang lalu.
 
 Anak yang tumbuh di tanah kering.
 
@@ -96,9 +96,9 @@ Di lembah yang sama tempat Ismail dulu menangis kehausan.
 
 Di tempat yang sama di mana air Zamzam memancar.
 
-Di tanah yang sama di mana Hajar berlari mencari harapan.
+Di tanah yang sama di mana Hajar رضي الله عنها berlari mencari harapan.
 
-Mereka membangun rumah Allah Subhanahu wa ta'ala di atas tanah yang sudah disaksikan oleh doa.
+Mereka membangun rumah Allah ﷻ di atas tanah yang sudah disaksikan oleh doa.
 
 ✦ ✦ ✦
 
@@ -120,14 +120,14 @@ Ibrahim mengangkat tangannya.
 
 Dan memohon.
 
-Allah Subhanahu wa Ta'ala mengabadikan sebagian doanya dalam Al-Qur'an:
+Allah ﷻ mengabadikan sebagian doanya dalam Al-Qur'an:
 
 > *"Ya Tuhanku, jadikanlah negeri ini negeri yang aman dan jauhkanlah aku beserta anak cucuku daripada menyembah berhala."*
 > — QS Ibrahim: 35
 
 Doa itu terdengar.
 
-Dan Allah Subhanahu wa Ta'ala mengabulkannya.
+Dan Allah ﷻ mengabulkannya.
 
 Berabad-abad kemudian.
 
@@ -145,13 +145,13 @@ Dan di setiap pergantian itu, Ka'bah tetap berdiri.
 
 Tapi manusia berubah.
 
-Awalnya, Ka'bah dikunjungi oleh orang-orang yang mengesakan Allah Subhanahu wa Ta'ala.
+Awalnya, Ka'bah dikunjungi oleh orang-orang yang mengesakan Allah ﷻ.
 
 Mereka datang untuk beribadah.
 
 Mereka datang karena doa Ibrahim masih hidup di ingatan mereka.
 
-Namun pelan-pelan, sesuatu masuk ke dalam rumah yang seharusnya hanya untuk Allah Subhanahu wa Ta'ala.
+Namun pelan-pelan, sesuatu masuk ke dalam rumah yang seharusnya hanya untuk Allah ﷻ.
 
 Berhala.
 
@@ -165,9 +165,9 @@ Puluhan.
 
 Hingga ratusan.
 
-Ka'bah yang dibangun untuk mengesakan Allah Subhanahu wa Ta'ala, kini dipenuhi oleh benda-benda yang manusia buat sendiri.
+Ka'bah yang dibangun untuk mengesakan Allah ﷻ, kini dipenuhi oleh benda-benda yang manusia buat sendiri.
 
-Rumah Allah Subhanahu wa Ta'ala dijadikan gudang berhala.
+Rumah Allah ﷻ dijadikan gudang berhala.
 
 ✦ ✦ ✦
 
@@ -191,7 +191,7 @@ Tapi maknanya sudah berubah.
 
 Ka'bah tetap menjadi alasan orang datang ke Makkah.
 
-Tapi mereka datang bukan lagi untuk mengesakan Allah Subhanahu wa Ta'ala.
+Tapi mereka datang bukan lagi untuk mengesakan Allah ﷻ.
 
 Mereka datang untuk menyentuh patung-patung di dalamnya.
 
@@ -219,7 +219,7 @@ Doa yang dipanjatkan Ibrahim masih tercatat.
 
 Hanya manusia yang lupa.
 
-Lupa bahwa rumah ini dibangun untuk Allah Subhanahu wa Ta'ala.
+Lupa bahwa rumah ini dibangun untuk Allah ﷻ.
 
 Lupa bahwa leluhur mereka berdoa bukan kepada patung.
 
@@ -241,7 +241,7 @@ Seperti kata-kata yang belum diucapkan.
 
 Seperti janji yang belum ditepati.
 
-Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah Subhanahu wa Ta'ala yang memintanya dibangun.
+Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memintanya dibangun.
 
 ✦ ✦ ✦
 
