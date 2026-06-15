@@ -33,6 +33,22 @@ export async function generateMetadata({ params }: BabPageProps): Promise<Metada
       description: event.subtitle || event.description,
       type: 'article',
       siteName: 'Jejak Cahaya',
+      ...(event.image && {
+        images: [
+          {
+            url: event.image,
+            width: 1344,
+            height: 768,
+            alt: event.title,
+          },
+        ],
+      }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${event.title} — Jejak Cahaya`,
+      description: event.subtitle || event.description,
+      ...(event.image && { images: [event.image] }),
     },
   };
 }

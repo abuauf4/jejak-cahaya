@@ -38,6 +38,21 @@ export const metadata: Metadata = {
       "Platform pengetahuan Islam — menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir.",
     type: "website",
     siteName: "Jejak Cahaya",
+    images: [
+      {
+        url: "/images/og-home.png",
+        width: 1536,
+        height: 1024,
+        alt: "Jejak Cahaya — Platform Pengetahuan Islam",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jejak Cahaya — Platform Pengetahuan Islam",
+    description:
+      "Platform pengetahuan Islam — menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir.",
+    images: ["/images/og-home.png"],
   },
 };
 

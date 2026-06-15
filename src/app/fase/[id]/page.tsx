@@ -27,6 +27,20 @@ export async function generateMetadata({ params }: FasePageProps): Promise<Metad
       description: journey.subtitle || journey.description,
       type: 'article',
       siteName: 'Jejak Cahaya',
+      images: [
+        {
+          url: '/images/og-home.png',
+          width: 1536,
+          height: 1024,
+          alt: journey.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${journey.title} — Jejak Cahaya`,
+      description: journey.subtitle || journey.description,
+      images: ['/images/og-home.png'],
     },
   };
 }
