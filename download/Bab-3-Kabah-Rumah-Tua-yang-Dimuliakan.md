@@ -6,9 +6,15 @@
 
 ---
 
-Di tengah lembah Makkah, ada sebuah bangunan.
+Di tengah lembah itu, pandangan manusia selalu kembali ke tempat yang sama.
 
-Tidak tinggi.
+Tidak peduli dari arah mana mereka datang.
+
+Tidak peduli seberapa jauh mereka berjalan.
+
+Mata mereka selalu mencari bangunan itu.
+
+Bangunan yang tidak tinggi.
 
 Tidak megah.
 
@@ -27,6 +33,8 @@ Lebih tua dari suku Quraisy.
 Lebih tua dari tradisi-tradisi yang mereka pegang.
 
 Lebih tua dari ingatan manusia.
+
+Bangunan itu bernama Ka'bah.
 
 ✦ ✦ ✦
 
@@ -94,17 +102,17 @@ Mereka membangun rumah Tuhan di atas tanah yang sudah disaksikan oleh doa.
 
 ✦ ✦ ✦
 
-Ketika bangunan itu selesai, Ibrahim berdoa.
+Ketika bangunan itu selesai, Ibrahim عليه السلام berdoa.
 
 Bukan doa kecil.
 
 Bukan ucapan syukur biasa.
 
-Ini doa seorang ayah yang sudah melewati segalanya.
+Ini doa seorang ayah yang telah melewati banyak ujian.
 
-Yang sudah diuji dengan perintah meninggalkan keluarganya di tanah kosong.
+Yang meninggalkan keluarganya di tanah kosong karena diperintahkan.
 
-Yang sudah diuji dengan perintah menyembelih putranya.
+Yang diperintahkan menyembelih putranya karena diperintahkan.
 
 Yang sekarang berdiri di samping putra itu, di depan bangunan yang mereka bangun bersama.
 
@@ -112,11 +120,10 @@ Ibrahim mengangkat tangannya.
 
 Dan memohon.
 
-Ya Allah, jadikanlah kota ini aman.
+Allah Subhanahu wa Ta'ala mengabadikan sebagian doanya dalam Al-Qur'an:
 
-Jadikanlah keturunan kami orang-orang yang mengesakan-Mu.
-
-Jadikanlah bangunan ini tempat yang Engkau muliakan.
+> *"Ya Tuhanku, jadikanlah negeri ini negeri yang aman dan jauhkanlah aku beserta anak cucuku daripada menyembah berhala."*
+> — QS Ibrahim: 35
 
 Doa itu terdengar.
 
@@ -166,11 +173,9 @@ Ka'bah yang dibangun untuk mengesakan Allah Subhanahu wa Ta'ala, kini dipenuhi o
 
 Rumah Tuhan dijadikan gudang berhala.
 
-Itulah manusia.
-
 Mereka tidak pernah sengaja meninggalkan kebenaran.
 
-Mereka hanya pelan-pelan menambahkan sesuatu.
+Mereka hanya menambahkan sesuatu.
 
 Satu tradisi tambahan.
 
