@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  /* Jejak Cahaya custom colors */
+  --color-lantern: #F5D78E;
+  --color-lantern-mid: #D4A843;
+  --color-lantern-dim: #8B6914;
+  --color-navy: #0F1629;
+  --color-navy-light: #1A2038;
+  --color-navy-deep: #080B16;
+  --color-sand: #C4B59A;
+  --color-cream: #F0EBE0;
+  --color-warm-muted: #8B8070;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Midnight & Lantern Theme - Dark by default */
+  --background: #080B16;
+  --foreground: #F0EBE0;
+  --card: #0F1629;
+  --card-foreground: #F0EBE0;
+  --popover: #0F1629;
+  --popover-foreground: #F0EBE0;
+  --primary: #F5D78E;
+  --primary-foreground: #080B16;
+  --secondary: #1A2038;
+  --secondary-foreground: #F0EBE0;
+  --muted: #1A2038;
+  --muted-foreground: #8B8070;
+  --accent: #D4A843;
+  --accent-foreground: #080B16;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(245, 215, 142, 0.1);
+  --input: rgba(245, 215, 142, 0.15);
+  --ring: #D4A843;
+  --chart-1: #F5D78E;
+  --chart-2: #D4A843;
+  --chart-3: #8B6914;
+  --chart-4: #C4B59A;
+  --chart-5: #8B8070;
+  --sidebar: #0F1629;
+  --sidebar-foreground: #F0EBE0;
+  --sidebar-primary: #F5D78E;
+  --sidebar-primary-foreground: #080B16;
+  --sidebar-accent: #1A2038;
+  --sidebar-accent-foreground: #F0EBE0;
+  --sidebar-border: rgba(245, 215, 142, 0.1);
+  --sidebar-ring: #D4A843;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar for Jejak Cahaya */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080B16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 168, 67, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 168, 67, 0.5);
+}
+
+/* Smooth scroll for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(245, 215, 142, 0.2);
+  color: #F5D78E;
+}
+
+/* Custom font class */
+.font-serif-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Glow effect for gold elements */
+.glow-gold {
+  box-shadow: 0 0 20px rgba(245, 215, 142, 0.15);
+}
+
+.glow-gold-strong {
+  box-shadow: 0 0 40px rgba(245, 215, 142, 0.25);
+}
+
+/* Text gradient for headings */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F5D78E 0%, #D4A843 50%, #F5D78E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle line decoration */
+.line-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4A843, transparent);
+}
+
+/* Animated lantern glow */
+@keyframes lanternPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.lantern-pulse {
+  animation: lanternPulse 3s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Timeline line animation */
+@keyframes timelineGrow {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+.timeline-line-grow {
+  animation: timelineGrow 1.5s ease-out forwards;
+}
