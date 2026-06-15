@@ -184,12 +184,20 @@ export default function StoryReader({ eventId: eventIdProp }: { eventId?: string
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className={`font-serif-display text-lg italic mb-12 sm:mb-16 ${
+            className={`font-serif-display text-lg italic mb-3 ${
               isLight ? 'text-ink-soft' : 'text-sand'
             }`}
           >
             {event.subtitle}
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className={`h-px w-12 mb-12 sm:mb-16 origin-left ${
+              isLight ? 'bg-gold/40' : 'bg-lantern-mid/40'
+            }`}
+          />
 
           {/* ─── OPENING SCENE ─── */}
           {displayOpening.length > 0 && (

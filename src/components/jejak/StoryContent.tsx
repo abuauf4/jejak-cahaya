@@ -182,9 +182,10 @@ export default function StoryContent({
           <h1 className="font-serif-display text-3xl sm:text-4xl font-bold leading-[1.15] mb-2 text-ink dark:text-cream">
             {event.title}
           </h1>
-          <p className="font-serif-display text-lg italic mb-12 sm:mb-16 text-ink-soft dark:text-sand">
+          <p className="font-serif-display text-lg italic mb-3 text-ink-soft dark:text-sand">
             {event.subtitle}
           </p>
+          <div className="h-px w-12 mb-12 sm:mb-16 bg-gold/40 dark:bg-lantern-mid/40" />
 
           {/* ─── OPENING SCENE ─── */}
           {parsed.opening.length > 0 && (
