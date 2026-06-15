@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useNavigation } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import { collections } from '@/data/content';
 
 export default function Collections() {
   const { navigateTo, theme } = useNavigation();
+  const { goToTimeline } = useJejakNav();
   const isLight = theme === 'light';
 
   return (
@@ -34,7 +36,7 @@ export default function Collections() {
               >
                 {collection.status === 'active' ? (
                   <button
-                    onClick={() => navigateTo('timeline')}
+                    onClick={() => goToTimeline()}
                     className="group text-left block w-full"
                   >
                     <div className="flex items-baseline justify-between gap-3">

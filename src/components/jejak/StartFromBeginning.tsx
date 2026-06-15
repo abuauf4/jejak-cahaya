@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import { getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 
 export default function StartFromBeginning() {
-  const { navigateTo, theme } = useNavigation();
+  const { theme } = useNavigation();
+  const { goToBab } = useJejakNav();
   const isLight = theme === 'light';
 
   const activeCollection = getActiveCollection();
@@ -30,7 +32,7 @@ export default function StartFromBeginning() {
         >
           <div className="py-8 sm:py-10">
             <button
-              onClick={() => navigateTo('reader', firstEvent.id)}
+              onClick={() => goToBab(firstEvent.id)}
               className="group text-left block"
             >
               <span

@@ -38,7 +38,10 @@ export const useNavigation = create<NavigationState>((set) => ({
       if (view === "location") update.selectedLocationId = id;
       return update;
     });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll to top on navigation
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   },
   goHome: () => {
     set({
@@ -47,7 +50,9 @@ export const useNavigation = create<NavigationState>((set) => ({
       selectedCharacterId: null,
       selectedLocationId: null,
     });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   },
   setSelectedCollection: (collectionId) => {
     set({ selectedCollectionId: collectionId });

@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, BookOpen, Users, MapPin, ChevronRight } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import { events, characters, locations } from '@/data/content';
 
 interface SearchResult {
@@ -16,6 +17,7 @@ interface SearchResult {
 
 export default function SearchSystem() {
   const { navigateTo, theme } = useNavigation();
+  const { goToBab, goToCharacter, goToLocation } = useJejakNav();
   const isLight = theme === 'light';
   const [query, setQuery] = useState('');
 
@@ -133,7 +135,7 @@ export default function SearchSystem() {
                         {results.events.map((event) => (
                           <button
                             key={event.id}
-                            onClick={() => navigateTo('reader', event.id)}
+                            onClick={() => goToBab(event.id)}
                             className={`w-full text-left p-4 rounded-xl border transition-colors duration-200 group ${
                               isLight
                                 ? 'bg-transparent border-ink/[0.06] hover:border-gold/30'
@@ -177,7 +179,7 @@ export default function SearchSystem() {
                         {results.characters.map((char) => (
                           <button
                             key={char.id}
-                            onClick={() => navigateTo('character', char.id)}
+                            onClick={() => goToCharacter(char.id)}
                             className={`w-full text-left p-4 rounded-xl border transition-colors duration-200 group ${
                               isLight
                                 ? 'bg-transparent border-ink/[0.06] hover:border-gold/30'
@@ -215,7 +217,7 @@ export default function SearchSystem() {
                         {results.locations.map((loc) => (
                           <button
                             key={loc.id}
-                            onClick={() => navigateTo('location', loc.id)}
+                            onClick={() => goToLocation(loc.id)}
                             className={`w-full text-left p-4 rounded-xl border transition-colors duration-200 group ${
                               isLight
                                 ? 'bg-transparent border-ink/[0.06] hover:border-gold/30'

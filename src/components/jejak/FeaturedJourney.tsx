@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { BookOpen, ScrollText } from 'lucide-react';
 import { collections, getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 import { useNavigation } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 
 const emptyStateMessages: Record<string, { message: string; detail: string }> = {
   'kisah-sahabat': {
@@ -23,6 +24,7 @@ const emptyStateMessages: Record<string, { message: string; detail: string }> = 
 export default function FeaturedJourney() {
   const activeCollection = getActiveCollection();
   const { navigateTo } = useNavigation();
+  const { goToTimeline } = useJejakNav();
 
   if (!activeCollection) return null;
 
@@ -87,7 +89,7 @@ export default function FeaturedJourney() {
                 <span>{totalEvents} kisah</span>
               </div>
               <button
-                onClick={() => navigateTo('timeline')}
+                onClick={() => goToTimeline()}
                 className="mt-4 inline-flex items-center gap-1.5 text-sm text-[#D4A843] hover:text-[#F5D78E] transition-colors font-medium group"
               >
                 Jelajahi koleksi

@@ -1,24 +1,49 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Moon, Sun, Clock, MapPin, Users, Search, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigation, useReadingProgress } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
+import { routes } from '@/lib/routes';
 
 const navItems = [
-  { view: 'timeline' as const, label: 'Timeline', icon: Clock },
-  { view: 'character' as const, label: 'Tokoh', icon: Users },
-  { view: 'location' as const, label: 'Lokasi', icon: MapPin },
-  { view: 'search' as const, label: 'Cari', icon: Search },
+  { view: 'timeline' as const, path: routes.timeline, label: 'Timeline', icon: Clock },
+  { view: 'character' as const, path: routes.tokoh, label: 'Tokoh', icon: Users },
+  { view: 'location' as const, path: routes.lokasi, label: 'Lokasi', icon: MapPin },
+  { view: 'search' as const, path: routes.cari, label: 'Cari', icon: Search },
 ];
 
 export default function Navigation() {
-  const { currentView, navigateTo, goHome, theme, toggleTheme } = useNavigation();
+  const { theme, toggleTheme } = useNavigation();
+  const { goHome, goToTimeline, goToTokoh, goToLokasi, goToCari } = useJejakNav();
   const { getProgress } = useReadingProgress();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const progress = getProgress();
   const isLight = theme === 'light';
-  const isHome = currentView === 'home';
+  const isHome = pathname === '/';
+
+  // Determine active tab based on URL
+  const getActiveView = () => {
+    if (pathname === '/') return 'home' as const;
+    if (pathname.startsWith('/fase')) return 'timeline' as const;
+    if (pathname.startsWith('/bab')) return 'timeline' as const;
+    if (pathname.startsWith('/tokoh')) return 'character' as const;
+    if (pathname.startsWith('/lokasi')) return 'location' as const;
+    if (pathname.startsWith('/cari')) return 'search' as const;
+    return 'home' as const;
+  };
+  const activeView = getActiveView();
+
+  const navHandlers: Record<string, () => void> = {
+    home: goHome,
+    timeline: goToTimeline,
+    character: goToTokoh,
+    location: goToLokasi,
+    search: goToCari,
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -69,11 +94,11 @@ export default function Navigation() {
             <div className="hidden md:flex items-center gap-0.5">
               {navItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = currentView === item.view;
+                const isActive = activeView === item.view;
                 return (
                   <button
                     key={item.view}
-                    onClick={() => navigateTo(item.view)}
+                    onClick={() => navHandlers[item.view]?.()}
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
                       isActive
                         ? isLight
@@ -124,14 +149,11 @@ export default function Navigation() {
             ...navItems,
           ].map((item) => {
             const Icon = item.icon;
-            const isActive = currentView === item.view;
+            const isActive = activeView === item.view;
             return (
               <button
                 key={item.view}
-                onClick={() => {
-                  if (item.view === 'home') goHome();
-                  else navigateTo(item.view);
-                }}
+                onClick={() => navHandlers[item.view]?.()}
                 className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full transition-colors duration-200 ${
                   isActive
                     ? isLight
@@ -151,7 +173,7 @@ export default function Navigation() {
       </div>
 
       {/* ── Global reading progress (top of page, below nav) ── */}
-      {progress.read > 0 && currentView === 'home' && (
+      {progress.read > 0 && isHome && (
         <div className={`fixed bottom-14 md:bottom-0 left-0 right-0 z-40 h-[2px]`}>
           <motion.div
             className={`h-full ${isLight ? 'bg-gold-soft' : 'bg-lantern-mid'}`}

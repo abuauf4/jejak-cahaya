@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, BookOpen, Clock, ChevronRight } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import { characters, getCharactersByEvent, getEventsByJourney, getJourneysByCollection, getActiveCollection } from '@/data/content';
 import type { Character } from '@/data/content';
 
@@ -57,6 +58,7 @@ function CharacterCard({ character, onSelect, isSelected, isLight }: { character
 
 function CharacterDetail({ character, onClose, isLight }: { character: Character; onClose: () => void; isLight: boolean }) {
   const { navigateTo } = useNavigation();
+  const { goToBab } = useJejakNav();
   const activeCollection = getActiveCollection();
   const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
   const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
@@ -118,7 +120,7 @@ function CharacterDetail({ character, onClose, isLight }: { character: Character
             {relatedEvents.map((evt) => (
               <button
                 key={evt.id}
-                onClick={() => navigateTo('reader', evt.id)}
+                onClick={() => goToBab(evt.id)}
                 className={`w-full text-left p-3 rounded-lg border transition-colors duration-200 group ${
                   isLight
                     ? 'bg-transparent border-ink/[0.06] hover:border-gold/30'

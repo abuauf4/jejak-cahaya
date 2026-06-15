@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import {
   getEventById,
   getActiveCollection,
@@ -13,6 +14,7 @@ import {
 export default function ContinueJourney() {
   const { readEvents } = useReadingProgress();
   const { navigateTo, theme } = useNavigation();
+  const { goToBab } = useJejakNav();
   const isLight = theme === 'light';
 
   if (readEvents.length === 0) return null;
@@ -56,7 +58,7 @@ export default function ContinueJourney() {
 
             {/* Event info + CTA */}
             <button
-              onClick={() => navigateTo('reader', displayEvent.id)}
+              onClick={() => goToBab(displayEvent.id)}
               className="group text-left block mt-3"
             >
               <h3

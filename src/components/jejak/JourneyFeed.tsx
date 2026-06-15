@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import { getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 import type { Journey } from '@/data/content';
 
@@ -37,6 +38,7 @@ function PhaseItem({
   const events = getEventsByJourney(journey.id);
   const { readEvents } = useReadingProgress();
   const { navigateTo } = useNavigation();
+  const { goToBab } = useJejakNav();
 
   const readCount = events.filter((e) => readEvents.includes(e.id)).length;
   const isComplete = readCount === events.length && events.length > 0;
@@ -126,7 +128,7 @@ function PhaseItem({
                   return (
                     <motion.button
                       key={event.id}
-                      onClick={() => navigateTo('reader', event.id)}
+                      onClick={() => goToBab(event.id)}
                       initial={{ opacity: 0, x: -12 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
@@ -185,8 +187,10 @@ function PhaseItem({
 
 export default function JourneyFeed({
   standalone = false,
+  highlightJourneyId,
 }: {
   standalone?: boolean;
+  highlightJourneyId?: string;
 }) {
   const { theme } = useNavigation();
   const { readEvents } = useReadingProgress();
@@ -200,6 +204,8 @@ export default function JourneyFeed({
   // Auto-expand the journey containing the last read event,
   // or the first journey if no progress yet
   const initialExpandedId = useMemo(() => {
+    // If highlightJourneyId is provided (from URL), expand that fase
+    if (highlightJourneyId) return highlightJourneyId;
     if (readEvents.length > 0) {
       const lastReadId = readEvents[readEvents.length - 1];
       const journey = journeys.find((j) => {

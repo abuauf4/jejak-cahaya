@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, X, BookOpen, ChevronRight, Navigation } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import { locations, getEventsByJourney, getJourneysByCollection, getActiveCollection } from '@/data/content';
 import type { StoryLocation } from '@/data/content';
 
@@ -56,6 +57,7 @@ function LocationCard({ location, onSelect, isSelected, isLight }: { location: S
 
 function LocationDetail({ location, onClose, isLight }: { location: StoryLocation; onClose: () => void; isLight: boolean }) {
   const { navigateTo } = useNavigation();
+  const { goToBab } = useJejakNav();
   const activeCollection = getActiveCollection();
   const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
   const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
@@ -117,7 +119,7 @@ function LocationDetail({ location, onClose, isLight }: { location: StoryLocatio
             {relatedEvents.map((evt) => (
               <button
                 key={evt.id}
-                onClick={() => navigateTo('reader', evt.id)}
+                onClick={() => goToBab(evt.id)}
                 className={`w-full text-left p-3 rounded-lg border transition-colors duration-200 group ${
                   isLight
                     ? 'bg-transparent border-ink/[0.06] hover:border-gold/30'

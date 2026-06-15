@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
+import { useJejakNav } from '@/lib/useJejakNav';
 import {
   getEventById,
   getCharactersByEvent,
@@ -14,7 +15,8 @@ import {
 } from '@/data/content';
 
 export default function StoryReader() {
-  const { selectedEventId, navigateTo, theme } = useNavigation();
+  const { selectedEventId, theme } = useNavigation();
+  const { goToBab, goToCharacter, goToLocation } = useJejakNav();
   const { markEventRead, readEvents } = useReadingProgress();
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showReferences, setShowReferences] = useState(false);
@@ -154,7 +156,7 @@ export default function StoryReader() {
               <>
                 <span className={isLight ? 'text-ink/20' : 'text-sand/20'}>·</span>
                 <button
-                  onClick={() => navigateTo('location', event.locationId)}
+                  onClick={() => goToLocation(event.locationId)}
                   className={`transition-colors duration-200 hover:underline ${
                     isLight ? 'text-ink-soft hover:text-ink' : 'text-sand hover:text-cream'
                   }`}
@@ -257,7 +259,7 @@ export default function StoryReader() {
                   {characters.map((char) => (
                     <button
                       key={char.id}
-                      onClick={() => navigateTo('character', char.id)}
+                      onClick={() => goToCharacter(char.id)}
                       className={`group flex items-center gap-1.5 text-[15px] transition-colors duration-200 ${
                         isLight
                           ? 'text-ink-soft hover:text-gold'
@@ -284,7 +286,7 @@ export default function StoryReader() {
                 </span>
                 <div className="mt-3">
                   <button
-                    onClick={() => navigateTo('location', event.locationId)}
+                    onClick={() => goToLocation(event.locationId)}
                     className={`group flex items-center gap-1.5 text-[15px] transition-colors duration-200 ${
                       isLight
                         ? 'text-ink-soft hover:text-gold'
@@ -338,7 +340,7 @@ export default function StoryReader() {
             <div className="pt-8" style={{ borderTop: `1px solid ${separatorColor}` }}>
               {nextEvent ? (
                 <motion.button
-                  onClick={() => navigateTo('reader', nextEvent.id)}
+                  onClick={() => goToBab(nextEvent.id)}
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="group text-left block"
@@ -370,7 +372,7 @@ export default function StoryReader() {
                 </motion.button>
               ) : prevEvent ? (
                 <motion.button
-                  onClick={() => navigateTo('reader', prevEvent.id)}
+                  onClick={() => goToBab(prevEvent.id)}
                   whileHover={{ x: -4 }}
                   transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="group text-left block"
