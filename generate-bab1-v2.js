@@ -19,23 +19,20 @@ const P = {
 const c = (hex) => hex.replace("#", "");
 
 // ══════════════════════════════════════════════════
-// BAB 1 — V2 REVISION
-// Changes from V1:
-//   1. Kurangi 25% bahasa akademis (hapus hamada, sayl, Ghassanid, Lakhmid, Zoroastrianisme dari narasi)
-//   2. Tambah 25% storytelling scene (kafilah scene, desert scene, tribal scene)
-//   3. Hapus semua "Bayangkan..." → ganti dengan natural phrasing
-//   4. Pecah paragraf panjang untuk mobile reading
-//   5. Tambah sub-ritme (variasi panjang paragraf, kalimat pendek di antara panjang)
-//   6. Fakta dipindah ke Catatan section
+// BAB 1 — V3 REVISION
+// Changes from V2:
+//   1. Opening lebih seimbang — tambah cahaya (syair, keramahan, kehormatan) di tengah gelap
+//   2. Renungan lebih halus — hapus repetisi "dunia tanpa cahaya", percaya pembaca
+//   3. Continue Journey dipendekkan — 3 kalimat, boom, selesai
+//   4. Tambah rasa kagum terhadap dunia Arab pra-Islam
 // ══════════════════════════════════════════════════
 
 const openingScene = [
   `Angin gurun berhembus pelan dari arah selatan, membawa debu merah yang menempel di setiap permukaan. Matahari menggantung tepat di atas kepala\u2014tanpa ampun, membakar tanah yang retak-retak sejauh mata memandang. Tidak ada satu titik pun bayangan di hamparan ini.`,
   `Hanya pasir, batu, dan keheningan yang terasa hidup. Keheningan yang dipenuhi suara-suara kecil yang tidak terdengar oleh telinga yang tidak terbiasa. Desiran angin di sela batu. Gesekan pasir di atas pasir. Sesuatu yang bergerak jauh di cakrawala\u2014mungkin seekor ular, mungkin bayangan.`,
   `Seorang pengelana akan membutuhkan berhari-hari menyeberangi hamparan ini sebelum menemukan setetes air. Dan bila ia menemukannya, air itu bukan milik siapa-siapa. Ia menjadi milik siapa yang paling kuat mempertahankannya.`,
-  `Di tanah ini, kekuatan adalah segalanya. Tanpa kekuatan, tidak ada tempat berlindung. Tidak ada air. Tidak ada kehidupan.`,
-  `Ini bukan tanah yang memberi. Ini tanah yang menguji. Dan dari tanah yang menguji inilah, sebuah cahaya akan segera lahir\u2014cahaya yang akan mengubah segalanya. Tetapi sebelum cahaya itu datang, ada sebuah dunia yang harus dipahami terlebih dahulu.`,
-  `Dunia tanpa cahaya.`,
+  `Tanah ini keras. Tetapi manusia tetap hidup di atasnya. Mereka berdagang. Mereka bersyair. Mereka membangun kehormatan di tengah gurun. Di tanah yang menolak memberi, mereka belajar memberi\u2014keramahan tamu adalah hukum tertinggi mereka.`,
+  `Tetapi tanah ini juga menguji. Di antara kemuliaan, ada kegelapan yang meresap dari celah-celah kehidupan. Dan dari tanah yang menguji inilah, sebuah cahaya akan segera lahir\u2014cahaya yang akan mengubah segalanya. Tetapi sebelum cahaya itu datang, ada sebuah dunia yang harus dipahami terlebih dahulu.`,
 ];
 
 const narasiSejarah = [
@@ -50,13 +47,14 @@ const narasiSejarah = [
 ];
 
 const konteks = [
-  `Kondisi geografis yang keras ini membentuk masyarakat yang keras pula. Bangsa Arab sebelum Islam bukanlah satu bangsa dalam pengertian modern. Mereka adalah kumpulan suku-suku yang masing-masing punya identitas, tradisi, dan kepentingan sendiri.`,
+  `Kondisi geografis yang keras ini membentuk masyarakat yang keras pula\u2014tapi juga masyarakat yang luar biasa. Bangsa Arab sebelum Islam bukanlah satu bangsa dalam pengertian modern. Mereka adalah kumpulan suku-suku yang masing-masing punya identitas, tradisi, dan kepentingan sendiri.`,
   `Suku Quraisy di Makkah punya kehidupan yang sangat berbeda dari suku-suku Badui yang mengembara di gurun. Suku-suku di Yaman, yang hidup di tanah lebih subur, punya peradaban yang lebih mapan. Ada suku-suku yang sudah menetap dan membangun kerajaan kecil di perbatasan. Ada pula yang hidup berpindah-pindah, yang bagi mereka garis hidup-mati ditentukan oleh hujan dan padang rumput.`,
   `Kesatuan mereka bukan negara. Bukan kerajaan. Kesatuan mereka adalah 'ashabiyyah\u2014kesetiaan kepada suku yang mengikat seseorang pada kelompoknya secara mutlak. Kau lahir dari suku ini, kau hidup untuk suku ini, dan bila suku ini berperang, kau berperang. Tidak ada pilihan.`,
+  `Tapi dari 'ashabiyyah inilah lahir hal-hal yang mengagumkan. Mereka menjunjung tinggi keramahan tamu\u2014siapa pun yang datang ke kemahmu, kau wajib melindunginya, memberinya makan, dan mengantarkannya dengan selamat, bahkan bila ia musuhmu. Mereka memuliakan kata\u2014syair adalah seni tertinggi, dan seorang penyair paling dihormati setelah kepala suku. Mereka berani\u2014keberanian seorang pejuang dirayakan dalam syair yang dinyanyikan turun-temurun.`,
   `Seorang Badui bangun sebelum fajar. Ia keluar dari tendanya yang terbuat dari bulu kambing berwarna gelap, menginjak tanah yang masih dingin. Di kejauhan, kambing-kambingnya mulai bergerak. Unta-unta berdiri dengan sabar menunggu.`,
   `Hari ini ia harus memutuskan: pindah atau tetap? Padang rumput di sini mulai habis. Air di sumur semakin asin. Tapi pindah ke mana? Suku di sebelah utara tidak menyambut tamu. Suku di sebelah timur baru saja kehilangan kambing\u2014mereka curiga pada semua orang.`,
   `Ini kehidupan sehari-hari. Penuh ketidakpastian. Bergantung pada kambing, unta, dan sedikit kurma yang tumbuh di dekat sumur musiman. Seekor unta bisa menjadi perbedaan antara hidup dan mati. Ia membawa air, memberi susu, mengangkut barang, dan bila perlu, disembelih untuk dagingnya. Karena itu, unta menjadi ukuran kekayaan. Suku yang punya kawanan unta besar adalah suku yang kuat.`,
-  `Dan suku yang kuat adalah suku yang dihormati\u2014atau setidaknya, ditakuti.`,
+  `Dan suku yang kuat adalah suku yang dihormati\u2014atau setidaknya, ditakuti. Keduanya berbeda, dan orang Arab tahu itu.`,
   `Hukum di gurun bukan hukum negara, karena tidak ada negara. Hukumnya adalah hukum balas dendam. Darah dibayar darah. Nyawa dibayar nyawa. Bila seseorang dari suku A dibunuh oleh orang dari suku B, maka seluruh suku A berkewajiban membalas kematian itu kepada siapa pun dari suku B\u2014tidak peduli apakah orang yang dibunuh itu pelakunya atau tidak.`,
   `Lingkaran balas dendam ini bisa berlangsung puluhan tahun. Menghabiskan generasi demi generasi. Tidak ada hakim, tidak ada polisi, tidak ada otoritas yang berwenang menghentikannya. Hanya kekuatan yang bisa menghentikan kekuatan. Hanya kesetiaan suku yang bisa melindungi seseorang dari pembalasan di luar sana.`,
 ];
@@ -68,7 +66,7 @@ const peristiwaUtama = [
   `Di setiap perhentian\u2014di setiap oase dan pasar\u2014para pedagang bertukar tidak hanya komoditas tetapi juga pemikiran. Orang yang berdagang ke Syam mendengar tentang agama Kristen yang dipeluk kekaisaran besar di sana. Yang berdagang ke Iraq mendengar tentang agama api yang dipeluk kekaisaran di timur. Yang tinggal di Yaman mendengar tentang orang-orang Yahudi yang telah bermukim di sana selama berabad-abad. Jazirah Arab bukan tanah yang kosong dari ide. Ia adalah tanah yang menunggu ide mana yang akan mengakar.`,
   `Perdagangan inilah yang mengangkat Makkah dari sekadar lembah gersang menjadi pusat ekonomi dan spiritual. Makkah terletak di persimpangan dua jalur perdagangan utama: jalur utara-selatan dari Yaman ke Syam, dan jalur timur-barat dari pantai Laut Merah ke Iraq.`,
   `Suku Quraisy, yang menguasai Makkah, mengerti betul nilai posisi ini. Mereka mengorganisir kafilah musiman\u2014kafilah musim dingin ke Yaman dan kafilah musim panas ke Syam. Kedua perjalanan ini bukan sekadar ekspedisi dagang. Ia adalah institusi yang menghidupkan seluruh ekonomi Makkah dan memberi mereka kekayaan, pengaruh, dan kedudukan yang tidak dimiliki suku Arab lainnya.`,
-  `Tetapi di balik kemakmuran kafilah dan keagungan Ka'bah, ada retakan-retakan besar yang tidak bisa disembunyikan oleh kekayaan.`,
+  `Tetapi di balik kemakmuran kafilah dan keagungan Ka'bah, di balik syair yang indah dan keramahan yang termasyhur, ada retakan-retakan besar yang tidak bisa disembunyikan oleh kekayaan.`,
   `Sistem sosial Arab sebelum Islam sangat tidak setara. Laki-laki memiliki kekuasaan hampir mutlak atas perempuan. Seorang ayah bisa membenamkan bayi perempuannya hidup-hidup ke dalam pasir\u2014tanpa ada yang berani menghentikannya. Perempuan tidak punya hak waris. Tidak punya hak atas harta sendiri. Bisa diwariskan seperti barang ketika suaminya meninggal.`,
   `Perbudakan dipraktikkan secara luas. Para budak\u2014yang kebanyakan berasal dari Afrika, wilayah perbatasan, atau tawanan perang antarsuku\u2014tidak punya hak apa pun. Mereka adalah harta yang bisa diperjualbelikan.`,
   `Dan yang paling mendasar: tidak ada satu pun kerangka moral yang diterima secara universal oleh seluruh suku Arab. Setiap suku punya dewa-dewi dan tradisi keagamaan sendiri. Ka'bah di Makkah, meskipun menjadi pusat ziarah, berisi tidak kurang dari 360 berhala\u2014satu untuk hampir setiap hari dalam setahun.`,
@@ -77,17 +75,16 @@ const peristiwaUtama = [
 
 const renungan = [
   `Di dunia seperti itu, seorang anak perempuan bisa kehilangan hak hidupnya bahkan sebelum sempat mengenal dunia. Perang bisa diwariskan dari ayah kepada anak. Kebenaran bukan milik semua orang\u2014ia milik siapa yang paling kuat memaksakannya.`,
-  `Ini dunia tanpa cahaya. Bukan dunia tanpa orang baik. Ada orang-orang yang jujur, dermawan, dan berhati mulia di kalangan orang Arab pra-Islam. Tetapi kebaikan mereka bersifat personal, tidak sistemik.`,
-  `Seorang individu bisa menolak membenamkan bayinya. Tetapi ia tidak bisa menghentikan seluruh masyarakat melakukannya. Seorang pemimpin suku bisa menghentikan satu perang. Tetapi ia tidak bisa menghentikan perang antarsuku itu sendiri.`,
-  `Kebaikan bergantung pada individu, bukan pada sistem. Dan ketika individu itu tiada, kebaikan pun ikut lenyap.`,
+  `Dan tetap\u2014ada orang-orang yang jujur. Yang dermawan. Yang berhati mulia. Yang menolak membenamkan bayinya. Yang menghentikan perang meski tidak ada yang memintanya. Kebaikan mereka nyata. Tapi kebaikan mereka bergantung pada individu, bukan pada sistem.`,
+  `Seorang individu bisa menolak membenamkan bayinya. Tetapi ia tidak bisa menghentikan seluruh masyarakat melakukannya. Seorang pemimpin suku bisa menghentikan satu perang. Tetapi ia tidak bisa menghentikan perang antarsuku itu sendiri. Ketika individu itu tiada, kebaikan pun ikut lenyap.`,
   `Di dunia seperti inilah, dalam dua puluh satu tahun setelah seekor gajah besar bernama Abrahah mencoba menghancurkan Ka'bah dan gagal\u2014sebuah peristiwa yang masih segar dalam ingatan setiap penduduk Makkah\u2014seorang anak akan lahir. Anak yang akan membawa cahaya ke tanah yang telah lama gelap.`,
   `Tetapi sebelum kita sampai ke sana, kita harus memahami kota tempat ia akan lahir. Kota di lembah yang gersang. Kota yang bernama Makkah.`,
 ];
 
 const lanjutkanPerjalanan = [
-  `Langkah kaki pertama perjalanan ini telah dimulai. Kita telah berdiri di hamparan Jazirah Arab dan merasakan angin gurun di kulit kita. Kita telah melihat bagaimana tanah yang keras ini membentuk masyarakat yang keras, bagaimana jalur perdagangan menghubungkan dunia yang terpencil, dan bagaimana kegelapan meresap ke setiap celah kehidupan.`,
-  `Tetapi Jazirah Arab adalah panggung yang luas, dan cerita kita tidak berlangsung di mana-mana. Cerita ini berpusat di satu titik\u2014sebuah lembah di antara bukit-bukit batu yang gundul, di mana sebuah bangunan kubus berdiri sudah sejak ribuan tahun sebelumnya, dikelilingi oleh berhala-berhala yang tidak bisa berbicara dan tidak bisa menolong.`,
-  `Bab selanjutnya: Makkah\u2014Kota di Lembah Gersang.`,
+  `Kita telah melihat panggung tempat kisah ini akan dimulai. Tetapi kisah ini tidak terjadi di seluruh Jazirah Arab.`,
+  `Kisah ini berpusat di sebuah lembah tandus bernama Makkah.`,
+  `\u2192 Lanjut ke Bab 2: Makkah\u2014Kota di Lembah Gersang.`,
 ];
 
 const catatan = [
@@ -294,7 +291,7 @@ const doc = new Document({
           spacing: { before: 1600 },
           children: [
             new TextRun({
-              text: "DRAFT V2 REVIEW",
+              text: "DRAFT V3 REVIEW",
               font: { ascii: "Georgia", eastAsia: "SimHei" },
               size: 18,
               color: c(P.accent),
@@ -321,7 +318,7 @@ const doc = new Document({
               alignment: AlignmentType.RIGHT,
               children: [
                 new TextRun({
-                  text: "Jejak Cahaya \u2014 Bab 1: Jazirah Arab Sebelum Islam (V2)",
+                  text: "Jejak Cahaya \u2014 Bab 1: Jazirah Arab Sebelum Islam (V3)",
                   size: 16,
                   color: c(P.secondary),
                   italics: true,
@@ -488,7 +485,7 @@ const doc = new Document({
 });
 
 // ── Export ──
-const OUTPUT = "/home/z/my-project/download/Bab-1-Jazirah-Arab-Sebelum-Islam-V2-REVIEW.docx";
+const OUTPUT = "/home/z/my-project/download/Bab-1-Jazirah-Arab-Sebelum-Islam-V3-REVIEW.docx";
 Packer.toBuffer(doc).then((buffer) => {
   fs.writeFileSync(OUTPUT, buffer);
   console.log("Generated:", OUTPUT);
