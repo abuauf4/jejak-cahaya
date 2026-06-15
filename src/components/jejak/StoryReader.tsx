@@ -63,58 +63,50 @@ export default function StoryReader() {
 
   if (!event) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FBF8F1]">
-        <p className="text-[#9C8E7C] text-sm">Kisah tidak ditemukan</p>
+      <div className="min-h-screen flex items-center justify-center bg-paper">
+        <p className="text-ink-light text-sm">Kisah tidak ditemukan</p>
       </div>
     );
   }
 
-  const bg = isLight ? '#FBF8F1' : '#080B16';
-  const textPrimary = isLight ? '#2C2418' : '#F0EBE0';
-  const textMuted = isLight ? '#6B5E4F' : '#8B8070';
-  const textSecondary = isLight ? '#9C8E7C' : '#8B8070';
-  const separator = isLight ? 'rgba(44, 36, 24, 0.06)' : 'rgba(139, 128, 112, 0.06)';
+  const separator = isLight ? 'rgba(44, 36, 24, 0.08)' : 'rgba(196, 181, 154, 0.08)';
 
   const paragraphs = event.story.split('\n').filter((p) => p.trim());
 
   return (
-    <div className="min-h-screen reader-transition" style={{ backgroundColor: bg }}>
+    <div className={`min-h-screen reader-transition ${isLight ? 'bg-paper' : 'bg-navy-deep'}`}>
       {/* Progress bar */}
-      <div
-        className="fixed top-12 sm:top-14 left-0 right-0 z-40 h-[2px]"
-        style={{ backgroundColor: isLight ? 'rgba(44, 36, 24, 0.03)' : 'rgba(139, 128, 112, 0.03)' }}
-      >
+      <div className={`fixed top-12 sm:top-14 left-0 right-0 z-40 h-[2px] ${isLight ? 'bg-ink/[0.03]' : 'bg-sand/[0.03]'}`}>
         <motion.div
-          className="h-full"
-          style={{ backgroundColor: isLight ? 'rgba(212, 168, 67, 0.3)' : 'rgba(212, 168, 67, 0.25)' }}
+          className={`h-full ${isLight ? 'bg-gold-soft/50' : 'bg-lantern-mid/40'}`}
           initial={{ width: 0 }}
           animate={{ width: `${scrollProgress}%` }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.15, ease: 'linear' }}
         />
       </div>
 
-      {/* Reading content */}
-      <div className="pt-20 sm:pt-24 pb-20 px-4 sm:px-6">
+      {/* Content */}
+      <div className="pt-20 sm:pt-24 pb-24 px-4 sm:px-6">
         <div className="max-w-[65ch] mx-auto">
           {/* Meta */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            className="mb-8 flex items-center gap-3 text-xs"
-            style={{ color: textSecondary }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8 flex items-center gap-3 text-xs font-medium"
           >
-            <span className="flex items-center gap-1">
+            <span className={`flex items-center gap-1.5 ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
               <Calendar className="w-3 h-3" />
               {event.year}
             </span>
             {location && (
               <>
-                <span style={{ color: separator }}>·</span>
+                <span className="opacity-20">·</span>
                 <button
                   onClick={() => navigateTo('location', event.locationId)}
-                  className="flex items-center gap-1 hover:underline"
-                  style={{ color: textSecondary }}
+                  className={`flex items-center gap-1.5 transition-colors duration-200 hover:underline ${
+                    isLight ? 'text-ink-light hover:text-ink' : 'text-warm-muted hover:text-sand'
+                  }`}
                 >
                   <MapPin className="w-3 h-3" />
                   {location.name}
@@ -125,31 +117,28 @@ export default function StoryReader() {
 
           {/* Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="font-serif-display text-3xl sm:text-4xl font-bold leading-tight mb-3"
-            style={{ color: textPrimary }}
+            transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            className={`font-serif-display text-3xl sm:text-4xl font-bold leading-[1.15] mb-3 ${isLight ? 'text-ink' : 'text-cream'}`}
           >
             {event.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="font-serif-display text-lg italic mb-12"
-            style={{ color: textMuted }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`font-serif-display text-lg italic mb-14 ${isLight ? 'text-ink-soft' : 'text-sand'}`}
           >
             {event.subtitle}
           </motion.p>
 
-          {/* Story body */}
+          {/* Story */}
           <motion.article
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.15 }}
-            className="reader-content"
-            style={{ color: textPrimary }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className={`reader-content ${isLight ? 'text-ink' : 'text-cream'}`}
           >
             {paragraphs.map((paragraph, i) => (
               <p
@@ -161,19 +150,20 @@ export default function StoryReader() {
             ))}
           </motion.article>
 
-          {/* After story — minimal info */}
-          <div className="mt-16 space-y-6">
+          {/* After story */}
+          <div className="mt-20 space-y-8">
             {/* Characters */}
             {characters.length > 0 && (
-              <div className="pt-6" style={{ borderTop: `1px solid ${separator}` }}>
-                <span className="text-xs" style={{ color: textSecondary }}>Tokoh</span>
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+              <div className="pt-8" style={{ borderTop: `1px solid ${separator}` }}>
+                <span className={`text-[11px] uppercase tracking-[0.15em] font-semibold ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
+                  Tokoh
+                </span>
+                <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5">
                   {characters.map((char) => (
                     <button
                       key={char.id}
                       onClick={() => navigateTo('character', char.id)}
-                      className="text-sm hover:underline"
-                      style={{ color: textMuted }}
+                      className={`text-sm transition-colors duration-200 hover:underline ${isLight ? 'text-ink-soft hover:text-gold' : 'text-sand hover:text-lantern'}`}
                     >
                       {char.name}
                     </button>
@@ -184,46 +174,60 @@ export default function StoryReader() {
 
             {/* References */}
             {event.references.length > 0 && (
-              <div className="pt-6" style={{ borderTop: `1px solid ${separator}` }}>
-                <span className="text-xs" style={{ color: textSecondary }}>Referensi</span>
-                <div className="mt-2 space-y-1">
+              <div className="pt-8" style={{ borderTop: `1px solid ${separator}` }}>
+                <span className={`text-[11px] uppercase tracking-[0.15em] font-semibold ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
+                  Referensi
+                </span>
+                <div className="mt-3 space-y-1.5">
                   {event.references.map((ref, i) => (
-                    <p key={i} className="text-xs" style={{ color: textSecondary }}>{ref}</p>
+                    <p key={i} className={`text-sm ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>{ref}</p>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Prev/Next */}
-            <div className="pt-8" style={{ borderTop: `1px solid ${separator}` }}>
+            {/* Next */}
+            <div className="pt-10" style={{ borderTop: `1px solid ${separator}` }}>
               {nextEvent ? (
-                <button
+                <motion.button
                   onClick={() => navigateTo('reader', nextEvent.id)}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="group text-left block"
                 >
-                  <span className="text-xs" style={{ color: textSecondary }}>Selanjutnya</span>
-                  <h4 className="font-serif-display text-lg sm:text-xl font-bold mt-1 group-hover:underline" style={{ color: textPrimary }}>
+                  <span className={`text-[11px] uppercase tracking-[0.15em] font-semibold ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
+                    Selanjutnya
+                  </span>
+                  <h4 className={`font-serif-display text-xl sm:text-2xl font-bold mt-2 transition-colors duration-200 group-hover:underline ${
+                    isLight ? 'text-ink group-hover:text-gold' : 'text-cream group-hover:text-lantern'
+                  }`}>
                     {nextEvent.title}
                   </h4>
-                  <span className="text-xs mt-1 inline-flex items-center gap-1" style={{ color: textSecondary }}>
+                  <span className={`text-sm mt-1.5 inline-flex items-center gap-1.5 font-medium ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
                     {nextEvent.year}
-                    <ChevronRight className="w-3 h-3" />
+                    <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                   </span>
-                </button>
+                </motion.button>
               ) : prevEvent ? (
-                <button
+                <motion.button
                   onClick={() => navigateTo('reader', prevEvent.id)}
+                  whileHover={{ x: -4 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="group text-left block"
                 >
-                  <span className="text-xs" style={{ color: textSecondary }}>Sebelumnya</span>
-                  <h4 className="font-serif-display text-lg sm:text-xl font-bold mt-1 group-hover:underline" style={{ color: textPrimary }}>
+                  <span className={`text-[11px] uppercase tracking-[0.15em] font-semibold ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
+                    Sebelumnya
+                  </span>
+                  <h4 className={`font-serif-display text-xl sm:text-2xl font-bold mt-2 transition-colors duration-200 group-hover:underline ${
+                    isLight ? 'text-ink group-hover:text-gold' : 'text-cream group-hover:text-lantern'
+                  }`}>
                     {prevEvent.title}
                   </h4>
-                  <span className="text-xs mt-1 inline-flex items-center gap-1" style={{ color: textSecondary }}>
-                    <ChevronLeft className="w-3 h-3" />
+                  <span className={`text-sm mt-1.5 inline-flex items-center gap-1.5 font-medium ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
+                    <ChevronLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
                     {prevEvent.year}
                   </span>
-                </button>
+                </motion.button>
               ) : null}
             </div>
           </div>

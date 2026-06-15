@@ -5,66 +5,76 @@ import { useNavigation, useReadingProgress } from '@/lib/store';
 import { getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 import type { Journey, StoryEvent } from '@/data/content';
 
-function TimelineEvent({ event, isLast, isLight }: { event: StoryEvent; isLast: boolean; isLight: boolean }) {
+function TimelineEvent({ event, isLast, isLight, index }: { event: StoryEvent; isLast: boolean; isLight: boolean; index: number }) {
   const { navigateTo } = useNavigation();
   const { readEvents } = useReadingProgress();
   const isRead = readEvents.includes(event.id);
 
   return (
-    <button
+    <motion.button
       onClick={() => navigateTo('reader', event.id)}
-      className="w-full text-left group block py-3"
+      initial={{ opacity: 0, x: -8 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.4, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full text-left group block py-3.5"
     >
       <div className="flex items-baseline gap-4 sm:gap-6">
         {/* Year */}
-        <span className={`text-xs sm:text-sm font-mono tabular-nums w-20 sm:w-24 flex-shrink-0 text-right ${
-          isLight ? 'text-[#9C8E7C]/50' : 'text-[#8B8070]/60'
+        <span className={`text-xs sm:text-sm font-mono tabular-nums w-20 sm:w-24 flex-shrink-0 text-right transition-colors duration-300 ${
+          isLight ? 'text-ink-light group-hover:text-gold' : 'text-warm-muted group-hover:text-lantern-mid'
         }`}>
           {event.year}
         </span>
 
         {/* Title */}
         <div className="flex-1 min-w-0">
-          <span className={`text-base sm:text-lg transition-colors ${
+          <span className={`text-[15px] sm:text-base font-medium transition-colors duration-300 ${
             isRead
               ? isLight
-                ? 'text-[#9C8E7C] group-hover:text-[#2C2418]'
-                : 'text-[#C4B59A] group-hover:text-[#F5D78E]'
+                ? 'text-ink-light group-hover:text-ink'
+                : 'text-sand group-hover:text-cream'
               : isLight
-                ? 'text-[#2C2418] group-hover:text-[#D4A843]'
-                : 'text-[#F0EBE0] group-hover:text-[#F5D78E]'
+                ? 'text-ink group-hover:text-gold'
+                : 'text-cream group-hover:text-lantern'
           }`}>
             {event.title}
           </span>
           {isRead && (
-            <span className={`ml-2 text-[10px] ${isLight ? 'text-[#9C8E7C]/30' : 'text-[#8B8070]/40'}`}>dibaca</span>
+            <span className={`ml-2 text-[10px] font-medium ${isLight ? 'text-gold' : 'text-lantern-dim'}`}>dibaca</span>
           )}
         </div>
       </div>
 
-      {/* Separator line */}
+      {/* Separator */}
       {!isLast && (
-        <div className="ml-24 sm:ml-30 mt-3">
-          <div className={`h-px ${isLight ? 'bg-[#2C2418]/[0.04]' : 'bg-[#8B8070]/8'}`} />
+        <div className="ml-24 sm:ml-30 mt-3.5">
+          <div className={`h-[1px] transition-colors duration-300 ${
+            isLight ? 'bg-ink/[0.06] group-hover:bg-gold/20' : 'bg-sand/[0.06] group-hover:bg-lantern-mid/15'
+          }`} />
         </div>
       )}
-    </button>
+    </motion.button>
   );
 }
 
-function TimelineJourney({ journey, isFirst, isLight }: { journey: Journey; isFirst: boolean; isLight: boolean }) {
+function TimelineJourney({ journey, isFirst, isLight, startIndex }: { journey: Journey; isFirst: boolean; isLight: boolean; startIndex: number }) {
   const events = getEventsByJourney(journey.id);
 
   return (
-    <div className={isFirst ? '' : 'mt-10'}>
-      {/* Journey heading — quiet, uppercase, small */}
-      <div className="mb-4 ml-0">
-        <span className={`text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium ${
-          isLight ? 'text-[#D4A843]/40' : 'text-[#D4A843]/50'
-        }`}>
+    <div className={isFirst ? '' : 'mt-12'}>
+      {/* Journey heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-5"
+      >
+        <span className={`text-[11px] uppercase tracking-[0.2em] font-semibold ${isLight ? 'text-gold' : 'text-lantern-mid'}`}>
           {journey.title}
         </span>
-      </div>
+      </motion.div>
 
       {/* Events */}
       <div>
@@ -74,6 +84,7 @@ function TimelineJourney({ journey, isFirst, isLight }: { journey: Journey; isFi
             event={event}
             isLast={i === events.length - 1}
             isLight={isLight}
+            index={startIndex + i}
           />
         ))}
       </div>
@@ -89,17 +100,27 @@ export default function MainTimeline() {
 
   if (!activeCollection) return null;
 
+  // Calculate running index for stagger
+  let runningIndex = 0;
+
   return (
-    <section className={`py-16 sm:py-24 ${isLight ? 'bg-[#FBF8F1]' : 'bg-[#080B16]'}`}>
+    <section className={`py-16 sm:py-24 ${isLight ? 'bg-paper' : 'bg-navy-deep'}`}>
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
-        {journeys.map((journey, i) => (
-          <TimelineJourney
-            key={journey.id}
-            journey={journey}
-            isFirst={i === 0}
-            isLight={isLight}
-          />
-        ))}
+        {journeys.map((journey, i) => {
+          const eventCount = getEventsByJourney(journey.id).length;
+          const currentIndex = runningIndex;
+          runningIndex += eventCount;
+
+          return (
+            <TimelineJourney
+              key={journey.id}
+              journey={journey}
+              isFirst={i === 0}
+              isLight={isLight}
+              startIndex={currentIndex}
+            />
+          );
+        })}
       </div>
     </section>
   );

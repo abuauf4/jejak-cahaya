@@ -16,8 +16,6 @@ export default function ContinueJourney() {
   if (!activeCollection) return null;
 
   const journeys = getJourneysByCollection(activeCollection.id);
-
-  // Find next event to continue to
   const allEvents = journeys.flatMap((j) => getEventsByJourney(j.id));
   const lastReadEventId = readEvents[readEvents.length - 1];
   const currentIndex = allEvents.findIndex((e) => e.id === lastReadEventId);
@@ -29,16 +27,16 @@ export default function ContinueJourney() {
   if (!displayEvent) return null;
 
   return (
-    <section className={`py-12 sm:py-16 ${isLight ? 'bg-[#FBF8F1]' : 'bg-[#080B16]'}`}>
+    <section className={`py-14 sm:py-20 ${isLight ? 'bg-paper' : 'bg-navy-deep'}`}>
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="mb-6">
-            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium ${isLight ? 'text-[#D4A843]/40' : 'text-[#D4A843]/50'}`}>
+          <div className="mb-5">
+            <span className={`text-[11px] uppercase tracking-[0.2em] font-medium ${isLight ? 'text-gold' : 'text-lantern-mid'}`}>
               Perjalanan Terakhir
             </span>
           </div>
@@ -47,52 +45,57 @@ export default function ContinueJourney() {
             onClick={() => navigateTo('reader', displayEvent.id)}
             className="group text-left block"
           >
-            <h3 className={`font-serif-display text-xl sm:text-2xl font-bold transition-colors mb-1 ${
+            <h3 className={`font-serif-display text-xl sm:text-2xl font-bold transition-colors duration-300 mb-1.5 ${
               isLight
-                ? 'text-[#2C2418] group-hover:text-[#8B6914]'
-                : 'text-[#F0EBE0] group-hover:text-[#F5D78E]'
+                ? 'text-ink group-hover:text-gold'
+                : 'text-cream group-hover:text-lantern'
             }`}>
               {displayEvent.title}
             </h3>
-            <div className={`flex items-center gap-2 text-sm ${isLight ? 'text-[#9C8E7C]' : 'text-[#8B8070]'}`}>
+            <div className={`flex items-center gap-2.5 text-sm ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
               <span>{displayEvent.year}</span>
-              <span className={isLight ? 'text-[#9C8E7C]/30' : 'text-[#8B8070]/30'}>·</span>
-              <span className={`group-hover:transition-colors inline-flex items-center gap-1 ${
-                isLight ? 'group-hover:text-[#8B6914]' : 'group-hover:text-[#D4A843]'
+              <span className="opacity-30">·</span>
+              <span className={`inline-flex items-center gap-1.5 transition-colors duration-300 ${
+                isLight ? 'group-hover:text-gold' : 'group-hover:text-lantern-mid'
               }`}>
                 {nextEvent ? 'Lanjutkan Perjalanan' : 'Baca Lagi'}
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </div>
           </button>
 
-          {/* Journey progress — minimal */}
-          <div className="mt-8 space-y-2">
-            {journeys.map((journey) => {
+          {/* Journey progress */}
+          <div className="mt-10 space-y-3">
+            {journeys.map((journey, i) => {
               const journeyEvents = getEventsByJourney(journey.id);
               const jp = getJourneyProgress(journeyEvents.map(e => e.id));
               if (jp.read === 0) return null;
 
               return (
-                <div key={journey.id} className="flex items-center gap-3">
-                  <span className={`text-[11px] w-32 sm:w-40 truncate flex-shrink-0 ${
-                    isLight ? 'text-[#9C8E7C]/40' : 'text-[#8B8070]/40'
-                  }`}>
+                <motion.div
+                  key={journey.id}
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex items-center gap-3"
+                >
+                  <span className={`text-[11px] w-32 sm:w-40 truncate flex-shrink-0 ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
                     {journey.title}
                   </span>
-                  <div className={`flex-1 h-px relative ${isLight ? 'bg-[#2C2418]/[0.04]' : 'bg-[#8B8070]/8'}`}>
+                  <div className={`flex-1 h-[3px] rounded-full ${isLight ? 'bg-ink/[0.06]' : 'bg-sand/[0.08]'}`}>
                     <motion.div
-                      className={`absolute left-0 top-0 h-full ${isLight ? 'bg-[#D4A843]/25' : 'bg-[#D4A843]/30'}`}
+                      className={`h-full rounded-full ${isLight ? 'bg-gold-soft' : 'bg-lantern-mid'}`}
                       initial={{ width: 0 }}
                       whileInView={{ width: `${jp.percentage}%` }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.8, ease: 'easeOut' }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     />
                   </div>
-                  <span className={`text-[10px] tabular-nums ${isLight ? 'text-[#9C8E7C]/25' : 'text-[#8B8070]/30'}`}>
+                  <span className={`text-[11px] tabular-nums font-medium ${isLight ? 'text-ink-light' : 'text-warm-muted'}`}>
                     {jp.percentage}%
                   </span>
-                </div>
+                </motion.div>
               );
             })}
           </div>

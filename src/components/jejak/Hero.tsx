@@ -5,6 +5,19 @@ import { ArrowRight } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
 import { getActiveCollection, getEventsByJourney, getJourneysByCollection } from '@/data/content';
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export default function Hero() {
   const { navigateTo, theme } = useNavigation();
   const isLight = theme === 'light';
@@ -12,46 +25,38 @@ export default function Hero() {
   const journeys = activeCollection ? getJourneysByCollection(activeCollection.id) : [];
 
   return (
-    <section className={`relative flex items-center justify-center min-h-screen ${isLight ? 'bg-[#FBF8F1]' : 'bg-[#080B16]'}`}>
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+    <section className={`relative flex items-center justify-center min-h-screen ${isLight ? 'bg-paper' : 'bg-navy-deep'}`}>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-2xl mx-auto px-4 sm:px-6 text-center"
+      >
         {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <span className={`font-serif-display text-lg tracking-wide ${isLight ? 'text-[#9C8E7C]' : 'text-[#8B8070]'}`}>
-            Jejak Cahaya
+        <motion.div variants={item} className="mb-14">
+          <span className={`font-serif-display text-base tracking-widest ${isLight ? 'text-gold' : 'text-lantern-mid'}`}>
+            JEJAK CAHAYA
           </span>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className={`font-serif-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6 ${isLight ? 'text-[#2C2418]' : 'text-[#F0EBE0]'}`}
+          variants={item}
+          className={`font-serif-display text-3xl sm:text-4xl md:text-[3.25rem] font-bold leading-[1.2] mb-6 ${isLight ? 'text-ink' : 'text-cream'}`}
         >
           Menelusuri Jejak Kehidupan Rasulullah ﷺ
         </motion.h1>
 
         {/* Subheadline */}
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className={`text-base sm:text-lg max-w-lg mx-auto mb-12 leading-relaxed ${isLight ? 'text-[#9C8E7C]' : 'text-[#8B8070]'}`}
+          variants={item}
+          className={`text-base sm:text-lg max-w-md mx-auto mb-14 leading-relaxed ${isLight ? 'text-ink-soft' : 'text-sand'}`}
         >
           Perpustakaan digital kisah Islam yang disusun berdasarkan sumber terpercaya.
         </motion.p>
 
-        {/* Single CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
+        {/* CTA */}
+        <motion.div variants={item}>
           <button
             onClick={() => {
               if (journeys.length > 0) {
@@ -62,17 +67,17 @@ export default function Hero() {
                 }
               }
             }}
-            className={`group inline-flex items-center gap-2 transition-colors text-base ${
+            className={`group inline-flex items-center gap-2.5 text-base font-medium transition-all duration-300 ${
               isLight
-                ? 'text-[#8B6914] hover:text-[#D4A843]'
-                : 'text-[#D4A843] hover:text-[#F5D78E]'
+                ? 'text-gold hover:text-gold-soft hover:gap-3.5'
+                : 'text-lantern-mid hover:text-lantern hover:gap-3.5'
             }`}
           >
             Mulai Perjalanan
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
