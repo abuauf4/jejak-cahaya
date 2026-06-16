@@ -1,0 +1,753 @@
+diff --git a/prisma/schema.prisma b/prisma/schema.prisma
+old mode 100644
+new mode 100755
+index f72ac32..859aba7
+--- a/prisma/schema.prisma
++++ b/prisma/schema.prisma
+@@ -29,4 +29,15 @@ model Post {
+   authorId  String
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
++}
++
++model Feedback {
++  id        String   @id @default(cuid())
++  name      String?
++  category  String   @default("umum") // umum, koreksi, referensi, penulisan, review
++  message   String
++  page      String?  // URL/path where feedback was submitted
++  read      Boolean  @default(false)
++  createdAt DateTime @default(now())
++  updatedAt DateTime @updatedAt
+ }
+\ No newline at end of file
+diff --git a/src/app/admin/page.tsx b/src/app/admin/page.tsx
+new file mode 100644
+index 0000000..7d78898
+--- /dev/null
++++ b/src/app/admin/page.tsx
+@@ -0,0 +1,291 @@
++'use client';
++
++import { useState, useEffect, useCallback } from 'react';
++import {
++  MessageSquare,
++  Check,
++  Trash2,
++  Eye,
++  EyeOff,
++  RefreshCw,
++  BookOpen,
++  Scale,
++  PenLine,
++  FlaskConical,
++  Globe,
++  ArrowLeft,
++} from 'lucide-react';
++import Link from 'next/link';
++
++interface Feedback {
++  id: string;
++  name: string | null;
++  category: string;
++  message: string;
++  page: string | null;
++  read: boolean;
++  createdAt: string;
++}
++
++const categoryConfig: Record<string, { label: string; icon: typeof Globe; color: string }> = {
++  umum: { label: 'Umum', icon: Globe, color: 'bg-gray-500/10 text-gray-600' },
++  koreksi: { label: 'Koreksi Ilmiah', icon: Scale, color: 'bg-red-500/10 text-red-600' },
++  referensi: { label: 'Referensi', icon: BookOpen, color: 'bg-blue-500/10 text-blue-600' },
++  penulisan: { label: 'Penulisan', icon: PenLine, color: 'bg-green-500/10 text-green-600' },
++  review: { label: 'Review', icon: FlaskConical, color: 'bg-purple-500/10 text-purple-600' },
++};
++
++export default function AdminPage() {
++  const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
++  const [total, setTotal] = useState(0);
++  const [unread, setUnread] = useState(0);
++  const [loading, setLoading] = useState(true);
++  const [filter, setFilter] = useState('semua');
++  const [showUnreadOnly, setShowUnreadOnly] = useState(false);
++  const [expandedId, setExpandedId] = useState<string | null>(null);
++
++  const fetchFeedbacks = useCallback(async () => {
++    setLoading(true);
++    try {
++      const params = new URLSearchParams();
++      if (filter !== 'semua') params.set('category', filter);
++      if (showUnreadOnly) params.set('unread', 'true');
++
++      const res = await fetch(`/api/feedback?${params}`);
++      const data = await res.json();
++      setFeedbacks(data.feedbacks || []);
++      setTotal(data.total || 0);
++      setUnread(data.unread || 0);
++    } catch (err) {
++      console.error('Failed to fetch feedbacks:', err);
++    } finally {
++      setLoading(false);
++    }
++  }, [filter, showUnreadOnly]);
++
++  useEffect(() => {
++    fetchFeedbacks();
++  }, [fetchFeedbacks]);
++
++  const toggleRead = async (id: string, currentRead: boolean) => {
++    try {
++      await fetch(`/api/feedback/${id}`, {
++        method: 'PATCH',
++        headers: { 'Content-Type': 'application/json' },
++        body: JSON.stringify({ read: !currentRead }),
++      });
++      fetchFeedbacks();
++    } catch (err) {
++      console.error('Failed to toggle read:', err);
++    }
++  };
++
++  const deleteFeedback = async (id: string) => {
++    if (!confirm('Hapus masukan ini?')) return;
++    try {
++      await fetch(`/api/feedback/${id}`, { method: 'DELETE' });
++      fetchFeedbacks();
++    } catch (err) {
++      console.error('Failed to delete:', err);
++    }
++  };
++
++  const markAllRead = async () => {
++    for (const fb of feedbacks.filter((f) => !f.read)) {
++      await fetch(`/api/feedback/${fb.id}`, {
++        method: 'PATCH',
++        headers: { 'Content-Type': 'application/json' },
++        body: JSON.stringify({ read: true }),
++      });
++    }
++    fetchFeedbacks();
++  };
++
++  const formatDate = (dateStr: string) => {
++    const date = new Date(dateStr);
++    return date.toLocaleDateString('id-ID', {
++      day: 'numeric',
++      month: 'short',
++      year: 'numeric',
++      hour: '2-digit',
++      minute: '2-digit',
++    });
++  };
++
++  return (
++    <div className="min-h-screen bg-[#080B16] text-[#F0EBE0]">
++      {/* Header */}
++      <div className="sticky top-0 z-10 bg-[#080B16]/90 backdrop-blur-md border-b border-[rgba(245,215,142,0.06)]">
++        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
++          <div className="flex items-center gap-3">
++            <Link
++              href="/"
++              className="p-2 rounded-lg hover:bg-white/5 transition-colors text-[#8B8070]"
++            >
++              <ArrowLeft className="w-4 h-4" />
++            </Link>
++            <div>
++              <h1 className="font-serif-display text-lg font-bold flex items-center gap-2">
++                <MessageSquare className="w-4 h-4 text-[#D4A843]" />
++                Admin Masukan
++              </h1>
++              <p className="text-xs text-[#8B8070] mt-0.5">
++                {total} masukan · {unread} belum dibaca
++              </p>
++            </div>
++          </div>
++          <div className="flex items-center gap-2">
++            {unread > 0 && (
++              <button
++                onClick={markAllRead}
++                className="text-xs text-[#D4A843] hover:underline px-2 py-1"
++              >
++                Tandai semua dibaca
++              </button>
++            )}
++            <button
++              onClick={fetchFeedbacks}
++              className="p-2 rounded-lg hover:bg-white/5 transition-colors text-[#8B8070]"
++            >
++              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
++            </button>
++          </div>
++        </div>
++      </div>
++
++      {/* Filters */}
++      <div className="max-w-3xl mx-auto px-4 py-3 flex flex-wrap items-center gap-2">
++        {['semua', 'umum', 'koreksi', 'referensi', 'penulisan', 'review'].map((cat) => (
++          <button
++            key={cat}
++            onClick={() => setFilter(cat)}
++            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
++              filter === cat
++                ? 'bg-[#D4A843]/15 text-[#D4A843] border border-[#D4A843]/30'
++                : 'bg-white/[0.03] text-[#8B8070] border border-[rgba(245,215,142,0.04)] hover:border-[rgba(245,215,142,0.12)]'
++            }`}
++          >
++            {cat === 'semua' ? 'Semua' : categoryConfig[cat]?.label || cat}
++          </button>
++        ))}
++        <button
++          onClick={() => setShowUnreadOnly(!showUnreadOnly)}
++          className={`ml-auto px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 ${
++            showUnreadOnly
++              ? 'bg-[#D4A843]/15 text-[#D4A843]'
++              : 'bg-white/[0.03] text-[#8B8070]'
++          }`}
++        >
++          <EyeOff className="w-3 h-3" />
++          Belum dibaca
++        </button>
++      </div>
++
++      {/* Feedback list */}
++      <div className="max-w-3xl mx-auto px-4 pb-8">
++        {loading ? (
++          <div className="flex items-center justify-center py-20">
++            <RefreshCw className="w-6 h-6 text-[#8B8070] animate-spin" />
++          </div>
++        ) : feedbacks.length === 0 ? (
++          <div className="text-center py-20">
++            <MessageSquare className="w-10 h-10 text-[#8B8070]/30 mx-auto mb-3" />
++            <p className="text-[#8B8070] text-sm">Belum ada masukan</p>
++          </div>
++        ) : (
++          <div className="space-y-2">
++            {feedbacks.map((fb) => {
++              const cat = categoryConfig[fb.category] || categoryConfig.umum;
++              const CatIcon = cat.icon;
++              const isExpanded = expandedId === fb.id;
++
++              return (
++                <div
++                  key={fb.id}
++                  className={`rounded-xl border transition-colors ${
++                    fb.read
++                      ? 'bg-[#0F1629]/50 border-[rgba(245,215,142,0.04)]'
++                      : 'bg-[#0F1629] border-[rgba(245,215,142,0.08)]'
++                  }`}
++                >
++                  <div
++                    className="px-4 py-3.5 cursor-pointer"
++                    onClick={() => setExpandedId(isExpanded ? null : fb.id)}
++                  >
++                    <div className="flex items-start justify-between gap-3">
++                      <div className="flex-1 min-w-0">
++                        <div className="flex items-center gap-2 mb-1.5">
++                          {!fb.read && (
++                            <span className="w-2 h-2 rounded-full bg-[#D4A843] shrink-0" />
++                          )}
++                          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium ${cat.color}`}>
++                            <CatIcon className="w-3 h-3" />
++                            {cat.label}
++                          </span>
++                          <span className="text-[10px] text-[#8B8070]/50">
++                            {formatDate(fb.createdAt)}
++                          </span>
++                        </div>
++                        <p className={`text-sm leading-relaxed ${
++                          isExpanded ? '' : 'line-clamp-2'
++                        } ${fb.read ? 'text-[#8B8070]' : 'text-[#F0EBE0]'}`}>
++                          {fb.message}
++                        </p>
++                        {!isExpanded && (
++                          <div className="flex items-center gap-2 mt-1.5">
++                            {fb.name && (
++                              <span className="text-[10px] text-[#8B8070]/50">
++                                dari {fb.name}
++                              </span>
++                            )}
++                            {fb.page && (
++                              <span className="text-[10px] text-[#8B8070]/30">
++                                {fb.page}
++                              </span>
++                            )}
++                          </div>
++                        )}
++                      </div>
++                    </div>
++                  </div>
++
++                  {isExpanded && (
++                    <div className="px-4 pb-4 border-t border-[rgba(245,215,142,0.04)] pt-3">
++                      <p className="text-sm text-[#F0EBE0] leading-relaxed whitespace-pre-wrap mb-3">
++                        {fb.message}
++                      </p>
++                      <div className="flex items-center gap-3 text-[10px] text-[#8B8070]/50 mb-3">
++                        {fb.name && <span>dari <strong className="text-[#8B8070]">{fb.name}</strong></span>}
++                        {fb.page && <span>halaman: {fb.page}</span>}
++                      </div>
++                      <div className="flex items-center gap-2">
++                        <button
++                          onClick={(e) => { e.stopPropagation(); toggleRead(fb.id, fb.read); }}
++                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
++                            fb.read
++                              ? 'bg-white/[0.03] text-[#8B8070] hover:bg-white/[0.06]'
++                              : 'bg-[#D4A843]/10 text-[#D4A843] hover:bg-[#D4A843]/20'
++                          }`}
++                        >
++                          {fb.read ? <EyeOff className="w-3 h-3" /> : <Check className="w-3 h-3" />}
++                          {fb.read ? 'Tandai belum dibaca' : 'Tandai dibaca'}
++                        </button>
++                        <button
++                          onClick={(e) => { e.stopPropagation(); deleteFeedback(fb.id); }}
++                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors"
++                        >
++                          <Trash2 className="w-3 h-3" />
++                          Hapus
++                        </button>
++                      </div>
++                    </div>
++                  )}
++                </div>
++              );
++            })}
++          </div>
++        )}
++      </div>
++    </div>
++  );
++}
+diff --git a/src/app/api/feedback/[id]/route.ts b/src/app/api/feedback/[id]/route.ts
+new file mode 100644
+index 0000000..47724d2
+--- /dev/null
++++ b/src/app/api/feedback/[id]/route.ts
+@@ -0,0 +1,45 @@
++import { NextRequest, NextResponse } from 'next/server';
++import { db } from '@/lib/db';
++
++// PATCH — Mark feedback as read/unread
++export async function PATCH(
++  req: NextRequest,
++  { params }: { params: Promise<{ id: string }> }
++) {
++  try {
++    const { id } = await params;
++    const body = await req.json();
++    const { read } = body;
++
++    if (typeof read !== 'boolean') {
++      return NextResponse.json({ error: 'Field "read" harus boolean' }, { status: 400 });
++    }
++
++    const updated = await db.feedback.update({
++      where: { id },
++      data: { read },
++    });
++
++    return NextResponse.json({ success: true, feedback: updated });
++  } catch (error) {
++    console.error('Feedback PATCH error:', error);
++    return NextResponse.json({ error: 'Gagal mengupdate' }, { status: 500 });
++  }
++}
++
++// DELETE — Remove feedback
++export async function DELETE(
++  req: NextRequest,
++  { params }: { params: Promise<{ id: string }> }
++) {
++  try {
++    const { id } = await params;
++
++    await db.feedback.delete({ where: { id } });
++
++    return NextResponse.json({ success: true });
++  } catch (error) {
++    console.error('Feedback DELETE error:', error);
++    return NextResponse.json({ error: 'Gagal menghapus' }, { status: 500 });
++  }
++}
+diff --git a/src/app/api/feedback/route.ts b/src/app/api/feedback/route.ts
+new file mode 100644
+index 0000000..c431cef
+--- /dev/null
++++ b/src/app/api/feedback/route.ts
+@@ -0,0 +1,61 @@
++import { NextRequest, NextResponse } from 'next/server';
++import { db } from '@/lib/db';
++
++// POST — Submit new feedback
++export async function POST(req: NextRequest) {
++  try {
++    const body = await req.json();
++    const { name, category, message, page } = body;
++
++    if (!message || message.trim().length === 0) {
++      return NextResponse.json({ error: 'Pesan wajib diisi' }, { status: 400 });
++    }
++
++    if (message.length > 5000) {
++      return NextResponse.json({ error: 'Pesan terlalu panjang (maks 5000 karakter)' }, { status: 400 });
++    }
++
++    const validCategories = ['umum', 'koreksi', 'referensi', 'penulisan', 'review'];
++    const safeCategory = validCategories.includes(category) ? category : 'umum';
++
++    const feedback = await db.feedback.create({
++      data: {
++        name: name?.trim() || null,
++        category: safeCategory,
++        message: message.trim(),
++        page: page || null,
++      },
++    });
++
++    return NextResponse.json({ success: true, id: feedback.id }, { status: 201 });
++  } catch (error) {
++    console.error('Feedback POST error:', error);
++    return NextResponse.json({ error: 'Gagal menyimpan masukan' }, { status: 500 });
++  }
++}
++
++// GET — List all feedback (admin)
++export async function GET(req: NextRequest) {
++  try {
++    const { searchParams } = new URL(req.url);
++    const category = searchParams.get('category');
++    const unreadOnly = searchParams.get('unread') === 'true';
++
++    const where: Record<string, unknown> = {};
++    if (category && category !== 'semua') where.category = category;
++    if (unreadOnly) where.read = false;
++
++    const feedbacks = await db.feedback.findMany({
++      where,
++      orderBy: { createdAt: 'desc' },
++    });
++
++    const total = await db.feedback.count();
++    const unread = await db.feedback.count({ where: { read: false } });
++
++    return NextResponse.json({ feedbacks, total, unread });
++  } catch (error) {
++    console.error('Feedback GET error:', error);
++    return NextResponse.json({ error: 'Gagal mengambil data' }, { status: 500 });
++  }
++}
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+old mode 100644
+new mode 100755
+index 0e11f04..2f237c9
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -38,6 +38,21 @@ export const metadata: Metadata = {
+       "Platform pengetahuan Islam — menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir.",
+     type: "website",
+     siteName: "Jejak Cahaya",
++    images: [
++      {
++        url: "/images/og-home.png",
++        width: 1200,
++        height: 630,
++        alt: "Jejak Cahaya — Platform Pengetahuan Islam",
++      },
++    ],
++  },
++  twitter: {
++    card: "summary_large_image",
++    title: "Jejak Cahaya — Platform Pengetahuan Islam",
++    description:
++      "Platform pengetahuan Islam — menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir.",
++    images: ["/images/og-home.png"],
+   },
+ };
+ 
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+old mode 100644
+new mode 100755
+index c7c1931..96a402c
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -11,6 +11,7 @@ import StoryReader from '@/components/jejak/StoryReader';
+ import CharacterEncyclopedia from '@/components/jejak/CharacterEncyclopedia';
+ import LocationExplorer from '@/components/jejak/LocationExplorer';
+ import SearchSystem from '@/components/jejak/SearchSystem';
++import FeedbackForm from '@/components/jejak/FeedbackForm';
+ import Footer from '@/components/jejak/Footer';
+ 
+ const pageVariants = {
+@@ -135,6 +136,7 @@ export default function Home() {
+       </main>
+ 
+       <Footer />
++      <FeedbackForm />
+     </div>
+   );
+ }
+diff --git a/src/components/jejak/FeedbackForm.tsx b/src/components/jejak/FeedbackForm.tsx
+new file mode 100644
+index 0000000..59b68f6
+--- /dev/null
++++ b/src/components/jejak/FeedbackForm.tsx
+@@ -0,0 +1,259 @@
++'use client';
++
++import { useState } from 'react';
++import { motion, AnimatePresence } from 'framer-motion';
++import { MessageSquare, X, Send, CheckCircle } from 'lucide-react';
++import { useNavigation } from '@/lib/store';
++
++const categories = [
++  { value: 'umum', label: 'Masukan Umum' },
++  { value: 'koreksi', label: 'Koreksi Ilmiah' },
++  { value: 'referensi', label: 'Masukan Referensi' },
++  { value: 'penulisan', label: 'Kontribusi Penulisan' },
++  { value: 'review', label: 'Review Keilmuan' },
++];
++
++export default function FeedbackForm() {
++  const { theme } = useNavigation();
++  const isLight = theme === 'light';
++
++  const [open, setOpen] = useState(false);
++  const [name, setName] = useState('');
++  const [category, setCategory] = useState('umum');
++  const [message, setMessage] = useState('');
++  const [submitting, setSubmitting] = useState(false);
++  const [submitted, setSubmitted] = useState(false);
++  const [error, setError] = useState('');
++
++  const handleSubmit = async (e: React.FormEvent) => {
++    e.preventDefault();
++    if (!message.trim()) return;
++
++    setSubmitting(true);
++    setError('');
++
++    try {
++      const res = await fetch('/api/feedback', {
++        method: 'POST',
++        headers: { 'Content-Type': 'application/json' },
++        body: JSON.stringify({
++          name: name.trim() || null,
++          category,
++          message: message.trim(),
++          page: window.location.pathname,
++        }),
++      });
++
++      if (!res.ok) {
++        const data = await res.json();
++        throw new Error(data.error || 'Gagal mengirim');
++      }
++
++      setSubmitted(true);
++      setName('');
++      setMessage('');
++      setCategory('umum');
++
++      setTimeout(() => {
++        setSubmitted(false);
++        setOpen(false);
++      }, 2500);
++    } catch (err) {
++      setError(err instanceof Error ? err.message : 'Terjadi kesalahan');
++    } finally {
++      setSubmitting(false);
++    }
++  };
++
++  return (
++    <>
++      {/* Floating button */}
++      <motion.button
++        onClick={() => setOpen(true)}
++        whileHover={{ scale: 1.05 }}
++        whileTap={{ scale: 0.95 }}
++        className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full shadow-lg transition-colors ${
++          isLight
++            ? 'bg-gold text-white hover:bg-gold/90'
++            : 'bg-[#D4A843] text-[#080B16] hover:bg-[#D4A843]/90'
++        }`}
++      >
++        <MessageSquare className="w-4 h-4" />
++        <span className="text-sm font-medium">Beri Masukan</span>
++      </motion.button>
++
++      {/* Modal overlay */}
++      <AnimatePresence>
++        {open && (
++          <>
++            <motion.div
++              initial={{ opacity: 0 }}
++              animate={{ opacity: 1 }}
++              exit={{ opacity: 0 }}
++              transition={{ duration: 0.2 }}
++              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
++              onClick={() => setOpen(false)}
++            />
++            <motion.div
++              initial={{ opacity: 0, y: 40, scale: 0.95 }}
++              animate={{ opacity: 1, y: 0, scale: 1 }}
++              exit={{ opacity: 0, y: 40, scale: 0.95 }}
++              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
++              className={`fixed inset-x-4 bottom-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-md z-50 rounded-2xl shadow-2xl overflow-hidden ${
++                isLight ? 'bg-paper border border-ink/10' : 'bg-[#0F1629] border border-[rgba(245,215,142,0.08)]'
++              }`}
++            >
++              {/* Header */}
++              <div className={`flex items-center justify-between px-6 py-4 border-b ${
++                isLight ? 'border-ink/8' : 'border-[rgba(245,215,142,0.06)]'
++              }`}>
++                <h3 className={`font-serif-display text-lg font-bold ${
++                  isLight ? 'text-ink' : 'text-cream'
++                }`}>
++                  Beri Masukan
++                </h3>
++                <button
++                  onClick={() => setOpen(false)}
++                  className={`p-1.5 rounded-lg transition-colors ${
++                    isLight ? 'hover:bg-ink/5 text-ink-soft' : 'hover:bg-white/5 text-sand'
++                  }`}
++                >
++                  <X className="w-4 h-4" />
++                </button>
++              </div>
++
++              {/* Body */}
++              {submitted ? (
++                <motion.div
++                  initial={{ opacity: 0, scale: 0.9 }}
++                  animate={{ opacity: 1, scale: 1 }}
++                  className="flex flex-col items-center justify-center py-12 px-6"
++                >
++                  <CheckCircle className={`w-12 h-12 mb-4 ${isLight ? 'text-gold' : 'text-[#D4A843]'}`} />
++                  <p className={`font-serif-display text-lg font-medium mb-1 ${
++                    isLight ? 'text-ink' : 'text-cream'
++                  }`}>
++                    Terima kasih!
++                  </p>
++                  <p className={`text-sm ${isLight ? 'text-ink-soft' : 'text-sand'}`}>
++                    Masukan Anda sangat berarti bagi kami.
++                  </p>
++                </motion.div>
++              ) : (
++                <form onSubmit={handleSubmit} className="px-6 py-5 space-y-4">
++                  {/* Name */}
++                  <div>
++                    <label className={`block text-xs font-medium mb-1.5 ${
++                      isLight ? 'text-ink-soft' : 'text-sand'
++                    }`}>
++                      Nama <span className="opacity-40">(opsional)</span>
++                    </label>
++                    <input
++                      type="text"
++                      value={name}
++                      onChange={(e) => setName(e.target.value)}
++                      placeholder="Nama Anda"
++                      maxLength={100}
++                      className={`w-full px-3.5 py-2.5 rounded-xl text-sm outline-none transition-colors ${
++                        isLight
++                          ? 'bg-ink/[0.03] border border-ink/8 focus:border-gold/40 text-ink placeholder:text-ink/30'
++                          : 'bg-white/[0.04] border border-[rgba(245,215,142,0.06)] focus:border-[#D4A843]/40 text-cream placeholder:text-sand/30'
++                      }`}
++                    />
++                  </div>
++
++                  {/* Category */}
++                  <div>
++                    <label className={`block text-xs font-medium mb-1.5 ${
++                      isLight ? 'text-ink-soft' : 'text-sand'
++                    }`}>
++                      Jenis Masukan
++                    </label>
++                    <div className="flex flex-wrap gap-2">
++                      {categories.map((cat) => (
++                        <button
++                          key={cat.value}
++                          type="button"
++                          onClick={() => setCategory(cat.value)}
++                          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
++                            category === cat.value
++                              ? isLight
++                                ? 'bg-gold/15 text-gold border border-gold/30'
++                                : 'bg-[#D4A843]/15 text-[#D4A843] border border-[#D4A843]/30'
++                              : isLight
++                                ? 'bg-ink/[0.03] text-ink-soft border border-ink/8 hover:border-ink/15'
++                                : 'bg-white/[0.04] text-sand border border-[rgba(245,215,142,0.06)] hover:border-[rgba(245,215,142,0.12)]'
++                          }`}
++                        >
++                          {cat.label}
++                        </button>
++                      ))}
++                    </div>
++                  </div>
++
++                  {/* Message */}
++                  <div>
++                    <label className={`block text-xs font-medium mb-1.5 ${
++                      isLight ? 'text-ink-soft' : 'text-sand'
++                    }`}>
++                      Pesan <span className={`${
++                        isLight ? 'text-gold' : 'text-[#D4A843]'
++                      }`}>*</span>
++                    </label>
++                    <textarea
++                      value={message}
++                      onChange={(e) => setMessage(e.target.value)}
++                      placeholder="Tulis masukan Anda di sini..."
++                      rows={4}
++                      maxLength={5000}
++                      required
++                      className={`w-full px-3.5 py-2.5 rounded-xl text-sm outline-none transition-colors resize-none ${
++                        isLight
++                          ? 'bg-ink/[0.03] border border-ink/8 focus:border-gold/40 text-ink placeholder:text-ink/30'
++                          : 'bg-white/[0.04] border border-[rgba(245,215,142,0.06)] focus:border-[#D4A843]/40 text-cream placeholder:text-sand/30'
++                      }`}
++                    />
++                    <p className={`text-[10px] mt-1 text-right ${
++                      isLight ? 'text-ink/25' : 'text-sand/25'
++                    }`}>
++                      {message.length}/5000
++                    </p>
++                  </div>
++
++                  {/* Error */}
++                  {error && (
++                    <p className="text-xs text-red-500">{error}</p>
++                  )}
++
++                  {/* Submit */}
++                  <button
++                    type="submit"
++                    disabled={submitting || !message.trim()}
++                    className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all ${
++                      submitting || !message.trim()
++                        ? 'opacity-40 cursor-not-allowed'
++                        : 'hover:opacity-90 active:scale-[0.98]'
++                    } ${
++                      isLight
++                        ? 'bg-gold text-white'
++                        : 'bg-[#D4A843] text-[#080B16]'
++                    }`}
++                  >
++                    {submitting ? (
++                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
++                    ) : (
++                      <>
++                        <Send className="w-4 h-4" />
++                        Kirim Masukan
++                      </>
++                    )}
++                  </button>
++                </form>
++              )}
++            </motion.div>
++          </>
++        )}
++      </AnimatePresence>
++    </>
++  );
++}
