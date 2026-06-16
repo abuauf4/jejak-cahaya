@@ -168,3 +168,25 @@ Stage Summary:
 - Build passes without errors
 - Files created: auth.ts, edge-auth.ts, middleware.ts, login/page.tsx, 3 API routes
 - Files modified: prisma/schema.prisma, admin/page.tsx (logout button)
+
+---
+Task ID: 5
+Agent: main
+Task: Migrate dari SQLite ke Neon PostgreSQL
+
+Work Log:
+- Updated .env: DATABASE_URL changed from SQLite to Neon PostgreSQL
+- Removed channel_binding=require from URL (Prisma incompatible)
+- Updated Prisma schema: provider "sqlite" → "postgresql"
+- Removed unused User and Post models (only need Feedback + Admin)
+- Added @db.Text to message and passwordHash fields (PostgreSQL best practice)
+- Pushed schema to Neon: npx prisma db push ✅
+- Seeded admin user Bagas (password: 122333) to Neon PostgreSQL ✅
+- Verified: Admin found, password match ✅
+
+Stage Summary:
+- Database migrated from SQLite → Neon PostgreSQL
+- Neon host: ep-noisy-dew-ao6kchi7-pooler.c-2.ap-southeast-1.aws.neon.tech
+- Tables: Feedback, Admin
+- Admin user: username=Bagas, password=122333 ✅
+- Note: User needs to add DATABASE_URL env var in Vercel dashboard for production
