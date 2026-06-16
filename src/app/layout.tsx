@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/og-home.png",
-        width: 1536,
-        height: 1024,
+        width: 1200,
+        height: 630,
         alt: "Jejak Cahaya — Platform Pengetahuan Islam",
       },
     ],
