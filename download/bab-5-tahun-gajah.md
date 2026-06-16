@@ -1,6 +1,8 @@
-# Bab 5
-## Tahun Gajah
-*Pasukan yang dihancurkan dari langit*
+# Bab 5: Tahun Gajah
+
+**Subtitle:** Pasukan yang dihancurkan dari langit
+**Tahun:** 570 M
+**Fase:** 0 — Dunia Sebelum Islam
 
 ---
 
@@ -68,7 +70,7 @@ Bukan karena Ka'bah lebih besar.
 
 Tapi karena Ka'bah memiliki sesuatu yang tidak bisa dibangun oleh tangan manusia.
 
-Ka'bah memiliki sejarah.
+Ka'bah memiliki jejak yang diwariskan dari generasi ke generasi.
 
 Ka'bah memiliki doa Ibrahim yang masih hidup di ingatan mereka.
 
@@ -92,7 +94,7 @@ Marah yang menggerakkan pasukan.
 
 Ia mengumpulkan tentara.²³⁴⁵
 
-Puluhan ribu orang.
+Pasukan besar.
 
 Pasukan infanteri.
 
@@ -180,7 +182,7 @@ Jika mereka melawan, mereka akan dihancurkan.
 
 ✦ ✦ ✦
 
-Utsan itu diterima oleh Abdul Muthalib.²³⁶
+Utusan itu diterima oleh Abdul Muthalib.²³⁶
 
 Sang kepala suku Quraisy.
 
@@ -300,8 +302,8 @@ Setiap batu membawa perintah Allah ﷻ.¹
 
 Al-Qur'an mengabadikan peristiwa itu:
 
-> *"Apakah kamu tidak memperhatikan bagaimana Tuhanmu telah bertindak terhadap pasukan bergajah? Bukankah Dia telah menjadikan tipu daya mereka itu sia-sia? Dan Dia mengirimkan terhadap mereka burung yang berbondong-bondong, yang melempari mereka dengan batu dari tanah yang terbakar, lalu Dia menjadikan mereka seperti daun-daun yang dimakan ulat."*
-> — QS Al-Fil: 1-5
+» "Apakah kamu tidak memperhatikan bagaimana Tuhanmu telah bertindak terhadap pasukan bergajah? Bukankah Dia telah menjadikan tipu daya mereka itu sia-sia? Dan Dia mengirimkan terhadap mereka burung yang berbondong-bondong, yang melempari mereka dengan batu dari tanah yang terbakar, lalu Dia menjadikan mereka seperti daun-daun yang dimakan ulat."
+— QS Al-Fil: 1-5
 
 ✦ ✦ ✦
 
@@ -321,11 +323,9 @@ Dari langit.
 
 Dari Dzat yang mereka lupakan ketika merasa paling kuat.
 
-Batu-batu kecil itu menembus tubuh mereka.
+Batu-batu kecil itu menjadi sebab kehancuran mereka.
 
-Merusakkan kulit.
-
-Menghancurkan daging.
+Pasukan yang datang dengan kesombongan pulang dalam keadaan hancur.
 
 Pasukan yang begitu besar pada pagi hari.
 
@@ -361,9 +361,7 @@ Pasukannya musnah.
 
 Dan gereja Al-Qullays yang ia bangun dengan segala kemegahannya?
 
-Tidak ada yang mengunjunginya.
-
-Tidak pernah.
+Namun Al-Qullays tidak pernah berhasil menggantikan kedudukan Ka'bah di hati orang-orang Arab.
 
 Seolah bangunan itu tidak pernah ada.
 
@@ -423,30 +421,30 @@ Di tengah keluarga yang menjaga Ka'bah.
 
 Di bawah langit yang baru saja menyaksikan kekuasaan Allah ﷻ.
 
-⟩ *Tahun Gajah bukan sekadar tahun peperangan.*
+⟩ Tahun Gajah bukan sekadar tahun peperangan.
 
-*Tahun itu adalah tanda.*
+Tahun itu adalah tanda.
 
-*Bahwa rumah Allah ﷻ tidak butuh pelindung dari manusia.*
+Bahwa rumah Allah ﷻ tidak butuh pelindung dari manusia.
 
-*Bahwa kekuasaan sejati bukan di tangan raja.*
+Bahwa kekuasaan sejati bukan di tangan raja.
 
-*Dan bahwa di balik peristiwa yang menakjubkan itu, sesuatu yang lebih besar sedang dipersiapkan.*
+Dan bahwa di balik peristiwa yang menakjubkan itu, sesuatu yang lebih besar sedang dipersiapkan.
 
-**Sesuatu yang akan dimulai dari tangisan seorang bayi.**
+Sesuatu yang akan dimulai dari tangisan seorang bayi.
 
 ---
 
-**Referensi:**
+## Referensi
 
 ¹ QS Al-Fil: 1-5
 
-² Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr Amr al-Fil, Hal. 22–42, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
+² Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Amr al-Fil, Hal. 22-42, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
-³ Ath-Thabari, *Tarikh ar-Rusul wa al-Muluk*, Jilid 2, Hal. 137–148, Dar al-Kutub al-'Ilmiyyah, Beirut
+³ Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 2, Hal. 137-148, Dar al-Kutub al-'Ilmiyyah, Beirut
 
-⁴ Ibnu Katsir, *Al-Bidayah wa an-Nihayah*, Jilid 2, Bab: Dhikr Amr Abrahah ash-Shahib al-Fil, Hal. 253–267, Dar al-Fikr, Beirut
+⁴ Ibnu Katsir, Al-Bidayah wa an-Nihayah, Jilid 2, Bab: Dhikr Amr Abrahah ash-Shahib al-Fil, Hal. 253-267, Dar al-Fikr, Beirut
 
-⁵ Al-Azraqi, *Akhbar Makkah*, Juz' 1, Bab: Dhikr Amr al-Fil wa ma Kana min Amr Abrahah, Hal. 90–110, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
+⁵ Al-Azraqi, Akhbar Makkah, Juz' 1, Bab: Dhikr Amr al-Fil wa ma Kana min Amr Abrahah, Hal. 90-110, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
 
-⁶ Ibnu Sa'd, *Ath-Thabaqat al-Kubra*, Jilid 1, Hal. 54–58, Dar Shadir, Beirut
+⁶ Ibnu Sa'd, Ath-Thabaqat al-Kubra, Jilid 1, Hal. 54-58, Dar Shadir, Beirut
