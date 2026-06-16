@@ -1639,7 +1639,7 @@ Bukan karena Ka'bah lebih besar.
 
 Tapi karena Ka'bah memiliki sesuatu yang tidak bisa dibangun oleh tangan manusia.
 
-Ka'bah memiliki sejarah.
+Ka'bah memiliki jejak yang diwariskan dari generasi ke generasi.
 
 Ka'bah memiliki doa Ibrahim yang masih hidup di ingatan mereka.
 
@@ -1663,7 +1663,7 @@ Marah yang menggerakkan pasukan.
 
 Ia mengumpulkan tentara.²³⁴⁵
 
-Puluhan ribu orang.
+Pasukan besar.
 
 Pasukan infanteri.
 
@@ -1892,11 +1892,9 @@ Dari langit.
 
 Dari Dzat yang mereka lupakan ketika merasa paling kuat.
 
-Batu-batu kecil itu menembus tubuh mereka.
+Batu-batu kecil itu menjadi sebab kehancuran mereka.
 
-Merusakkan kulit.
-
-Menghancurkan daging.
+Pasukan yang datang dengan kesombongan pulang dalam keadaan hancur.
 
 Pasukan yang begitu besar pada pagi hari.
 
@@ -1932,9 +1930,7 @@ Pasukannya musnah.
 
 Dan gereja Al-Qullays yang ia bangun dengan segala kemegahannya?
 
-Tidak ada yang mengunjunginya.
-
-Tidak pernah.
+Namun Al-Qullays tidak pernah berhasil menggantikan kedudukan Ka'bah di hati orang-orang Arab.
 
 Seolah bangunan itu tidak pernah ada.
 
