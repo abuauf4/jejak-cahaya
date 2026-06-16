@@ -1,6 +1,6 @@
 # 🌙📖 Narrative Bible — Jejak Cahaya
 
-> *"Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk bersinar."*
+> *"Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala."*
 
 Dokumen ini adalah **konstitusi editorial** Jejak Cahaya. Setiap bab, setiap kalimat, setiap pilihan kata tunduk pada aturan di sini. Bila ada konflik antara preferensi penulis dan aturan ini, aturan ini yang menang.
 
@@ -58,7 +58,7 @@ Memaksakan penyebutan Allah ﷻ pada deskripsi keadaan **justru membunuh keindah
 
 Contoh sempurna dari keseimbangan ini (LOCKED — Bab 1):
 
-> *Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk bersinar.*
+> *Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala.*
 >
 > *Tanah ini sedang Allah ﷻ siapkan.*
 >
