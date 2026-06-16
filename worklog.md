@@ -113,3 +113,24 @@ Stage Summary:
 - content.ts: baris 1300-1555 (bab-4 story)
 - bab-4-suku-quraisy.md: rewrite penuh
 - 🟢 BAB 4 LOCKED
+
+---
+Task ID: 3
+Agent: main
+Task: Fix feedback form "Gagal menyimpan masukan" error
+
+Work Log:
+- Investigated feedback API route, FeedbackForm component, Prisma schema, and DB
+- Found ROOT CAUSE: No `.env` file exists → DATABASE_URL undefined → Prisma can't connect → 500 error
+- DB file existed at `db/custom.db` but only had User & Post tables, missing Feedback table
+- Fix #1: Created `.env` with `DATABASE_URL="file:./db/custom.db"`
+- Fix #2: Ran `npx prisma db push` to create Feedback table in DB
+- Fix #3: Killed stale dev server (pid 995) that didn't have .env loaded
+- Fix #4: Restarted dev server so it picks up .env
+- Verified: POST /api/feedback returns `{"success":true,"id":"..."}` ✅
+- Verified: Record appears in DB with correct data ✅
+
+Stage Summary:
+- Problem: Missing .env file + Feedback table not migrated + stale dev server
+- Solution: Created .env, ran prisma db push, restarted server
+- Feedback system now fully functional
