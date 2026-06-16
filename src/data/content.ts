@@ -377,13 +377,13 @@ Kain.
 
 Dan berbagai barang berharga lainnya.
 
-Mereka adalah kafilah dagang.
+Mereka adalah kafilah dagang.¹²
 
 Urat nadi yang menghidupkan Jazirah Arab.
 
 Setiap tahun, jalur-jalur gurun dilalui oleh para pedagang yang datang dari berbagai arah.
 
-Dari Yaman di selatan.
+Dari Yaman di selatan.³
 
 Menuju Syam di utara.
 
@@ -401,7 +401,7 @@ Tetapi mereka tetap berjalan.
 
 Karena jalur perdagangan inilah yang menghubungkan berbagai negeri.
 
-Dan Jazirah Arab berada tepat di tengah jalur itu.
+Dan Jazirah Arab berada tepat di tengah jalur itu.³
 
 ◆
 
@@ -409,7 +409,7 @@ Meski menjadi persimpangan perdagangan yang penting, Jazirah Arab tidak dipimpin
 
 Yang ada adalah suku-suku.
 
-Dan bagi orang Arab saat itu, suku adalah segalanya.
+Dan bagi orang Arab saat itu, suku adalah segalanya.¹²
 
 Suku adalah keluarga.
 
@@ -481,7 +481,7 @@ Kadang karena persoalan besar.
 
 Kadang karena sesuatu yang tampak kecil.
 
-Perang Al-Basus adalah salah satunya.
+Perang Al-Basus adalah salah satunya.¹⁴
 
 Konflik itu bermula dari sebuah perselisihan yang melibatkan seekor unta.
 
@@ -509,7 +509,7 @@ Menepati janji.
 
 Menghafal silsilah keluarga mereka hingga beberapa generasi ke atas.
 
-Mereka juga mencintai syair.
+Mereka juga mencintai syair.¹⁴
 
 Di pasar-pasar besar, para penyair berdiri membacakan bait-bait terbaik mereka.
 
@@ -535,7 +535,7 @@ Warisan para nabi mulai dilupakan.
 
 Sebagian besar manusia tidak lagi menyembah Allah ﷻ semata.
 
-Berhala-berhala mulai memenuhi kehidupan mereka.
+Berhala-berhala mulai memenuhi kehidupan mereka.¹²
 
 Patung-patung diagungkan.
 
@@ -589,7 +589,7 @@ Namun kedudukannya begitu istimewa di hati masyarakat Arab.
 
 Bangunan itu adalah Ka'bah.
 
-Menurut riwayat yang diwariskan turun-temurun, Ka'bah dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.
+Menurut riwayat yang diwariskan turun-temurun, Ka'bah dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.⁴⁵
 
 Bukan untuk berhala.
 
@@ -639,7 +639,7 @@ Meski demikian, tidak semua orang melupakan kebenaran.
 
 Di tengah masyarakat yang dipenuhi berhala, masih ada segelintir orang yang menolak menyembah selain Allah ﷻ.
 
-Mereka dikenal sebagai kaum Hanif.
+Mereka dikenal sebagai kaum Hanif.¹²
 
 Jumlah mereka tidak banyak.
 
@@ -647,7 +647,7 @@ Mereka tidak memiliki kekuasaan.
 
 Mereka juga tidak memiliki pengaruh yang besar.
 
-Tetapi mereka tetap mencari agama Nabi Ibrahim عليه السلام.
+Tetapi mereka tetap mencari agama Nabi Ibrahim عليه السلام.¹
 
 Mereka percaya bahwa kebenaran masih ada.
 
@@ -766,7 +766,7 @@ Sulit ditemukan jika tidak tahu keberadaannya.
 
 Di balik lorong itu, terbentang sebuah lembah.
 
-Lembah itu bernama Makkah.
+Lembah itu bernama Makkah.⁴⁶
 
 ✦ ✦ ✦
 
@@ -786,7 +786,7 @@ Angin yang masuk ke lembah ini membawa debu, bukan kesegaran.
 
 Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dinding batu yang mengelilingi kota.
 
-Sebuah lembah yang seharusnya tidak ada alasan untuk ditinggali.
+Sebuah lembah yang seharusnya tidak ada alasan untuk ditinggali.⁶
 
 Namun manusia tetap datang.
 
@@ -812,13 +812,13 @@ Di suatu titik di lembah ini, air memancar dari dalam bumi.
 
 Sebuah sumur.
 
-Sumur yang disebut Zamzam.
+Sumur yang disebut Zamzam.³⁵
 
 Di tanah yang hampir tidak mengenal hujan, satu sumber air adalah segalanya.
 
 Zamzam bukan sekadar sumur.
 
-Zamzam adalah alasan Makkah ada.
+Zamzam adalah alasan Makkah ada.³⁵
 
 Tanpa air ini, lembah ini tidak lebih dari celah antara gunung yang tidak bernilai.
 
@@ -828,7 +828,7 @@ Dengan air ini, lembah ini menjadi titik hidup di tengah kegersangan.
 
 Menurut riwayat, sumur ini bermula dari doa seorang ibu.
 
-Hajar رضي الله عنها.
+Hajar رضي الله عنها.³
 
 Ibu dari Nabi Ismail عليه السلام.
 
@@ -852,7 +852,7 @@ Bukan dari arah yang ia cari.
 
 Tapi dari bawah tanah, tepat di bawah kaki putranya.
 
-Atas izin Allah ﷻ.
+Atas izin Allah ﷻ.³⁵
 
 Air yang tidak habis.
 
@@ -862,7 +862,7 @@ Hingga berabad-abad kemudian.
 
 ✦ ✦ ✦
 
-Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini.
+Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini.¹⁶
 
 Bukan karena Makkah indah.
 
@@ -870,7 +870,7 @@ Tapi karena Makkah adalah satu-satunya tempat di sepanjang rute ini yang memilik
 
 Dari Yaman ke Syam, jaraknya berminggu-minggu.
 
-Makkah adalah titik di tengah jalan.
+Makkah adalah titik di tengah jalan.²⁶
 
 Tempat muatan diturunkan.
 
@@ -910,7 +910,7 @@ Sebuah bangunan kubus berdiri di tengah lembah ini.
 
 Bangunan tua yang usianya sudah tidak bisa diingat oleh siapa pun yang hidup saat itu.
 
-Menurut riwayat yang diwariskan turun-temurun, bangunan ini dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.
+Menurut riwayat yang diwariskan turun-temurun, bangunan ini dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.²
 
 Bukan untuk berhala.
 
@@ -934,7 +934,7 @@ Tapi kota suci.
 
 Kota seperti ini butuh penjaga.
 
-Suku Quraisy yang memegang amanah itu.
+Suku Quraisy yang memegang amanah itu.²
 
 Mereka adalah penghuni Makkah yang paling berkuasa.
 
@@ -948,7 +948,7 @@ Kedudukan ini bukan hanya soal kekayaan.
 
 Ini soal kehormatan.
 
-Menjaga Ka'bah berarti memikul amanah yang dihormati oleh seluruh suku.
+Menjaga Ka'bah berarti memikul amanah yang dihormati oleh seluruh suku.²⁴
 
 Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
 
@@ -1048,13 +1048,13 @@ Lebih tua dari tradisi-tradisi yang mereka pegang.
 
 Lebih tua dari ingatan manusia.
 
-Bangunan itu bernama Ka'bah.
+Bangunan itu bernama Ka'bah.⁵⁶
 
 ✦ ✦ ✦
 
 Dari mana bangunan ini berasal?
 
-Riwayat yang diwariskan turun-temurun menyebutkan bahwa bangunan ini pertama kali dibangun oleh Nabi Ibrahim عليه السلام.
+Riwayat yang diwariskan turun-temurun menyebutkan bahwa bangunan ini pertama kali dibangun oleh Nabi Ibrahim عليه السلام.⁴⁵⁶
 
 Ibrahim.
 
@@ -1064,7 +1064,7 @@ Lelaki yang dilempar ke dalam api tapi tidak terbakar.
 
 Lelaki yang berjalan meninggalkan segalanya karena Allah ﷻ memintanya pergi.
 
-Ibrahim tidak membangun Ka'bah untuk dirinya sendiri.
+Ibrahim tidak membangun Ka'bah untuk dirinya sendiri.²
 
 Ia membangunnya karena diperintahkan.
 
@@ -1082,7 +1082,7 @@ Tapi rumah untuk mengesakan Allah ﷻ.
 
 Ibrahim tidak sendirian.
 
-Putranya menemani pembangunan itu.
+Putranya menemani pembangunan itu.⁴⁵
 
 Ismail.
 
@@ -1112,7 +1112,7 @@ Di tempat yang sama di mana air Zamzam memancar.
 
 Di tanah yang sama di mana Hajar رضي الله عنها berlari mencari harapan.
 
-Mereka membangun rumah Allah ﷻ di atas tanah yang sudah disaksikan oleh doa.
+Mereka membangun rumah Allah ﷻ di atas tanah yang sudah disaksikan oleh doa.²³
 
 ✦ ✦ ✦
 
@@ -1134,14 +1134,14 @@ Ibrahim mengangkat tangannya.
 
 Dan memohon.
 
-Allah ﷻ mengabadikan sebagian doanya dalam Al-Qur'an:
+Allah ﷻ mengabadikan sebagian doanya dalam Al-Qur'an:¹
 
 » "Ya Tuhanku, jadikanlah negeri ini negeri yang aman dan jauhkanlah aku beserta anak cucuku daripada menyembah berhala."
 — QS Ibrahim: 35
 
 Doa itu terdengar.
 
-Dan Allah ﷻ mengabulkannya.
+Dan Allah ﷻ mengabulkannya.¹
 
 Berabad-abad kemudian.
 
@@ -1177,7 +1177,7 @@ Dua.
 
 Puluhan.
 
-Hingga ratusan.
+Hingga ratusan.⁴⁵⁶
 
 Ka'bah yang dibangun untuk mengesakan Allah ﷻ, kini dipenuhi oleh benda-benda yang manusia buat sendiri.
 
@@ -1215,7 +1215,7 @@ Mereka datang untuk berdagang.
 
 Dan di antara semua itu, ada yang masih ingat.
 
-Masih ada yang menceritakan kisah Ibrahim.
+Masih ada yang menceritakan kisah Ibrahim.⁴⁶
 
 Masih ada yang tahu bahwa Ka'bah dibangun bukan untuk berhala.
 
@@ -1253,7 +1253,7 @@ Seperti kata-kata yang belum diucapkan.
 
 Seperti janji yang belum ditepati.
 
-Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memintanya dibangun.`,
+Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memintanya dibangun.¹²³`,
     featured: false,
     characterIds: ['ibrahim-as', 'ismail-as'],
     locationId: 'kabah',
@@ -1299,7 +1299,7 @@ Mereka memikirkan Makkah.
 
 Mereka memikirkan orang-orang yang dipercaya menjaga rumah yang paling tua di tanah Arab.
 
-Itulah sumber segala kehormatan Quraisy.
+Itulah sumber segala kehormatan Quraisy.²⁴
 
 Bukan kekuatan militer.
 
@@ -1313,13 +1313,13 @@ Bagaimana sebuah suku biasa bisa menjadi penguasa kota paling disegani di seluru
 
 Jawabannya dimulai dari satu orang.
 
-Qusay bin Kilab.
+Qusay bin Kilab.²³⁵
 
 Lelaki yang menyatukan Quraisy dan membawa mereka ke dalam lembah Makkah.
 
 Sebelum Qusay, Ka'bah dijaga oleh suku lain.
 
-Khuza'ah.
+Khuza'ah.²⁴
 
 Mereka masuk ketika keturunan Ismail عليه السلام mulai tersebar dan melemah.
 
@@ -1337,7 +1337,7 @@ Ia tidak melihat alasan mengapa keturunan Ibrahim dan Ismail tidak memiliki hak 
 
 Maka Qusay bergerak.
 
-Dengan kecerdikan dan keberanian, ia mengambil kembali Makkah.
+Dengan kecerdikan dan keberanian, ia mengambil kembali Makkah.²³
 
 Bukan dengan peperangan besar.
 
@@ -1359,7 +1359,7 @@ Setelah Qusay menguasai Makkah, ia tidak membagi-bagi kekuasaan seperti kebanyak
 
 Ia membangun struktur.
 
-Untuk pertama kalinya, Quraisy memiliki pembagian peran yang jelas.
+Untuk pertama kalinya, Quraisy memiliki pembagian peran yang jelas.²⁴
 
 Ada yang menjaga kunci Ka'bah — Hijabah.
 
@@ -1379,7 +1379,7 @@ Dan semua kehormatan itu berpusat pada satu nama: Quraisy.
 
 ✦ ✦ ✦
 
-Qusay membangun Dar an-Nadwah — rumah musyawarah.
+Qusay membangun Dar an-Nadwah — rumah musyawarah.⁴
 
 Bangunan itu menjadi pusat segala keputusan.
 
@@ -1407,7 +1407,7 @@ Abdud-Dar mewarisi kunci Ka'bah dan bendera perang.
 
 Hingga datang satu nama yang mengubah segalanya.
 
-Hashim.
+Hashim.²³
 
 Kakek Nabi Muhammad ﷺ.
 
@@ -1429,7 +1429,7 @@ Dan mereka membawa barang dagangan.
 
 Hashim menyadari bahwa kehormatan tanpa kekayaan adalah pohon tanpa akar.
 
-Maka ia memulai perjalanan dagang ke Syam di musim panas.
+Maka ia memulai perjalanan dagang ke Syam di musim panas.²³
 
 Dan ke Yaman di musim dingin.
 
@@ -1447,7 +1447,7 @@ Keuntungan yang dulunya tipis kini menjadi berlimpah.
 
 ✦ ✦ ✦
 
-Al-Qur'an sendiri menyebut nikmat ini:
+Al-Qur'an sendiri menyebut nikmat ini:¹
 
 » "Karena persaudaraan Quraisy. Persaudaraan mereka dalam perjalanan musim dingin dan musim panas. Maka hendaklah mereka menyembah Tuhan rumah ini."
 — QS Quraisy: 1-3
@@ -1512,11 +1512,11 @@ Rumah Abdul Muthalib.
 
 Cucu Hashim.
 
-Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.
+Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.²⁴⁵
 
 Lelaki yang pernah bernazar akan menyembelih putranya jika diberi sepuluh anak — dan nazar itu hampir terlaksana, sebelum ditebus dengan seratus unta.
 
-Abdul Muthalib bukan raja.
+Abdul Muthalib bukan raja.²⁵
 
 Tapi pengaruhnya lebih besar dari raja.
 

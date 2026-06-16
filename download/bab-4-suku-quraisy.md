@@ -1,6 +1,6 @@
 # Bab 4
 ## Suku Quraisy
-*Penjaga Ka'bah dan Penguasa Makkah*
+*Penjaga Ka'bah dan penguasa Makkah*
 
 ---
 
@@ -26,7 +26,7 @@ Mereka memikirkan Makkah.
 
 Mereka memikirkan orang-orang yang dipercaya menjaga rumah yang paling tua di tanah Arab.
 
-Itulah sumber segala kehormatan Quraisy.
+Itulah sumber segala kehormatan Quraisy.²⁴
 
 Bukan kekuatan militer.
 
@@ -40,13 +40,13 @@ Bagaimana sebuah suku biasa bisa menjadi penguasa kota paling disegani di seluru
 
 Jawabannya dimulai dari satu orang.
 
-Qusay bin Kilab.
+Qusay bin Kilab.²³⁵
 
 Lelaki yang menyatukan Quraisy dan membawa mereka ke dalam lembah Makkah.
 
 Sebelum Qusay, Ka'bah dijaga oleh suku lain.
 
-Khuza'ah.
+Khuza'ah.²⁴
 
 Mereka masuk ketika keturunan Ismail عليه السلام mulai tersebar dan melemah.
 
@@ -64,7 +64,7 @@ Ia tidak melihat alasan mengapa keturunan Ibrahim dan Ismail tidak memiliki hak 
 
 Maka Qusay bergerak.
 
-Dengan kecerdikan dan keberanian, ia mengambil kembali Makkah.
+Dengan kecerdikan dan keberanian, ia mengambil kembali Makkah.²³
 
 Bukan dengan peperangan besar.
 
@@ -86,7 +86,7 @@ Setelah Qusay menguasai Makkah, ia tidak membagi-bagi kekuasaan seperti kebanyak
 
 Ia membangun struktur.
 
-Untuk pertama kalinya, Quraisy memiliki pembagian peran yang jelas.
+Untuk pertama kalinya, Quraisy memiliki pembagian peran yang jelas.²⁴
 
 Ada yang menjaga kunci Ka'bah — Hijabah.
 
@@ -106,7 +106,7 @@ Dan semua kehormatan itu berpusat pada satu nama: Quraisy.
 
 ✦ ✦ ✦
 
-Qusay membangun Dar an-Nadwah — rumah musyawarah.
+Qusay membangun Dar an-Nadwah — rumah musyawarah.⁴
 
 Bangunan itu menjadi pusat segala keputusan.
 
@@ -134,7 +134,7 @@ Abdud-Dar mewarisi kunci Ka'bah dan bendera perang.
 
 Hingga datang satu nama yang mengubah segalanya.
 
-Hashim.
+Hashim.²³
 
 Kakek Nabi Muhammad ﷺ.
 
@@ -156,7 +156,7 @@ Dan mereka membawa barang dagangan.
 
 Hashim menyadari bahwa kehormatan tanpa kekayaan adalah pohon tanpa akar.
 
-Maka ia memulai perjalanan dagang ke Syam di musim panas.
+Maka ia memulai perjalanan dagang ke Syam di musim panas.²³
 
 Dan ke Yaman di musim dingin.
 
@@ -174,7 +174,7 @@ Keuntungan yang dulunya tipis kini menjadi berlimpah.
 
 ✦ ✦ ✦
 
-Al-Qur'an sendiri menyebut nikmat ini:
+Al-Qur'an sendiri menyebut nikmat ini:¹
 
 > *"Karena persaudaraan Quraisy. Persaudaraan mereka dalam perjalanan musim dingin dan musim panas. Maka hendaklah mereka menyembah Tuhan rumah ini."*
 > — QS Quraisy: 1-3
@@ -239,11 +239,11 @@ Rumah Abdul Muthalib.
 
 Cucu Hashim.
 
-Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.
+Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.²⁴⁵
 
 Lelaki yang pernah bernazar akan menyembelih putranya jika diberi sepuluh anak — dan nazar itu hampir terlaksana, sebelum ditebus dengan seratus unta.
 
-Abdul Muthalib bukan raja.
+Abdul Muthalib bukan raja.²⁵
 
 Tapi pengaruhnya lebih besar dari raja.
 
@@ -263,30 +263,34 @@ Dan di dalam rumahnya, sejarah sedang menunggu.
 
 *Kekuasaan Quraisy seperti malam yang sunyi.*
 
-*Dari luar, semuanya tenang.*
+Dari luar, semuanya tenang.
 
-*Semuanya teratur.*
+Semuanya teratur.
 
-*Semuanya kokoh.*
+Semuanya kokoh.
 
-*Tapi di bawah ketenangan itu, ada sesuatu yang sedang bergerak.*
+Tapi di bawah ketenangan itu, ada sesuatu yang sedang bergerak.
 
-*Sesuatu yang tidak terlihat oleh mata.*
+Sesuatu yang tidak terlihat oleh mata.
 
-*Sesuatu yang tidak terdeteksi oleh telinga.*
+Sesuatu yang tidak terdeteksi oleh telinga.
 
-*Perlahan.*
+Perlahan.
 
-*Tanpa terasa.*
+Tanpa terasa.
 
-*Tidak ada yang menyangka bahwa perubahan itu justru akan lahir dari salah satu rumah mereka sendiri.*
+Tidak ada yang menyangka bahwa perubahan itu justru akan lahir dari salah satu rumah mereka sendiri.
 
 ---
 
 **Referensi:**
 
-- QS Quraisy: 1-4
-- Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr Qusay bin Kilab wa Fadl Quraysy, Hal. 55-70, Dar al-Ma'rifah, Beirut
-- Ath-Thabari, *Tarikh ar-Rusul wa al-Muluk*, Jilid 2, Hal. 210-230, Dar al-Kutub al-'Ilmiyyah, Beirut
-- Al-Azraqi, *Akhbar Makkah*, Juz' 1, Bab: Dhikr Qusay wa Bina'ih Dar an-Nadwah, Hal. 68-85, Dar al-Andalus, Beirut
-- Ibnu Sa'd, *Ath-Thabaqat al-Kubra*, Jilid 1, Hal. 40-52, Dar Shadir, Beirut
+¹ QS Quraisy: 1-4
+
+² Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr Qusay bin Kilab wa Fadl Quraysy, Hal. 55-70, Dar al-Ma'rifah, Beirut
+
+³ Ath-Thabari, *Tarikh ar-Rusul wa al-Muluk*, Jilid 2, Hal. 210-230, Dar al-Kutub al-'Ilmiyyah, Beirut
+
+⁴ Al-Azraqi, *Akhbar Makkah*, Juz' 1, Bab: Dhikr Qusay wa Bina'ih Dar an-Nadwah, Hal. 68-85, Dar al-Andalus, Beirut
+
+⁵ Ibnu Sa'd, *Ath-Thabaqat al-Kubra*, Jilid 1, Hal. 40-52, Dar Shadir, Beirut
