@@ -14,6 +14,32 @@ export interface ParsedStory {
   reflection: string[];
 }
 
+// ── Superscript number helper ──
+const SUPERSCRIPT_DIGITS = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
+function toSuperscript(n: number): string {
+  return String(n).split('').map(d => SUPERSCRIPT_DIGITS[parseInt(d)]).join('');
+}
+
+// ── Render text with inline citation superscripts wrapped in <sup> ──
+const CITATION_RE = /[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g;
+function renderWithCitations(text: string): React.ReactNode[] {
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  CITATION_RE.lastIndex = 0;
+  while ((match = CITATION_RE.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(<sup key={`cit-${match.index}`}>{match[0]}</sup>);
+    lastIndex = CITATION_RE.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.length > 0 ? parts : [text];
+}
+
 export interface QuranVerse {
   text: string;
   reference: string;
@@ -191,7 +217,7 @@ export default function StoryContent({
           {parsed.opening.length > 0 && (
             <div className="reader-content mb-8 text-ink-soft dark:text-sand">
               {parsed.opening.map((paragraph, i) => (
-                <p key={`opening-${i}`}>{paragraph}</p>
+                <p key={`opening-${i}`}>{renderWithCitations(paragraph)}</p>
               ))}
             </div>
           )}
@@ -230,7 +256,7 @@ export default function StoryContent({
                 );
               }
 
-              return <p key={`story-${i}`}>{paragraph.content}</p>;
+              return <p key={`story-${i}`}>{renderWithCitations(paragraph.content)}</p>;
             })}
           </article>
 
@@ -310,7 +336,7 @@ export default function StoryContent({
                 <div className="mt-3 space-y-1.5">
                   {event.references.map((ref, i) => (
                     <p key={i} className="text-sm text-ink-soft dark:text-sand">
-                      {ref}
+                      <span className="font-sans mr-1.5">{toSuperscript(i + 1)}</span>{ref}
                     </p>
                   ))}
                 </div>

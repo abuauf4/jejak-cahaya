@@ -168,6 +168,25 @@ html { scroll-behavior: smooth; }
 .reader-content p { margin-bottom: 1.2rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
+/* Citation superscripts — subtle, non-intrusive academic footnotes */
+.reader-content sup,
+.reader-content .citation {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.65em;
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
+  color: #B8A472;
+  letter-spacing: -0.02em;
+  margin-left: 1px;
+  cursor: default;
+  user-select: none;
+}
+:is(.dark) .reader-content sup,
+:is(.dark) .reader-content .citation {
+  color: #8B7A52;
+}
+
 /* Closing punchline — subtle, italic, slightly bolder, left-aligned */
 .reader-closing {
   letter-spacing: 0.01em;

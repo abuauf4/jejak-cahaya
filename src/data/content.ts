@@ -1597,13 +1597,13 @@ Namun bangunan itu membuatnya tidak bisa tidur.
 
 Namanya Abrahah.
 
-Penguasa Yaman atas nama Kerajaan Aksum.
+Penguasa Yaman atas nama Kerajaan Aksum.²³⁵
 
 Ia bukan orang Arab.
 
 Ia datang dari seberang Laut Merah, membawa kekuasaan negara asing ke tanah yang selama ini dikenal karena kemerdekaannya.
 
-Abrahah membangun sebuah gereja besar di Shan'ā.
+Abrahah membangun sebuah gereja besar di Shan'ā.²⁴⁵
 
 Al-Qullays.
 
@@ -1617,7 +1617,7 @@ Dihiasi emas dan perak.
 
 Tujuannya satu.
 
-Ia ingin agar orang-orang Arab berhenti berziarah ke Ka'bah.
+Ia ingin agar orang-orang Arab berhenti berziarah ke Ka'bah.²³
 
 Ia ingin agar mereka datang ke gerejanya.
 
@@ -1661,7 +1661,7 @@ Bukan marah biasa.
 
 Marah yang menggerakkan pasukan.
 
-Ia mengumpulkan tentara.
+Ia mengumpulkan tentara.²³⁴⁵
 
 Puluhan ribu orang.
 
@@ -1673,7 +1673,7 @@ Dan seekor gajah.
 
 Bukan gajah biasa.
 
-Mahmud.
+Mahmud.²³⁵⁶
 
 Gajah perang raksasa yang tidak pernah dilihat orang-orang Arab sebelumnya.
 
@@ -1729,7 +1729,7 @@ Mereka pedagang.
 
 Mereka tidak memiliki pasukan perang yang bisa menghadapi kerajaan.
 
-Sepanjang jalan, suku-suku Arab yang mencoba menghalangi langsung dikalahkan.
+Sepanjang jalan, suku-suku Arab yang mencoba menghalangi langsung dikalahkan.²³
 
 Tidak ada yang bisa berbuat banyak.
 
@@ -1741,7 +1741,7 @@ Seorang utusan dari Abrahah mendahului pasukan.
 
 Ia menyampaikan pesan.
 
-Abrahah tidak datang untuk memerangi penduduk.
+Abrahah tidak datang untuk memerangi penduduk.²³
 
 Ia hanya datang untuk menghancurkan Ka'bah.
 
@@ -1751,7 +1751,7 @@ Jika mereka melawan, mereka akan dihancurkan.
 
 ✦ ✦ ✦
 
-Utsan itu diterima oleh Abdul Muthalib.
+Utsan itu diterima oleh Abdul Muthalib.²³⁶
 
 Sang kepala suku Quraisy.
 
@@ -1773,7 +1773,7 @@ Abdul Muthalib berdiri tegak.
 
 Dan mengatakan sesuatu yang menjadi catatan sejarah.
 
-Ia berkata bahwa Ka'bah memiliki Pemilik.
+Ia berkata bahwa Ka'bah memiliki Pemilik.²³
 
 Dan Pemiliknya akan melindunginya.
 
@@ -1785,7 +1785,7 @@ Ia tidak mengumpulkan pasukan.
 
 Ia tidak membuat benteng.
 
-Ia mengajak penduduk Makkah meninggalkan kota.
+Ia mengajak penduduk Makkah meninggalkan kota.²³
 
 Mereka mengungsi ke pegunungan di sekeliling lembah.
 
@@ -1829,7 +1829,7 @@ Tidak peduli seberapa keras dipukul.
 
 Tidak peduli seberapa banyak ditusuk.
 
-Mahmud menolak berjalan menuju Ka'bah.
+Mahmud menolak berjalan menuju Ka'bah.²³⁵
 
 Namun ketika mereka mengarahkannya ke utara, ke selatan, ke timur — gajah itu berjalan.
 
@@ -1849,7 +1849,7 @@ Bukan awan biasa.
 
 Bukan burung biasa.
 
-Sekawanan burung.
+Sekawanan burung.¹²³⁴
 
 Terbang berkelompok.
 
@@ -1865,7 +1865,7 @@ Tidak lebih besar dari biji lentil.
 
 Tapi setiap batu membawa sesuatu yang tidak dimiliki oleh senjata mana pun.
 
-Setiap batu membawa perintah Allah ﷻ.
+Setiap batu membawa perintah Allah ﷻ.¹
 
 ✦ ✦ ✦
 
@@ -1876,7 +1876,7 @@ Al-Qur'an mengabadikan peristiwa itu:
 
 ✦ ✦ ✦
 
-Pasukan itu hancur.
+Pasukan itu hancur.¹²³⁴
 
 Bukan karena pedang.
 
@@ -1920,7 +1920,7 @@ Tubuhnya berdarah.
 
 Kulitnya terkelupas seperti yang dialami pasukannya.
 
-Ia meninggal dalam perjalanan.
+Ia meninggal dalam perjalanan.²³⁴
 
 Seorang raja yang berangkat dengan pasukan terbesar.
 
@@ -1962,7 +1962,7 @@ Orang-orang Arab di seluruh Jazirah menyaksikan peristiwa itu.
 
 Mereka menyebut tahun itu dengan nama baru.
 
-Tahun Gajah.
+Tahun Gajah.²³⁶
 
 Tahun ketika pasukan terbesar yang pernah mereka lihat hancur dalam satu hari.
 
