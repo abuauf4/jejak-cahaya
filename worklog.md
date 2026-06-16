@@ -190,3 +190,33 @@ Stage Summary:
 - Tables: Feedback, Admin
 - Admin user: username=Bagas, password=122333 ✅
 - Note: User needs to add DATABASE_URL env var in Vercel dashboard for production
+
+---
+Task ID: 6
+Agent: main
+Task: Implement parchment texture + update hero & community + push to GitHub
+
+Work Log:
+- Added CSS parchment texture classes (parchment-light, parchment-dark) using SVG feTurbulence
+  - Technique learned from undangan-nira repo (same as user's other project)
+  - 4 layers: primary grain (0.65 freq), secondary grain (1.2 freq), warm gradient, depth gradient
+  - Light: warm ivory base (#FBF8F1) with gold-brown aging tints
+  - Dark: navy base (#080B16) with subtle gold shimmer
+  - Pure CSS + inline SVG — zero raster images
+- Updated Hero component:
+  - Title: "Jejak Cahaya" (larger, bolder)
+  - Subtitle: "Media digital yang menghadirkan perjalanan Rasulullah ﷺ, para nabi, dan para sahabat dalam bentuk yang mudah dibaca dan dipelajari."
+  - Added parchment texture background
+  - Added decorative gold line
+- Updated Community component:
+  - Title: "Jejak Cahaya" + "Media terbuka" badge
+  - 4 openness lines (unchanged)
+  - Removed contributions grid (simplified)
+  - Added parchment texture background
+- Committed all changes (9 commits ahead of origin)
+- Push failed — needs GitHub PAT from user
+
+Stage Summary:
+- Parchment texture: SVG feTurbulence, dual-theme, no images
+- Hero & Community text updated per user's brief
+- All committed locally, push pending user's PAT
