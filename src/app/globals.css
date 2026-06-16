@@ -139,23 +139,6 @@ html { scroll-behavior: smooth; }
   display: block;
   width: 100%;
   height: auto;
-  opacity: 0.92;
-}
-:is(.dark) .reader-hero-image img {
-  opacity: 0.85;
-}
-.reader-hero-image::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(to top, var(--color-paper, #FBF8F1), transparent);
-  pointer-events: none;
-}
-:is(.dark) .reader-hero-image::after {
-  background: linear-gradient(to top, var(--color-navy-deep, #080B16), transparent);
 }
 
 /* Reading content — immersive, Medium/Kindle style */
