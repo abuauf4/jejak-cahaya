@@ -703,7 +703,7 @@ Bukan sekadar jalur perdagangan.
 
 Bukan sekadar tempat berbagai suku mempertahankan kehormatan mereka.
 
-Tanah ini sedang dipersiapkan.
+Tanah ini sedang Allah ﷻ siapkan.
 
 Seperti sebuah panggung yang menunggu tirainya dibuka.
 
