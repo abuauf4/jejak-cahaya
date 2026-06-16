@@ -57,3 +57,4 @@ server.log
 generate-*.js
 /download/*.docx
 /download/*.pdf.env
+tool-results/
