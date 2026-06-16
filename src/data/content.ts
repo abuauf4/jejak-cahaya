@@ -52,6 +52,7 @@ export interface StoryEvent {
   characterIds: string[];
   locationId: string;
   references: string[];
+  editorNotes?: string[]; // catatan editor: riwayat berbeda, diskusi, dst. (optional)
   order: number;
 }
 
@@ -347,7 +348,7 @@ Mereka tahu kapan harus berjalan.
 
 Dan kapan harus berhenti.
 
-Hidup di Jazirah Arab bukan sekadar bertahan hidup.
+Hidup di [[Jazirah Arab|location:jazirah-arab]] bukan sekadar bertahan hidup.
 
 Hidup di Jazirah Arab adalah ujian yang harus dihadapi setiap hari.
 
@@ -385,7 +386,7 @@ Setiap tahun, jalur-jalur gurun dilalui oleh para pedagang yang datang dari berb
 
 Dari Yaman di selatan.³
 
-Menuju Syam di utara.
+Menuju [[Syam|location:syam]] di utara.
 
 Perjalanan itu tidak mudah.
 
@@ -587,7 +588,7 @@ Tidak pula dikelilingi istana-istana megah.
 
 Namun kedudukannya begitu istimewa di hati masyarakat Arab.
 
-Bangunan itu adalah Ka'bah.
+Bangunan itu adalah [[Ka'bah|location:kabah]].
 
 Menurut riwayat yang diwariskan turun-temurun, Ka'bah dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.⁴⁵
 
@@ -727,7 +728,7 @@ Membawa rahmat setelah begitu banyak luka yang diwariskan dari generasi ke gener
 
 Dan semuanya akan bermula dari sebuah kota kecil di tengah gurun.
 
-Kota itu bernama Makkah.`,
+Kota itu bernama [[Makkah|location:makkah]].`,
     featured: false,
     characterIds: [],
     locationId: 'jazirah-arab',
@@ -766,7 +767,7 @@ Sulit ditemukan jika tidak tahu keberadaannya.
 
 Di balik lorong itu, terbentang sebuah lembah.
 
-Lembah itu bernama Makkah.⁴⁶
+Lembah itu bernama [[Makkah|location:makkah]].⁴⁶
 
 ✦ ✦ ✦
 
@@ -868,7 +869,7 @@ Bukan karena Makkah indah.
 
 Tapi karena Makkah adalah satu-satunya tempat di sepanjang rute ini yang memiliki air cukup untuk puluhan unta dan ratusan orang.
 
-Dari Yaman ke Syam, jaraknya berminggu-minggu.
+Dari Yaman ke [[Syam|location:syam]], jaraknya berminggu-minggu.
 
 Makkah adalah titik di tengah jalan.²⁶
 
@@ -896,7 +897,7 @@ Posisi ini bukan kebetulan.
 
 ✦ ✦ ✦
 
-Namun Makkah bukan kota terbesar di Jazirah Arab.
+Namun Makkah bukan kota terbesar di [[Jazirah Arab|location:jazirah-arab]].
 
 Thaif lebih hijau.
 
@@ -904,7 +905,7 @@ Yatsrib lebih subur.
 
 Tapi Makkah memiliki sesuatu yang tidak dimiliki kota-kota lain.
 
-Ka'bah.
+[[Ka'bah|location:kabah]].
 
 Sebuah bangunan kubus berdiri di tengah lembah ini.
 
@@ -1048,7 +1049,7 @@ Lebih tua dari tradisi-tradisi yang mereka pegang.
 
 Lebih tua dari ingatan manusia.
 
-Bangunan itu bernama Ka'bah.⁵⁶
+Bangunan itu bernama [[Ka'bah|location:kabah]].⁵⁶
 
 ✦ ✦ ✦
 
@@ -1203,7 +1204,7 @@ Bangunan fisiknya tetap utuh.
 
 Tapi maknanya sudah berubah.
 
-Ka'bah tetap menjadi alasan orang datang ke Makkah.
+Ka'bah tetap menjadi alasan orang datang ke [[Makkah|location:makkah]].
 
 Tapi mereka datang bukan lagi untuk mengesakan Allah ﷻ.
 
@@ -1277,7 +1278,7 @@ Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memin
     yearNum: -570,
     description: 'Struktur suku, kehormatan Quraisy, pengelola Ka\'bah.',
     image: '/images/bab/bab-4-hero.png',
-    story: `Mereka bukan suku terbesar di Jazirah Arab.
+    story: `Mereka bukan suku terbesar di [[Jazirah Arab|location:jazirah-arab]].
 
 Bukan yang paling tua.
 
@@ -1293,9 +1294,9 @@ Nama itu mempunyai berat sendiri di setiap sudut semenanjung.
 
 Ketika suku lain mendengar kata itu, mereka tidak memikirkan pedang atau pasukan.
 
-Mereka memikirkan Ka'bah.
+Mereka memikirkan [[Ka'bah|location:kabah]].
 
-Mereka memikirkan Makkah.
+Mereka memikirkan [[Makkah|location:makkah]].
 
 Mereka memikirkan orang-orang yang dipercaya menjaga rumah yang paling tua di tanah Arab.
 
@@ -1409,7 +1410,7 @@ Hingga datang satu nama yang mengubah segalanya.
 
 Hashim.²³
 
-Kakek Nabi Muhammad ﷺ.
+Kakek Nabi [[Muhammad ﷺ|character:muhammad-saw]].
 
 Ia tidak puas dengan kehormatan warisan.
 
@@ -1429,7 +1430,7 @@ Dan mereka membawa barang dagangan.
 
 Hashim menyadari bahwa kehormatan tanpa kekayaan adalah pohon tanpa akar.
 
-Maka ia memulai perjalanan dagang ke Syam di musim panas.²³
+Maka ia memulai perjalanan dagang ke [[Syam|location:syam]] di musim panas.²³
 
 Dan ke Yaman di musim dingin.
 
@@ -1508,7 +1509,7 @@ Menunggu angin yang akan meniupnya.
 
 Di antara semua faksi Quraisy, ada satu rumah yang kelak akan menjadi penting.
 
-Rumah Abdul Muthalib.
+Rumah [[Abdul Muthalib|character:abdul-muthalib]].
 
 Cucu Hashim.
 
@@ -1595,7 +1596,7 @@ Namun bangunan itu membuatnya tidak bisa tidur.
 
 ✦ ✦ ✦
 
-Namanya Abrahah.
+Namanya [[Abrahah|character:abrahah]].
 
 Penguasa Yaman atas nama Kerajaan Aksum.²
 
@@ -1617,11 +1618,11 @@ Dihiasi emas dan perak.
 
 Tujuannya satu.
 
-Ia ingin agar orang-orang Arab berhenti berziarah ke Ka'bah.²
+Ia ingin agar orang-orang Arab berhenti berziarah ke [[Ka'bah|location:kabah]].²
 
 Ia ingin agar mereka datang ke gerejanya.
 
-Ia ingin mengalihkan pemujaan dari bangunan tua di Makkah ke bangunan barunya di Yaman.
+Ia ingin mengalihkan pemujaan dari bangunan tua di [[Makkah|location:makkah]] ke bangunan barunya di Yaman.
 
 ✦ ✦ ✦
 
@@ -1721,7 +1722,7 @@ Pasukannya besar.
 
 Gajahnya tak tertandingi.
 
-Tidak ada kekuatan di Jazirah Arab yang bisa menghentikannya.
+Tidak ada kekuatan di [[Jazirah Arab|location:jazirah-arab]] yang bisa menghentikannya.
 
 Quraisy bukan tentara.
 
@@ -1751,7 +1752,7 @@ Jika mereka melawan, mereka akan dihancurkan.
 
 ✦ ✦ ✦
 
-Utusan itu diterima oleh Abdul Muthalib.²
+Utusan itu diterima oleh [[Abdul Muthalib|character:abdul-muthalib]].²
 
 Sang kepala suku Quraisy.
 
@@ -2005,6 +2006,11 @@ Sesuatu yang akan dimulai dari kelahiran seorang bayi.`,
     references: [
       'QS Al-Fil: 1-5',
       'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Amr al-Fil, Hal. 22-42, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+    ],
+    editorNotes: [
+      'Tahun peristiwa Gajah umumnya disebut Tahun Gajah (±570 M). Sebagian ahli sejarah memberi rentang 555–571 M karena perbedaan metode perhitungan kalender.',
+      'Jumlah pasukan Abrahah disebut berbeda-beda dalam riwayat. Narasi ini menggunakan deskripsi umum "pasukan besar" untuk menghindari angka yang tidak pasti.',
+      'Ibnu Hisyam meriwayatkan Abdul Muthalib sempat diundang ke kemah Abrahah. Sebagian riwayat lain menyebut pertemuan ini lebih singkat. Narasi mempertahankan inti yang disepakati.',
     ],
     order: 5,
   },

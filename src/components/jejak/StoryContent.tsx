@@ -7,6 +7,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { StoryEvent, Character, StoryLocation } from '@/data/content';
+import JourneyProgress from './JourneyProgress';
 
 export interface ParsedStory {
   opening: string[];
@@ -34,31 +35,65 @@ function superscriptToNumber(sup: string): string {
 // Single digit  → lingkaran kecil   .citation-badge--single
 // Multi digit   → pill/rounded rect  .citation-badge--multi
 const CITATION_RE = /[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g;
+
+// ── Inline entity link: [[Label|character:id]] or [[Label|location:id]] ──
+// Renders as Next.js Link to /tokoh?id=xxx or /lokasi?id=xxx
+const ENTITY_RE = /\[\[([^\]|]+)\|((?:character|location):[a-z0-9-]+)\]\]/g;
+
 function renderWithCitations(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
-  let match: RegExpExecArray | null;
+
+  // Combine citation + entity matches into a single sweep
+  type Match = { index: number; end: number; kind: 'citation' | 'entity'; payload: string };
+  const matches: Match[] = [];
+
   CITATION_RE.lastIndex = 0;
-  while ((match = CITATION_RE.exec(text)) !== null) {
+  let m: RegExpExecArray | null;
+  while ((m = CITATION_RE.exec(text)) !== null) {
+    matches.push({ index: m.index, end: CITATION_RE.lastIndex, kind: 'citation', payload: m[0] });
+  }
+  ENTITY_RE.lastIndex = 0;
+  while ((m = ENTITY_RE.exec(text)) !== null) {
+    matches.push({ index: m.index, end: ENTITY_RE.lastIndex, kind: 'entity', payload: m[1] + '||' + m[2] });
+  }
+  matches.sort((a, b) => a.index - b.index);
+
+  for (const match of matches) {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
-    const numbers = superscriptToNumber(match[0]);
-    const digits = numbers.split('');
-    const isSingle = digits.length === 1;
-    const label = digits.join(',');
-    const modifier = isSingle ? 'citation-badge--single' : 'citation-badge--multi';
+    if (match.kind === 'citation') {
+      const numbers = superscriptToNumber(match.payload);
+      const digits = numbers.split('');
+      const isSingle = digits.length === 1;
+      const label = digits.join(',');
+      const modifier = isSingle ? 'citation-badge--single' : 'citation-badge--multi';
 
-    parts.push(
-      <span
-        key={`cit-${match.index}`}
-        className={`citation-badge ${modifier}`}
-        aria-label={`Referensi ${label}`}
-      >
-        {label}
-      </span>
-    );
-    lastIndex = CITATION_RE.lastIndex;
+      parts.push(
+        <span
+          key={`cit-${match.index}`}
+          className={`citation-badge ${modifier}`}
+          aria-label={`Referensi ${label}`}
+        >
+          {label}
+        </span>
+      );
+    } else {
+      const [label, target] = match.payload.split('||');
+      const [type, id] = target.split(':');
+      const href = type === 'character' ? `/tokoh?id=${id}` : `/lokasi?id=${id}`;
+      parts.push(
+        <Link
+          key={`ent-${match.index}`}
+          href={href}
+          className="reader-entity-link"
+        >
+          {label}
+        </Link>
+      );
+    }
+    lastIndex = match.end;
   }
   if (lastIndex < text.length) {
     parts.push(text.slice(lastIndex));
@@ -356,16 +391,58 @@ export default function StoryContent({
             {/* References */}
             {event.references.length > 0 && (
               <div className="pt-6" style={{ borderTop: `1px solid ${separatorColor}` }}>
-                <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-ink-soft dark:text-sand">
-                  Referensi
-                </span>
-                <div className="mt-3 space-y-1.5">
-                  {event.references.map((ref, i) => (
-                    <p key={i} className="text-sm text-ink-soft dark:text-sand">
-                      <span className="font-sans mr-1.5">{toSuperscript(i + 1)}</span>{ref}
-                    </p>
-                  ))}
-                </div>
+                <details className="reader-references group">
+                  <summary className="reader-references-summary">
+                    <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-ink-soft dark:text-sand">
+                      Referensi
+                    </span>
+                    <svg
+                      className="reader-references-chevron"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </summary>
+                  <div className="mt-3 space-y-1.5">
+                    {event.references.map((ref, i) => (
+                      <p key={i} className="text-sm text-ink-soft dark:text-sand">
+                        <span className="font-sans mr-1.5">{toSuperscript(i + 1)}</span>{ref}
+                      </p>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            )}
+
+            {/* Editor Notes */}
+            {event.editorNotes && event.editorNotes.length > 0 && (
+              <div className="pt-6" style={{ borderTop: `1px solid ${separatorColor}` }}>
+                <details className="reader-references group">
+                  <summary className="reader-references-summary">
+                    <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-ink-soft dark:text-sand">
+                      Catatan Editor
+                    </span>
+                    <svg
+                      className="reader-references-chevron"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </summary>
+                  <div className="mt-3 space-y-2.5">
+                    {event.editorNotes.map((note, i) => (
+                      <p key={i} className="text-sm italic leading-relaxed text-ink-soft dark:text-sand">
+                        {note}
+                      </p>
+                    ))}
+                  </div>
+                </details>
               </div>
             )}
 
@@ -392,7 +469,7 @@ export default function StoryContent({
                   className="group text-left block"
                 >
                   <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-ink-soft dark:text-sand">
-                    Sebelumnya
+                    Ikuti Jejak Sebelumnya
                   </span>
                   <h4 className="font-serif-display text-xl sm:text-2xl font-bold mt-2 transition-colors duration-200 group-hover:underline text-ink dark:text-cream group-hover:text-gold dark:group-hover:text-lantern">
                     {prevEvent.title}
@@ -402,6 +479,11 @@ export default function StoryContent({
                   </span>
                 </Link>
               ) : null}
+            </div>
+
+            {/* ─── JEJAK PERJALANAN — full progress map ─── */}
+            <div className="pt-10 mt-8" style={{ borderTop: `1px solid ${separatorColor}` }}>
+              <JourneyProgress currentEventId={event.id} />
             </div>
           </div>
         </div>
