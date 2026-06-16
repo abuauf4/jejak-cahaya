@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, CheckCircle } from 'lucide-react';
+import { X, Send, CheckCircle } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
 
 const categories = [
@@ -24,6 +24,13 @@ export default function FeedbackForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+
+  // Listen for open-feedback event from bottom bar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-feedback', handler);
+    return () => window.removeEventListener('open-feedback', handler);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,21 +74,6 @@ export default function FeedbackForm() {
 
   return (
     <>
-      {/* Floating button */}
-      <motion.button
-        onClick={() => setOpen(true)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full shadow-lg transition-colors ${
-          isLight
-            ? 'bg-gold text-white hover:bg-gold/90'
-            : 'bg-[#D4A843] text-[#080B16] hover:bg-[#D4A843]/90'
-        }`}
-      >
-        <MessageSquare className="w-4 h-4" />
-        <span className="text-sm font-medium">Beri Masukan</span>
-      </motion.button>
-
       {/* Modal overlay */}
       <AnimatePresence>
         {open && (

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Moon, Sun, Clock, MapPin, Users, Search, Home } from 'lucide-react';
+import { Moon, Sun, Clock, MapPin, Users, Search, Home, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import { useJejakNav } from '@/lib/useJejakNav';
@@ -146,10 +146,39 @@ export default function Navigation() {
         <div className="flex items-center justify-around h-14">
           {[
             { view: 'home' as const, label: 'Beranda', icon: Home },
-            ...navItems,
+            { view: 'timeline' as const, label: 'Timeline', icon: Clock },
+            { view: 'feedback' as const, label: 'Masukan', icon: MessageSquare, center: true },
+            { view: 'character' as const, label: 'Tokoh', icon: Users },
+            { view: 'location' as const, label: 'Lokasi', icon: MapPin },
           ].map((item) => {
             const Icon = item.icon;
             const isActive = activeView === item.view;
+            const isCenter = 'center' in item && item.center;
+
+            if (isCenter) {
+              return (
+                <button
+                  key={item.view}
+                  onClick={() => {
+                    // Dispatch custom event to open feedback form
+                    window.dispatchEvent(new CustomEvent('open-feedback'));
+                  }}
+                  className="flex flex-col items-center justify-center flex-1 h-full relative"
+                >
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center -mt-4 shadow-lg ${
+                    isLight
+                      ? 'bg-gold text-white'
+                      : 'bg-[#D4A843] text-[#080B16]'
+                  }`}>
+                    <Icon className="w-[18px] h-[18px]" />
+                  </div>
+                  <span className={`text-[10px] font-medium -mt-0.5 ${
+                    isLight ? 'text-gold' : 'text-[#D4A843]'
+                  }`}>{item.label}</span>
+                </button>
+              );
+            }
+
             return (
               <button
                 key={item.view}
