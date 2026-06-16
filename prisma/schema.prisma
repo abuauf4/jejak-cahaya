@@ -30,3 +30,14 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Feedback {
+  id        String   @id @default(cuid())
+  name      String?
+  category  String   @default("umum") // umum, koreksi, referensi, penulisan, review
+  message   String
+  page      String?  // URL/path where feedback was submitted
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

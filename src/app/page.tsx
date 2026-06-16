@@ -8,6 +8,7 @@ import ContinueJourney from '@/components/jejak/ContinueJourney';
 import StartFromBeginning from '@/components/jejak/StartFromBeginning';
 import Collections from '@/components/jejak/Collections';
 import Community from '@/components/jejak/Community';
+import FeedbackForm from '@/components/jejak/FeedbackForm';
 
 export default function Home() {
   // Ensure store is synced to 'home' view
@@ -30,6 +31,7 @@ export default function Home() {
         <Collections />
         <Community />
       </motion.div>
+      <FeedbackForm />
     </AppShell>
   );
 }
