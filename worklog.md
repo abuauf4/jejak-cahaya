@@ -89,3 +89,27 @@ Stage Summary:
 - Revisi #1: Menghindari klaim tidak bersumber tentang Abdul Muthalib mengubur bayi perempuan — diganti dengan riwayat nazar yang lebih terkenal dan sahih
 - Revisi #2: Bahasa lebih proporsional, tidak berlebihan
 - Revisi #3: Closing lebih spesifik ke Quraisy, bukan template "cahaya datang"
+
+---
+Task ID: 2
+Agent: main
+Task: Sync Bab 4 versi final bersih ke content.ts dan markdown
+
+Work Log:
+- Terima versi final bersih Bab 4 dari PM/editor
+- Identifikasi perubahan tambahan di luar 3 revisi sebelumnya:
+  1. Bagian Khuza'ah: "Mereka menguasai Makkah setelah generasi Ismail tersebar dan melemah" → versi lebih naratif dengan "Perlahan. Tanpa terasa. Hingga suatu hari, rumah itu sudah bukan milik mereka lagi."
+  2. Hashim intro: "Hashim — kakek Nabi Muhammad ﷺ — mengubah segalanya" → "Hingga datang satu nama yang mengubah segalanya. Hashim. Kakek Nabi Muhammad ﷺ."
+  3. "kota manapun" → "kota mana pun"
+  4. Bagian Muthalib/Syamah dihapus, langsung ke "Nama Quraisy pun menjadi sinonim..."
+  5. Nazar line: "bernazar menyembelih" → "pernah bernazar akan menyembelih", "nazarnu" → "nazar"
+  6. Tambah ✦ ✦ ✦ sebelum closing reflection
+- Update content.ts dengan semua perubahan
+- Overwrite bab-4-suku-quraisy.md dengan versi final lengkap
+- Verifikasi content.ts baris 1300-1559 match persis
+
+Stage Summary:
+- Bab 4 versi final bersih synced ke kedua file
+- content.ts: baris 1300-1555 (bab-4 story)
+- bab-4-suku-quraisy.md: rewrite penuh
+- 🟢 BAB 4 LOCKED

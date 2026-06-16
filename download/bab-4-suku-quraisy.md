@@ -1,8 +1,6 @@
-# Suku Quraisy
-
-*Penjaga Ka'bah dan penguasa Makkah*
-
-**Sebelum 570 M**
+# Bab 4
+## Suku Quraisy
+*Penjaga Ka'bah dan Penguasa Makkah*
 
 ---
 
@@ -46,7 +44,17 @@ Qusay bin Kilab.
 
 Lelaki yang menyatukan Quraisy dan membawa mereka ke dalam lembah Makkah.
 
-Sebelum Qusay, Ka'bah dijaga oleh suku lain. Khuza'ah. Mereka menguasai Makkah setelah generasi Ismail عليه السلام tersebar dan melemah.
+Sebelum Qusay, Ka'bah dijaga oleh suku lain.
+
+Khuza'ah.
+
+Mereka masuk ketika keturunan Ismail عليه السلام mulai tersebar dan melemah.
+
+Perlahan.
+
+Tanpa terasa.
+
+Hingga suatu hari, rumah itu sudah bukan milik mereka lagi.
 
 Tapi Qusay tidak menerima keadaan itu.
 
@@ -80,15 +88,15 @@ Ia membangun struktur.
 
 Untuk pertama kalinya, Quraisy memiliki pembagian peran yang jelas.
 
-Ada yang menjaga kunci Ka'bah — **Hijabah**.
+Ada yang menjaga kunci Ka'bah — Hijabah.
 
-Ada yang memberi minum jamaah haji — **Siqayah**.
+Ada yang memberi minum jamaah haji — Siqayah.
 
-Ada yang memberi makan tamu — **Rifadah**.
+Ada yang memberi makan tamu — Rifadah.
 
-Ada yang memimpin pasukan — **Liwa'**.
+Ada yang memimpin pasukan — Liwa'.
 
-Ada yang mengatur musyawarah — **Dar an-Nadwah**.
+Ada yang mengatur musyawarah — Dar an-Nadwah.
 
 Setiap faksi memiliki tugas.
 
@@ -124,13 +132,17 @@ Abdu Manaf mengambil alih kehormatan memberi makan dan minum.
 
 Abdud-Dar mewarisi kunci Ka'bah dan bendera perang.
 
-**Hashim** — kakek Nabi Muhammad ﷺ — mengubah segalanya.
+Hingga datang satu nama yang mengubah segalanya.
+
+Hashim.
+
+Kakek Nabi Muhammad ﷺ.
 
 Ia tidak puas dengan kehormatan warisan.
 
 Ia ingin lebih.
 
-Hashim melihat bahwa Makkah punya sesuatu yang tidak dimiliki kota manapun di Jazirah: Ka'bah.
+Hashim melihat bahwa Makkah punya sesuatu yang tidak dimiliki kota mana pun di Jazirah: Ka'bah.
 
 Setiap tahun, ribuan orang datang berziarah.
 
@@ -177,17 +189,7 @@ Dengan perdagangan, mereka menjadi salah satu kekuatan paling berpengaruh di Jaz
 
 ✦ ✦ ✦
 
-Setelah Hashim, saudara-saudaranya melanjutkan.
-
-Muthalib.
-
-Syamah.
-
-Mereka memperluas jaringan.
-
-Mereka memperkuat posisi.
-
-Hingga nama Quraisy menjadi sinonim dari dua hal: kehormatan dan kekayaan.
+Nama Quraisy pun menjadi sinonim dari dua hal: kehormatan dan kekayaan.
 
 Dua hal yang jarang berada di tangan yang sama di tanah Arab.
 
@@ -239,7 +241,7 @@ Cucu Hashim.
 
 Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.
 
-Lelaki yang bernazar menyembelih putranya jika diberi sepuluh anak — dan nazarnu itu hampir terlaksana, sebelum ditebus dengan seratus unta.
+Lelaki yang pernah bernazar akan menyembelih putranya jika diberi sepuluh anak — dan nazar itu hampir terlaksana, sebelum ditebus dengan seratus unta.
 
 Abdul Muthalib bukan raja.
 
@@ -257,7 +259,7 @@ Ia menjadi suara yang paling didengar di Makkah.
 
 Dan di dalam rumahnya, sejarah sedang menunggu.
 
----
+✦ ✦ ✦
 
 *Kekuasaan Quraisy seperti malam yang sunyi.*
 
