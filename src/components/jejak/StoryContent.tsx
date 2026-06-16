@@ -14,13 +14,25 @@ export interface ParsedStory {
   reflection: string[];
 }
 
-// ── Superscript number helper ──
+// ── Superscript number helper (for reference section) ──
 const SUPERSCRIPT_DIGITS = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
 function toSuperscript(n: number): string {
   return String(n).split('').map(d => SUPERSCRIPT_DIGITS[parseInt(d)]).join('');
 }
 
-// ── Render text with inline citation superscripts wrapped in <sup> ──
+// ── Convert Unicode superscript string to normal digits ──
+// ¹²³ → "123"
+function superscriptToNumber(sup: string): string {
+  const map: Record<string, string> = {
+    '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4',
+    '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',
+  };
+  return sup.split('').map(c => map[c] ?? c).join('');
+}
+
+// ── Render text with inline citation badges ──
+// Single digit  → lingkaran kecil   .citation-badge--single
+// Multi digit   → pill/rounded rect  .citation-badge--multi
 const CITATION_RE = /[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g;
 function renderWithCitations(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
@@ -31,7 +43,21 @@ function renderWithCitations(text: string): React.ReactNode[] {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
-    parts.push(<sup key={`cit-${match.index}`}>{match[0]}</sup>);
+    const numbers = superscriptToNumber(match[0]);
+    const digits = numbers.split('');
+    const isSingle = digits.length === 1;
+    const label = digits.join(',');
+    const modifier = isSingle ? 'citation-badge--single' : 'citation-badge--multi';
+
+    parts.push(
+      <span
+        key={`cit-${match.index}`}
+        className={`citation-badge ${modifier}`}
+        aria-label={`Referensi ${label}`}
+      >
+        {label}
+      </span>
+    );
     lastIndex = CITATION_RE.lastIndex;
   }
   if (lastIndex < text.length) {

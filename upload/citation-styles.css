@@ -1,0 +1,85 @@
+/* ============================================================
+   CITATION BADGES — Jejak Cahaya™
+   Tambahkan ke globals.css, di dalam .reader-content
+   ============================================================ */
+
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Typography */
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+
+  /* Warna — gold tint, konsisten dengan superscript existing */
+  color: #92702A;
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+
+  /* Spacing */
+  padding: 1px 3px;
+  margin-left: 1px;
+
+  /* Tidak ikut terseleksi saat pembaca highlight teks */
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Posisi — naik sedikit seperti superscript */
+  vertical-align: super;
+
+  /* Transisi hover — subtle, tidak distraktif */
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: default;
+}
+
+.citation-badge:hover {
+  background-color: rgba(212, 175, 55, 0.22);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* ----------------------------------------------------------
+   SINGLE — lingkaran sempurna
+   Contoh: ¹ → badge bulat dengan "1"
+   ---------------------------------------------------------- */
+.citation-badge--single {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 0.58rem;
+}
+
+/* ----------------------------------------------------------
+   MULTI — pill / rounded rectangle
+   Contoh: ²³⁵ → badge pill dengan "2,3,5"
+   ---------------------------------------------------------- */
+.citation-badge--multi {
+  min-width: 18px;
+  height: 13px;
+  border-radius: 999px;
+  padding: 0 4px;
+  font-size: 0.56rem;
+  gap: 1px;
+}
+
+/* ----------------------------------------------------------
+   Dark mode support
+   Sesuaikan jika Jejak Cahaya punya dark mode
+   ---------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  .citation-badge {
+    color: #D4AF37;
+    background-color: rgba(212, 175, 55, 0.10);
+    border-color: rgba(212, 175, 55, 0.25);
+  }
+
+  .citation-badge:hover {
+    background-color: rgba(212, 175, 55, 0.18);
+    border-color: rgba(212, 175, 55, 0.45);
+  }
+}
+

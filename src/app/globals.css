@@ -168,23 +168,57 @@ html { scroll-behavior: smooth; }
 .reader-content p { margin-bottom: 1.2rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
-/* Citation superscripts — subtle, non-intrusive academic footnotes */
-.reader-content sup,
-.reader-content .citation {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 0.65em;
+/* ── Citation badges — gold-tinted inline reference markers ── */
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 0.6rem;
   font-weight: 600;
-  vertical-align: super;
-  line-height: 0;
-  color: #B8A472;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #92702A;
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 1px 3px;
   margin-left: 1px;
-  cursor: default;
   user-select: none;
+  -webkit-user-select: none;
+  vertical-align: super;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: default;
 }
-:is(.dark) .reader-content sup,
-:is(.dark) .reader-content .citation {
-  color: #8B7A52;
+.citation-badge:hover {
+  background-color: rgba(212, 175, 55, 0.22);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+/* Single digit → lingkaran sempurna */
+.citation-badge--single {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 0.58rem;
+}
+/* Multi digit → pill / rounded rectangle */
+.citation-badge--multi {
+  min-width: 18px;
+  height: 13px;
+  border-radius: 999px;
+  padding: 0 4px;
+  font-size: 0.56rem;
+  gap: 1px;
+}
+/* Dark mode */
+:is(.dark) .citation-badge {
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.10);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+:is(.dark) .citation-badge:hover {
+  background-color: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.45);
 }
 
 /* Closing punchline — subtle, italic, slightly bolder, left-aligned */
