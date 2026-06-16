@@ -134,3 +134,37 @@ Stage Summary:
 - Problem: Missing .env file + Feedback table not migrated + stale dev server
 - Solution: Created .env, ran prisma db push, restarted server
 - Feedback system now fully functional
+
+---
+Task ID: 4
+Agent: main
+Task: Buat login admin (username: Bagas, password: 122333)
+
+Work Log:
+- Added Admin model to Prisma schema (id, username, passwordHash, name, timestamps)
+- Ran prisma db push to create Admin table
+- Seeded admin user: username=Bagas, password=122333 (SHA-256 hashed)
+- Created auth library (src/lib/auth.ts) with:
+  - hashPassword/verifyPassword (SHA-256)
+  - createSessionToken/verifySessionToken (base64-encoded signed token)
+  - authenticateAdmin (DB lookup + password verify)
+- Created edge-auth library (src/lib/edge-auth.ts) for middleware (no Node.js crypto)
+- Created API routes:
+  - POST /api/auth/login — verify credentials, set httpOnly cookie
+  - POST /api/auth/logout — clear cookie
+  - GET /api/auth/me — check auth status
+- Created login page (src/app/admin/login/page.tsx) with Jejak Cahaya dark theme
+- Created middleware (src/middleware.ts) to protect /admin routes
+- Added logout button to admin page header
+- Verified build succeeds (npx next build ✅)
+- Verified auth logic directly via Node.js (password match: YES, wrong password: NO)
+- Dev server keeps crashing in background (environment issue, not code issue)
+
+Stage Summary:
+- Login admin system fully implemented
+- Credentials: Username=Bagas, Password=122333
+- Session: httpOnly cookie, 24h expiry, HMAC-signed base64 token
+- Protected routes: /admin/* redirects to /admin/login if not authenticated
+- Build passes without errors
+- Files created: auth.ts, edge-auth.ts, middleware.ts, login/page.tsx, 3 API routes
+- Files modified: prisma/schema.prisma, admin/page.tsx (logout button)

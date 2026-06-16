@@ -14,8 +14,10 @@ import {
   FlaskConical,
   Globe,
   ArrowLeft,
+  LogOut,
 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface Feedback {
   id: string;
@@ -36,6 +38,7 @@ const categoryConfig: Record<string, { label: string; icon: typeof Globe; color:
 };
 
 export default function AdminPage() {
+  const router = useRouter();
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [total, setTotal] = useState(0);
   const [unread, setUnread] = useState(0);
@@ -43,6 +46,15 @@ export default function AdminPage() {
   const [filter, setFilter] = useState('semua');
   const [showUnreadOnly, setShowUnreadOnly] = useState(false);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      router.push('/admin/login');
+    } catch (err) {
+      console.error('Logout failed:', err);
+    }
+  };
 
   const fetchFeedbacks = useCallback(async () => {
     setLoading(true);
@@ -148,6 +160,13 @@ export default function AdminPage() {
               className="p-2 rounded-lg hover:bg-white/5 transition-colors text-[#8B8070]"
             >
               <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+            </button>
+            <button
+              onClick={handleLogout}
+              className="p-2 rounded-lg hover:bg-red-500/10 transition-colors text-[#8B8070] hover:text-red-400"
+              title="Keluar"
+            >
+              <LogOut className="w-4 h-4" />
             </button>
           </div>
         </div>
