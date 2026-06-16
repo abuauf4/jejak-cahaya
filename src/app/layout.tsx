@@ -30,7 +30,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jejak Cahaya" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.webp", type: "image/webp" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.webp",
   },
   openGraph: {
     title: "Jejak Cahaya — Platform Pengetahuan Islam",
