@@ -70,3 +70,22 @@ Stage Summary:
 - Closing punchline "Kota itu bernama Makkah." auto-detected (≤120 chars)
 - Build passes, no errors
 - Subtitle updated to match final version
+
+---
+Task ID: 1
+Agent: main
+Task: Revisi Bab 4 Suku Quraisy — 3 koreksi sebelum LOCKED
+
+Work Log:
+- Baca feedback editor (PM) untuk Bab 4
+- Identifikasi 3 titik revisi di content.ts dan bab-4-suku-quraisy.md
+- Revisi #1: Hapus klaim Abdul Muthalib mengubur bayi perempuan → ganti dengan detail nazar (tebusan 100 unta)
+- Revisi #2: "penguasa benua" → "salah satu kekuatan paling berpengaruh di Jazirah Arab"
+- Revisi #3: Closing "Mempersiapkan datangnya cahaya" → "Tidak ada yang menyangka bahwa perubahan itu justru akan lahir dari salah satu rumah mereka sendiri."
+- Kedua file updated: content.ts + bab-4-suku-quraisy.md
+
+Stage Summary:
+- 3 revisi diterapkan di kedua file (content.ts + markdown)
+- Revisi #1: Menghindari klaim tidak bersumber tentang Abdul Muthalib mengubur bayi perempuan — diganti dengan riwayat nazar yang lebih terkenal dan sahih
+- Revisi #2: Bahasa lebih proporsional, tidak berlebihan
+- Revisi #3: Closing lebih spesifik ke Quraisy, bukan template "cahaya datang"

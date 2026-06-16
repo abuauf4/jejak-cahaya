@@ -1444,7 +1444,7 @@ Karena dari dua perjalanan itulah seluruh kekuasaan Quraisy bertumpu.
 
 Tanpa perdagangan, mereka hanya penjaga bangunan.
 
-Dengan perdagangan, mereka menjadi penguasa benua.
+Dengan perdagangan, mereka menjadi salah satu kekuatan paling berpengaruh di Jazirah Arab.
 
 ✦ ✦ ✦
 
@@ -1510,9 +1510,7 @@ Cucu Hashim.
 
 Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.
 
-Lelaki yang menguburkan bayi-bayi perempuannya karena tradisi.
-
-Lelaki yang bernazar menyembelih putranya jika diberi sepuluh anak.
+Lelaki yang bernazar menyembelih putranya jika diberi sepuluh anak — dan nazarnu itu hampir terlaksana, sebelum ditebus dengan seratus unta.
 
 Abdul Muthalib bukan raja.
 
@@ -1548,7 +1546,7 @@ Perlahan.
 
 Tanpa terasa.
 
-Mempersiapkan datangnya cahaya.`,
+Tidak ada yang menyangka bahwa perubahan itu justru akan lahir dari salah satu rumah mereka sendiri.`,
     featured: false,
     characterIds: ['abdul-muthalib'],
     locationId: 'makkah',

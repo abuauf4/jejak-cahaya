@@ -1,0 +1,2002 @@
+     1→// ═══════════════════════════════════════════════════════
+     2→// JEJAK CAHAYA™ — Narrative Structure
+     3→// Collection → Fase → Bab → Story → Character → Location → Reference
+     4→//
+     5→// Struktur naratif dikunci berdasarkan alur:
+     6→//   Sejarah asli + rasa petualangan + rasa penasaran
+     7→//   Tanpa dialog fiktif. Tanpa mengubah peristiwa. Tanpa mengarang.
+     8→//
+     9→// 8 Fase + Penutup | 47 Bab
+    10→// ═══════════════════════════════════════════════════════
+    11→
+    12→// ── Core Types ──────────────────────────────────────
+    13→
+    14→export interface Collection {
+    15→  id: string;
+    16→  slug: string;
+    17→  title: string;
+    18→  subtitle: string;
+    19→  description: string;
+    20→  coverTheme: string;
+    21→  journeyIds: string[];
+    22→  status: 'active' | 'coming_soon';
+    23→  order: number;
+    24→}
+    25→
+    26→export interface Journey {
+    27→  id: string;
+    28→  collectionId: string;
+    29→  title: string;
+    30→  subtitle: string;
+    31→  period: string;
+    32→  yearStart: number;
+    33→  yearEnd: number;
+    34→  description: string;
+    35→  color: string;
+    36→  eventIds: string[];
+    37→  order: number;
+    38→}
+    39→
+    40→export interface StoryEvent {
+    41→  id: string;
+    42→  journeyId: string;
+    43→  collectionId: string;
+    44→  title: string;
+    45→  subtitle: string;
+    46→  year: string;
+    47→  yearNum: number;
+    48→  description: string;
+    49→  story: string; // konten menunggu penulisan
+    50→  image?: string; // hero illustration path (1 per bab — captures emotion, not content)
+    51→  featured: boolean;
+    52→  characterIds: string[];
+    53→  locationId: string;
+    54→  references: string[];
+    55→  order: number;
+    56→}
+    57→
+    58→export interface Character {
+    59→  id: string;
+    60→  name: string;
+    61→  title: string;
+    62→  shortBio: string;
+    63→  fullBio: string;
+    64→  role: string;
+    65→  period: string;
+    66→  eventIds: string[];
+    67→  references: string[];
+    68→}
+    69→
+    70→export interface StoryLocation {
+    71→  id: string;
+    72→  name: string;
+    73→  description: string;
+    74→  fullDescription: string;
+    75→  coordinates: string;
+    76→  eventIds: string[];
+    77→  significance: string;
+    78→}
+    79→
+    80→// ── Collections ─────────────────────────────────────
+    81→
+    82→export const collections: Collection[] = [
+    83→  {
+    84→    id: 'perjalanan-rasulullah',
+    85→    slug: 'perjalanan-rasulullah',
+    86→    title: 'Perjalanan Rasulullah ﷺ',
+    87→    subtitle: 'Dari dunia sebelum Islam sampai cahaya yang tidak pernah padam',
+    88→    description: 'Mengikuti perjalanan kehidupan Rasulullah ﷺ — bukan sebagai buku pelajaran, tapi sebagai kisah yang membuat kita penasaran bab berikutnya.',
+    89→    coverTheme: '#D4A843',
+    90→    journeyIds: [
+    91→      'fase-0',
+    92→      'fase-1',
+    93→      'fase-2',
+    94→      'fase-3',
+    95→      'fase-4',
+    96→      'fase-5',
+    97→      'fase-6',
+    98→      'fase-7',
+    99→      'fase-8',
+   100→      'penutup',
+   101→    ],
+   102→    status: 'active',
+   103→    order: 1,
+   104→  },
+   105→  {
+   106→    id: 'kisah-sahabat',
+   107→    slug: 'kisah-sahabat',
+   108→    title: 'Kisah Para Sahabat',
+   109→    subtitle: 'Para Pembawa Cahaya',
+   110→    description: 'Kisah-kisah sahabat Rasulullah ﷺ yang mengorbankan segalanya.',
+   111→    coverTheme: '#8B6914',
+   112→    journeyIds: [],
+   113→    status: 'coming_soon',
+   114→    order: 2,
+   115→  },
+   116→  {
+   117→    id: 'kisah-nabi',
+   118→    slug: 'kisah-nabi',
+   119→    title: 'Kisah Para Nabi',
+   120→    subtitle: 'Jejak Para Utusan Allah',
+   121→    description: 'Perjalanan para nabi dan rasul dari Nabi Adam a.s. hingga Nabi Muhammad ﷺ.',
+   122→    coverTheme: '#5A4D3E',
+   123→    journeyIds: [],
+   124→    status: 'coming_soon',
+   125→    order: 3,
+   126→  },
+   127→  {
+   128→    id: 'kisah-peradaban',
+   129→    slug: 'kisah-peradaban',
+   130→    title: 'Kisah Peradaban Islam',
+   131→    subtitle: 'Cahaya yang Menyebar ke Seluruh Dunia',
+   132→    description: 'Dari padang pasir Arab ke Andalusia, dari Baghdad ke Nusantara.',
+   133→    coverTheme: '#756553',
+   134→    journeyIds: [],
+   135→    status: 'coming_soon',
+   136→    order: 4,
+   137→  },
+   138→];
+   139→
+   140→// ── Fase (Journeys) ─────────────────────────────────
+   141→
+   142→export const journeys: Journey[] = [
+   143→  // ── FASE 0 ──────────────────────────────────────
+   144→  {
+   145→    id: 'fase-0',
+   146→    collectionId: 'perjalanan-rasulullah',
+   147→    title: 'Dunia Sebelum Islam',
+   148→    subtitle: 'Memahami dunia sebelum Rasulullah ﷺ lahir',
+   149→    period: 'Sebelum 570 M',
+   150→    yearStart: -3000,
+   151→    yearEnd: 570,
+   152→    description: 'Membuat pembaca memahami dunia sebelum Rasulullah ﷺ lahir.',
+   153→    color: '#756553',
+   154→    eventIds: ['bab-1', 'bab-2', 'bab-3', 'bab-4', 'bab-5'],
+   155→    order: 0,
+   156→  },
+   157→  // ── FASE 1 ──────────────────────────────────────
+   158→  {
+   159→    id: 'fase-1',
+   160→    collectionId: 'perjalanan-rasulullah',
+   161→    title: 'Kelahiran Sang Cahaya',
+   162→    subtitle: 'Dari rahim Aminah ke pangkuan dunia',
+   163→    period: '570–578 M',
+   164→    yearStart: 570,
+   165→    yearEnd: 578,
+   166→    description: 'Kelahiran Muhammad ﷺ dan tahun-tahun pertama kehidupannya.',
+   167→    color: '#D4A843',
+   168→    eventIds: ['bab-6', 'bab-7', 'bab-8', 'bab-9', 'bab-10', 'bab-11'],
+   169→    order: 1,
+   170→  },
+   171→  // ── FASE 2 ──────────────────────────────────────
+   172→  {
+   173→    id: 'fase-2',
+   174→    collectionId: 'perjalanan-rasulullah',
+   175→    title: 'Masa Pemuda',
+   176→    subtitle: 'Gembala, pedagang, dan orang yang dipercaya',
+   177→    period: '583–605 M',
+   178→    yearStart: 583,
+   179→    yearEnd: 605,
+   180→    description: 'Tahun-tahun kejujuran dan kepercayaan sebelum kenabian.',
+   181→    color: '#96751A',
+   182→    eventIds: ['bab-12', 'bab-13', 'bab-14', 'bab-15', 'bab-16'],
+   183→    order: 2,
+   184→  },
+   185→  // ── FASE 3 ──────────────────────────────────────
+   186→  {
+   187→    id: 'fase-3',
+   188→    collectionId: 'perjalanan-rasulullah',
+   189→    title: 'Mencari Kebenaran',
+   190→    subtitle: 'Kesunyian Gua Hira dan malam yang mengubah segalanya',
+   191→    period: '610 M',
+   192→    yearStart: 610,
+   193→    yearEnd: 610,
+   194→    description: 'Pencarian spiritual yang berujung pada wahyu pertama.',
+   195→    color: '#5A4D3E',
+   196→    eventIds: ['bab-17', 'bab-18', 'bab-19', 'bab-20'],
+   197→    order: 3,
+   198→  },
+   199→  // ── FASE 4 ──────────────────────────────────────
+   200→  {
+   201→    id: 'fase-4',
+   202→    collectionId: 'perjalanan-rasulullah',
+   203→    title: 'Dakwah di Makkah',
+   204→    subtitle: 'Cahaya yang dijawab dengan tentangan',
+   205→    period: '610–621 M',
+   206→    yearStart: 610,
+   207→    yearEnd: 621,
+   208→    description: 'Tiga belas tahun menyebarkan Islam di tengah penentangan Quraisy.',
+   209→    color: '#8B6914',
+   210→    eventIds: ['bab-21', 'bab-22', 'bab-23', 'bab-24', 'bab-25', 'bab-26', 'bab-27', 'bab-28'],
+   211→    order: 4,
+   212→  },
+   213→  // ── FASE 5 ──────────────────────────────────────
+   214→  {
+   215→    id: 'fase-5',
+   216→    collectionId: 'perjalanan-rasulullah',
+   217→    title: 'Menuju Madinah',
+   218→    subtitle: 'Meninggalkan Makkah menuju tempat yang baru',
+   219→    period: '621–622 M',
+   220→    yearStart: 621,
+   221→    yearEnd: 622,
+   222→    description: 'Dari baiat hingga hijrah — perjalanan yang mengubah sejarah.',
+   223→    color: '#D4A843',
+   224→    eventIds: ['bab-29', 'bab-30', 'bab-31', 'bab-32', 'bab-33'],
+   225→    order: 5,
+   226→  },
+   227→  // ── FASE 6 ──────────────────────────────────────
+   228→  {
+   229→    id: 'fase-6',
+   230→    collectionId: 'perjalanan-rasulullah',
+   231→    title: 'Membangun Peradaban',
+   232→    subtitle: 'Masjid, persaudaraan, dan piagam',
+   233→    period: '622–624 M',
+   234→    yearStart: 622,
+   235→    yearEnd: 624,
+   236→    description: 'Menata fondasi peradaban baru di Madinah.',
+   237→    color: '#96751A',
+   238→    eventIds: ['bab-34', 'bab-35', 'bab-36'],
+   239→    order: 6,
+   240→  },
+   241→  // ── FASE 7 ──────────────────────────────────────
+   242→  {
+   243→    id: 'fase-7',
+   244→    collectionId: 'perjalanan-rasulullah',
+   245→    title: 'Ujian dan Kemenangan',
+   246→    subtitle: 'Dari Badar hingga Fathu Makkah',
+   247→    period: '624–630 M',
+   248→    yearStart: 624,
+   249→    yearEnd: 630,
+   250→    description: 'Pertempuran, perjanjian, dan kemenangan yang tak terduga.',
+   251→    color: '#756553',
+   252→    eventIds: ['bab-37', 'bab-38', 'bab-39', 'bab-40', 'bab-41', 'bab-42', 'bab-43'],
+   253→    order: 7,
+   254→  },
+   255→  // ── FASE 8 ──────────────────────────────────────
+   256→  {
+   257→    id: 'fase-8',
+   258→    collectionId: 'perjalanan-rasulullah',
+   259→    title: 'Perpisahan',
+   260→    subtitle: 'Haji terakhir dan hari yang membuat Madinah menangis',
+   261→    period: '630–632 M',
+   262→    yearStart: 630,
+   263→    yearEnd: 632,
+   264→    description: 'Wasiat terakhir dan kepergian yang memilu hati seluruh kaum muslimin.',
+   265→    color: '#5A4D3E',
+   266→    eventIds: ['bab-44', 'bab-45', 'bab-46'],
+   267→    order: 8,
+   268→  },
+   269→  // ── PENUTUP ─────────────────────────────────────
+   270→  {
+   271→    id: 'penutup',
+   272→    collectionId: 'perjalanan-rasulullah',
+   273→    title: 'Jejak yang Tidak Pernah Padam',
+   274→    subtitle: 'Warisan Islam dan sahabat yang melanjutkan perjuangan',
+   275→    period: '632 M+',
+   276→    yearStart: 632,
+   277→    yearEnd: 700,
+   278→    description: 'Warisan Islam, para sahabat melanjutkan perjuangan, Islam menyebar ke dunia.',
+   279→    color: '#D4A843',
+   280→    eventIds: ['bab-47'],
+   281→    order: 9,
+   282→  },
+   283→];
+   284→
+   285→// ── 47 Bab (Events) ─────────────────────────────────
+   286→// Konten menunggu penulisan. Struktur naratif sudah dikunci.
+   287→
+   288→export const events: StoryEvent[] = [
+   289→  // ═══════════════════════════════════════════════════
+   290→  // FASE 0 — DUNIA SEBELUM ISLAM
+   291→  // ═══════════════════════════════════════════════════
+   292→  {
+   293→    id: 'bab-1',
+   294→    journeyId: 'fase-0',
+   295→    collectionId: 'perjalanan-rasulullah',
+   296→    title: 'Jazirah Arab Sebelum Islam',
+   297→    subtitle: 'Sebelum Cahaya Menyinari Dunia',
+   298→    year: 'Sebelum 570 M',
+   299→    yearNum: -570,
+   300→    description: 'Geografi, gurun, kafilah, dan kehidupan Arab sebelum Islam.',
+   301→    image: '/images/bab/bab-1-hero.png',
+   302→    story: `Matahari belum lama terbit.
+   303→
+   304→Namun panasnya sudah terasa membakar kulit.
+   305→
+   306→Seorang pengelana berjalan sendirian di tengah gurun.
+   307→
+   308→Langkahnya pelan.
+   309→
+   310→Air yang dibawanya tidak banyak.
+   311→
+   312→Ia tidak tahu berapa lama lagi perjalanan ini akan berlangsung.
+   313→
+   314→Yang ia tahu hanya satu.
+   315→
+   316→Ia harus terus berjalan.
+   317→
+   318→Di hadapannya terbentang hamparan pasir yang seolah tidak memiliki ujung.
+   319→
+   320→Tidak ada pohon yang bisa dijadikan tempat berteduh.
+   321→
+   322→Tidak ada sungai yang bisa menghilangkan dahaga.
+   323→
+   324→Tidak ada rumah yang dapat diketuk ketika malam tiba.
+   325→
+   326→Hanya gurun.
+   327→
+   328→Dan gurun tidak pernah peduli siapa yang melintasinya.
+   329→
+   330→Angin berembus membawa pasir.
+   331→
+   332→Matahari terus naik.
+   333→
+   334→Sementara kantung airnya semakin ringan.
+   335→
+   336→Di tanah seperti ini, satu kesalahan kecil dapat mengakhiri sebuah perjalanan.
+   337→
+   338→Karena itulah orang-orang Arab belajar memahami gurun sejak kecil.
+   339→
+   340→Mereka mengenal arah angin.
+   341→
+   342→Mereka membaca bintang-bintang.
+   343→
+   344→Mereka menghafal letak sumur dan oase.
+   345→
+   346→Mereka tahu kapan harus berjalan.
+   347→
+   348→Dan kapan harus berhenti.
+   349→
+   350→Hidup di Jazirah Arab bukan sekadar bertahan hidup.
+   351→
+   352→Hidup di Jazirah Arab adalah ujian yang harus dihadapi setiap hari.
+   353→
+   354→◆
+   355→
+   356→Namun tanah yang keras tidak selalu menjadi tanah yang mati.
+   357→
+   358→Dari kejauhan tampak titik-titik kecil bergerak di atas gurun.
+   359→
+   360→Sedikit demi sedikit bentuknya menjadi jelas.
+   361→
+   362→Unta.
+   363→
+   364→Puluhan ekor.
+   365→
+   366→Berjalan dalam satu barisan panjang.
+   367→
+   368→Di punggung mereka tergantung berbagai barang dagangan.
+   369→
+   370→Kemenyan.
+   371→
+   372→Rempah-rempah.
+   373→
+   374→Kulit.
+   375→
+   376→Kain.
+   377→
+   378→Dan berbagai barang berharga lainnya.
+   379→
+   380→Mereka adalah kafilah dagang.
+   381→
+   382→Urat nadi yang menghidupkan Jazirah Arab.
+   383→
+   384→Setiap tahun, jalur-jalur gurun dilalui oleh para pedagang yang datang dari berbagai arah.
+   385→
+   386→Dari Yaman di selatan.
+   387→
+   388→Menuju Syam di utara.
+   389→
+   390→Perjalanan itu tidak mudah.
+   391→
+   392→Panas membakar di siang hari.
+   393→
+   394→Dingin menusuk di malam hari.
+   395→
+   396→Badai pasir dapat datang tanpa peringatan.
+   397→
+   398→Dan perampok selalu mengintai kesempatan.
+   399→
+   400→Tetapi mereka tetap berjalan.
+   401→
+   402→Karena jalur perdagangan inilah yang menghubungkan berbagai negeri.
+   403→
+   404→Dan Jazirah Arab berada tepat di tengah jalur itu.
+   405→
+   406→◆
+   407→
+   408→Meski menjadi persimpangan perdagangan yang penting, Jazirah Arab tidak dipimpin oleh satu raja yang menguasai seluruh wilayahnya.
+   409→
+   410→Yang ada adalah suku-suku.
+   411→
+   412→Dan bagi orang Arab saat itu, suku adalah segalanya.
+   413→
+   414→Suku adalah keluarga.
+   415→
+   416→Suku adalah perlindungan.
+   417→
+   418→Suku adalah kehormatan.
+   419→
+   420→Jika seseorang kehilangan sukunya, ia kehilangan hampir seluruh tempat berpijaknya di dunia.
+   421→
+   422→Karena itu kesetiaan kepada suku dijaga dengan sangat kuat.
+   423→
+   424→Terkadang lebih kuat daripada rasa keadilan itu sendiri.
+   425→
+   426→Seorang Arab tidak berdiri sendirian.
+   427→
+   428→Ia berdiri bersama kaumnya.
+   429→
+   430→Dan kaumnya berdiri bersamanya.
+   431→
+   432→Begitulah dunia mereka berjalan.
+   433→
+   434→◆
+   435→
+   436→Sebagian orang Arab hidup berpindah-pindah mengikuti air dan padang rumput.
+   437→
+   438→Mereka dikenal sebagai kaum Badui.
+   439→
+   440→Hari ini mereka mendirikan kemah.
+   441→
+   442→Beberapa waktu kemudian mereka membongkarnya kembali.
+   443→
+   444→Lalu berjalan ke tempat lain.
+   445→
+   446→Mencari kehidupan.
+   447→
+   448→Mencari air.
+   449→
+   450→Mencari tempat bagi ternak mereka untuk bertahan hidup.
+   451→
+   452→Gurun mengajarkan banyak hal kepada mereka.
+   453→
+   454→Kesabaran.
+   455→
+   456→Keberanian.
+   457→
+   458→Ketangguhan.
+   459→
+   460→Tetapi gurun juga mengajarkan bahwa kehidupan tidak selalu berpihak kepada yang lemah.
+   461→
+   462→◆
+   463→
+   464→Di banyak tempat di Jazirah Arab, tidak ada hukum yang berlaku untuk semua orang.
+   465→
+   466→Tidak ada pengadilan yang melindungi setiap manusia.
+   467→
+   468→Kekuatan sering kali menjadi penentu.
+   469→
+   470→Siapa yang kuat akan dihormati.
+   471→
+   472→Siapa yang lemah sering kali harus menerima nasibnya.
+   473→
+   474→Tawanan perang dapat dijadikan budak.
+   475→
+   476→Orang miskin tidak selalu memiliki seseorang yang membela mereka.
+   477→
+   478→Dan pertikaian antarsuku dapat berlangsung sangat lama.
+   479→
+   480→Kadang karena persoalan besar.
+   481→
+   482→Kadang karena sesuatu yang tampak kecil.
+   483→
+   484→Perang Al-Basus adalah salah satunya.
+   485→
+   486→Konflik itu bermula dari sebuah perselisihan yang melibatkan seekor unta.
+   487→
+   488→Namun yang terjadi setelahnya jauh lebih besar.
+   489→
+   490→Balas dendam dibalas balas dendam.
+   491→
+   492→Generasi berganti.
+   493→
+   494→Tetapi permusuhan tetap hidup.
+   495→
+   496→Perang itu berlangsung selama puluhan tahun.
+   497→
+   498→Hampir empat puluh tahun.
+   499→
+   500→◆
+   501→
+   502→Namun dunia ini tidak hanya berisi kegelapan.
+   503→
+   504→Orang-orang Arab dikenal karena keberanian mereka menjaga kehormatan.
+   505→
+   506→Mereka menghormati tamu.
+   507→
+   508→Menepati janji.
+   509→
+   510→Menghafal silsilah keluarga mereka hingga beberapa generasi ke atas.
+   511→
+   512→Mereka juga mencintai syair.
+   513→
+   514→Di pasar-pasar besar, para penyair berdiri membacakan bait-bait terbaik mereka.
+   515→
+   516→Orang-orang berkumpul.
+   517→
+   518→Mendengarkan.
+   519→
+   520→Menghafal.
+   521→
+   522→Lalu menceritakannya kembali kepada yang lain.
+   523→
+   524→Bagi mereka, kata-kata memiliki nilai yang sangat tinggi.
+   525→
+   526→Kadang lebih berharga daripada pedang.
+   527→
+   528→◆
+   529→
+   530→Tetapi di balik semua itu, ada sesuatu yang perlahan berubah.
+   531→
+   532→Generasi demi generasi.
+   533→
+   534→Warisan para nabi mulai dilupakan.
+   535→
+   536→Sebagian besar manusia tidak lagi menyembah Allah ﷻ semata.
+   537→
+   538→Berhala-berhala mulai memenuhi kehidupan mereka.
+   539→
+   540→Patung-patung diagungkan.
+   541→
+   542→Doa dipanjatkan kepada selain Allah.
+   543→
+   544→Dan kebiasaan yang dahulu dianggap asing mulai menjadi sesuatu yang biasa.
+   545→
+   546→Dunia terus berjalan.
+   547→
+   548→Namun arah yang dahulu dikenal perlahan menghilang.
+   549→
+   550→◆
+   551→
+   552→Di antara kota-kota yang tersebar di Jazirah Arab, ada satu kota yang berbeda.
+   553→
+   554→Kota itu tidak memiliki sungai besar.
+   555→
+   556→Tidak memiliki tanah yang subur.
+   557→
+   558→Tidak pula memiliki kerajaan yang menguasai wilayah-wilayah di sekitarnya.
+   559→
+   560→Namun manusia terus berdatangan ke sana.
+   561→
+   562→Dari utara.
+   563→
+   564→Dari selatan.
+   565→
+   566→Dari timur.
+   567→
+   568→Dari barat.
+   569→
+   570→Tahun demi tahun.
+   571→
+   572→Generasi demi generasi.
+   573→
+   574→Mereka datang membawa barang dagangan.
+   575→
+   576→Mereka datang untuk bertemu kabilah-kabilah lain.
+   577→
+   578→Dan mereka datang untuk mengunjungi sebuah bangunan yang telah dikenal jauh sebelum mereka dilahirkan.
+   579→
+   580→◆
+   581→
+   582→Bangunan itu tidak menjulang tinggi.
+   583→
+   584→Tidak dibangun dari emas.
+   585→
+   586→Tidak pula dikelilingi istana-istana megah.
+   587→
+   588→Namun kedudukannya begitu istimewa di hati masyarakat Arab.
+   589→
+   590→Bangunan itu adalah Ka'bah.
+   591→
+   592→Menurut riwayat yang diwariskan turun-temurun, Ka'bah dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.
+   593→
+   594→Bukan untuk berhala.
+   595→
+   596→Bukan untuk patung.
+   597→
+   598→Tetapi sebagai tempat beribadah kepada Allah ﷻ.
+   599→
+   600→Waktu berlalu.
+   601→
+   602→Generasi berganti.
+   603→
+   604→Berabad-abad pun terlewati.
+   605→
+   606→Namun manusia tidak selalu menjaga apa yang diwariskan kepada mereka.
+   607→
+   608→Dan sedikit demi sedikit, berhala mulai mengambil tempat yang seharusnya tidak mereka miliki.
+   609→
+   610→◆
+   611→
+   612→Orang-orang datang membawa harapan.
+   613→
+   614→Membawa doa.
+   615→
+   616→Membawa persembahan.
+   617→
+   618→Sebagian memang datang untuk mengagungkan Allah.
+   619→
+   620→Tetapi sebagian yang lain datang untuk sesuatu yang berbeda.
+   621→
+   622→Mereka meletakkan doa mereka di hadapan patung-patung batu.
+   623→
+   624→Mereka meminta kepada sesuatu yang tidak bisa mendengar.
+   625→
+   626→Mereka berharap kepada sesuatu yang tidak bisa menjawab.
+   627→
+   628→Ka'bah masih berdiri di tengah semua itu.
+   629→
+   630→Seperti aslinya.
+   631→
+   632→Seperti tujuan awalnya.
+   633→
+   634→Tapi yang mengelilinginya sudah bukan lagi yang seharusnya ada di sana.
+   635→
+   636→◆
+   637→
+   638→Meski demikian, tidak semua orang melupakan kebenaran.
+   639→
+   640→Di tengah masyarakat yang dipenuhi berhala, masih ada segelintir orang yang menolak menyembah selain Allah ﷻ.
+   641→
+   642→Mereka dikenal sebagai kaum Hanif.
+   643→
+   644→Jumlah mereka tidak banyak.
+   645→
+   646→Mereka tidak memiliki kekuasaan.
+   647→
+   648→Mereka juga tidak memiliki pengaruh yang besar.
+   649→
+   650→Tetapi mereka tetap mencari agama Nabi Ibrahim عليه السلام.
+   651→
+   652→Mereka percaya bahwa kebenaran masih ada.
+   653→
+   654→Meski saat itu terasa begitu jauh.
+   655→
+   656→Seperti cahaya kecil yang hampir tidak terlihat di tengah malam yang gelap.
+   657→
+   658→◆
+   659→
+   660→Begitulah Jazirah Arab sebelum Islam.
+   661→
+   662→Tanah yang keras.
+   663→
+   664→Manusia-manusia yang tangguh.
+   665→
+   666→Jalur perdagangan yang ramai.
+   667→
+   668→Suku-suku yang menjaga kehormatan mereka dengan sepenuh hati.
+   669→
+   670→Namun di balik semua itu, ada sesuatu yang hilang.
+   671→
+   672→Manusia masih mencari arah.
+   673→
+   674→Mereka mengenal keberanian.
+   675→
+   676→Tetapi belum mengenal belas kasih sebagaimana mestinya.
+   677→
+   678→Mereka mengenal kesetiaan.
+   679→
+   680→Tetapi sering kali melupakan keadilan.
+   681→
+   682→Mereka mengenal kemuliaan.
+   683→
+   684→Tetapi juga membiarkan berbagai bentuk kezaliman tumbuh di tengah kehidupan mereka.
+   685→
+   686→Dunia terus berjalan.
+   687→
+   688→Hari berganti hari.
+   689→
+   690→Tahun berganti tahun.
+   691→
+   692→Tidak ada yang tampak berbeda.
+   693→
+   694→Tidak ada yang tampak luar biasa.
+   695→
+   696→Namun sering kali, perubahan terbesar datang ketika tidak ada seorang pun yang menduganya.
+   697→
+   698→⟩ Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala.
+   699→
+   700→Jazirah Arab bukan sekadar hamparan gurun.
+   701→
+   702→Bukan sekadar jalur perdagangan.
+   703→
+   704→Bukan sekadar tempat berbagai suku mempertahankan kehormatan mereka.
+   705→
+   706→Tanah ini sedang dipersiapkan.
+   707→
+   708→Seperti sebuah panggung yang menunggu tirainya dibuka.
+   709→
+   710→Dan di atas panggung itu, sebentar lagi, sebuah peristiwa akan terjadi.
+   711→
+   712→Peristiwa yang tidak mengubah bentuk gurunnya.
+   713→
+   714→Tidak mengubah gunung-gunungnya.
+   715→
+   716→Tidak mengubah langit yang menaunginya.
+   717→
+   718→Tetapi akan mengubah manusia yang hidup di bawahnya.
+   719→
+   720→Karena seseorang akan datang.
+   721→
+   722→Membawa petunjuk setelah kebingungan.
+   723→
+   724→Membawa cahaya setelah kegelapan.
+   725→
+   726→Membawa rahmat setelah begitu banyak luka yang diwariskan dari generasi ke generasi.
+   727→
+   728→Dan semuanya akan bermula dari sebuah kota kecil di tengah gurun.
+   729→
+   730→Kota itu bernama Makkah.`,
+   731→    featured: false,
+   732→    characterIds: [],
+   733→    locationId: 'jazirah-arab',
+   734→    references: [
+   735→      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr asl al-\'Arab wa amr \'Amr ibn \'Amir wa Amr al-Fil, Hal. 1–70, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+   736→      'Ibnu Ishaq, Sirah Rasulullah, riwayat Ibnu Hisyam, dalam: As-Sirah An-Nabawiyah, Jilid 1, Hal. 1–70, Dar al-Ma\'rifah, Beirut',
+   737→      'Al-Baladzuri, Futuh al-Buldan, Hal. 67 (perdagangan pra-Islam), Dar al-Kutub al-\'Ilmiyyah, Beirut, 1419 H, tahqiq Radwan Muhammad Radwan',
+   738→      'Al-Mas\'udi, Muruj adz-Dzahab wa Ma\'adin al-Jawahir, Jilid 2, Bab: Dhikr Makkah wa akhbariha wa bina\' al-Bayt, Hal. 275–310, Dar al-Hijrah, Qom, 1409 H, tahqiq As\'ad Daghir',
+   739→      'Yaqut al-Hamawi, Mu\'jam al-Buldan, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M',
+   740→    ],
+   741→    order: 1,
+   742→  },
+   743→  {
+   744→    id: 'bab-2',
+   745→    journeyId: 'fase-0',
+   746→    collectionId: 'perjalanan-rasulullah',
+   747→    title: 'Makkah: Kota di Lembah Gersang',
+   748→    subtitle: 'Lembah Gersang yang Menyimpan Sejarah Besar',
+   749→    year: 'Sebelum 570 M',
+   750→    yearNum: -570,
+   751→    description: 'Lokasi Makkah, posisi strategis, jalur perdagangan.',
+   752→    image: '/images/bab/bab-2-hero.png',
+   753→    story: `Gunung-gunung batu membentang di kedua sisi.
+   754→
+   755→Seolah menutup jalan.
+   756→
+   757→Seolah tidak mengizinkan siapa pun masuk.
+   758→
+   759→Namun di antara celah-celah batu itu, ada lorong.
+   760→
+   761→Sempit.
+   762→
+   763→Tersembunyi.
+   764→
+   765→Sulit ditemukan jika tidak tahu keberadaannya.
+   766→
+   767→Di balik lorong itu, terbentang sebuah lembah.
+   768→
+   769→Lembah itu bernama Makkah.
+   770→
+   771→✦ ✦ ✦
+   772→
+   773→Dari atas, Makkah tampak seperti cekungan di antara gunung-gunung kelabu.
+   774→
+   775→Tidak ada sungai yang membelahnya.
+   776→
+   777→Tidak ada danau yang memantulkan cahaya.
+   778→
+   779→Tanahnya kering.
+   780→
+   781→Berbatu.
+   782→
+   783→Gersang.
+   784→
+   785→Angin yang masuk ke lembah ini membawa debu, bukan kesegaran.
+   786→
+   787→Matahari menyengat lebih keras di sini karena pantulannya mengenai dinding-dinding batu yang mengelilingi kota.
+   788→
+   789→Sebuah lembah yang seharusnya tidak ada alasan untuk ditinggali.
+   790→
+   791→Namun manusia tetap datang.
+   792→
+   793→Mereka mendirikan kemah di celah-celah batu.
+   794→
+   795→Mereka membangun rumah-rumah sederhana dari batu dan tanah.
+   796→
+   797→Mereka hidup di sini.
+   798→
+   799→Meskipun tanahnya keras.
+   800→
+   801→Meskipun udaranya kering.
+   802→
+   803→Meskipun tidak ada alasan logis untuk memilih lembah ini daripada lembah-lembah lain yang lebih hijau dan lebih ramah.
+   804→
+   805→Kenapa orang mau tinggal di sini?
+   806→
+   807→✦ ✦ ✦
+   808→
+   809→Jawabannya ada di bawah tanah.
+   810→
+   811→Di suatu titik di lembah ini, air memancar dari dalam bumi.
+   812→
+   813→Sebuah sumur.
+   814→
+   815→Sumur yang disebut Zamzam.
+   816→
+   817→Di tanah yang hampir tidak mengenal hujan, satu sumber air adalah segalanya.
+   818→
+   819→Zamzam bukan sekadar sumur.
+   820→
+   821→Zamzam adalah alasan Makkah ada.
+   822→
+   823→Tanpa air ini, lembah ini tidak lebih dari celah antara gunung yang tidak bernilai.
+   824→
+   825→Dengan air ini, lembah ini menjadi titik hidup di tengah kegersangan.
+   826→
+   827→✦ ✦ ✦
+   828→
+   829→Menurut riwayat, sumur ini bermula dari doa seorang ibu.
+   830→
+   831→Hajar رضي الله عنها.
+   832→
+   833→Ibu dari Nabi Ismail عليه السلام.
+   834→
+   835→Ketika putranya kehausan dan tidak ada air di mana pun, ia berlari.
+   836→
+   837→Dari bukit Shafa ke bukit Marwah.
+   838→
+   839→Dari bukit Marwah kembali ke Shafa.
+   840→
+   841→Bolak-balik.
+   842→
+   843→Tujuh kali.
+   844→
+   845→Mencari air.
+   846→
+   847→Mencari harapan.
+   848→
+   849→Dan air itu datang.
+   850→
+   851→Bukan dari arah yang ia cari.
+   852→
+   853→Tapi dari bawah tanah, tepat di bawah kaki putranya.
+   854→
+   855→Atas izin Allah ﷻ.
+   856→
+   857→Air yang tidak habis.
+   858→
+   859→Air yang terus mengalir.
+   860→
+   861→Hingga berabad-abad kemudian.
+   862→
+   863→✦ ✦ ✦
+   864→
+   865→Setiap kafilah yang melintas di jalur perdagangan utara-selatan harus berhenti di sini.
+   866→
+   867→Bukan karena Makkah indah.
+   868→
+   869→Tapi karena Makkah adalah satu-satunya tempat di sepanjang rute ini yang memiliki air cukup untuk puluhan unta dan ratusan orang.
+   870→
+   871→Dari Yaman ke Syam, jaraknya berminggu-minggu.
+   872→
+   873→Makkah adalah titik di tengah jalan.
+   874→
+   875→Tempat muatan diturunkan.
+   876→
+   877→Unta diberi minum.
+   878→
+   879→Dan pedagang bertemu pedagang lain.
+   880→
+   881→Barang-barang dari berbagai penjuru dunia bertemu di pasar-pasar Makkah.
+   882→
+   883→Kemenyan dari selatan.
+   884→
+   885→Kain dari utara.
+   886→
+   887→Rempah dari timur.
+   888→
+   889→Pengaruh peradaban dari seberang Laut Merah.
+   890→
+   891→Semua bertemu di satu lembah.
+   892→
+   893→Siapa pun yang berjalan dari selatan ke utara hampir pasti mengenal kota ini.
+   894→
+   895→Posisi ini bukan kebetulan.
+   896→
+   897→✦ ✦ ✦
+   898→
+   899→Namun Makkah bukan kota terbesar di Jazirah Arab.
+   900→
+   901→Thaif lebih hijau.
+   902→
+   903→Yatsrib lebih subur.
+   904→
+   905→Tapi Makkah memiliki sesuatu yang tidak dimiliki kota-kota lain.
+   906→
+   907→Ka'bah.
+   908→
+   909→Sebuah bangunan kubus berdiri di tengah lembah ini.
+   910→
+   911→Bangunan tua yang usianya sudah tidak bisa diingat oleh siapa pun yang hidup saat itu.
+   912→
+   913→Menurut riwayat yang diwariskan turun-temurun, bangunan ini dibangun oleh Nabi Ibrahim عليه السلام dan putranya, Nabi Ismail عليه السلام.
+   914→
+   915→Bukan untuk berhala.
+   916→
+   917→Bukan untuk patung.
+   918→
+   919→Tetapi sebagai tempat beribadah kepada Allah ﷻ.
+   920→
+   921→Dan bangunan ini menjadi alasan yang lebih besar daripada perdagangan.
+   922→
+   923→Alasan mengapa orang-orang terus datang ke Makkah.
+   924→
+   925→Setiap tahun, suku-suku dari seluruh Jazirah Arab berdatangan untuk berziarah ke Ka'bah.
+   926→
+   927→Di musim haji, perdagangan dan ibadah berjalan bersamaan.
+   928→
+   929→Ka'bah menjadikan Makkah bukan sekadar kota pasar.
+   930→
+   931→Tapi kota suci.
+   932→
+   933→✦ ✦ ✦
+   934→
+   935→Kota seperti ini butuh penjaga.
+   936→
+   937→Suku Quraisy yang memegang amanah itu.
+   938→
+   939→Mereka adalah penghuni Makkah yang paling berkuasa.
+   940→
+   941→Mereka menguasai sumur Zamzam.
+   942→
+   943→Mereka mengelola pasar-pasar.
+   944→
+   945→Mereka menjadi penjaga Ka'bah.
+   946→
+   947→Kedudukan ini bukan hanya soal kekayaan.
+   948→
+   949→Ini soal kehormatan.
+   950→
+   951→Menjaga Ka'bah berarti memikul amanah yang dihormati oleh seluruh suku.
+   952→
+   953→Menyediakan air bagi kafilah berarti menjadi tuan rumah bagi seluruh Jazirah Arab.
+   954→
+   955→Dan Quraisy memanfaatkan posisi ini dengan cerdik.
+   956→
+   957→Mereka mengadakan perjanjian dengan suku-suku lain.
+   958→
+   959→Perjanjian yang menjamin keamanan kafilah di jalur perdagangan.
+   960→
+   961→Perjanjian yang menjamin bahwa bulan-bulan suci tidak akan dilanggar oleh peperangan.
+   962→
+   963→Dalam bulan-bulan suci itu, semua suku boleh datang ke Makkah tanpa takut diserang.
+   964→
+   965→Dan saat mereka datang, mereka berdagang.
+   966→
+   967→Agama dan perdagangan.
+   968→
+   969→Berjalan berdampingan.
+   970→
+   971→✦ ✦ ✦
+   972→
+   973→Sebuah lembah gersang yang seharusnya tidak punya alasan untuk ada.
+   974→
+   975→Tapi hidup karena air dari bumi.
+   976→
+   977→Hidup karena emas dari kafilah.
+   978→
+   979→Hidup karena doa dari ribuan orang yang datang menuju bangunan kubus di tengahnya.
+   980→
+   981→Sebuah kota yang seharusnya kosong.
+   982→
+   983→Namun selalu penuh.
+   984→
+   985→Sebuah lembah yang seharusnya mati.
+   986→
+   987→Namun selalu ramai.
+   988→
+   989→⟩ Air terus mengalir dari Zamzam.
+   990→
+   991→Kafilah terus berdatangan.
+   992→
+   993→Ka'bah tetap berdiri di tengah lembah itu.
+   994→
+   995→Dan Makkah terus menjalani hari-harinya seperti biasa.
+   996→
+   997→Belum ada yang mengetahui apa yang sedang dipersiapkan Allah ﷻ dari kota kecil ini.
+   998→
+   999→✦ ✦ ✦`,
+  1000→    featured: false,
+  1001→    characterIds: [],
+  1002→    locationId: 'makkah',
+  1003→    references: [
+  1004→      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr asl al-\'Arab wa amr \'Amr ibn \'Amir, Hal. 1–70, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+  1005→      'Al-Azraqi, Akhbar Makkah wa-ma Ja\'a fiha min al-Athar, Juz\' 1, Bab: Dhikr Bina\' Quraisy al-Ka\'bah fi al-Jahiliyyah, Hal. 157–174, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas',
+  1006→      'Al-Azraqi, Akhbar Makkah wa-ma Ja\'a fiha min al-Athar, Juz\' 2, Bab: Ma Ja\'a fi Ikhraj Jibril Zamzam li-Umm Isma\'il, Hal. 39–61, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas',
+  1007→      'Al-Fasi, Shifa\' al-Gharam bi-Akhbar al-Balad al-Haram, Jilid 1, al-Bab al-Awwal: fi Dhikr Asma\' al-Madinah wa-Awwal Man Sakaniha, Dar al-Kitab al-\'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri',
+  1008→      'Al-Fasi, Shifa\' al-Gharam bi-Akhbar al-Balad al-Haram, Jilid 2, al-Bab al-\'Ishrun: fi Dhikr Hafr Bi\'r Zamzam wa-\'Ilajiha, Dar al-Kitab al-\'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri',
+  1009→      'Yaqut al-Hamawi, Mu\'jam al-Buldan, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M',
+  1010→    ],
+  1011→    order: 2,
+  1012→  },
+  1013→  {
+  1014→    id: 'bab-3',
+  1015→    journeyId: 'fase-0',
+  1016→    collectionId: 'perjalanan-rasulullah',
+  1017→    title: "Ka'bah: Bangunan Tua yang Dimuliakan",
+  1018→    subtitle: 'Dari tangan Nabi Ibrahim عليه السلام ke tangan Quraisy',
+  1019→    year: 'Zaman Dahulu',
+  1020→    yearNum: -2000,
+  1021→    description: 'Nabi Ibrahim عليه السلام, Nabi Ismail عليه السلام, dan Ka\'bah.',
+  1022→    image: '/images/bab/bab-3-hero.png',
+  1023→    story: `Di tengah lembah itu, pandangan manusia selalu kembali ke tempat yang sama.
+  1024→
+  1025→Tidak peduli dari arah mana mereka datang.
+  1026→
+  1027→Tidak peduli seberapa jauh mereka berjalan.
+  1028→
+  1029→Mata mereka selalu mencari bangunan itu.
+  1030→
+  1031→Bangunan yang tidak tinggi.
+  1032→
+  1033→Tidak megah.
+  1034→
+  1035→Tidak dihiasi emas atau perak.
+  1036→
+  1037→Hanya batu-batu yang disusun membentuk kubus.
+  1038→
+  1039→Tidak ada atap yang menutupinya.
+  1040→
+  1041→Tidak ada pintu yang menjaganya.
+  1042→
+  1043→Tapi bangunan ini lebih tua dari siapa pun yang hidup saat itu.
+  1044→
+  1045→Lebih tua dari suku Quraisy.
+  1046→
+  1047→Lebih tua dari tradisi-tradisi yang mereka pegang.
+  1048→
+  1049→Lebih tua dari ingatan manusia.
+  1050→
+  1051→Bangunan itu bernama Ka'bah.
+  1052→
+  1053→✦ ✦ ✦
+  1054→
+  1055→Dari mana bangunan ini berasal?
+  1056→
+  1057→Riwayat yang diwariskan turun-temurun menyebutkan bahwa bangunan ini pertama kali dibangun oleh Nabi Ibrahim عليه السلام.
+  1058→
+  1059→Ibrahim.
+  1060→
+  1061→Lelaki yang meninggalkan kaumnya karena mereka menyembah berhala.
+  1062→
+  1063→Lelaki yang dilempar ke dalam api tapi tidak terbakar.
+  1064→
+  1065→Lelaki yang berjalan meninggalkan segalanya karena Allah ﷻ memintanya pergi.
+  1066→
+  1067→Ibrahim tidak membangun Ka'bah untuk dirinya sendiri.
+  1068→
+  1069→Ia membangunnya karena diperintahkan.
+  1070→
+  1071→Allah ﷻ berfirman agar ia mendirikan rumah peribadatan di lembah itu.
+  1072→
+  1073→Rumah untuk manusia datang menghadap Tuhan mereka.
+  1074→
+  1075→Bukan rumah untuk patung.
+  1076→
+  1077→Bukan rumah untuk berhala.
+  1078→
+  1079→Tapi rumah untuk mengesakan Allah ﷻ.
+  1080→
+  1081→✦ ✦ ✦
+  1082→
+  1083→Ibrahim tidak sendirian.
+  1084→
+  1085→Putranya menemani pembangunan itu.
+  1086→
+  1087→Ismail.
+  1088→
+  1089→Anak yang ia tinggalkan bersama ibunya, Hajar رضي الله عنها, di lembah yang gersang bertahun-tahun yang lalu.
+  1090→
+  1091→Anak yang tumbuh di tanah kering.
+  1092→
+  1093→Yang matanya melihat gurun lebih sering daripada pepohonan.
+  1094→
+  1095→Yang hidupnya dimulai dari doa ibunya dan air dari bumi.
+  1096→
+  1097→Sekarang Ismail sudah dewasa.
+  1098→
+  1099→Dan ayahnya kembali.
+  1100→
+  1101→Bukan untuk membawanya pergi.
+  1102→
+  1103→Tapi untuk membangun sesuatu bersamanya.
+  1104→
+  1105→Ayah dan putra.
+  1106→
+  1107→Menyusun batu demi batu.
+  1108→
+  1109→Di lembah yang sama tempat Ismail dulu menangis kehausan.
+  1110→
+  1111→Di tempat yang sama di mana air Zamzam memancar.
+  1112→
+  1113→Di tanah yang sama di mana Hajar رضي الله عنها berlari mencari harapan.
+  1114→
+  1115→Mereka membangun rumah Allah ﷻ di atas tanah yang sudah disaksikan oleh doa.
+  1116→
+  1117→✦ ✦ ✦
+  1118→
+  1119→Ketika bangunan itu selesai, Ibrahim عليه السلام berdoa.
+  1120→
+  1121→Bukan doa kecil.
+  1122→
+  1123→Bukan ucapan syukur biasa.
+  1124→
+  1125→Ini doa seorang ayah yang telah melewati banyak ujian.
+  1126→
+  1127→Yang meninggalkan keluarganya di tanah kosong karena diperintahkan.
+  1128→
+  1129→Yang diperintahkan menyembelih putranya karena diperintahkan.
+  1130→
+  1131→Yang sekarang berdiri di samping putra itu, di depan bangunan yang mereka bangun bersama.
+  1132→
+  1133→Ibrahim mengangkat tangannya.
+  1134→
+  1135→Dan memohon.
+  1136→
+  1137→Allah ﷻ mengabadikan sebagian doanya dalam Al-Qur'an:
+  1138→
+  1139→» "Ya Tuhanku, jadikanlah negeri ini negeri yang aman dan jauhkanlah aku beserta anak cucuku daripada menyembah berhala."
+  1140→— QS Ibrahim: 35
+  1141→
+  1142→Doa itu terdengar.
+  1143→
+  1144→Dan Allah ﷻ mengabulkannya.
+  1145→
+  1146→Berabad-abad kemudian.
+  1147→
+  1148→✦ ✦ ✦
+  1149→
+  1150→Namun waktu tidak berhenti.
+  1151→
+  1152→Ibrahim wafat.
+  1153→
+  1154→Ismail wafat.
+  1155→
+  1156→Generasi berganti generasi.
+  1157→
+  1158→Dan di setiap pergantian itu, Ka'bah tetap berdiri.
+  1159→
+  1160→Tapi manusia berubah.
+  1161→
+  1162→Awalnya, Ka'bah dikunjungi oleh orang-orang yang mengesakan Allah ﷻ.
+  1163→
+  1164→Mereka datang untuk beribadah.
+  1165→
+  1166→Mereka datang karena doa Ibrahim masih hidup di ingatan mereka.
+  1167→
+  1168→Namun pelan-pelan, sesuatu masuk ke dalam rumah yang seharusnya hanya untuk Allah ﷻ.
+  1169→
+  1170→Berhala.
+  1171→
+  1172→Patung-patung kecil yang disembah.
+  1173→
+  1174→Satu.
+  1175→
+  1176→Dua.
+  1177→
+  1178→Puluhan.
+  1179→
+  1180→Hingga ratusan.
+  1181→
+  1182→Ka'bah yang dibangun untuk mengesakan Allah ﷻ, kini dipenuhi oleh benda-benda yang manusia buat sendiri.
+  1183→
+  1184→Rumah Allah ﷻ dijadikan gudang berhala.
+  1185→
+  1186→✦ ✦ ✦
+  1187→
+  1188→Mereka tidak pernah sengaja meninggalkan kebenaran.
+  1189→
+  1190→Mereka hanya menambahkan sesuatu.
+  1191→
+  1192→Satu tradisi tambahan.
+  1193→
+  1194→Satu patung tambahan.
+  1195→
+  1196→Satu kebiasaan tambahan.
+  1197→
+  1198→Hingga yang asli tidak lagi terlihat.
+  1199→
+  1200→✦ ✦ ✦
+  1201→
+  1202→Bangunan fisiknya tetap utuh.
+  1203→
+  1204→Tapi maknanya sudah berubah.
+  1205→
+  1206→Ka'bah tetap menjadi alasan orang datang ke Makkah.
+  1207→
+  1208→Tapi mereka datang bukan lagi untuk mengesakan Allah ﷻ.
+  1209→
+  1210→Mereka datang untuk menyentuh patung-patung di dalamnya.
+  1211→
+  1212→Mereka datang untuk menjalankan ritual yang sudah tidak ada lagi yang tahu dari mana asalnya.
+  1213→
+  1214→Mereka datang untuk berdagang.
+  1215→
+  1216→Dan di antara semua itu, ada yang masih ingat.
+  1217→
+  1218→Masih ada yang menceritakan kisah Ibrahim.
+  1219→
+  1220→Masih ada yang tahu bahwa Ka'bah dibangun bukan untuk berhala.
+  1221→
+  1222→Tapi suara mereka semakin kecil.
+  1223→
+  1224→Semakin tenggelam di antara kebisingan pasar dan nyanyian ritual.
+  1225→
+  1226→✦ ✦ ✦
+  1227→
+  1228→Bangunan itu tetap berdiri.
+  1229→
+  1230→Batu-batu yang disusun Ibrahim dan Ismail masih ada.
+  1231→
+  1232→Doa yang dipanjatkan Ibrahim masih tercatat.
+  1233→
+  1234→Hanya manusia yang lupa.
+  1235→
+  1236→Lupa bahwa rumah ini dibangun untuk Allah ﷻ.
+  1237→
+  1238→Lupa bahwa leluhur mereka berdoa bukan kepada patung.
+  1239→
+  1240→Lupa bahwa di balik setiap batu Ka'bah, ada sejarah yang lebih tua daripada semua berhala yang mereka letakkan di dalamnya.
+  1241→
+  1242→⟩ Ka'bah menunggu.
+  1243→
+  1244→Tidak dengan suara.
+  1245→
+  1246→Tidak dengan gerakan.
+  1247→
+  1248→Tapi dengan kehadirannya yang tidak pernah hilang.
+  1249→
+  1250→Bangunan tua itu terus berdiri di tengah lembah.
+  1251→
+  1252→Seperti kata-kata yang belum diucapkan.
+  1253→
+  1254→Seperti janji yang belum ditepati.
+  1255→
+  1256→Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memintanya dibangun.`,
+  1257→    featured: false,
+  1258→    characterIds: ['ibrahim-as', 'ismail-as'],
+  1259→    locationId: 'kabah',
+  1260→    references: [
+  1261→      'QS Ibrahim: 35-41',
+  1262→      'QS Al-Baqarah: 125-127',
+  1263→      'QS Al-Hajj: 26-30',
+  1264→      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Bina\' Ibrahim al-Bayt, Hal. 42-55, Dar al-Ma\'rifah, Beirut',
+  1265→      'Al-Azraqi, Akhbar Makkah, Juz\' 1, Bab: Dhikr Bina\' Ibrahim al-Ka\'bah, Hal. 30-45, Dar al-Andalus, Beirut',
+  1266→      'Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 1, Hal. 267-276, Dar al-Kutub al-\'Ilmiyyah, Beirut',
+  1267→    ],
+  1268→    order: 3,
+  1269→  },
+  1270→  {
+  1271→    id: 'bab-4',
+  1272→    journeyId: 'fase-0',
+  1273→    collectionId: 'perjalanan-rasulullah',
+  1274→    title: 'Suku Quraisy',
+  1275→    subtitle: 'Penjaga Ka\'bah dan penguasa Makkah',
+  1276→    year: 'Sebelum 570 M',
+  1277→    yearNum: -570,
+  1278→    description: 'Struktur suku, kehormatan Quraisy, pengelola Ka\'bah.',
+  1279→    image: '/images/bab/bab-4-hero.png',
+  1280→    story: `Mereka bukan suku terbesar di Jazirah Arab.
+  1281→
+  1282→Bukan yang paling tua.
+  1283→
+  1284→Bukan yang paling banyak.
+  1285→
+  1286→Tapi mereka yang paling dihormati.
+  1287→
+  1288→✦ ✦ ✦
+  1289→
+  1290→Quraisy.
+  1291→
+  1292→Nama itu mempunyai berat sendiri di setiap sudut semenanjung.
+  1293→
+  1294→Ketika suku lain mendengar kata itu, mereka tidak memikirkan pedang atau pasukan.
+  1295→
+  1296→Mereka memikirkan Ka'bah.
+  1297→
+  1298→Mereka memikirkan Makkah.
+  1299→
+  1300→Mereka memikirkan orang-orang yang dipercaya menjaga rumah yang paling tua di tanah Arab.
+  1301→
+  1302→Itulah sumber segala kehormatan Quraisy.
+  1303→
+  1304→Bukan kekuatan militer.
+  1305→
+  1306→Bukan kekayaan dagang.
+  1307→
+  1308→Tapi kunci Ka'bah.
+  1309→
+  1310→✦ ✦ ✦
+  1311→
+  1312→Bagaimana sebuah suku biasa bisa menjadi penguasa kota paling disegani di seluruh Jazirah?
+  1313→
+  1314→Jawabannya dimulai dari satu orang.
+  1315→
+  1316→Qusay bin Kilab.
+  1317→
+  1318→Lelaki yang menyatukan Quraisy dan membawa mereka ke dalam lembah Makkah.
+  1319→
+  1320→Sebelum Qusay, Ka'bah dijaga oleh suku lain. Khuza'ah. Mereka menguasai Makkah setelah generasi Ismail عليه السلام tersebar dan melemah.
+  1321→
+  1322→Tapi Qusay tidak menerima keadaan itu.
+  1323→
+  1324→Ia tidak melihat alasan mengapa rumah leluhurnya dijaga oleh suku lain.
+  1325→
+  1326→Ia tidak melihat alasan mengapa keturunan Ibrahim dan Ismail tidak memiliki hak atas kota yang dibangun oleh nenek moyang mereka sendiri.
+  1327→
+  1328→Maka Qusay bergerak.
+  1329→
+  1330→Dengan kecerdikan dan keberanian, ia mengambil kembali Makkah.
+  1331→
+  1332→Bukan dengan peperangan besar.
+  1333→
+  1334→Bukan dengan pertumpahan darah.
+  1335→
+  1336→Tapi dengan cara yang lebih halus — dan lebih permanen.
+  1337→
+  1338→Ia menikahi putri kepala suku Khuza'ah.
+  1339→
+  1340→Ia mengumpulkan dukungan.
+  1341→
+  1342→Ia menunggu saat yang tepat.
+  1343→
+  1344→Dan ketika waktunya tiba, ia mengambil alih.
+  1345→
+  1346→✦ ✦ ✦
+  1347→
+  1348→Setelah Qusay menguasai Makkah, ia tidak membagi-bagi kekuasaan seperti kebanyakan pemimpin suku.
+  1349→
+  1350→Ia membangun struktur.
+  1351→
+  1352→Untuk pertama kalinya, Quraisy memiliki pembagian peran yang jelas.
+  1353→
+  1354→Ada yang menjaga kunci Ka'bah — Hijabah.
+  1355→
+  1356→Ada yang memberi minum jamaah haji — Siqayah.
+  1357→
+  1358→Ada yang memberi makan tamu — Rifadah.
+  1359→
+  1360→Ada yang memimpin pasukan — Liwa'.
+  1361→
+  1362→Ada yang mengatur musyawarah — Dar an-Nadwah.
+  1363→
+  1364→Setiap faksi memiliki tugas.
+  1365→
+  1366→Setiap tugas memiliki kehormatan.
+  1367→
+  1368→Dan semua kehormatan itu berpusat pada satu nama: Quraisy.
+  1369→
+  1370→✦ ✦ ✦
+  1371→
+  1372→Qusay membangun Dar an-Nadwah — rumah musyawarah.
+  1373→
+  1374→Bangunan itu menjadi pusat segala keputusan.
+  1375→
+  1376→Pernikahan tidak sah tanpa persetujuan Dar an-Nadwah.
+  1377→
+  1378→Perang tidak dimulai tanpa persetujuan Dar an-Nadwah.
+  1379→
+  1380→Bendera pasukan tidak dikibarkan tanpa persetujuan Dar an-Nadwah.
+  1381→
+  1382→Setiap urusan besar Makkah melewati satu pintu itu.
+  1383→
+  1384→Dan hanya Quraisy yang boleh duduk di dalamnya.
+  1385→
+  1386→✦ ✦ ✦
+  1387→
+  1388→Setelah Qusay wafat, kekuasaan tidak runtuh.
+  1389→
+  1390→Justru semakin kuat.
+  1391→
+  1392→Anak cucunya mewarisi bukan hanya nama, tapi sistem.
+  1393→
+  1394→Abdu Manaf mengambil alih kehormatan memberi makan dan minum.
+  1395→
+  1396→Abdud-Dar mewarisi kunci Ka'bah dan bendera perang.
+  1397→
+  1398→Hashim — kakek Nabi Muhammad ﷺ — mengubah segalanya.
+  1399→
+  1400→Ia tidak puas dengan kehormatan warisan.
+  1401→
+  1402→Ia ingin lebih.
+  1403→
+  1404→Hashim melihat bahwa Makkah punya sesuatu yang tidak dimiliki kota manapun di Jazirah: Ka'bah.
+  1405→
+  1406→Setiap tahun, ribuan orang datang berziarah.
+  1407→
+  1408→Mereka butuh makanan.
+  1409→
+  1410→Mereka butuh tempat tinggal.
+  1411→
+  1412→Mereka butuh perlindungan.
+  1413→
+  1414→Dan mereka membawa barang dagangan.
+  1415→
+  1416→Hashim menyadari bahwa kehormatan tanpa kekayaan adalah pohon tanpa akar.
+  1417→
+  1418→Maka ia memulai perjalanan dagang ke Syam di musim panas.
+  1419→
+  1420→Dan ke Yaman di musim dingin.
+  1421→
+  1422→Ia menandatangani perjanjian dengan kaisar Byzantium.
+  1423→
+  1424→Ia membuat kesepakatan dengan suku-suku di sepanjang jalur.
+  1425→
+  1426→Ia menjamin keamanan kafilah Quraisy melewati tanah-tanah yang selama ini berbahaya.
+  1427→
+  1428→Perjalanan yang dulunya penuh risiko kini menjadi aman.
+  1429→
+  1430→Kafilah yang dulunya kecil kini menjadi besar.
+  1431→
+  1432→Keuntungan yang dulunya tipis kini menjadi berlimpah.
+  1433→
+  1434→✦ ✦ ✦
+  1435→
+  1436→Al-Qur'an sendiri menyebut nikmat ini:
+  1437→
+  1438→» "Karena persaudaraan Quraisy. Persaudaraan mereka dalam perjalanan musim dingin dan musim panas. Maka hendaklah mereka menyembah Tuhan rumah ini."
+  1439→— QS Quraisy: 1-3
+  1440→
+  1441→Allah ﷻ menyebut dua perjalanan itu bukan tanpa alasan.
+  1442→
+  1443→Karena dari dua perjalanan itulah seluruh kekuasaan Quraisy bertumpu.
+  1444→
+  1445→Tanpa perdagangan, mereka hanya penjaga bangunan.
+  1446→
+  1447→Dengan perdagangan, mereka menjadi penguasa benua.
+  1448→
+  1449→✦ ✦ ✦
+  1450→
+  1451→Setelah Hashim, saudara-saudaranya melanjutkan.
+  1452→
+  1453→Muthalib.
+  1454→
+  1455→Syamah.
+  1456→
+  1457→Mereka memperluas jaringan.
+  1458→
+  1459→Mereka memperkuat posisi.
+  1460→
+  1461→Hingga nama Quraisy menjadi sinonim dari dua hal: kehormatan dan kekayaan.
+  1462→
+  1463→Dua hal yang jarang berada di tangan yang sama di tanah Arab.
+  1464→
+  1465→Biasanya suku yang kuat secara militer miskin secara harta.
+  1466→
+  1467→Atau suku yang kaya secara harta lemah secara kehormatan.
+  1468→
+  1469→Quraisy memiliki keduanya.
+  1470→
+  1471→Dan itu membuat mereka tidak tergoyahkan.
+  1472→
+  1473→✦ ✦ ✦
+  1474→
+  1475→Tapi kekuasaan tidak datang tanpa bayaran.
+  1476→
+  1477→Di balik kesatuan yang mereka tunjukkan ke luar, ada retakan yang tumbuh di dalam.
+  1478→
+  1479→Bani Abdu Manaf dan Bani Abdud-Dar.
+  1480→
+  1481→Dua cabang keluarga yang sama-sama merasa berhak atas kehormatan tertinggi.
+  1482→
+  1483→Abdu Manaf — keturunan Hashim — merasa bahwa merekalah yang membawa kemakmuran.
+  1484→
+  1485→Merekalah yang menghidupi Makkah.
+  1486→
+  1487→Merekalah yang menjaga hubungan dengan dunia luar.
+  1488→
+  1489→Abdud-Dar — keturunan yang mewarisi kunci Ka'bah — merasa bahwa merekalah pemilik sah segala kehormatan.
+  1490→
+  1491→Ayah mereka yang mewariskan hak-hak itu.
+  1492→
+  1493→Tetaplah milik mereka.
+  1494→
+  1495→Perselisihan ini tidak meledak menjadi perang.
+  1496→
+  1497→Tapi tidak juga reda.
+  1498→
+  1499→Ia mengendap seperti bara di bawah abu.
+  1500→
+  1501→Menunggu angin yang akan meniupnya.
+  1502→
+  1503→✦ ✦ ✦
+  1504→
+  1505→Di antara semua faksi Quraisy, ada satu rumah yang kelak akan menjadi penting.
+  1506→
+  1507→Rumah Abdul Muthalib.
+  1508→
+  1509→Cucu Hashim.
+  1510→
+  1511→Lelaki yang menemukan kembali sumur Zamzam setelah bertahun-tahun terkubur.
+  1512→
+  1513→Lelaki yang menguburkan bayi-bayi perempuannya karena tradisi.
+  1514→
+  1515→Lelaki yang bernazar menyembelih putranya jika diberi sepuluh anak.
+  1516→
+  1517→Abdul Muthalib bukan raja.
+  1518→
+  1519→Tapi pengaruhnya lebih besar dari raja.
+  1520→
+  1521→Ia bukan pemimpin militer.
+  1522→
+  1523→Tapi perkataannya lebih berat dari pedang.
+  1524→
+  1525→Ia duduk di Dar an-Nadwah.
+  1526→
+  1527→Ia memberi makan jamaah haji.
+  1528→
+  1529→Ia menjadi suara yang paling didengar di Makkah.
+  1530→
+  1531→Dan di dalam rumahnya, sejarah sedang menunggu.
+  1532→
+  1533→⟩ Kekuasaan Quraisy seperti malam yang sunyi.
+  1534→
+  1535→Dari luar, semuanya tenang.
+  1536→
+  1537→Semuanya teratur.
+  1538→
+  1539→Semuanya kokoh.
+  1540→
+  1541→Tapi di bawah ketenangan itu, ada sesuatu yang sedang bergerak.
+  1542→
+  1543→Sesuatu yang tidak terlihat oleh mata.
+  1544→
+  1545→Sesuatu yang tidak terdeteksi oleh telinga.
+  1546→
+  1547→Perlahan.
+  1548→
+  1549→Tanpa terasa.
+  1550→
+  1551→Mempersiapkan datangnya cahaya.`,
+  1552→    featured: false,
+  1553→    characterIds: ['abdul-muthalib'],
+  1554→    locationId: 'makkah',
+  1555→    references: [
+  1556→      'QS Quraisy: 1-4',
+  1557→      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Qusay bin Kilab wa Fadl Quraysy, Hal. 55-70, Dar al-Ma\'rifah, Beirut',
+  1558→      'Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 2, Hal. 210-230, Dar al-Kutub al-\'Ilmiyyah, Beirut',
+  1559→      'Al-Azraqi, Akhbar Makkah, Juz\' 1, Bab: Dhikr Qusay wa Bina\'ih Dar an-Nadwah, Hal. 68-85, Dar al-Andalus, Beirut',
+  1560→      'Ibnu Sa\'d, Ath-Thabaqat al-Kubra, Jilid 1, Hal. 40-52, Dar Shadir, Beirut',
+  1561→    ],
+  1562→    order: 4,
+  1563→  },
+  1564→  {
+  1565→    id: 'bab-5',
+  1566→    journeyId: 'fase-0',
+  1567→    collectionId: 'perjalanan-rasulullah',
+  1568→    title: 'Tahun Gajah',
+  1569→    subtitle: 'Pasukan yang dihancurkan dari langit',
+  1570→    year: '570 M',
+  1571→    yearNum: 570,
+  1572→    description: 'Abrahah, pasukan gajah, QS Al-Fil.',
+  1573→    story: '[Bab ini menunggu penulisan. Fokus: Abrahah, pasukan gajah, QS Al-Fil.]\n\nDi tahun yang sama, seorang bayi akan lahir di Makkah...',
+  1574→    featured: true,
+  1575→    characterIds: ['abrahah'],
+  1576→    locationId: 'makkah',
+  1577→    references: ['QS Al-Fil: 1-5'],
+  1578→    order: 5,
+  1579→  },
+  1580→
+  1581→  // ═══════════════════════════════════════════════════
+  1582→  // FASE 1 — KELAHIRAN SANG CAHAYA
+  1583→  // ═══════════════════════════════════════════════════
+  1584→  {
+  1585→    id: 'bab-6',
+  1586→    journeyId: 'fase-1',
+  1587→    collectionId: 'perjalanan-rasulullah',
+  1588→    title: 'Kelahiran Muhammad ﷺ',
+  1589→    subtitle: 'Cahaya yang dinantikan selama berabad-abad',
+  1590→    year: '570 M',
+  1591→    yearNum: 570,
+  1592→    description: 'Kelahiran Muhammad ﷺ di Makkah.',
+  1593→    story: '[Bab ini menunggu penulisan. Fokus: kelahiran, suasana, keistimewaan.]',
+  1594→    featured: true,
+  1595→    characterIds: ['aminah', 'abdul-muthalib'],
+  1596→    locationId: 'makkah',
+  1597→    references: [],
+  1598→    order: 6,
+  1599→  },
+  1600→  {
+  1601→    id: 'bab-7',
+  1602→    journeyId: 'fase-1',
+  1603→    collectionId: 'perjalanan-rasulullah',
+  1604→    title: 'Di Pangkuan Halimah',
+  1605→    subtitle: 'Susu gurun dan kasih ibu angkat',
+  1606→    year: '570–572 M',
+  1607→    yearNum: 570,
+  1608→    description: 'Muhammad ﷺ di asuh Halimah as-Sa\'diyah di padang pasir.',
+  1609→    story: '[Bab ini menunggu penulisan. Fokus: tradisi menyusukan, Halimah, keberkahan.]',
+  1610→    featured: false,
+  1611→    characterIds: ['halimah'],
+  1612→    locationId: 'padang-bani-saad',
+  1613→    references: [],
+  1614→    order: 7,
+  1615→  },
+  1616→  {
+  1617→    id: 'bab-8',
+  1618→    journeyId: 'fase-1',
+  1619→    collectionId: 'perjalanan-rasulullah',
+  1620→    title: 'Pembelahan Dada',
+  1621→    subtitle: 'Peristiwa yang membersihkan hati',
+  1622→    year: '~572 M',
+  1623→    yearNum: 572,
+  1624→    description: 'Peristiwa pembelahan dada. Catatan riwayat dijelaskan.',
+  1625→    story: '[Bab ini menunggu penulisan. Fokus: peristiwa pembelahan dada, catatan riwayat dijelaskan.]',
+  1626→    featured: false,
+  1627→    characterIds: ['halimah'],
+  1628→    locationId: 'padang-bani-saad',
+  1629→    references: [],
+  1630→    order: 8,
+  1631→  },
+  1632→  {
+  1633→    id: 'bab-9',
+  1634→    journeyId: 'fase-1',
+  1635→    collectionId: 'perjalanan-rasulullah',
+  1636→    title: 'Perpisahan dengan Sang Ibu',
+  1637→    subtitle: 'Abwa\' dan wafat Aminah — bab emosional',
+  1638→    year: '576 M',
+  1639→    yearNum: 576,
+  1640→    description: 'Perjalanan ke Abwa\', wafat Aminah. Bab emosional.',
+  1641→    story: '[Bab ini menunggu penulisan. Fokus: Abwa\', wafat Aminah. Ini bab emosional.]',
+  1642→    featured: false,
+  1643→    characterIds: ['aminah'],
+  1644→    locationId: 'abwa',
+  1645→    references: [],
+  1646→    order: 9,
+  1647→  },
+  1648→  {
+  1649→    id: 'bab-10',
+  1650→    journeyId: 'fase-1',
+  1651→    collectionId: 'perjalanan-rasulullah',
+  1652→    title: 'Di Bawah Asuhan Abdul Muthalib',
+  1653→    subtitle: 'Kakek yang menyayangi lebih dari anaknya sendiri',
+  1654→    year: '576–578 M',
+  1655→    yearNum: 576,
+  1656→    description: 'Muhammad ﷺ di asuh kakeknya Abdul Muthalib.',
+  1657→    story: '[Bab ini menunggu penulisan. Fokus: Abdul Muthalib, kasih sayang kakek, posisi di Makkah.]',
+  1658→    featured: false,
+  1659→    characterIds: ['abdul-muthalib'],
+  1660→    locationId: 'makkah',
+  1661→    references: [],
+  1662→    order: 10,
+  1663→  },
+  1664→  {
+  1665→    id: 'bab-11',
+  1666→    journeyId: 'fase-1',
+  1667→    collectionId: 'perjalanan-rasulullah',
+  1668→    title: 'Rumah Abu Thalib',
+  1669→    subtitle: 'Paman yang menjadi pelindung seumur hidup',
+  1670→    year: '578–595 M',
+  1671→    yearNum: 578,
+  1672→    description: 'Muhammad ﷺ di bawah asuhan Abu Thalib.',
+  1673→    story: '[Bab ini menunggu penulisan. Fokus: Abu Thalib, perlindungan, masa tinggal bersama paman.]',
+  1674→    featured: false,
+  1675→    characterIds: ['abu-thalib'],
+  1676→    locationId: 'makkah',
+  1677→    references: [],
+  1678→    order: 11,
+  1679→  },
+  1680→
+  1681→  // ═══════════════════════════════════════════════════
+  1682→  // FASE 2 — MASA PEMUDA
+  1683→  // ═══════════════════════════════════════════════════
+  1684→  {
+  1685→    id: 'bab-12',
+  1686→    journeyId: 'fase-2',
+  1687→    collectionId: 'perjalanan-rasulullah',
+  1688→    title: 'Menggembala di Gurun Makkah',
+  1689→    subtitle: 'Matahari Makkah belum tinggi...',
+  1690→    year: '583–595 M',
+  1691→    yearNum: 583,
+  1692→    description: 'Muhammad ﷺ menggembala kambing di gurun Makkah.',
+  1693→    story: 'Matahari Makkah belum tinggi...\n\n[Bab ini menunggu penulisan. Fokus: menggembala, kesunyian gurun, kontemplasi.]',
+  1694→    featured: false,
+  1695→    characterIds: [],
+  1696→    locationId: 'makkah',
+  1697→    references: [],
+  1698→    order: 12,
+  1699→  },
+  1700→  {
+  1701→    id: 'bab-13',
+  1702→    journeyId: 'fase-2',
+  1703→    collectionId: 'perjalanan-rasulullah',
+  1704→    title: 'Perjalanan Pertama ke Syam',
+  1705→    subtitle: 'Kafilah, padang pasir, dan pendeta yang melihat tanda',
+  1706→    year: '583 M',
+  1707→    yearNum: 583,
+  1708→    description: 'Muhammad ﷺ ikut kafilah Abu Thalib ke Syam, bertemu Bahira.',
+  1709→    story: '[Bab ini menunggu penulisan. Fokus: kafilah, perjalanan, pertemuan dengan Bahira.]',
+  1710→    featured: false,
+  1711→    characterIds: ['abu-thalib', 'bahira'],
+  1712→    locationId: 'syam',
+  1713→    references: [],
+  1714→    order: 13,
+  1715→  },
+  1716→  {
+  1717→    id: 'bab-14',
+  1718→    journeyId: 'fase-2',
+  1719→    collectionId: 'perjalanan-rasulullah',
+  1720→    title: 'Al-Amin',
+  1721→    subtitle: 'Orang yang dipercaya',
+  1722→    year: '~590 M',
+  1723→    yearNum: 590,
+  1724→    description: 'Julukan Al-Amin — orang yang dipercaya.',
+  1725→    story: '[Bab ini menunggu penulisan. Fokus: julukan Al-Amin, kejujuran, kepercayaan masyarakat Makkah.]',
+  1726→    featured: false,
+  1727→    characterIds: [],
+  1728→    locationId: 'makkah',
+  1729→    references: [],
+  1730→    order: 14,
+  1731→  },
+  1732→  {
+  1733→    id: 'bab-15',
+  1734→    journeyId: 'fase-2',
+  1735→    collectionId: 'perjalanan-rasulullah',
+  1736→    title: 'Pernikahan dengan Khadijah',
+  1737→    subtitle: 'Wanita pertama yang mencintai dan mempercayai',
+  1738→    year: '595 M',
+  1739→    yearNum: 595,
+  1740→    description: 'Pernikahan Muhammad ﷺ dengan Khadijah binti Khuwailid.',
+  1741→    story: '[Bab ini menunggu penulisan. Fokus: pernikahan, Khadijah, rumah tangga.]',
+  1742→    featured: false,
+  1743→    characterIds: ['khadijah'],
+  1744→    locationId: 'makkah',
+  1745→    references: [],
+  1746→    order: 15,
+  1747→  },
+  1748→  {
+  1749→    id: 'bab-16',
+  1750→    journeyId: 'fase-2',
+  1751→    collectionId: 'perjalanan-rasulullah',
+  1752→    title: 'Hajar Aswad dan Perselisihan Quraisy',
+  1753→    subtitle: 'Hampir saja perang meledak di Makkah',
+  1754→    year: '605 M',
+  1755→    yearNum: 605,
+  1756→    description: 'Perselisihan Quraisy tentang Hajar Aswad. Ending kuat — semua suku hampir berperang.',
+  1757→    story: '[Bab ini menunggu penulisan. Fokus: renovasi Ka\'bah, perselisihan, hikmah Muhammad ﷺ. Ending kuat karena semua suku hampir berperang.]',
+  1758→    featured: true,
+  1759→    characterIds: [],
+  1760→    locationId: 'kabah',
+  1761→    references: [],
+  1762→    order: 16,
+  1763→  },
+  1764→
+  1765→  // ═══════════════════════════════════════════════════
+  1766→  // FASE 3 — MENCARI KEBENARAN
+  1767→  // ═══════════════════════════════════════════════════
+  1768→  {
+  1769→    id: 'bab-17',
+  1770→    journeyId: 'fase-3',
+  1771→    collectionId: 'perjalanan-rasulullah',
+  1772→    title: 'Menyepi di Gua Hira',
+  1773→    subtitle: 'Kesunyian yang mencari jawaban',
+  1774→    year: '610 M',
+  1775→    yearNum: 610,
+  1776→    description: 'Muhammad ﷺ menyepi di Gua Hira sebelum wahyu turun.',
+  1777→    story: '[Bab ini menunggu penulisan. Fokus: Gua Hira, kontemplasi, mencari makna.]',
+  1778→    featured: false,
+  1779→    characterIds: [],
+  1780→    locationId: 'gua-hira',
+  1781→    references: [],
+  1782→    order: 17,
+  1783→  },
+  1784→  {
+  1785→    id: 'bab-18',
+  1786→    journeyId: 'fase-3',
+  1787→    collectionId: 'perjalanan-rasulullah',
+  1788→    title: 'Malam yang Mengubah Dunia',
+  1789→    subtitle: 'Wahyu pertama turun di malam yang sunyi',
+  1790→    year: '610 M',
+  1791→    yearNum: 610,
+  1792→    description: 'Wahyu pertama turun. Malam yang mengubah segalanya.',
+  1793→    story: '[Bab ini menunggu penulisan. Fokus: wahyu pertama, Jibril, malam 17 Ramadhan.]',
+  1794→    featured: true,
+  1795→    characterIds: ['jibril-as'],
+  1796→    locationId: 'gua-hira',
+  1797→    references: [],
+  1798→    order: 18,
+  1799→  },
+  1800→  {
+  1801→    id: 'bab-19',
+  1802→    journeyId: 'fase-3',
+  1803→    collectionId: 'perjalanan-rasulullah',
+  1804→    title: "Iqra'",
+  1805→    subtitle: 'Bacalah — dengan nama Tuhanmu',
+  1806→    year: '610 M',
+  1807→    yearNum: 610,
+  1808→    description: 'Fokus QS Al-Alaq. Perintah pertama: bacalah.',
+  1809→    story: '[Bab ini menunggu penulisan. Fokus: QS Al-Alaq 1-5, perintah membaca, makna Iqra\'.]',
+  1810→    featured: false,
+  1811→    characterIds: ['jibril-as'],
+  1812→    locationId: 'gua-hira',
+  1813→    references: ['QS Al-Alaq: 1-5'],
+  1814→    order: 19,
+  1815→  },
+  1816→  {
+  1817→    id: 'bab-20',
+  1818→    journeyId: 'fase-3',
+  1819→    collectionId: 'perjalanan-rasulullah',
+  1820→    title: 'Kembali kepada Khadijah',
+  1821→    subtitle: 'Bab emosional — orang pertama yang beriman',
+  1822→    year: '610 M',
+  1823→    yearNum: 610,
+  1824→    description: 'Muhammad ﷺ pulang kepada Khadijah setelah wahyu. Bab emosional.',
+  1825→    story: '[Bab ini menunggu penulisan. Fokus: Khadijah, orang pertama beriman, kasih sayang dan dukungan. Bab emosional.]',
+  1826→    featured: false,
+  1827→    characterIds: ['khadijah', 'waraqah'],
+  1828→    locationId: 'makkah',
+  1829→    references: [],
+  1830→    order: 20,
+  1831→  },
+  1832→
+  1833→  // ═══════════════════════════════════════════════════
+  1834→  // FASE 4 — DAKWAH DI MAKKAH
+  1835→  // ═══════════════════════════════════════════════════
+  1836→  {
+  1837→    id: 'bab-21',
+  1838→    journeyId: 'fase-4',
+  1839→    collectionId: 'perjalanan-rasulullah',
+  1840→    title: 'Dakwah Rahasia',
+  1841→    subtitle: 'Cahaya yang bersemi dalam diam',
+  1842→    year: '610–613 M',
+  1843→    yearNum: 610,
+  1844→    description: 'Dakwah rahasia di tahun-tahun pertama kenabian.',
+  1845→    story: '[Bab ini menunggu penulisan. Fokus: dakwah rahasia, kelompok pertama, sembunyi-sembunyi.]',
+  1846→    featured: false,
+  1847→    characterIds: [],
+  1848→    locationId: 'makkah',
+  1849→    references: [],
+  1850→    order: 21,
+  1851→  },
+  1852→  {
+  1853→    id: 'bab-22',
+  1854→    journeyId: 'fase-4',
+  1855→    collectionId: 'perjalanan-rasulullah',
+  1856→    title: 'Orang-Orang Pertama yang Beriman',
+  1857→    subtitle: 'Hati-hati yang pertama merespon cahaya',
+  1858→    year: '610–613 M',
+  1859→    yearNum: 610,
+  1860→    description: 'Orang-orang pertama yang beriman: Khadijah, Abu Bakar, Ali, Zaid.',
+  1861→    story: '[Bab ini menunggu penulisan. Fokus: Khadijah, Abu Bakar, Ali bin Abi Thalib, Zaid bin Haritsah.]',
+  1862→    featured: false,
+  1863→    characterIds: ['khadijah', 'abu-bakar', 'ali'],
+  1864→    locationId: 'makkah',
+  1865→    references: [],
+  1866→    order: 22,
+  1867→  },
+  1868→  {
+  1869→    id: 'bab-23',
+  1870→    journeyId: 'fase-4',
+  1871→    collectionId: 'perjalanan-rasulullah',
+  1872→    title: 'Bukit Shafa',
+  1873→    subtitle: 'Hari dakwah menjadi terang-terangan',
+  1874→    year: '613 M',
+  1875→    yearNum: 613,
+  1876→    description: 'Dakwah terang-terangan di Bukit Shafa.',
+  1877→    story: '[Bab ini menunggu penulisan. Fokus: dakwah terang-terangan, reaksi Quraisy, Bukit Shafa.]',
+  1878→    featured: false,
+  1879→    characterIds: [],
+  1880→    locationId: 'bukit-shafa',
+  1881→    references: [],
+  1882→    order: 23,
+  1883→  },
+  1884→  {
+  1885→    id: 'bab-24',
+  1886→    journeyId: 'fase-4',
+  1887→    collectionId: 'perjalanan-rasulullah',
+  1888→    title: 'Bilal dan Panasnya Padang Pasir',
+  1889→    subtitle: 'Siksaan yang tidak memadamkan iman',
+  1890→    year: '614–615 M',
+  1891→    yearNum: 614,
+  1892→    description: 'Bilal bin Rabah dan penyiksaan sahabat di Makkah.',
+  1893→    story: '[Bab ini menunggu penulisan. Fokus: Bilal, penyiksaan, keteguhan iman.]',
+  1894→    featured: false,
+  1895→    characterIds: ['bilal'],
+  1896→    locationId: 'makkah',
+  1897→    references: [],
+  1898→    order: 24,
+  1899→  },
+  1900→  {
+  1901→    id: 'bab-25',
+  1902→    journeyId: 'fase-4',
+  1903→    collectionId: 'perjalanan-rasulullah',
+  1904→    title: 'Hijrah ke Habasyah',
+  1905→    subtitle: 'Meninggalkan tanah air demi kebebasan beriman',
+  1906→    year: '615 M',
+  1907→    yearNum: 615,
+  1908→    description: 'Hijrah pertama ke Habasyah (Ethiopia).',
+  1909→    story: '[Bab ini menunggu penulisan. Fokus: hijrah ke Habasyah, Raja Najasyi, perlindungan.]',
+  1910→    featured: false,
+  1911→    characterIds: [],
+  1912→    locationId: 'habasyah',
+  1913→    references: [],
+  1914→    order: 25,
+  1915→  },
+  1916→  {
+  1917→    id: 'bab-26',
+  1918→    journeyId: 'fase-4',
+  1919→    collectionId: 'perjalanan-rasulullah',
+  1920→    title: 'Boikot Quraisy',
+  1921→    subtitle: 'Tiga tahun di lembah yang sepi',
+  1922→    year: '616–619 M',
+  1923→    yearNum: 616,
+  1924→    description: 'Boikot Quraisy terhadap Bani Hasyim di Shi\'b Abi Thalib.',
+  1925→    story: '[Bab ini menunggu penulisan. Fokus: boikot, Shi\'b Abi Thalib, kelaparan, kesabaran.]',
+  1926→    featured: false,
+  1927→    characterIds: ['abu-thalib'],
+  1928→    locationId: 'makkah',
+  1929→    references: [],
+  1930→    order: 26,
+  1931→  },
+  1932→  {
+  1933→    id: 'bab-27',
+  1934→    journeyId: 'fase-4',
+  1935→    collectionId: 'perjalanan-rasulullah',
+  1936→    title: 'Tahun Kesedihan',
+  1937→    subtitle: 'Kehilangan dua pelindung',
+  1938→    year: '619–620 M',
+  1939→    yearNum: 619,
+  1940→    description: 'Wafat Abu Thalib dan Khadijah. Tahun Kesedihan.',
+  1941→    story: '[Bab ini menunggu penulisan. Fokus: wafat Abu Thalib, wafat Khadijah, Tahun Kesedihan.]',
+  1942→    featured: false,
+  1943→    characterIds: ['abu-thalib', 'khadijah'],
+  1944→    locationId: 'makkah',
+  1945→    references: [],
+  1946→    order: 27,
+  1947→  },
+  1948→  {
+  1949→    id: 'bab-28',
+  1950→    journeyId: 'fase-4',
+  1951→    collectionId: 'perjalanan-rasulullah',
+  1952→    title: "Isra' Mi'raj",
+  1953→    subtitle: 'Perjalanan yang melampaui akal manusia',
+  1954→    year: '621 M',
+  1955→    yearNum: 621,
+  1956→    description: "Isra' Mi'raj — perjalanan malam dari Makkah ke Yerusalem ke Sidratul Muntaha.",
+  1957→    story: '[Bab ini menunggu penulisan. Fokus: Isra\', Mi\'raj, Baitul Maqdis, Sidratul Muntaha, shalat lima waktu.]',
+  1958→    featured: true,
+  1959→    characterIds: ['jibril-as'],
+  1960→    locationId: 'baitul-maqdis',
+  1961→    references: ['QS Al-Isra\': 1', 'QS An-Najm: 1-18'],
+  1962→    order: 28,
+  1963→  },
+  1964→
+  1965→  // ═══════════════════════════════════════════════════
+  1966→  // FASE 5 — MENUJU MADINAH
+  1967→  // ═══════════════════════════════════════════════════
+  1968→  {
+  1969→    id: 'bab-29',
+  1970→    journeyId: 'fase-5',
+  1971→    collectionId: 'perjalanan-rasulullah',
+  1972→    title: 'Baiat Aqabah',
+  1973→    subtitle: 'Janji di malam gelap yang mengubah arah sejarah',
+  1974→    year: '621 M',
+  1975→    yearNum: 621,
+  1976→    description: 'Baiat Aqabah Pertama dan Kedua dengan penduduk Yatsrib.',
+  1977→    story: '[Bab ini menunggu penulisan. Fokus: Baiat Aqabah, orang-orang Yatsrib, janji perlindungan.]',
+  1978→    featured: false,
+  1979→    characterIds: [],
+  1980→    locationId: 'aqabah',
+  1981→    references: [],
+  1982→    order: 29,
+  1983→  },
+  1984→  {
+  1985→    id: 'bab-30',
+  1986→    journeyId: 'fase-5',
+  1987→    collectionId: 'perjalanan-rasulullah',
+  1988→    title: 'Malam Hijrah',
+  1989→    subtitle: 'Malam ketika Makkah kehilangan penghuninya',
+  1990→    year: '622 M',
+  1991→    yearNum: 622,
+  1992→    description: 'Malam hijrah — meninggalkan Makkah.',
+  1993→    story: '[Bab ini menunggu penulisan. Fokus: malam hijrah, Ali di tempat tidur, rencana Quraisy.]',
+  1994→    featured: true,
+  1995→    characterIds: ['abu-bakar', 'ali'],
+  1996→    locationId: 'makkah',
+  1997→    references: [],
+  1998→    order: 30,
+  1999→  },
+  2000→  {
+
+[showing lines 1-2000 of 2698; use offset=2001 with limit to continue reading]
