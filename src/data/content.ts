@@ -1998,7 +1998,7 @@ Bahwa kekuasaan sejati bukan di tangan raja.
 
 Dan bahwa di balik peristiwa yang menakjubkan itu, sesuatu yang lebih besar sedang dipersiapkan.
 
-Sesuatu yang akan dimulai dari tangisan seorang bayi.`,
+Sesuatu yang akan dimulai dari kelahiran seorang bayi.`,
     featured: true,
     characterIds: ['abrahah', 'abdul-muthalib'],
     locationId: 'makkah',
