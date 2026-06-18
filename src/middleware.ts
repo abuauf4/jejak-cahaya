@@ -12,7 +12,7 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/admin/login', req.url));
     }
 
-    const session = verifySessionTokenEdge(token);
+    const session = await verifySessionTokenEdge(token);
     if (!session) {
       // Token invalid or expired — clear cookie and redirect
       const response = NextResponse.redirect(new URL('/admin/login', req.url));
@@ -27,7 +27,7 @@ export async function middleware(req: NextRequest) {
   if (pathname === '/admin/login') {
     const token = req.cookies.get('jejak-admin-session')?.value;
     if (token) {
-      const session = verifySessionTokenEdge(token);
+      const session = await verifySessionTokenEdge(token);
       if (session) {
         return NextResponse.redirect(new URL('/admin', req.url));
       }
