@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, BookOpen, MapPin } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
 import { useJejakNav } from '@/lib/useJejakNav';
-import type { Character, SirahEvent } from '@/data/content';
+import type { Character, StoryEvent } from '@/data/content';
 
 interface CharacterDetailPageProps {
   character: Character;
-  relatedEvents: SirahEvent[];
+  relatedEvents: StoryEvent[];
 }
 
 export default function CharacterDetailPage({ character, relatedEvents }: CharacterDetailPageProps) {
