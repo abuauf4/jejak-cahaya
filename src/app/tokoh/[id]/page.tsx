@@ -15,6 +15,8 @@ export async function generateMetadata({ params }: TokohDetailProps): Promise<Me
     return { title: 'Tokoh tidak ditemukan — Jejak Cahaya' };
   }
 
+  const ogImage = `/api/og/tokoh/${id}`;
+
   return {
     title: `${character.name} — Jejak Cahaya`,
     description: character.shortBio,
@@ -23,11 +25,20 @@ export async function generateMetadata({ params }: TokohDetailProps): Promise<Me
       description: character.shortBio,
       type: 'profile',
       siteName: 'Jejak Cahaya',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: character.name,
+        },
+      ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${character.name} — Jejak Cahaya`,
       description: character.shortBio,
+      images: [ogImage],
     },
   };
 }
