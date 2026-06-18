@@ -23,6 +23,8 @@ export async function generateMetadata({ params }: BabPageProps): Promise<Metada
     return { title: 'Bab tidak ditemukan — Jejak Cahaya' };
   }
 
+  const ogImage = `/api/og/bab/${id}`;
+
   return {
     title: `${event.title} — Jejak Cahaya`,
     description: event.subtitle
@@ -33,22 +35,20 @@ export async function generateMetadata({ params }: BabPageProps): Promise<Metada
       description: event.subtitle || event.description,
       type: 'article',
       siteName: 'Jejak Cahaya',
-      ...(event.image && {
-        images: [
-          {
-            url: event.image,
-            width: 1344,
-            height: 768,
-            alt: event.title,
-          },
-        ],
-      }),
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: event.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${event.title} — Jejak Cahaya`,
       description: event.subtitle || event.description,
-      ...(event.image && { images: [event.image] }),
+      images: [ogImage],
     },
   };
 }
@@ -91,3 +91,4 @@ export default async function BabPage({ params }: BabPageProps) {
     </BabPageShell>
   );
 }
+
