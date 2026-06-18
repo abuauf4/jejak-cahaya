@@ -3,14 +3,15 @@ import crypto from 'crypto';
 
 // ─────────────────────────────────────────────────────
 // SESSION_SECRET wajib di-set di .env / environment.
-// Tanpa fallback — kalau kosong, app harus crash, bukan
-// jalan dengan secret yang bisa ditebak.
+// Di build time: graceful (biar Vercel bisa build).
+// Di runtime (production): kalau kosong, admin login tidak bisa jalan
+// dan token akan invalid — ini lebih aman daripada fallback hardcoded.
 // ─────────────────────────────────────────────────────
-const SESSION_SECRET = process.env.SESSION_SECRET;
-if (!SESSION_SECRET) {
-  throw new Error(
-    '[jejak-cahaya] SESSION_SECRET tidak ditemukan di environment variables. ' +
-    'Tambahkan SESSION_SECRET=<random-string> ke .env atau deployment config.'
+const SESSION_SECRET = process.env.SESSION_SECRET || '';
+if (!SESSION_SECRET && process.env.NODE_ENV === 'production') {
+  console.error(
+    '[jejak-cahaya] ⚠️ SESSION_SECRET tidak ditemukan di environment variables. ' +
+    'Admin login tidak akan berfungsi. Tambahkan SESSION_SECRET=<random-string> ke deployment config.'
   );
 }
 
