@@ -381,6 +381,148 @@ html { scroll-behavior: smooth; }
   pointer-events: none;
 }
 
+/* ══════════════════════════════════════════════════════
+   HONORIFIC TYPOGRAPHY — Jejak Cahaya Editorial System
+
+   Aturan:
+   - Allah ﷻ → treatment paling utama (gold glow, tidak pernah biasa)
+   - Rasulullah / Nabi Muhammad ﷺ → treatment kedua (warm emphasis)
+   - Nabi lain → عليه السلام (lighter, bukan treatment yang sama)
+
+   Ini soal penghormatan, bukan dekorasi.
+   ══════════════════════════════════════════════════════ */
+
+/* ── Allah ﷻ — Paling Utama ── */
+.allah-mention {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #7A5C10;
+  transition: color 0.15s ease;
+}
+.allah-mention:hover {
+  color: #96751A;
+}
+:is(.dark) .allah-mention {
+  color: #F5D78E;
+  text-shadow: 0 0 20px rgba(245, 215, 142, 0.15);
+}
+:is(.dark) .allah-mention:hover {
+  color: #FAE6B0;
+  text-shadow: 0 0 24px rgba(245, 215, 142, 0.22);
+}
+
+/* ﷻ honorific — slightly smaller, raised */
+.honorific-jalla {
+  font-size: 0.78em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+  opacity: 0.85;
+}
+
+/* ── Rasulullah Muhammad ﷺ — Kedua Setelah Allah ── */
+.rasulullah-mention {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #6B5010;
+  transition: color 0.15s ease;
+}
+.rasulullah-mention:hover {
+  color: #96751A;
+}
+:is(.dark) .rasulullah-mention {
+  color: #E8C96A;
+}
+:is(.dark) .rasulullah-mention:hover {
+  color: #F5D78E;
+}
+
+/* ﷺ honorific — slightly smaller, raised */
+.honorific-sallallahu {
+  font-size: 0.78em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+  opacity: 0.85;
+}
+
+/* ── Nabi lain عليه السلام ── */
+.honorific-alayhis-salam {
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+/* ── Reference Block — Rel Kelihatan ── */
+.reader-references-block {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 168, 67, 0.12);
+  background: rgba(212, 168, 67, 0.02);
+}
+:is(.dark) .reader-references-block {
+  border-color: rgba(212, 168, 67, 0.10);
+  background: rgba(212, 168, 67, 0.03);
+}
+
+.reader-references-title {
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #96751A;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+:is(.dark) .reader-references-title {
+  color: #D4A843;
+}
+
+.reader-references-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reader-references-item {
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #5A4D3E;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(44, 36, 24, 0.06);
+  display: flex;
+  gap: 0.5rem;
+}
+:is(.dark) .reader-references-item {
+  color: #8B8070;
+  border-bottom-color: rgba(196, 181, 154, 0.06);
+}
+.reader-references-item:last-child {
+  border-bottom: none;
+}
+
+.reader-references-number {
+  color: #96751A;
+  font-weight: 600;
+  font-size: 11px;
+  flex-shrink: 0;
+  width: 1.5rem;
+  text-align: right;
+}
+:is(.dark) .reader-references-number {
+  color: #D4A843;
+}
+
+/* ══════════════════════════════════════════════════════ */
+
 /* Smooth page transitions */
 .page-enter {
   opacity: 0;
@@ -392,3 +534,4 @@ html { scroll-behavior: smooth; }
   transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
