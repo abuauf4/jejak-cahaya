@@ -5,6 +5,7 @@ import { useNavigation } from '@/lib/store';
 import AppShell from '@/components/jejak/AppShell';
 import Hero from '@/components/jejak/Hero';
 import ContinueJourney from '@/components/jejak/ContinueJourney';
+import JourneyProgressBar from '@/components/jejak/JourneyProgressBar';
 import StartFromBeginning from '@/components/jejak/StartFromBeginning';
 import Collections from '@/components/jejak/Collections';
 import Community from '@/components/jejak/Community';
@@ -27,6 +28,7 @@ export default function Home() {
       >
         <Hero />
         <ContinueJourney />
+        <JourneyProgressBar />
         <StartFromBeginning />
         <Collections />
         <Community />
