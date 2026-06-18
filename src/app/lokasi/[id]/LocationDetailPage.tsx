@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, MapPin, Navigation, BookOpen } from 'lucide-react';
 import { useNavigation } from '@/lib/store';
-import type { StoryLocation, SirahEvent } from '@/data/content';
+import type { StoryLocation, StoryEvent } from '@/data/content';
 
 interface LocationDetailPageProps {
   location: StoryLocation;
-  relatedEvents: SirahEvent[];
+  relatedEvents: StoryEvent[];
 }
 
 export default function LocationDetailPage({ location, relatedEvents }: LocationDetailPageProps) {
