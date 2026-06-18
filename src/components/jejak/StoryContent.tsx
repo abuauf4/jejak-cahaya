@@ -37,7 +37,7 @@ function superscriptToNumber(sup: string): string {
 const CITATION_RE = /[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g;
 
 // ── Inline entity link: [[Label|character:id]] or [[Label|location:id]] ──
-// Renders as Next.js Link to /tokoh?id=xxx or /lokasi?id=xxx
+// Renders as Next.js Link to /tokoh/xxx or /lokasi/xxx
 const ENTITY_RE = /\[\[([^\]|]+)\|((?:character|location):[a-z0-9-]+)\]\]/g;
 
 function renderWithCitations(text: string): React.ReactNode[] {
@@ -82,7 +82,7 @@ function renderWithCitations(text: string): React.ReactNode[] {
     } else {
       const [label, target] = match.payload.split('||');
       const [type, id] = target.split(':');
-      const href = type === 'character' ? `/tokoh?id=${id}` : `/lokasi?id=${id}`;
+      const href = type === 'character' ? `/tokoh/${id}` : `/lokasi/${id}`;
       parts.push(
         <Link
           key={`ent-${match.index}`}
@@ -491,3 +491,4 @@ export default function StoryContent({
     </div>
   );
 }
+
