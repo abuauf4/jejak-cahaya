@@ -15,6 +15,8 @@ export async function generateMetadata({ params }: LokasiDetailProps): Promise<M
     return { title: 'Lokasi tidak ditemukan — Jejak Cahaya' };
   }
 
+  const ogImage = `/api/og/lokasi/${id}`;
+
   return {
     title: `${location.name} — Jejak Cahaya`,
     description: location.description,
@@ -23,11 +25,20 @@ export async function generateMetadata({ params }: LokasiDetailProps): Promise<M
       description: location.description,
       type: 'article',
       siteName: 'Jejak Cahaya',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: location.name,
+        },
+      ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${location.name} — Jejak Cahaya`,
       description: location.description,
+      images: [ogImage],
     },
   };
 }
