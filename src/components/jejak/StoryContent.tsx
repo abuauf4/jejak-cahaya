@@ -31,7 +31,7 @@ function superscriptToNumber(sup: string): string {
   return sup.split('').map(c => map[c] ?? c).join('');
 }
 
-// ── Render text with inline citation badges ──
+// ── Render text with inline citation badges + honorific typography ──
 // Single digit  → lingkaran kecil   .citation-badge--single
 // Multi digit   → pill/rounded rect  .citation-badge--multi
 const CITATION_RE = /[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g;
@@ -40,12 +40,20 @@ const CITATION_RE = /[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g;
 // Renders as Next.js Link to /tokoh/xxx or /lokasi/xxx
 const ENTITY_RE = /\[\[([^\]|]+)\|((?:character|location):[a-z0-9-]+)\]\]/g;
 
+// ── Honorific typography ──
+// Allah ﷻ → paling utama
+// Rasulullah/Nabi Muhammad ﷺ → kedua setelah Allah
+// عليه السلام → nabi lain, lebih ringan
+const ALLAH_RE = /Allah\s*ﷻ/g;
+const RASULULLAH_RE = /(?:Rasulullah|Nabi Muhammad|Muhammad)\s*ﷺ/g;
+const ALAYHIS_SALAM_RE = /عليه\s*السلام/g;
+
 function renderWithCitations(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
 
-  // Combine citation + entity matches into a single sweep
-  type Match = { index: number; end: number; kind: 'citation' | 'entity'; payload: string };
+  // Combine all match types into a single sweep
+  type Match = { index: number; end: number; kind: 'citation' | 'entity' | 'allah' | 'rasulullah' | 'alayhis'; payload: string };
   const matches: Match[] = [];
 
   CITATION_RE.lastIndex = 0;
@@ -56,6 +64,18 @@ function renderWithCitations(text: string): React.ReactNode[] {
   ENTITY_RE.lastIndex = 0;
   while ((m = ENTITY_RE.exec(text)) !== null) {
     matches.push({ index: m.index, end: ENTITY_RE.lastIndex, kind: 'entity', payload: m[1] + '||' + m[2] });
+  }
+  ALLAH_RE.lastIndex = 0;
+  while ((m = ALLAH_RE.exec(text)) !== null) {
+    matches.push({ index: m.index, end: ALLAH_RE.lastIndex, kind: 'allah', payload: m[0] });
+  }
+  RASULULLAH_RE.lastIndex = 0;
+  while ((m = RASULULLAH_RE.exec(text)) !== null) {
+    matches.push({ index: m.index, end: RASULULLAH_RE.lastIndex, kind: 'rasulullah', payload: m[0] });
+  }
+  ALAYHIS_SALAM_RE.lastIndex = 0;
+  while ((m = ALAYHIS_SALAM_RE.exec(text)) !== null) {
+    matches.push({ index: m.index, end: ALAYHIS_SALAM_RE.lastIndex, kind: 'alayhis', payload: m[0] });
   }
   matches.sort((a, b) => a.index - b.index);
 
@@ -77,6 +97,28 @@ function renderWithCitations(text: string): React.ReactNode[] {
           aria-label={`Referensi ${label}`}
         >
           {label}
+        </span>
+      );
+    } else if (match.kind === 'allah') {
+      // Allah ﷻ — treatment paling utama
+      parts.push(
+        <span key={`allah-${match.index}`} className="allah-mention">
+          Allah<span className="honorific-jalla">ﷻ</span>
+        </span>
+      );
+    } else if (match.kind === 'rasulullah') {
+      // Rasulullah/Nabi Muhammad ﷺ — kedua setelah Allah
+      const name = match.payload.replace(/\s*ﷺ/, '');
+      parts.push(
+        <span key={`rasul-${match.index}`} className="rasulullah-mention">
+          {name}<span className="honorific-sallallahu">ﷺ</span>
+        </span>
+      );
+    } else if (match.kind === 'alayhis') {
+      // Nabi lain عليه السلام — lebih ringan
+      parts.push(
+        <span key={`alayhis-${match.index}`}>
+          عليه<span className="honorific-alayhis-salam">السلام</span>
         </span>
       );
     } else {
@@ -388,32 +430,25 @@ export default function StoryContent({
               </div>
             )}
 
-            {/* References */}
+            {/* References — Rel Kelihatan */}
             {event.references.length > 0 && (
-              <div className="pt-6" style={{ borderTop: `1px solid ${separatorColor}` }}>
-                <details className="reader-references group">
-                  <summary className="reader-references-summary">
-                    <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-ink-soft dark:text-sand">
-                      Referensi
-                    </span>
-                    <svg
-                      className="reader-references-chevron"
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      aria-hidden="true"
-                    >
-                      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </summary>
-                  <div className="mt-3 space-y-1.5">
-                    {event.references.map((ref, i) => (
-                      <p key={i} className="text-sm text-ink-soft dark:text-sand">
-                        <span className="font-sans mr-1.5">{toSuperscript(i + 1)}</span>{ref}
-                      </p>
-                    ))}
-                  </div>
-                </details>
+              <div className="reader-references-block">
+                <div className="reader-references-title">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 1h6l4 4v7a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 1v4h4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M5 8h4M5 10.5h3" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+                  </svg>
+                  Referensi
+                </div>
+                <ol className="reader-references-list">
+                  {event.references.map((ref, i) => (
+                    <li key={i} className="reader-references-item">
+                      <span className="reader-references-number">{i + 1}.</span>
+                      <span>{ref}</span>
+                    </li>
+                  ))}
+                </ol>
               </div>
             )}
 
