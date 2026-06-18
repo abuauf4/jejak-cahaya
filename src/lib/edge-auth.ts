@@ -5,10 +5,11 @@
 // Signature harus konsisten dengan auth.ts (Node.js) karena
 // token yang dibuat di API route harus bisa diverifikasi di middleware.
 
-const SESSION_SECRET = process.env.SESSION_SECRET;
-if (!SESSION_SECRET) {
-  throw new Error(
-    '[jejak-cahaya] SESSION_SECRET tidak ditemukan di environment variables.'
+const SESSION_SECRET = process.env.SESSION_SECRET || '';
+if (!SESSION_SECRET && process.env.NODE_ENV === 'production') {
+  console.error(
+    '[jejak-cahaya] ⚠️ SESSION_SECRET tidak ditemukan di environment variables. ' +
+    'Admin login tidak akan berfungsi.'
   );
 }
 
