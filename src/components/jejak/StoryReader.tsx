@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
+import ShareButton from './ShareButton';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import { useJejakNav } from '@/lib/useJejakNav';
 import {
@@ -167,6 +168,12 @@ export default function StoryReader({ eventId: eventIdProp }: { eventId?: string
                 </button>
               </>
             )}
+            <span className="flex-1" />
+            <ShareButton
+              title={event.title}
+              subtitle={event.subtitle}
+              path={`/bab/${activeEventId?.replace('bab-', '')}`}
+            />
           </motion.div>
 
           {/* Title */}
@@ -444,3 +451,4 @@ export default function StoryReader({ eventId: eventIdProp }: { eventId?: string
     </div>
   );
 }
+
