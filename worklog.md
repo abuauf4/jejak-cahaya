@@ -220,3 +220,22 @@ Stage Summary:
 - Parchment texture: SVG feTurbulence, dual-theme, no images
 - Hero & Community text updated per user's brief
 - All committed locally, push pending user's PAT
+
+---
+Task ID: 7
+Agent: main
+Task: Insert naskah Bab 6 — Kelahiran yang Dinantikan
+
+Work Log:
+- Baca naskah Bab 6 dari user (format markdown dengan header + story + reflection + references + catatan editor)
+- Konversi ke format renderer: marker ✦ ✦ ✦ dipertahankan, reflection `⟩` di-merge ke baris pertama, italic asterisks di-strip
+- Tambahkan entity links di first-mention: [[Aminah|character:aminah]], [[Makkah|location:makkah]], [[Abdul Muthalib|character:abdul-muthalib]], [[Ka'bah|location:kabah]]
+- Update title: 'Kelahiran Muhammad ﷺ' → 'Kelahiran yang Dinantikan'
+- Update subtitle: 'Cahaya yang dinantikan selama berabad-abad' → 'Fajar di Lembah yang Dilindungi'
+- Isi array references (2 entries) dan editorNotes (3 entries) dari footer naskah
+- Tulis backup markdown: download/bab-6-kelahiran-yang-dinantikan.md
+
+Stage Summary:
+- Bab 6 LOCKED dengan naskah final dari user
+- content.ts baris 2021-2182 (bab-6 objek)
+- download/bab-6-kelahiran-yang-dinantikan.md (backup)
