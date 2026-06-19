@@ -11,7 +11,7 @@ import JourneyProgress from './JourneyProgress';
 
 export interface ParsedStory {
   opening: string[];
-  story: string[];
+  story: StoryParagraph[];
   reflection: string[];
 }
 

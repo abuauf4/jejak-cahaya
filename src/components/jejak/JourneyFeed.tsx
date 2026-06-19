@@ -1,24 +1,27 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useNavigation, useReadingProgress } from '@/lib/store';
 import { useJejakNav } from '@/lib/useJejakNav';
 import { getActiveCollection, getJourneysByCollection, getEventsByJourney } from '@/data/content';
 import type { Journey } from '@/data/content';
 
-const expandVariants = {
+// Cubic-bezier easing tuple — framer-motion v11+ requires tuple, not number[]
+const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const expandVariants: Variants = {
   initial: { height: 0, opacity: 0 },
   animate: {
     height: 'auto',
     opacity: 1,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: EASE_OUT },
   },
   exit: {
     height: 0,
     opacity: 0,
-    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.25, ease: EASE_OUT },
   },
 };
 
@@ -134,7 +137,7 @@ function PhaseItem({
                       transition={{
                         duration: 0.35,
                         delay: i * 0.06,
-                        ease: [0.22, 1, 0.36, 1],
+                        ease: EASE_OUT,
                       }}
                       className="w-full text-left group flex items-baseline gap-3 py-2.5"
                     >
@@ -233,7 +236,7 @@ export default function JourneyFeed({
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, ease: EASE_OUT }}
             className="mb-10"
           >
             <h1
