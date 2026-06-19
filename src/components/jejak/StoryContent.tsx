@@ -115,10 +115,11 @@ function renderWithCitations(text: string): React.ReactNode[] {
         </span>
       );
     } else if (match.kind === 'alayhis') {
-      // Nabi lain عليه السلام — lebih ringan
+      // Nabi lain عليه السلام — lebih ringan, satu kesatuan
+      // Frase Arabic utuh, jangan di-split (beda dengan ﷻ/ﷺ yang ligature tunggal)
       parts.push(
-        <span key={`alayhis-${match.index}`}>
-          عليه<span className="honorific-alayhis-salam">السلام</span>
+        <span key={`alayhis-${match.index}`} className="alayhis-mention">
+          {match.payload}
         </span>
       );
     } else {

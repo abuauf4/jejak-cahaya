@@ -447,13 +447,20 @@ html { scroll-behavior: smooth; }
 }
 
 /* ── Nabi lain عليه السلام ── */
-.honorific-alayhis-salam {
-  font-size: 0.75em;
-  vertical-align: super;
-  line-height: 0;
-  margin-left: 1px;
-  opacity: 0.65;
-  font-weight: 400;
+/* Frase Arabic utuh — jangan split seperti ﷻ/ﷺ (ligature tunggal).
+   Slightly smaller & dimmer than body, Arabic font stack for consistency. */
+.alayhis-mention {
+  font-size: 0.88em;
+  font-weight: 500;
+  opacity: 0.78;
+  white-space: nowrap;
+  /* Inter/Playfair tidak punya glyph Arabic → fallback ke Arabic font */
+  font-family: 'Noto Naskh Arabic', 'Amiri', 'Scheherazade New',
+    'Traditional Arabic', 'Times New Roman', serif;
+  transition: opacity 0.15s ease;
+}
+.alayhis-mention:hover {
+  opacity: 1;
 }
 
 /* ── Reference Block — Rel Kelihatan ── */
