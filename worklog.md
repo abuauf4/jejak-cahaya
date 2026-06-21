@@ -239,3 +239,25 @@ Stage Summary:
 - Bab 6 LOCKED dengan naskah final dari user
 - content.ts baris 2021-2182 (bab-6 objek)
 - download/bab-6-kelahiran-yang-dinantikan.md (backup)
+
+---
+Task ID: 8
+Agent: main
+Task: Insert naskah Bab 7 — Di Pangkuan Halimah
+
+Work Log:
+- Baca naskah Bab 7 dari user (format markdown: header + story + reflection + references + catatan editor)
+- Konversi ke format renderer: marker ✦ ✦ ✦ dipertahankan, reflection `⟩` di-merge ke baris pertama, italic asterisks di-strip
+- Tambahkan entity links di first-mention: [[Halimah|character:halimah]], [[Aminah|character:aminah]], [[Makkah|location:makkah]]
+- Tambahkan Muhammad ﷺ honorific di baris "Muhammad ﷺ tumbuh di padang Bani Sa'd" (parser auto-styling)
+- Update subtitle: 'Susu gurun dan kasih ibu angkat' → 'Susu yang Membawa Berkah'
+- Update characterIds: ['halimah'] → ['halimah', 'aminah'] (Aminah muncul di naskah)
+- Isi array references (3 entries) dan editorNotes (1 entry) dari footer naskah
+- Tulis backup markdown: download/bab-7-di-pangkulan-halimah.md
+
+Stage Summary:
+- Bab 7 LOCKED dengan naskah final dari user
+- content.ts baris 2183-2367 (bab-7 objek)
+- download/bab-7-di-pangkulan-halimah.md (backup)
+- Parser output verified: 1 opening + 8 section dividers + 68 text + 5 reflection, closing 58 char → auto-gold
+- TS errors: 0
