@@ -2184,8 +2184,8 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.`,
     id: 'bab-7',
     journeyId: 'fase-1',
     collectionId: 'perjalanan-rasulullah',
-    title: 'Di Pangkuan Halimah',
-    subtitle: 'Air Susu yang Membawa Berkah',
+    title: 'Yang tersisa untuk Halimah',
+    subtitle: 'Keberkahan Allah datang saat tak ada pilihan',
     year: '570–572 M',
     yearNum: 570,
     description: 'Muhammad ﷺ di asuh Halimah as-Sa\'diyah di padang pasir.',
@@ -2193,45 +2193,83 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.`,
 
 Perempuan-perempuan dari pedalaman.
 
-Mencari bayi-bayi yang akan mereka susui.
+Mencari bayi-bayi untuk mereka susui.
 
 Membawa pulang sedikit rezeki dari kota yang lebih ramai dari kampung mereka.
 
-✦ ✦ ✦
-
-Rombongan itu berasal dari Bani Sa'd bin Bakr.¹
-
-Salah satu kabilah Badui di sekitar Makkah.
-
-Tahun itu, di antara mereka, ada seorang perempuan bernama [[Halimah|character:halimah]] binti Abi Dzu'aib.¹
-
-Ia datang bersama suaminya, Harits bin Abdul Uzza.
-
-Dan bayi perempuannya sendiri, yang masih kecil.
+Tapi tahun itu berbeda.
 
 ✦ ✦ ✦
 
-Satu demi satu, perempuan-perempuan itu memilih bayi.
+Kabilah Hawazin sedang dilanda paceklik panjang.¹
 
-Keluarga-keluarga Quraisy menyerahkan anak mereka kepada perempuan yang dianggap paling layak.
+Hujan tidak turun.
 
-Bayi yang orang tuanya mampu membayar lebih, lebih dulu mendapat ibu susu.
+Padang rumput mengering.
 
-Halimah belum mendapatkan siapa pun.¹
+Hewan ternak kurus, dan susu mereka ikut hilang bersama musim kemarau.
 
-Rombongannya hampir kembali ke kampung tanpa membawa bayi untuknya.
+Di antara rombongan yang berangkat ke Makkah tahun itu, ada [[Halimah|character:halimah]] binti Abi Dzu\'aib.¹
+
+Bersama suaminya, Harits bin Abdul Uzza.
+
+Dan bayinya sendiri yang masih kecil, yang terus menangis sepanjang malam.
 
 ✦ ✦ ✦
+
+Keadaan mereka paling berat di antara semua rombongan.
+
+Halimah menunggangi keledai putih, membawa unta tua yang mereka bawa serta.¹
+
+Unta itu sudah tidak bisa lagi meneteskan susu.
+
+Tidak setetes pun.
+
+Air susu Halimah sendiri tidak cukup untuk anaknya.
+
+Setiap malam dalam perjalanan, ia tidak bisa tidur.
+
+Bayinya menangis karena lapar, dan ia tidak punya apa pun untuk menenangkannya.¹
+
+Mereka berjalan dengan harapan yang nyaris habis.
+
+Hanya berharap ada jalan keluar di Makkah.
+
+✦ ✦ ✦
+
+Sesampainya di Makkah, satu per satu perempuan dalam rombongan mendapat bayi susuan.
+
+Keluarga-keluarga Quraisy menyerahkan anak mereka kepada perempuan yang dianggap layak.
+
+Bayi yang ayahnya mampu membayar lebih, lebih dulu mendapat ibu susu.
 
 Tersisa satu bayi.
 
-Anak yatim.
+Seorang anak yatim.
 
-Ibunya, [[Aminah|character:aminah]] binti Wahb, tidak bisa menjanjikan bayaran yang besar.¹
+Ayahnya, Abdullah bin Abdul Muthalib, sudah wafat sebelum anak itu lahir.
 
-Satu per satu perempuan dari Bani Sa'd melewatinya.
+Setiap perempuan yang ditawari menolak.¹
 
-Halimah berkata kepada suaminya: aku tidak mau pulang tanpa bayi.¹
+Mereka berpikir: anak yatim, apa yang bisa diharapkan dari ibunya yang tidak punya suami?
+
+Halimah pun menolak.
+
+Ia juga berharap mendapat bayi dari keluarga yang mampu membalas kebaikannya.
+
+✦ ✦ ✦
+
+Dua hari berlalu.
+
+Setiap perempuan dari rombongan Halimah sudah membawa bayi masing-masing.
+
+Hanya Halimah yang belum.
+
+Ia tidak ingin pulang dengan tangan kosong.
+
+Ia berkata kepada suaminya: aku tidak suka kembali bersama teman-temanku tanpa membawa bayi susuan.¹
+
+Demi Allah, aku akan pergi dan mengambil anak yatim itu.
 
 Ia mengambil bayi itu.
 
@@ -2239,75 +2277,69 @@ Muhammad.
 
 ✦ ✦ ✦
 
-Rombongan itu berangkat pulang.
+Begitu Halimah menggendongnya dan mendekapkannya ke dada, sesuatu terjadi.
 
-Halimah menaiki untanya dengan bayi di pangkuan.
+Air susunya — yang sudah hampir kering sepanjang perjalanan — mengalir.
 
-Unta itu sama dengan unta-unta lain di rombongan.
+Penuh.
 
-Tua.
+Muhammad menyusu sampai kenyang.
 
-Lambat.
+Lalu anaknya sendiri.
 
-Sering tertinggal di belakang.
+Sampai kedua bayi itu tertidur pulas, untuk pertama kalinya sejak mereka berangkat dari kampung.
 
-Tapi tidak kali ini.
+Harits memerah susu unta tua mereka, sekadar mencoba.
 
-Beberapa langkah pertama, Harits sudah memperhatikan sesuatu.
+Susu itu keluar.
 
-Unta yang biasanya paling belakang, kini berjalan sejajar dengan yang lain.
+Deras.
 
-Lalu mendahului.
+Mereka berdua minum sampai puas.
 
-Satu per satu unta rombongan terlewati.
+Harits menatap istrinya.
 
-Hingga unta Halimah berada paling depan.
-
-Harits menahan kendali, memastikan matanya tidak salah lihat.
-
-Ia menoleh ke istrinya.
-
-Bukan unta yang sama yang kita bawa dari Makkah?¹
+Demi Allah, Halimah, engkau telah mengambil satu jiwa yang penuh berkah.¹
 
 ✦ ✦ ✦
 
-Malam itu, Muhammad mulai menangis.
+Esok paginya, rombongan berangkat pulang.
 
-Mencari susu.
+Unta Halimah — yang berangkat sebagai unta paling lemah dan paling lambat di antara semuanya — berjalan paling depan.
 
-Halimah menyusuinya.
+Perempuan-perempuan lain memacu tunggangan mereka, tapi tidak ada yang bisa menyamai langkahnya.
 
-Dan air susunya mengalir — lebih banyak dari yang pernah ia rasakan sejak anaknya sendiri lahir.
+Mereka berseru kepadanya: tunggu kami, wahai putri Abu Dzu\'aib! Bukankah itu unta yang sama yang kau bawa kemarin?¹
 
-Muhammad kenyang.
+Halimah menjawab: benar, demi Allah, ini unta yang sama.
 
-Anaknya sendiri kenyang.
+Mereka saling berpandangan.
 
-Halimah menyusui dua bayi malam itu, dari sumber yang sebelumnya nyaris tidak cukup untuk satu.
-
-Harits memperhatikan dalam diam.
-
-Lalu berkata pelan, seolah pada dirinya sendiri.
-
-Halimah, demi Allah, sepertinya engkau telah mengambil jiwa yang penuh berkah.¹
+Pasti ada sesuatu pada unta itu.
 
 ✦ ✦ ✦
 
-Sesampainya di kampung Bani Sa'd, kambing-kambing Halimah pulang dengan perut penuh susu.²
+Sesampainya di kampung Bani Sa\'d, paceklik masih berlangsung.
 
-Tetangga-tetangganya mulai bertanya-tanya.
+Tanah masih kering.
 
-Kambing yang sama. Padang yang sama. Musim yang sama.
+Ternak tetangga masih kurus, tidak menghasilkan apa-apa.
 
-Tapi hasil yang berbeda.
+Tapi kambing-kambing Halimah pulang setiap sore dengan perut penuh.²
 
-Perempuan-perempuan kabilah itu berbisik satu sama lain.
+Susu mereka bisa diperah berkali-kali, diminum sepuasnya oleh seisi rumah.
 
-Apa yang berubah di rumah Halimah?
+Padahal kambing-kambing lain di kampung itu tidak meneteskan susu setetes pun.
+
+Tetangga-tetangganya memperhatikan.
+
+Lalu mulai menggiring ternak mereka ke padang yang sama dengan kambing Halimah.
+
+Berharap ikut mendapat berkah yang sama.
 
 ✦ ✦ ✦
 
-Muhammad ﷺ tumbuh di padang Bani Sa'd.
+Muhammad ﷺ tumbuh di padang Bani Sa\'d.
 
 Jauh dari sesak Makkah.
 
@@ -2325,43 +2357,51 @@ Kata-kata yang lahir dari angin, dari unta, dari langit terbuka.
 
 Dua tahun berlalu.
 
-Sudah menjadi kebiasaan bahwa anak yang disusui dikembalikan kepada keluarganya setelah disapih.¹
+Sudah menjadi kebiasaan bahwa anak yang disusui dikembalikan kepada keluarganya setelah disapih.
 
 Halimah membawa Muhammad kembali ke Makkah.
 
-Ia menyerahkannya kepada Aminah.
+Ia menyerahkannya kepada [[Aminah|character:aminah]].
 
 Tapi kemudian Halimah memohon sesuatu.
 
-Ia memohon agar diizinkan membawa Muhammad kembali ke pedalaman, untuk sementara waktu lagi.¹
+Ia memohon agar diizinkan membawa Muhammad kembali ke pedalaman, untuk sementara waktu lagi.
 
 Aminah mengizinkan.
 
-Muhammad kembali ke tanah Bani Sa'd.
+Muhammad kembali ke tanah Bani Sa\'d.
 
 Ke padang yang sama.
 
 Ke langit yang sama.
 
-⟩ Halimah datang dengan tangan paling kosong di antara rombongannya.
+⟩ Semua menolaknya karena ia yatim.
 
-Ia pulang membawa yang tidak dipilih siapa pun.
+Bahkan Halimah, perempuan yang paling membutuhkan, pada awalnya juga menolak.
 
-Dan dari situlah keberkahan mengalir — bukan dari yang ia cari, tapi dari yang ia rela terima.
+Ia baru mengambilnya ketika tidak ada pilihan lain — bukan karena yakin akan mendapat berkah, tapi karena tidak tega pulang dengan tangan hampa.
 
-Rezeki Allah ﷻ tidak selalu datang kepada yang paling siap menerimanya.
+Dan dari keputusasaan itulah keberkahan yang paling besar justru datang.
 
-Kadang ia datang kepada yang paling bersedia menampungnya.`,
+Saat semua orang mencari bayi yang menjanjikan keuntungan.
+
+Tidak seorang pun memilih anak yatim itu.
+
+Namun Allah ﷻ meletakkan keberkahan-Nya justru pada yang paling sedikit diharapkan manusia.
+
+Karena manusia sering menilai dengan apa yang terlihat.
+
+Sedangkan Allah ﷻ memberi dengan apa yang tidak terlihat.`,
     featured: false,
     characterIds: ['halimah', 'aminah'],
     locationId: 'padang-bani-saad',
     references: [
-      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Istirdha\' an-Nabi fi Bani Sa\'d, Hal. 162–166, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Istirdha\' an-Nabi fi Bani Sa\'d, Hal. 162–166, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk. (riwayat penuturan Halimah, dinukil dari Ibnu Ishaq)',
       'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Hal. 163–164 (riwayat keberkahan di kampung Bani Sa\'d), Dar al-Ma\'rifah, Beirut.',
       'Ibnu Katsir, Al-Bidayah wan Nihayah, Jilid 2, Bab: Radha\'uhu wa Nasy\'atuhu, tentang tradisi penyusuan anak Quraisy ke pedalaman untuk kefasihan bahasa.',
     ],
     editorNotes: [
-      'Riwayat tentang keberkahan unta dan susu Halimah bersumber dari penuturan Halimah sendiri sebagaimana dinukil Ibnu Hisyam dari Ibnu Ishaq. Detail-detail ini termasuk riwayat yang masyhur dalam sirah, meski sebagian ulama menilai sanadnya tidak sampai derajat paling kuat. Narasi mengikuti riwayat yang umum diterima di kalangan ahli sirah.',
+      'Riwayat lengkap kisah ini bersumber dari penuturan Halimah sendiri sebagaimana dinukil Ibnu Hisyam dari Ibnu Ishaq. Detail-detail ini termasuk riwayat yang masyhur dalam sirah, meski sebagian ulama menilai sanadnya tidak sampai derajat paling kuat. Narasi mengikuti riwayat yang umum diterima di kalangan ahli sirah, termasuk detail bahwa Halimah sendiri awalnya menolak sebelum keadaan memaksanya mengambil Muhammad ﷺ.',
     ],
     order: 7,
   },

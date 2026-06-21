@@ -261,3 +261,31 @@ Stage Summary:
 - download/bab-7-di-pangkulan-halimah.md (backup)
 - Parser output verified: 1 opening + 8 section dividers + 68 text + 5 reflection, closing 58 char → auto-gold
 - TS errors: 0
+
+---
+Task ID: 9
+Agent: main
+Task: Revisi total Bab 7 — Yang tersisa untuk Halimah
+
+Work Log:
+- User kirim revisi total naskah Bab 7 dengan kontras penuh dari riwayat asli
+- Perubahan inti dari draft sebelumnya:
+  1. Konteks paceklik Hawazin dimasukkan dari awal (krisis nyata, bukan sekadar "rombongan dari pedalaman")
+  2. Penolakan eksplisit ditambahkan — semua wanita menolak Muhammad karena yatim, termasuk Halimah sendiri di awal
+  3. Detail unta yang ikut diberkahi malam itu (Harits memerah susu unta yang sebelumnya kering)
+  4. Refleksi diganti total — menyoroti bahwa Halimah bukan pahlawan baik hati dari awal, tapi orang yang kehabisan pilihan
+- Title: 'Di Pangkulan Halimah' → 'Yang tersisa untuk Halimah'
+- Subtitle: 'Air Susu yang Membawa Berkah' → 'Keberkahan Allah datang saat tak ada pilihan'
+- Konversi format: ✦ ✦ ✦ dipertahankan, reflection `⟩` di-merge ke baris pertama (plain text, no italic)
+- Entity links dipertahankan: [[Halimah|character:halimah]], [[Aminah|character:aminah]], [[Makkah|location:makkah]]
+- references[0] ditambah catatan: "(riwayat penuturan Halimah, dinukil dari Ibnu Ishaq)"
+- editorNotes diupdate: tambah detail bahwa Halimah awalnya menolak
+- Rename markdown backup: download/bab-7-di-pangkulan-halimah.md → download/bab-7-yang-tersisa-untuk-halimah.md
+- Pakai Python script (scripts/replace-bab-7.py) untuk surgical replacement karena Edit tool whitespace mismatch
+
+Stage Summary:
+- Bab 7 revisi total LOCKED
+- content.ts: bab-7 object fully replaced (title, subtitle, story, references, editorNotes)
+- download/bab-7-yang-tersisa-untuk-halimah.md (backup baru, file lama dihapus)
+- Parser output verified: 1 opening + 9 section dividers + 83 text + 9 reflection, closing 57 char → auto-gold
+- TS errors: 0
