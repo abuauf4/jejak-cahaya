@@ -289,3 +289,30 @@ Stage Summary:
 - download/bab-7-yang-tersisa-untuk-halimah.md (backup baru, file lama dihapus)
 - Parser output verified: 1 opening + 9 section dividers + 83 text + 9 reflection, closing 57 char → auto-gold
 - TS errors: 0
+
+---
+Task ID: 10
+Agent: main
+Task: Revisi total Bab 6 — Nama yang pertama kali disebut
+
+Work Log:
+- User kirim revisi total Bab 6 dengan koreksi penting:
+  1. Hapus detail "mimpi berdiri di padang luas" — karangan tanpa dasar riwayat
+  2. Tambah riwayat cahaya yang menjangkau Syam (HR. Ahmad + Ibnu Sa'd) — 2x: saat hamil & saat lahir
+  3. Spesifikasikan tanggal: "malam Senin, dua belas Rabi'ul Awwal"
+  4. Expand references: 2 → 6 entries (Ibnu Sa'd, Al-Anshari, HR. Ahmad, Ath-Thabari)
+  5. Expand editorNotes: 3 → 5 entries (tambah penjelasan riwayat cahaya Syam + alasan hapus detail karangan)
+- Title: 'Kelahiran yang Dinantikan' → 'Nama yang pertama kali disebut'
+- Subtitle: 'Fajar di Lembah yang Dilindungi' → 'MUHAMMAD' (renderer auto-italic via class)
+- Reflection: italic asterisks di-strip (parser render italic otomatis di section reflection)
+- Tambah entity link baru: [[Syam|location:syam]] di first-mention (konsisten dengan Bab 2)
+- Pertahankan entity links: Aminah, Abdul Muthalib, Makkah, Ka'bah
+- Rename backup: bab-6-kelahiran-yang-dinantikan.md → bab-6-nama-yang-pertama-kali-disebut.md
+- Pakai Python script (scripts/replace-bab-6.py) untuk surgical replacement
+
+Stage Summary:
+- Bab 6 revisi total LOCKED
+- content.ts: bab-6 object fully replaced (title, subtitle, story 4.2K chars, 6 references, 5 editorNotes)
+- download/bab-6-nama-yang-pertama-kali-disebut.md (backup baru)
+- Parser output verified: 1 opening + 9 section dividers + 74 text + 10 reflection, closing 63 char → auto-gold
+- TS errors: 0

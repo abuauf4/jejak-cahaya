@@ -2022,12 +2022,20 @@ Sesuatu yang akan dimulai dari kelahiran seorang bayi.`,
     id: 'bab-6',
     journeyId: 'fase-1',
     collectionId: 'perjalanan-rasulullah',
-    title: 'Kelahiran yang Dinantikan',
-    subtitle: 'Fajar di Lembah yang Dilindungi',
+    title: 'Nama yang pertama kali disebut',
+    subtitle: 'MUHAMMAD',
     year: '570 M',
     yearNum: 570,
     description: 'Kelahiran Muhammad ﷺ di Makkah.',
     story: `Di antara rumah-rumah batu Bani Hasyim, ada sebuah pintu yang tertutup.
+
+Tidak ada yang istimewa dari luar.
+
+Dinding seperti dinding yang lain.
+
+Langit di atasnya seperti langit yang sama menaungi seluruh Makkah.
+
+Tapi di dalam rumah itu, seorang perempuan sedang menunggu.
 
 ✦ ✦ ✦
 
@@ -2049,13 +2057,23 @@ Sebelum sempat melihat apa yang ia tinggalkan.
 
 ✦ ✦ ✦
 
-Sebagian riwayat menyebutkan bahwa selama kehamilan itu, Aminah tidak merasakan beban yang biasanya menyertai para ibu.¹
+Sebagian riwayat menyebutkan bahwa selama kehamilan itu, Aminah tidak merasakan beban yang biasanya menyertai para ibu.³
 
 Tidak ada keluhan yang berat.
 
 Tidak ada kelelahan yang berlebihan.
 
-Dan di suatu malam, ia mendengar sesuatu dalam tidurnya.
+Sebagian riwayat menyebutkan bahwa selama kehamilan itu, Aminah melihat cahaya yang keluar darinya.⁴
+
+Cahaya itu menjangkau jauh.
+
+Hingga menerangi istana-istana di negeri [[Syam|location:syam]].
+
+Ia tidak tahu apa arti dari apa yang ia lihat.
+
+✦ ✦ ✦
+
+Di malam lain, ia mendengar sesuatu dalam tidurnya.
 
 Sebuah suara.
 
@@ -2065,19 +2083,37 @@ Suara yang menyuruhnya memberi nama bayi yang akan lahir itu: Muhammad.¹
 
 Waktu terus berjalan.
 
-Hingga suatu pagi di bulan Rabi'ul Awwal.¹²
+Hingga malam Senin, dua belas Rabi\'ul Awwal.⁵
 
-Matahari belum tinggi.
+Malam yang tenang.
 
-Di dalam rumah itu, suara tangis bayi pertama terdengar.
+Tidak ada angin kencang.
 
-Bayi itu lahir.
+Tidak ada awan yang menutupi bintang.
 
-Seorang laki-laki.
+Di dalam rumah itu, Aminah melahirkan tanpa kesulitan yang berarti.³
 
-Aminah menatap wajahnya.
+Seorang bayi laki-laki.
 
-Shafiyah binti Abdul Muthalib — bibi dari bayi itu — ada di sisinya.²
+✦ ✦ ✦
+
+Dan pada saat itu, Aminah menyaksikan sesuatu.
+
+Sebuah cahaya keluar bersama kelahiran bayinya.
+
+Cahaya itu menjangkau jauh.
+
+Hingga ia bisa melihat istana-istana di negeri Syam — negeri yang bahkan tidak pernah ia kunjungi.⁴
+
+Ia tidak tahu mengapa.
+
+Ia hanya tahu bahwa cahaya itu nyata.
+
+Dan cahaya itu tidak datang dari lampu, atau dari bulan, atau dari apa pun yang biasa menerangi malam.
+
+✦ ✦ ✦
+
+Shafiyah binti Abdul Muthalib — bibi dari bayi itu — ada di sisinya malam itu.⁶
 
 Ia yang menerima bayi itu pertama kali.
 
@@ -2093,15 +2129,15 @@ Pemimpin yang tidak mundur ketika Abrahah datang dengan gajahnya.
 
 Sekarang lelaki itu berdiri memegang cucunya.
 
-Ia membawa bayi itu ke [[Ka'bah|location:kabah]].²
+Ia membawa bayi itu ke [[Ka\'bah|location:kabah]].⁶
 
 Ia berdoa di sana.
 
-Lalu ia memberi nama bayi itu: Muhammad.²
+Lalu ia memberi nama bayi itu: Muhammad.⁶
 
 Seseorang bertanya: mengapa nama itu? Nama itu tidak biasa.
 
-Abdul Muthalib menjawab: aku ingin ia dipuji di langit dan di bumi.²
+Abdul Muthalib menjawab: aku ingin ia dipuji di langit dan di bumi.⁶
 
 ✦ ✦ ✦
 
@@ -2127,11 +2163,19 @@ Dengan perhatian.
 
 Namun tanpa memahami apa yang baru saja tiba di tengah-tengah mereka.
 
+Tidak ada yang melihat cahaya yang disaksikan Aminah malam itu.
+
+Tidak ada yang tahu bahwa cahaya itu menjangkau sampai ke negeri yang jauh.
+
+Hanya Aminah yang menyaksikannya.
+
+Dan ia menyimpannya sendiri, tanpa tahu kepada siapa harus menceritakannya.
+
 ✦ ✦ ✦
 
 Makkah terus berjalan seperti biasa.
 
-Ka'bah masih berdiri di tempat yang sama.
+Ka\'bah masih berdiri di tempat yang sama.
 
 Pasar masih ramai di pagi hari.
 
@@ -2143,7 +2187,7 @@ Tidak ada tanda yang bisa dibaca oleh siapa pun yang lewat di jalan itu.
 
 Hanya sebuah rumah di kawasan Bani Hasyim.
 
-Hanya seorang ibu.
+Hanya seorang ibu yang baru saja menyaksikan cahaya yang tidak bisa ia jelaskan.
 
 Hanya seorang bayi.
 
@@ -2156,6 +2200,10 @@ Muhammad.
 Tumbuh di pangkuan seorang ibu yang berduka.
 
 Di kota yang tidak tahu apa yang baru saja datang.
+
+Cahaya itu menjangkau Syam — negeri yang kelak menjadi saksi tersebarnya risalahnya.
+
+Tapi malam itu, hanya satu orang yang melihatnya.
 
 Allah ﷻ sedang menyiapkan sesuatu.
 
@@ -2171,10 +2219,16 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.`,
     locationId: 'makkah',
     references: [
       'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Maulid an-Nabi wa Radha\'uhu, Hal. 158–168, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
-      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Tasmiyat an-Nabi wa Haml Abdil Muthalib lahu ila al-Ka\'bah, Hal. 166–168, Dar al-Ma\'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.',
+      'Ibnu Sa\'d, Ath-Thabaqat al-Kubra, Jilid 1, Bab: Dhikr Wafat Abdillah Abi an-Nabi ﷺ, Hal. 96–100, Dar Shadir, Beirut.',
+      'Ahmad bin Umar al-Anshari, Itsbatu Nubuwati Muhammad, riwayat tentang ketenangan Aminah selama kehamilan dan proses melahirkan.',
+      'HR. Ahmad, riwayat dari Aminah binti Wahb tentang cahaya yang menjangkau istana-istana di Syam, juga diriwayatkan Ibnu Sa\'d dengan jalur serupa dari Al-Irbadh bin Sariyah.',
+      'Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Hal. 183, riwayat Ibnu Ishaq dari Ibnu Abbas tentang hari dan tanggal kelahiran.',
+      'Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 2, Bab: Mawlid Muhammad ﷺ wa Tasmiyatuhu, Hal. 155–163, Dar al-Kutub al-\'Ilmiyyah, Beirut.',
     ],
     editorNotes: [
-      'Tanggal kelahiran Rasulullah ﷺ masih diperdebatkan di kalangan ulama sirah. Pendapat paling masyhur adalah 12 Rabi\'ul Awwal, sebagaimana dinukil Ibnu Hisyam. Sebagian ulama menyebut tanggal 9 berdasarkan analisis astronomi. Narasi ini mengikuti yang paling masyhur tanpa menutup adanya khilaf.',
+      'Tanggal kelahiran Rasulullah ﷺ masih diperdebatkan di kalangan ulama sirah. Pendapat paling masyhur adalah 12 Rabi\'ul Awwal malam Senin, sebagaimana dinukil Ibnu Hisyam dari Ibnu Ishaq. Sebagian ulama menyebut tanggal 9 berdasarkan analisis astronomi. Narasi ini mengikuti yang paling masyhur tanpa menutup adanya khilaf.',
+      'Riwayat tentang cahaya yang menjangkau Syam disebutkan dalam beberapa jalur (HR. Ahmad, riwayat Ibnu Sa\'d), dengan redaksi yang serupa dari dua perawi berbeda — sekali saat kehamilan, sekali saat kelahiran. Narasi membatasi diri pada riwayat ini saja dan TIDAK memasukkan riwayat-riwayat lain terkait tanda alam kelahiran (gempa istana Kisra, padamnya api Majusi, kejatuhan berhala di seluruh dunia, kehadiran empat wanita surga) karena derajat sanadnya jauh lebih lemah dan sebagian besar ulama sirah kontemporer menilainya sebagai riwayat yang tidak kuat untuk dijadikan sandaran.',
+      'Detail "tangisan bayi" dan "mimpi berdiri di padang luas" pada draft-draft sebelumnya dihapus karena merupakan rekonstruksi naratif tanpa dasar riwayat — bukan kelupaan, tapi koreksi atas penambahan yang tidak seharusnya ada.',
       'Abdullah bin Abdul Muthalib wafat sebelum kelahiran Nabi ﷺ menurut pendapat mayoritas ulama sirah. Sebagian kecil ulama berpendapat ia wafat setelah kelahiran. Narasi mengikuti pendapat mayoritas.',
       'Ucapan Abdul Muthalib tentang nama Muhammad diriwayatkan oleh Ibnu Hisyam dari Ibnu Ishaq. Narasi mengikuti inti riwayat tanpa penambahan.',
     ],
