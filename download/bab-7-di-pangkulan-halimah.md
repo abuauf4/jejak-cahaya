@@ -1,6 +1,6 @@
 # Bab 7
 ## Di Pangkuan Halimah
-*Susu yang Membawa Berkah*
+*Air Susu yang Membawa Berkah*
 **Tahun:** 570–572 M
 
 ---
