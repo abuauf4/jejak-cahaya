@@ -79,7 +79,22 @@ function renderWithCitations(text: string): React.ReactNode[] {
   }
   matches.sort((a, b) => a.index - b.index);
 
-  for (const match of matches) {
+  // ── Filter overlapping matches ──
+  // Honorific regex (RASULULLAH_RE / ALLAH_RE / ALAYHIS_SALAM_RE) bisa match
+  // di dalam label entity link (mis: "[[Muhammad ﷺ|character:muhammad-saw]]"
+  // — "Muhammad ﷺ" juga match regex rasulullah). Tanpa filter, ini bikin
+  // render dobel + sisa markup "|character:muhammad-saw]]." bocor ke text.
+  // Solusi: skip match yang overlap dengan match sebelumnya (sort by index).
+  const filtered: Match[] = [];
+  let filterLastEnd = 0;
+  for (const m of matches) {
+    if (m.index >= filterLastEnd) {
+      filtered.push(m);
+      filterLastEnd = m.end;
+    }
+  }
+
+  for (const match of filtered) {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
@@ -371,6 +386,9 @@ export default function StoryContent({
               <div className="reader-content text-left text-ink-soft italic dark:text-sand">
                 {parsed.reflection.map((paragraph, i) => {
                   // Last paragraph = closing punchline → render standalone
+                  // Note: panjang paragraph di-cek dari rendered label, bukan markup mentah.
+                  // "Kota itu bernama [[Makkah|location:makkah]]." (markup 44 char)
+                  // → rendered "Kota itu bernama Makkah." (24 char) — closing threshold 120.
                   const isClosing =
                     i === parsed.reflection.length - 1 &&
                     parsed.reflection.length > 1 &&
@@ -382,11 +400,11 @@ export default function StoryContent({
                         key={`reflection-${i}`}
                         className="reader-closing font-medium text-gold dark:text-lantern-mid mt-12 mb-0"
                       >
-                        {paragraph}
+                        {renderWithCitations(paragraph)}
                       </p>
                     );
                   }
-                  return <p key={`reflection-${i}`}>{paragraph}</p>;
+                  return <p key={`reflection-${i}`}>{renderWithCitations(paragraph)}</p>;
                 })}
               </div>
             </div>
