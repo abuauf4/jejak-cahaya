@@ -316,3 +316,34 @@ Stage Summary:
 - download/bab-6-nama-yang-pertama-kali-disebut.md (backup baru)
 - Parser output verified: 1 opening + 9 section dividers + 74 text + 10 reflection, closing 63 char → auto-gold
 - TS errors: 0
+
+---
+Task ID: 11
+Agent: main
+Task: Insert naskah Bab 8 — Pembelahan Dada
+
+Work Log:
+- User upload file bab-8-pembelahan-dada-revisi.md via /home/z/my-project/upload/
+- Baca naskah: format markdown dgn blockquote opening + italic emphasis + reflection + 3 references + 4 catatan editor
+- Konversi ke format renderer:
+  * Strip blockquote `>` dari opening line "Padang itu sunyi seperti biasa."
+  * Strip italic asterisks `*...*` dari opening + reflection + emphasis inline (`*Dibunuh.*`)
+  * Reflection `⟩` di-merge ke baris pertama (5 paragraf total)
+- Title: 'Pembelahan Dada' (tetap, sama dgn placeholder)
+- Subtitle: 'Peristiwa yang membersihkan hati' → 'Sesuatu yang Tidak Biasa di Padang Bani Sa'd'
+- Tambah entity links di first-mention:
+  * [[Jibril|character:jibril]] — di "Jibril ﷺ.²" (label tanpa ﷺ, ﷺ plain text setelah link)
+  * [[Halimah|character:halimah]] — di "ibu susuannya, Halimah"
+  * [[Makkah|location:makkah]] — di "kembali ke Makkah"
+  * [[Aminah|character:aminah]] — di "Ia menemui Aminah"
+- Update characterIds: ['halimah'] → ['halimah', 'aminah', 'jibril']
+- Isi array references (3 entries) dan editorNotes (4 entries) dari footer naskah
+- Tulis backup markdown: download/bab-8-pembelahan-dada.md
+- Pakai Python script (scripts/replace-bab-8.py) untuk surgical replacement
+
+Stage Summary:
+- Bab 8 LOCKED dengan naskah final dari user
+- content.ts: bab-8 object fully replaced (subtitle, story 3.3K chars, 3 references, 4 editorNotes, 3 characterIds)
+- download/bab-8-pembelahan-dada.md (backup)
+- Parser output verified: 1 opening + 7 section dividers + 43 text + 5 reflection, closing 57 char → auto-gold
+- TS errors: 0
