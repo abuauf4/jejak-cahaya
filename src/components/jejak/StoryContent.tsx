@@ -254,16 +254,6 @@ export function parseStory(storyText: string): ParsedStory {
   };
 }
 
-// ── Font trial mapping (TEMPORARY — for bab 1-4 comparison) ──
-// Once user picks a font, this map + the .reader-* CSS classes will be removed
-// and the chosen font will replace var(--font-playfair) in .reader-content.
-const FONT_TRIAL_CLASS: Record<string, string> = {
-  'bab-1': 'reader-lora',
-  'bab-2': 'reader-lato',
-  'bab-3': 'reader-newsreader',
-  'bab-4': 'reader-spectral',
-};
-
 interface StoryContentProps {
   event: StoryEvent;
   characters: Character[];
@@ -281,10 +271,9 @@ export default function StoryContent({
 }: StoryContentProps) {
   const parsed = parseStory(event.story);
   const separatorColor = 'rgba(44, 36, 24, 0.10)';
-  const fontTrialClass = FONT_TRIAL_CLASS[event.id] || '';
 
   return (
-    <div className={`min-h-screen bg-paper dark:bg-navy-deep reader-transition ${fontTrialClass}`}>
+    <div className="min-h-screen bg-paper dark:bg-navy-deep reader-transition">
       {/* Content */}
       <div className="pt-20 sm:pt-24 pb-24 px-5 sm:px-6">
         <div className="max-w-[65ch] mx-auto">

@@ -141,38 +141,47 @@ html { scroll-behavior: smooth; }
   height: auto;
 }
 
-/* Reading content — immersive, Medium/Kindle style */
+/* Reading content — immersive, Medium/Kindle style.
+   Body uses Lora (warm modern serif, low stroke contrast — friendly to
+   long-form reading). Headlines + closing punchline tetap Playfair via
+   .font-serif-display / .reader-closing. */
 .reader-content {
   max-width: 65ch;
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-lora), Georgia, serif;
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.65;
 }
 .reader-content p { margin-bottom: 1.2rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
-/* ════════════════════════════════════════════════════════
-   FONT TRIAL — temporary override classes for bab 1-4
-   User is comparing body fonts. Will be removed after choice.
-   Each class overrides .reader-content font-family + bumps
-   line-height to 1.65 (better long-form readability).
-   Title (h1/subtitle) tetap Playfair via .font-serif-display.
-   ════════════════════════════════════════════════════════ */
-.reader-lora .reader-content {
-  font-family: var(--font-lora), Georgia, serif;
-  line-height: 1.65;
+/* Closing punchline — explicit Playfair biar closing kerasa "display",
+   kontras dengan body Lora. Tetap italic + muted + emas. */
+.reader-closing {
+  font-family: var(--font-playfair), Georgia, serif;
+  letter-spacing: 0.01em;
 }
-.reader-lato .reader-content {
-  font-family: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.7;
+
+/* ── Inline entity links (tokoh / lokasi) ──
+   Pake text-decoration: underline instead of border-bottom biar gak
+   nambah layout height / gak shift baseline. */
+.reader-entity-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 168, 67, 0.40);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  vertical-align: baseline;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, background-color 0.15s ease;
 }
-.reader-newsreader .reader-content {
-  font-family: var(--font-newsreader), Georgia, serif;
-  line-height: 1.65;
+.reader-entity-link:hover {
+  color: #92702A;
+  text-decoration-color: #92702A;
+  background-color: rgba(212, 175, 55, 0.08);
 }
-.reader-spectral .reader-content {
-  font-family: var(--font-spectral), Georgia, serif;
-  line-height: 1.65;
+:is(.dark) .reader-entity-link:hover {
+  color: #D4AF37;
+  text-decoration-color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.10);
 }
 
 /* ── Expandable references section ── */
@@ -192,25 +201,6 @@ html { scroll-behavior: smooth; }
 }
 :is(.dark) .reader-references-chevron { color: rgba(245, 215, 142, 0.40); }
 .reader-references[open] .reader-references-chevron { transform: rotate(180deg); }
-
-/* ── Inline entity links (tokoh / lokasi) ── */
-.reader-entity-link {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(212, 168, 67, 0.40);
-  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
-  padding: 0 1px;
-}
-.reader-entity-link:hover {
-  color: #92702A;
-  border-bottom-color: #92702A;
-  background-color: rgba(212, 175, 55, 0.08);
-}
-:is(.dark) .reader-entity-link:hover {
-  color: #D4AF37;
-  border-bottom-color: #D4AF37;
-  background-color: rgba(212, 175, 55, 0.10);
-}
 
 /* ── Citation badges — gold-tinted inline reference markers ── */
 .citation-badge {

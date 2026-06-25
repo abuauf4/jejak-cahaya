@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display, Lora, Lato, Newsreader, Spectral } from "next/font/google";
+import { Inter, Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
 import PWARegister from "@/components/PWARegister";
 
@@ -15,31 +15,11 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-// === FONT TRIAL — comparison for bab 1-4 (will be removed after choice) ===
+// Body reader font — Lora (warm modern serif, low stroke contrast untuk
+// long-form reading). Playfair Display tetap dipakai untuk headlines
+// dan closing punchline via .font-serif-display / .reader-closing.
 const lora = Lora({
   variable: "--font-lora",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const lato = Lato({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-lato",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const spectral = Spectral({
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-spectral",
   subsets: ["latin"],
   display: "swap",
 });
@@ -119,7 +99,7 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} ${lora.variable} ${lato.variable} ${newsreader.variable} ${spectral.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} ${lora.variable} antialiased`}
       >
         {children}
         <PWARegister />
