@@ -151,6 +151,30 @@ html { scroll-behavior: smooth; }
 .reader-content p { margin-bottom: 1.2rem; }
 .reader-content p:last-child { margin-bottom: 0; }
 
+/* ════════════════════════════════════════════════════════
+   FONT TRIAL — temporary override classes for bab 1-4
+   User is comparing body fonts. Will be removed after choice.
+   Each class overrides .reader-content font-family + bumps
+   line-height to 1.65 (better long-form readability).
+   Title (h1/subtitle) tetap Playfair via .font-serif-display.
+   ════════════════════════════════════════════════════════ */
+.reader-lora .reader-content {
+  font-family: var(--font-lora), Georgia, serif;
+  line-height: 1.65;
+}
+.reader-lato .reader-content {
+  font-family: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.7;
+}
+.reader-newsreader .reader-content {
+  font-family: var(--font-newsreader), Georgia, serif;
+  line-height: 1.65;
+}
+.reader-spectral .reader-content {
+  font-family: var(--font-spectral), Georgia, serif;
+  line-height: 1.65;
+}
+
 /* ── Expandable references section ── */
 .reader-references-summary {
   display: flex;
