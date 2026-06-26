@@ -2027,6 +2027,7 @@ Sesuatu yang akan dimulai dari kelahiran seorang bayi.`,
     year: '570 M',
     yearNum: 570,
     description: 'Kelahiran Muhammad ﷺ di Makkah.',
+    image: '/images/bab/bab-6-hero.webp',
     story: `Di antara rumah-rumah batu Bani Hasyim, ada sebuah pintu yang tertutup.
 
 Tidak ada yang istimewa dari luar.
@@ -2243,6 +2244,7 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.`,
     year: '570–572 M',
     yearNum: 570,
     description: 'Muhammad ﷺ di asuh Halimah as-Sa\'diyah di padang pasir.',
+    image: '/images/bab/bab-7-hero.webp',
     story: `Setiap tahun, rombongan itu datang ke [[Makkah|location:makkah]].
 
 Perempuan-perempuan dari pedalaman.
@@ -2468,6 +2470,7 @@ Sedangkan Allah ﷻ memberi dengan apa yang tidak terlihat.`,
     year: '~572 M',
     yearNum: 572,
     description: 'Peristiwa pembelahan dada. Catatan riwayat dijelaskan.',
+    image: '/images/bab/bab-8-hero.webp',
     story: `Padang itu sunyi seperti biasa.
 
 Anak-anak Bani Sa\'d bermain di sekitar perkampungan.
@@ -2604,6 +2607,7 @@ Dan puluhan tahun kemudian, orang-orang masih melihatnya.`,
     year: '576 M',
     yearNum: 576,
     description: 'Perjalanan ke Abwa\', wafat Aminah. Bab emosional.',
+    image: '/images/bab/bab-9-hero.webp',
     story: `Aminah ingin mengunjungi makam suaminya.
 
 Di Yatsrib, kota tempat Abdullah wafat dan dikuburkan.¹
@@ -2726,6 +2730,7 @@ Sebagaimana kelak akan disebutkan: bukankah Allah mendapatimu sebagai seorang ya
     year: '576–578 M',
     yearNum: 576,
     description: 'Muhammad ﷺ di asuh kakeknya Abdul Muthalib.',
+    image: '/images/bab/bab-10-hero.webp',
     story: `Rumah [[Abdul Muthalib|character:abdul-muthalib]] selalu ramai.
 
 Anak-anak dan cucu-cucunya datang dan pergi.
@@ -2869,16 +2874,193 @@ Tapi penjagaan Allah ﷻ tidak pernah berganti.`,
     id: 'bab-11',
     journeyId: 'fase-1',
     collectionId: 'perjalanan-rasulullah',
-    title: 'Rumah Abu Thalib',
-    subtitle: 'Paman yang menjadi pelindung seumur hidup',
-    year: '578–595 M',
+    title: 'Estafet Kasih Sayang',
+    subtitle: 'Rumah yang Menjaga dengan Paling Tulus',
+    year: '578 M dan setelahnya',
     yearNum: 578,
     description: 'Muhammad ﷺ di bawah asuhan Abu Thalib.',
-    story: '[Bab ini menunggu penulisan. Fokus: Abu Thalib, perlindungan, masa tinggal bersama paman.]',
+    image: '/images/bab/bab-11-hero.webp',
+    story: `Untuk kedua kalinya, Muhammad ﷺ berdiri di depan sebuah kuburan.
+
+Pertama, ibunya.
+
+Sekarang, kakeknya.
+
+Dua orang yang menjaganya sejak ia tidak punya ayah.
+
+Dan sekarang keduanya sudah tidak ada.
+
+✦ ✦ ✦
+
+Ia berusia delapan tahun.
+
+Usia ketika seorang anak biasanya masih memanggil-manggil ibunya di tengah malam.
+
+Usia ketika seorang anak biasanya masih digenggam tangannya setiap menyeberang jalan.
+
+Muhammad ﷺ sudah dua kali kehilangan tangan yang menggenggamnya.
+
+✦ ✦ ✦
+
+Di antara putra-putranya, [[Abdul Muthalib|character:abdul-muthalib]] memilih [[Abu Thalib|character:abu-thalib]].
+
+Bukan karena ia yang paling kaya.
+
+Tetapi karena ia mempercayakan cucunya kepada orang yang paling mampu menjaganya.²
+
+Sebelum mengembuskan napas terakhirnya, Abdul Muthalib menyerahkan cucunya kepada Abu Thalib.
+
+Bukan kepada yang paling mampu secara harta.
+
+Tapi kepada yang paling mampu menjaga.
+
+✦ ✦ ✦
+
+Malam pertama di rumah Abu Thalib, rumah itu sempit dan sederhana.
+
+Anak-anak Abu Thalib sudah tertidur, berdesakan di ruang yang tidak luas.
+
+Muhammad ﷺ berdiri di ambang pintu, membawa apa yang tersisa darinya — bukan harta, karena ia tidak memiliki apa-apa, hanya dirinya sendiri.
+
+Abu Thalib menyambutnya bukan seperti menyambut titipan.
+
+Ia menyambutnya seperti menyambut anaknya sendiri yang baru pulang.
+
+Ia memberinya tempat di sampingnya malam itu — tempat yang sejak malam itu tidak pernah lagi kosong.⁴
+
+✦ ✦ ✦
+
+Hari-hari pertama, rumah itu terasa berbeda.
+
+Bukan karena bertambah ramai.
+
+Tapi karena bertambah cukup.
+
+Sebelum Muhammad ﷺ datang, keluarga itu sering kekurangan makanan untuk anak-anaknya sendiri.³
+
+Setelah ia ada di antara mereka, makanan itu menjadi cukup — bukan berlebih, hanya cukup, tapi cukup itu sendiri sudah jarang terjadi sebelumnya.
+
+Abu Thalib dan istrinya memperhatikan ini.
+
+Mereka mulai mendahulukan Muhammad ﷺ sebelum menghidangkan makan untuk anak-anak yang lain — bukan karena pilih kasih, tapi karena mereka menyadari, dengan caranya sendiri, ada sesuatu yang berbeda pada anak ini.³
+
+Begitu juga susu.
+
+Abu Thalib memintanya minum lebih dulu.
+
+Karena setelah itu, yang tersisa akan cukup untuk anak-anaknya sendiri.³
+
+✦ ✦ ✦
+
+Tahun demi tahun berjalan, dan kasih sayang itu tidak pernah berkurang.
+
+Abu Thalib tidak pernah tidur, kecuali Muhammad ﷺ sudah berada di sampingnya.⁴
+
+Ia tidak pernah keluar rumah, kecuali mengajaknya bersamanya.⁴
+
+Setiap kali ada hidangan istimewa, ia menyiapkannya khusus untuk keponakan itu — bukan untuk anak-anaknya sendiri lebih dulu.⁴
+
+Anak-anak Abu Thalib tumbuh melihat ayah mereka memperlakukan sepupu mereka lebih lembut daripada mereka sendiri.
+
+Dan tidak ada yang protes.
+
+Karena mereka pun ikut merasakan: ada keberkahan yang datang bersama anak yatim itu.
+
+Sikap Abu Thalib ini tidak berubah.
+
+Bertahun-tahun lamanya.
+
+Bahkan ketika Muhammad ﷺ telah dewasa, telah menikah, telah berusia lebih dari empat puluh tahun — Abu Thalib masih memperlakukannya seperti anak yang baru datang ke rumahnya malam itu.⁵
+
+✦ ✦ ✦
+
+Muhammad ﷺ tumbuh besar di rumah itu.
+
+Ia ikut membantu pamannya menggembalakan kambing — kambing keluarganya sendiri, dan kambing-kambing penduduk [[Makkah|location:makkah]] yang dititipkan untuk diupahi.⁶
+
+Setiap pagi, ia berjalan ke padang-padang di sekitar Makkah.
+
+Membawa tongkat gembala.
+
+Mengawasi kambing-kambing itu mencari rumput di antara batu dan semak yang jarang.
+
+Hari-hari di padang itu sunyi.
+
+Tidak ada keramaian pasar.
+
+Tidak ada hiruk pikuk kafilah dagang.
+
+Hanya angin, batu, dan kambing yang berjalan pelan.
+
+Di sanalah ia belajar menjaga sesuatu yang lemah, yang tidak bisa menjaga dirinya sendiri.
+
+Belajar bersabar menunggu, ketika kambing-kambing itu berjalan jauh dan harus dikumpulkan kembali.
+
+Belajar berjalan sendirian, di bawah matahari yang sama yang pernah membakar kulit para pengelana di gurun, jauh sebelum ia lahir.
+
+✦ ✦ ✦
+
+Bertahun-tahun kemudian, ketika Muhammad ﷺ telah menjadi seorang Rasul, para sahabatnya suatu hari berbincang.
+
+Tentang siapa yang pernah menggembalakan unta, dan siapa yang pernah menggembalakan kambing — masing-masing membanggakan pekerjaannya.
+
+Rasulullah ﷺ kemudian bersabda.
+
+Kebanggaan adalah bagi penggembala unta.
+
+Sementara ketenteraman ada pada penggembala kambing.⁷
+
+Musa diutus, dan ia pernah menggembalakan kambing keluarganya.
+
+Dan aku pun diutus, dan aku pernah menggembalakan kambing penduduk Makkah, di Jiyad.⁷
+
+Anak yang dulu berjalan sendirian di padang sunyi itu, kini berbicara tentang masa itu bukan dengan malu.
+
+Tapi dengan tenang.
+
+Seolah ia tahu, jauh sebelum siapa pun yang lain tahu, bahwa kesunyian itu juga sedang membentuknya untuk sesuatu yang lebih besar.
+
+⟩ Seorang anak kehilangan ibunya.
+
+Lalu kehilangan kakeknya.
+
+Dua kali kehilangan tangan yang menjaganya, sebelum usianya genap sembilan tahun.
+
+Tapi Allah ﷻ tidak membiarkannya tanpa penjagaan.
+
+Ia tidak menempatkannya di rumah yang paling banyak hartanya.
+
+Ia menempatkannya di rumah yang paling banyak cintanya.
+
+Estafet ini bukan tentang siapa yang paling mampu menanggung beban.
+
+Tapi tentang siapa yang paling rela menanggungnya.
+
+Dan dari kesunyian padang gembalaan itu, Allah ﷻ sedang mempersiapkan sesuatu yang akan menggemparkan dunia — pelan-pelan, jauh dari mata siapa pun yang menyangka.
+
+Masa kecil ini belum selesai.
+
+Ada satu perjalanan lagi yang menanti — perjalanan yang akan membawa Muhammad ﷺ keluar dari Makkah untuk pertama kalinya, menuju negeri yang jauh, dan bertemu seseorang yang akan mengenalinya sebelum dunia mengenalinya.`,
     featured: false,
-    characterIds: ['abu-thalib'],
+    characterIds: ['abu-thalib', 'abdul-muthalib'],
     locationId: 'makkah',
-    references: [],
+    references: [
+      'Muhammad Suwailaim Abu Syuhbah, As-Sirah an-Nabawiyah \'ala Dhu\'i Al-Qur\'an wa as-Sunnah, Jilid 1, Hal. 209, tentang kondisi ekonomi Abu Thalib.',
+      'Chanelmuslim.com, "Kisah Wafatnya Abdul Muthalib", mengutip pertimbangan Abdul Muthalib dalam memilih Abu Thalib di antara putra-putranya.',
+      'Koranpangkep.co.id, "Kisah Masa Kecil Nabi Muhammad SAW: Yatim Piatu dan Mukjizat", mengutip riwayat tentang kecukupan makanan dan susu sejak kehadiran Muhammad ﷺ di rumah Abu Thalib.',
+      'Kompas.com (cahaya.kompas.com), "Kisah Hidup Nabi Muhammad SAW: Masa Pengasuhan Ibu, Kakek, dan Paman", mengutip riwayat tentang kebiasaan Abu Thalib yang tidak pernah tidur atau keluar rumah tanpa Muhammad ﷺ.',
+      'Detik.com, "Sosok Paman Nabi Muhammad yang Merawat dan Mengajaknya Berdagang", mengutip Sirah Nabawiyah karya Syaikh Shafiyurrahman al-Mubarakfuri, tentang sikap Abu Thalib yang berlangsung hingga Muhammad ﷺ berusia lebih dari empat puluh tahun.',
+      'Suara Muhammadiyah, "Nabi Muhammad SAW (5), Perjalanan Pertama ke Syam", mengutip riwayat bahwa Muhammad ﷺ membantu Abu Thalib menggembalakan kambing keluarga dan kambing penduduk Makkah.',
+      'Hadits riwayat Imam Ahmad dari Abu Sa\'id al-Khudri, dikutip dalam Muhammad Suwailaim Abu Syuhbah, As-Sirah an-Nabawiyah \'ala Dhu\'i Al-Qur\'an wa as-Sunnah, Jilid 1, Hal. 209.',
+    ],
+    editorNotes: [
+      'Usia Muhammad ﷺ saat mulai diasuh Abu Thalib disebutkan delapan tahun oleh mayoritas ulama sirah, mengikuti usia wafat Abdul Muthalib yang dibahas pada Bab 10. Bab ini tidak mencantumkan rentang tahun akhir secara spesifik karena masa asuhan Abu Thalib berlangsung sangat panjang — hingga Abu Thalib sendiri wafat menjelang hijrah ke Madinah, jauh melewati fase masa kecil yang menjadi fokus koleksi ini.',
+      'Perbandingan antara Harits, Abbas, dan Abu Thalib yang muncul pada draft sebelumnya dipadatkan menjadi satu pernyataan langsung tentang keputusan Abdul Muthalib, karena sumber-sumber turunan untuk perbandingan ketiga nama tersebut tidak memiliki kekuatan sanad yang setara. Narasi final hanya menekankan fakta yang lebih kuat: bahwa Abu Thalib dipilih bukan berdasarkan kekayaan, melainkan kemampuan menjaga.',
+      'Adegan "malam pertama di rumah Abu Thalib" — termasuk detail suasana rumah, anak-anak yang tertidur, dan momen penyambutan spesifik — adalah rekonstruksi naratif editorial untuk memperdalam momen estafet pengasuhan. Tidak ada riwayat yang secara spesifik menggambarkan detail malam pertama ini. Fakta yang berdasar riwayat (pemilihan Abu Thalib oleh Abdul Muthalib, kecukupan makanan dan susu, kebiasaan Abu Thalib yang konsisten) tetap dijaga sesuai sumber; bingkai naratif di sekitarnya adalah penghalusan editorial, bukan klaim historis baru.',
+      'Riwayat tentang kecukupan makanan dan susu sejak kehadiran Muhammad ﷺ banyak dikutip dalam sumber turunan sirah berbahasa Indonesia, senada dengan riwayat serupa pada masa pengasuhan Halimah di Bab 7, meski sumber primer untuk riwayat spesifik di rumah Abu Thalib ini tidak selalu mencantumkan sanad yang sekuat riwayat Halimah.',
+      'Hadits tentang penggembalaan kambing memiliki sanad yang kuat, diriwayatkan Imam Ahmad dari Abu Sa\'id al-Khudri, dan secara eksplisit disabdakan sendiri oleh Rasulullah ﷺ di kemudian hari — menjadikannya salah satu riwayat paling kuat dalam bab ini mengenai detail kehidupan sehari-hari Muhammad ﷺ pada masa kecilnya bersama Abu Thalib.',
+      'Hook penutup ke Bab 12 (perjalanan ke Syam, pertemuan dengan Pendeta Bahira) ditulis sebagai antisipasi alur, bukan klaim kronologis presisi — perjalanan tersebut terjadi saat Muhammad ﷺ berusia sekitar dua belas tahun, beberapa tahun setelah periode bab ini.',
+    ],
     order: 11,
   },
 

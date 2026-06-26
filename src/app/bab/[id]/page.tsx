@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: BabPageProps): Promise<Metada
     return { title: 'Bab tidak ditemukan — Jejak Cahaya' };
   }
 
-  const ogImage = `/api/og/bab/${id}`;
+  // Prefer hero illustration as OG image (more shareable, captures emotion).
+  // Fallback to dynamic OG route (text card) for babs without hero image yet.
+  const ogImage = event.image || `/api/og/bab/${id}`;
 
   return {
     title: `${event.title} — Jejak Cahaya`,
