@@ -220,6 +220,23 @@ Setelah memeluk Islam, Abu Sufyan menjadi sahabat yang setia. Ia ikut berperang 
     eventIds: ["fathu-makkah"],
     references: ["Shahih Bukhari", "Sirah Ibnu Hisyam", "Ar-Rahiq Al-Makhtum"],
   },
+  {
+    id: "ummu-aiman",
+    name: "Ummu Aiman",
+    title: "Pelayan Setia — Ibu dari Keluarga Rasulullah ﷺ",
+    shortBio: "Pelayan Abdullah bin Abdul Muthalib yang merawat Rasulullah ﷺ sejak lahir, mendampinginya saat wafatnya Aminah, dan menjadi ibu angkat baginya.",
+    fullBio: `Ummu Aiman, bernama asli Barakah, adalah seorang budak perempuan dari Habasyah yang diwariskan kepada Abdullah bin Abdul Muthalib oleh ayahnya, Abdul Muthalib. Ketika Abdullah menikah dengan Aminah binti Wahb, Ummu Aiman ikut melayani rumah tangga mereka.
+
+Saat Rasulullah ﷺ lahir, Ummu Aiman adalah salah satu orang pertama yang menyambut kelahirannya. Setelah Abdullah wafat dalam perjalanan dagang ke Syam, dan kemudian Aminah wafat di Abwa' saat Rasulullah ﷺ masih kecil, Ummu Aiman-lah yang membawa beliau kembali ke Makkah dan menyerahkannya kepada kakeknya, Abdul Muthalib.
+
+Rasulullah ﷺ sangat memuliakan Ummu Aiman, memanggilnya "ibu" dan menyebutnya sebagai wanita penghuni surga. Beliau pernah berkata: "Barangsiapa ingin menikahi wanita penghuni surga, nikahilah Ummu Aiman." Setelah beliau menikah dengan Khadijah, beliau membebaskan Ummu Aiman dari perbudakan.
+
+Ummu Aiman kemudian menikah dengan Zaid bin Haritsah dan melahirkan Usamah bin Zaid. Ia tetap setia mendampingi Rasulullah ﷺ hingga beliau wafat, dan ikut berperang dalam beberapa pertempuran sebagai perawat yang merawat kaum Muslimin yang terluka.`,
+    role: "Pelayan Setia, Ibu Angkat Rasulullah ﷺ",
+    period: "Aktif sekitar 560–640 M",
+    eventIds: ["wafat-aminah"],
+    references: ["Sirah Ibnu Hisyam", "Shahih Muslim", "Al-Isti'ab fi Ma'rifat al-Ashhab"],
+  },
 ];
 
 export function getCharacterById(id: string): Character | undefined {

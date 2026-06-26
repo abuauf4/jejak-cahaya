@@ -347,3 +347,34 @@ Stage Summary:
 - download/bab-8-pembelahan-dada.md (backup)
 - Parser output verified: 1 opening + 7 section dividers + 43 text + 5 reflection, closing 57 char → auto-gold
 - TS errors: 0
+
+---
+Task ID: 12
+Agent: main
+Task: Insert naskah Bab 9 — Perpisahan dengan Sang Ibu
+
+Work Log:
+- User upload file bab-9-perpisahan-dengan-sang-ibu-revisi.md via /home/z/my-project/upload/
+- Baca naskah: format markdown dgn blockquote opening + italic emphasis + reflection + 4 references + 5 catatan editor
+- Cek entity IDs: abwa ✓ (location), aminah ✓, abdul-muthalib ✓, ummu-aiman ✗ (belum ada)
+- Tambah character baru: Ummu Aiman (Barakah) di src/data/characters.ts — pelayan setia Abdullah, ibu angkat Rasulullah ﷺ
+- Konversi naskah ke format renderer:
+  * Strip blockquote 'Aminah ingin mengunjungi makam suaminya.' → opening
+  * Strip italic asterisks dari opening + reflection
+  * Reflection '⟩' di-merge ke baris pertama (5 paragraf)
+  * Marker ✦ ✦ ✦ dipertahankan (6 section dividers)
+- Title: 'Perpisahan dengan Sang Ibu' (tetap)
+- Subtitle: 'Abwa\' dan wafat Aminah — bab emosional' → 'Jalan Pulang yang Tidak Sampai'
+- Update characterIds: ['aminah'] → ['aminah', 'abdul-muthalib', 'ummu-aiman']
+- Tambah entity links di first-mention: Ummu Aiman, Abdul Muthalib, Makkah, Abwa', Aminah, Ka'bah
+- Isi references (4 entries) dan editorNotes (5 entries) dari footer naskah
+- Tulis backup markdown: download/bab-9-perpisahan-dengan-sang-ibu.md
+- Pakai Python script (scripts/replace-bab-9.py) untuk surgical replacement
+
+Stage Summary:
+- Bab 9 LOCKED dengan naskah final dari user
+- content.ts: bab-9 object fully replaced (subtitle, story 2.9K chars, 4 references, 5 editorNotes, 3 characterIds)
+- characters.ts: tambah Ummu Aiman (Barakah) — pelayan setia Abdullah, ibu angkat Rasulullah ﷺ
+- download/bab-9-perpisahan-dengan-sang-ibu.md (backup)
+- Parser output verified: 1 opening + 6 section dividers + 36 text + 5 reflection, closing 107 char → auto-gold
+- TS errors: 0
