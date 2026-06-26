@@ -301,7 +301,7 @@ export const events: StoryEvent[] = [
     yearNum: -570,
     description: 'Geografi, gurun, kafilah, dan kehidupan Arab sebelum Islam.',
     image: '/images/bab/bab-1-hero.png',
-    imageCaption: 'Seorang pengelana berdiri sendirian di tengah hamparan pasir Jazirah Arab, di bawah terik matahari yang membakar — tanpa pohon, tanpa sungai, tanpa rumah yang bisa diketuk.',
+    imageCaption: 'Sang Narator (Abu Aufa), seorang pengelana berdiri sendirian di tengah hamparan pasir Jazirah Arab, di bawah terik matahari yang membakar — tanpa pohon, tanpa sungai, tanpa rumah yang bisa diketuk.',
     story: `Matahari belum lama terbit.
 
 Namun panasnya sudah terasa membakar kulit.
@@ -2034,7 +2034,7 @@ Sesuatu yang akan dimulai dari kelahiran seorang bayi.`,
     yearNum: 570,
     description: 'Kelahiran Muhammad ﷺ di Makkah.',
     image: '/images/bab/bab-6-hero.webp',
-    imageCaption: 'Rumah sederhana di kawasan Bani Hasyim, malam Senin 12 Rabi\'ul Awwal — Aminah binti Wahb baru saja melahirkan seorang bayi laki-laki, dan cahaya yang keluar bersamanya menjangkau negeri Syam.',
+    imageCaption: 'Langit malam Makkah dihiasi bintang-bintang, sementara nama "Muhammad ﷺ" tampak bercahaya di langit sebagai simbol nama yang baru saja diberikan kepada bayi itu.',
     story: `Di antara rumah-rumah batu Bani Hasyim, ada sebuah pintu yang tertutup.
 
 Tidak ada yang istimewa dari luar.
@@ -2252,7 +2252,7 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.`,
     yearNum: 570,
     description: 'Muhammad ﷺ di asuh Halimah as-Sa\'diyah di padang pasir.',
     image: '/images/bab/bab-7-hero.webp',
-    imageCaption: 'Halimah binti Abi Dzu\'aib memangku bayi Muhammad di atas unta tua yang tiba-tiba berjalan paling depan dalam rombongan pulang dari Makkah ke padang Bani Sa\'d — keberkahan yang datang bersama anak yatim yang tadinya ditolak.',
+    imageCaption: 'Di satu sisi, bayi Muhammad ﷺ terbaring tenang di tempat tidurnya. Di sisi lain, Halimah dan Harits bersiap berjalan di sebelah unta mereka yang kurus, tanpa mengetahui keberkahan yang akan mereka bawa pulang.',
     story: `Setiap tahun, rombongan itu datang ke [[Makkah|location:makkah]].
 
 Perempuan-perempuan dari pedalaman.
@@ -2479,7 +2479,7 @@ Sedangkan Allah ﷻ memberi dengan apa yang tidak terlihat.`,
     yearNum: 572,
     description: 'Peristiwa pembelahan dada. Catatan riwayat dijelaskan.',
     image: '/images/bab/bab-8-hero.webp',
-    imageCaption: 'Padang Bani Sa\'d yang sunyi — anak-anak sedang menggembalakan kambing ketika Jibril mendatangi Muhammad kecil, membaringkannya, dan membelah dadanya untuk mengeluarkan segumpal darah hitam.',
+    imageCaption: 'Anak-anak Bani Sa\'d berlari panik menuju perkampungan setelah menyaksikan peristiwa pembelahan dada Muhammad ﷺ.',
     story: `Padang itu sunyi seperti biasa.
 
 Anak-anak Bani Sa\'d bermain di sekitar perkampungan.
@@ -2617,7 +2617,7 @@ Dan puluhan tahun kemudian, orang-orang masih melihatnya.`,
     yearNum: 576,
     description: 'Perjalanan ke Abwa\', wafat Aminah. Bab emosional.',
     image: '/images/bab/bab-9-hero.webp',
-    imageCaption: 'Rombongan kecil Aminah, Muhammad ﷺ, dan Ummu Aiman di tengah perjalanan pulang dari Yatsrib — Aminah jatuh sakit di Abwa\', dan anak yang belum genap tujuh tahun itu kehilangan ibunya di tengah jalan.',
+    imageCaption: 'Sebuah sosok kecil bercahaya berdiri sendirian di padang Abwa\', meninggalkan makam ibunya dalam perjalanan kembali menuju Makkah.',
     story: `Aminah ingin mengunjungi makam suaminya.
 
 Di Yatsrib, kota tempat Abdullah wafat dan dikuburkan.¹
@@ -2741,7 +2741,7 @@ Sebagaimana kelak akan disebutkan: bukankah Allah mendapatimu sebagai seorang ya
     yearNum: 576,
     description: 'Muhammad ﷺ di asuh kakeknya Abdul Muthalib.',
     image: '/images/bab/bab-10-hero.webp',
-    imageCaption: 'Alas duduk di dekat Ka\'bah — tempat Abdul Muthalib biasa duduk, di mana Muhammad ﷺ selalu datang duduk di sisi kakeknya, sementara anak-anak pamannya berdiri menunggu di sekitarnya.',
+    imageCaption: 'Muhammad ﷺ kecil yang duduk di atas kursi tempat Abdul Muthalib, dan orang-orang Bani Hasyim berbisik membicarakannya.',
     story: `Rumah [[Abdul Muthalib|character:abdul-muthalib]] selalu ramai.
 
 Anak-anak dan cucu-cucunya datang dan pergi.
@@ -2891,7 +2891,7 @@ Tapi penjagaan Allah ﷻ tidak pernah berganti.`,
     yearNum: 578,
     description: 'Muhammad ﷺ di bawah asuhan Abu Thalib.',
     image: '/images/bab/bab-11-hero.webp',
-    imageCaption: 'Rumah sederhana Abu Thalib di malam pertama kedatangan Muhammad ﷺ — suasana sempit tapi hangat, anak-anak Abu Thalib tertidur berdesakan, dan seorang anak yatim piatu menemukan tempat baru yang sejak malam itu tidak pernah lagi kosong.',
+    imageCaption: 'Muhammad ﷺ duduk di sebelah sang paman, Abu Thalib — tempat ternyaman ketika berduka ditinggal ayah, ibu, dan kakeknya.',
     story: `Untuk kedua kalinya, Muhammad ﷺ berdiri di depan sebuah kuburan.
 
 Pertama, ibunya.

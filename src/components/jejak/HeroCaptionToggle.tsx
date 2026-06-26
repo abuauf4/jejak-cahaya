@@ -27,25 +27,29 @@ export default function HeroCaptionToggle({ caption }: HeroCaptionToggleProps) {
       >
         <svg
           className="hero-caption-icon"
-          width="13"
-          height="13"
+          width="14"
+          height="14"
           viewBox="0 0 24 24"
           fill="none"
           aria-hidden="true"
         >
+          {/* Camera body */}
           <path
-            d="M3 7h3.5l1.2-2h8.6l1.2 2H21v12H3V7z"
+            d="M3 9a2 2 0 0 1 2-2h2l1.5-2h7L17 7h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"
             stroke="currentColor"
-            strokeWidth="1.5"
+            strokeWidth="1.6"
             strokeLinejoin="round"
           />
-          <circle cx="12" cy="13" r="3.2" stroke="currentColor" strokeWidth="1.5" />
+          {/* Lens */}
+          <circle cx="12" cy="13" r="3.5" stroke="currentColor" strokeWidth="1.6" />
+          {/* Flash dot */}
+          <circle cx="18" cy="10.5" r="0.6" fill="currentColor" />
         </svg>
-        <span>Keterangan ilustrasi</span>
+        <span>Klik untuk melihat keterangan ilustrasi</span>
         <svg
           className={`hero-caption-chevron ${isOpen ? 'hero-caption-chevron--open' : ''}`}
-          width="9"
-          height="9"
+          width="10"
+          height="10"
           viewBox="0 0 24 24"
           fill="none"
           aria-hidden="true"

@@ -161,15 +161,15 @@ html { scroll-behavior: smooth; }
   cursor: pointer;
 
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 
-  color: rgba(232, 220, 200, 0.45);
+  color: rgba(232, 220, 200, 0.78);
   transition: color 0.2s ease;
 }
 .hero-caption-toggle:hover {
-  color: rgba(212, 175, 55, 0.85);
+  color: rgba(212, 175, 55, 0.95);
 }
 .hero-caption-toggle:focus-visible {
   outline: 1px solid rgba(212, 175, 55, 0.6);
@@ -177,13 +177,13 @@ html { scroll-behavior: smooth; }
   border-radius: 2px;
 }
 .hero-caption-icon {
-  opacity: 0.8;
+  opacity: 0.95;
   flex-shrink: 0;
 }
 .hero-caption-chevron {
   flex-shrink: 0;
   transition: transform 0.25s ease;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 .hero-caption-chevron--open {
   transform: rotate(180deg);
@@ -197,22 +197,22 @@ html { scroll-behavior: smooth; }
   margin-top: 0;
 }
 .hero-caption-content--open {
-  max-height: 240px;
+  max-height: 280px;
   opacity: 1;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .hero-caption-text {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.85rem;
-  line-height: 1.65;
-  color: rgba(232, 220, 200, 0.72);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(232, 220, 200, 0.92);
 
-  padding: 10px 14px;
+  padding: 12px 16px;
   margin: 0;
 
-  border-left: 2px solid rgba(212, 175, 55, 0.35);
-  background: rgba(212, 175, 55, 0.04);
+  border-left: 2px solid rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.06);
 
   font-style: italic;
 }
@@ -220,21 +220,21 @@ html { scroll-behavior: smooth; }
 .hero-caption-label {
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-style: normal;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(212, 175, 55, 0.75);
+  color: rgba(212, 175, 55, 0.9);
   margin-right: 2px;
 }
 
 /* Light mode — Jejak Cahaya defaultnya dark, tapi jaga konsistensi */
 :is(.light) .hero-caption-toggle {
-  color: rgba(80, 70, 50, 0.55);
+  color: rgba(80, 70, 50, 0.78);
 }
 :is(.light) .hero-caption-text {
-  color: rgba(50, 45, 35, 0.8);
-  background: rgba(212, 175, 55, 0.06);
+  color: rgba(50, 45, 35, 0.92);
+  background: rgba(212, 175, 55, 0.08);
 }
 
 /* Reduced motion — hormati preferensi user */
