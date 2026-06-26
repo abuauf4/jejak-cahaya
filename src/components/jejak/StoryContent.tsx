@@ -288,13 +288,28 @@ export default function StoryContent({
   const parsed = parseStory(event.story);
   const separatorColor = 'rgba(44, 36, 24, 0.10)';
 
+  // ── Reading time estimate (200 WPM = avg Indonesian reading speed) ──
+  // Strip markup + markers for accurate word count
+  const storyPlainText = event.story
+    .replace(/\[\[[^\]|]+\|(?:(?:character|location):[a-z0-9-]+)\]\]/g, '') // entity links
+    .replace(/[✦◆⟩»]/g, ' ') // markers
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, '') // citation superscript
+    .replace(/\s+/g, ' ')
+    .trim();
+  const wordCount = storyPlainText ? storyPlainText.split(' ').length : 0;
+  const readingMinutes = Math.max(1, Math.ceil(wordCount / 200));
+
+  // ── Image alt text (auto-gen, opsi A.3) ──
+  const babNum = event.id.replace('bab-', '');
+  const imageAlt = `Ilustrasi Bab ${babNum}: ${event.title}`;
+
   return (
     <div className="min-h-screen bg-paper dark:bg-navy-deep reader-transition">
       {/* Content */}
       <div className="pt-20 sm:pt-24 pb-24 px-5 sm:px-6">
         <div className="max-w-[65ch] mx-auto">
           {/* ─── HEADER ─── */}
-          <div className="mb-2 flex items-center gap-2 text-sm font-medium text-ink-soft dark:text-sand">
+          <div className="mb-2 flex flex-wrap items-center gap-2 text-sm font-medium text-ink-soft dark:text-sand">
             <span>{event.year}</span>
             {location && (
               <>
@@ -307,6 +322,10 @@ export default function StoryContent({
                 </Link>
               </>
             )}
+            <span className="text-ink/20 dark:text-sand/20">·</span>
+            <span className="text-ink-light dark:text-warm-muted">
+              {readingMinutes} menit baca
+            </span>
           </div>
 
           {/* ─── HERO ILLUSTRATION ─── */}
@@ -315,7 +334,7 @@ export default function StoryContent({
               <div className="reader-hero-image -mx-5 sm:-mx-6 mb-2 sm:mb-3">
                 <Image
                   src={event.image}
-                  alt=""
+                  alt={imageAlt}
                   width={1344}
                   height={768}
                   priority

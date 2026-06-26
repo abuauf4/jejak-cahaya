@@ -1,7 +1,24 @@
+# ══════════════════════════════════════════════════════
+# Jejak Cahaya — robots.txt
+# Allow all crawlers access to all public content
+# ══════════════════════════════════════════════════════
+
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
+Allow: /
+
+User-agent: Bingbot-Image
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /
 
 User-agent: Twitterbot
@@ -10,5 +27,31 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
 User-agent: *
 Allow: /
+
+# Block internal Next.js endpoints from indexing
+Disallow: /api/
+Disallow: /_next/
+
+# ── Sitemap ──
+Sitemap: https://jejakcahaya.my.id/sitemap.xml
+Host: https://jejakcahaya.my.id
