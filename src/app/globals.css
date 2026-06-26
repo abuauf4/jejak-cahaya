@@ -141,6 +141,111 @@ html { scroll-behavior: smooth; }
   height: auto;
 }
 
+/* ── Hero Caption Toggle — kecil di bawah hero illustration ──
+   Default collapse, klik untuk expand keterangan.
+   Tone tenang, gak ganggu reading flow. */
+.hero-caption-wrapper {
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.hero-caption-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  margin: 0;
+  cursor: pointer;
+
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+
+  color: rgba(232, 220, 200, 0.45);
+  transition: color 0.2s ease;
+}
+.hero-caption-toggle:hover {
+  color: rgba(212, 175, 55, 0.85);
+}
+.hero-caption-toggle:focus-visible {
+  outline: 1px solid rgba(212, 175, 55, 0.6);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.hero-caption-icon {
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+.hero-caption-chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  opacity: 0.7;
+}
+.hero-caption-chevron--open {
+  transform: rotate(180deg);
+}
+
+.hero-caption-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+.hero-caption-content--open {
+  max-height: 240px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.hero-caption-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(232, 220, 200, 0.72);
+
+  padding: 10px 14px;
+  margin: 0;
+
+  border-left: 2px solid rgba(212, 175, 55, 0.35);
+  background: rgba(212, 175, 55, 0.04);
+
+  font-style: italic;
+}
+
+.hero-caption-label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.75);
+  margin-right: 2px;
+}
+
+/* Light mode — Jejak Cahaya defaultnya dark, tapi jaga konsistensi */
+:is(.light) .hero-caption-toggle {
+  color: rgba(80, 70, 50, 0.55);
+}
+:is(.light) .hero-caption-text {
+  color: rgba(50, 45, 35, 0.8);
+  background: rgba(212, 175, 55, 0.06);
+}
+
+/* Reduced motion — hormati preferensi user */
+@media (prefers-reduced-motion: reduce) {
+  .hero-caption-content,
+  .hero-caption-chevron {
+    transition: none;
+  }
+}
+
+
 /* Reading content — immersive, Medium/Kindle style.
    Body uses Lora (warm modern serif, low stroke contrast — friendly to
    long-form reading). Headlines + closing punchline tetap Playfair via

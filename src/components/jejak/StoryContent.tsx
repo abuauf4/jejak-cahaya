@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { StoryEvent, Character, StoryLocation } from '@/data/content';
 import JourneyProgress from './JourneyProgress';
+import HeroCaptionToggle from './HeroCaptionToggle';
 
 export interface ParsedStory {
   opening: string[];
@@ -310,17 +311,23 @@ export default function StoryContent({
 
           {/* ─── HERO ILLUSTRATION ─── */}
           {event.image && (
-            <div className="reader-hero-image -mx-5 sm:-mx-6 mb-8 sm:mb-10">
-              <Image
-                src={event.image}
-                alt=""
-                width={1344}
-                height={768}
-                priority
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 65ch) 100vw, 65ch"
-              />
-            </div>
+            <>
+              <div className="reader-hero-image -mx-5 sm:-mx-6 mb-2 sm:mb-3">
+                <Image
+                  src={event.image}
+                  alt=""
+                  width={1344}
+                  height={768}
+                  priority
+                  className="w-full h-auto object-cover"
+                  sizes="(max-width: 65ch) 100vw, 65ch"
+                />
+              </div>
+              {event.imageCaption && (
+                <HeroCaptionToggle caption={event.imageCaption} />
+              )}
+              <div className="h-6 sm:h-8" />
+            </>
           )}
 
           {/* Title */}

@@ -48,6 +48,7 @@ export interface StoryEvent {
   description: string;
   story: string; // konten menunggu penulisan
   image?: string; // hero illustration path (1 per bab — captures emotion, not content)
+  imageCaption?: string; // toggle-able caption explaining the illustration
   featured: boolean;
   characterIds: string[];
   locationId: string;
@@ -300,6 +301,7 @@ export const events: StoryEvent[] = [
     yearNum: -570,
     description: 'Geografi, gurun, kafilah, dan kehidupan Arab sebelum Islam.',
     image: '/images/bab/bab-1-hero.png',
+    imageCaption: 'Seorang pengelana berdiri sendirian di tengah hamparan pasir Jazirah Arab, di bawah terik matahari yang membakar — tanpa pohon, tanpa sungai, tanpa rumah yang bisa diketuk.',
     story: `Matahari belum lama terbit.
 
 Namun panasnya sudah terasa membakar kulit.
@@ -751,6 +753,7 @@ Kota itu bernama [[Makkah|location:makkah]].`,
     yearNum: -570,
     description: 'Lokasi Makkah, posisi strategis, jalur perdagangan.',
     image: '/images/bab/bab-2-hero.png',
+    imageCaption: 'Pemandangan Makkah dari atas — lembah gersang di antara gunung-gunung kelabu, dengan Ka\'bah berdiri di tengah sebagai satu-satunya alasan kota itu ada.',
     story: `Gunung-gunung batu membentang di kedua sisi.
 
 Seolah menutup jalan.
@@ -1021,6 +1024,7 @@ Belum ada yang mengetahui apa yang sedang dipersiapkan Allah ﷻ dari kota kecil
     yearNum: -2000,
     description: 'Nabi Ibrahim عليه السلام, Nabi Ismail عليه السلام, dan Ka\'bah.',
     image: '/images/bab/bab-3-hero.png',
+    imageCaption: 'Ka\'bah bangunan kubus sederhana di tengah lembah Makkah, batu-batu yang disusun Ibrahim dan Ismail, usianya lebih tua dari ingatan manusia.',
     story: `Di tengah lembah itu, pandangan manusia selalu kembali ke tempat yang sama.
 
 Tidak peduli dari arah mana mereka datang.
@@ -1278,6 +1282,7 @@ Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memin
     yearNum: -570,
     description: 'Struktur suku, kehormatan Quraisy, pengelola Ka\'bah.',
     image: '/images/bab/bab-4-hero.png',
+    imageCaption: 'Suasana Dar an-Nadwah — rumah musyawarah Quraisy, di mana kehormatan, perdagangan, dan kekuasaan diputuskan oleh para pemuka Bani Hasyim.',
     story: `Mereka bukan suku terbesar di [[Jazirah Arab|location:jazirah-arab]].
 
 Bukan yang paling tua.
@@ -1576,6 +1581,7 @@ Tidak ada yang menyangka bahwa perubahan itu justru akan lahir dari salah satu r
     yearNum: 570,
     description: 'Abrahah, pasukan gajah, QS Al-Fil.',
     image: '/images/bab/bab-5-hero.png',
+    imageCaption: 'Pasukan bergajah Abrahah mendekati Makkah — gajah Mahmud berdiri di barisan depan, ekspresi pasukan yang sombong, langit yang sebentar lagi akan berubah.',
     story: `Jauh di selatan, seorang raja sedang merencanakan sesuatu.
 
 Bukan perang biasa.
@@ -2028,6 +2034,7 @@ Sesuatu yang akan dimulai dari kelahiran seorang bayi.`,
     yearNum: 570,
     description: 'Kelahiran Muhammad ﷺ di Makkah.',
     image: '/images/bab/bab-6-hero.webp',
+    imageCaption: 'Rumah sederhana di kawasan Bani Hasyim, malam Senin 12 Rabi\'ul Awwal — Aminah binti Wahb baru saja melahirkan seorang bayi laki-laki, dan cahaya yang keluar bersamanya menjangkau negeri Syam.',
     story: `Di antara rumah-rumah batu Bani Hasyim, ada sebuah pintu yang tertutup.
 
 Tidak ada yang istimewa dari luar.
@@ -2245,6 +2252,7 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.`,
     yearNum: 570,
     description: 'Muhammad ﷺ di asuh Halimah as-Sa\'diyah di padang pasir.',
     image: '/images/bab/bab-7-hero.webp',
+    imageCaption: 'Halimah binti Abi Dzu\'aib memangku bayi Muhammad di atas unta tua yang tiba-tiba berjalan paling depan dalam rombongan pulang dari Makkah ke padang Bani Sa\'d — keberkahan yang datang bersama anak yatim yang tadinya ditolak.',
     story: `Setiap tahun, rombongan itu datang ke [[Makkah|location:makkah]].
 
 Perempuan-perempuan dari pedalaman.
@@ -2471,6 +2479,7 @@ Sedangkan Allah ﷻ memberi dengan apa yang tidak terlihat.`,
     yearNum: 572,
     description: 'Peristiwa pembelahan dada. Catatan riwayat dijelaskan.',
     image: '/images/bab/bab-8-hero.webp',
+    imageCaption: 'Padang Bani Sa\'d yang sunyi — anak-anak sedang menggembalakan kambing ketika Jibril mendatangi Muhammad kecil, membaringkannya, dan membelah dadanya untuk mengeluarkan segumpal darah hitam.',
     story: `Padang itu sunyi seperti biasa.
 
 Anak-anak Bani Sa\'d bermain di sekitar perkampungan.
@@ -2608,6 +2617,7 @@ Dan puluhan tahun kemudian, orang-orang masih melihatnya.`,
     yearNum: 576,
     description: 'Perjalanan ke Abwa\', wafat Aminah. Bab emosional.',
     image: '/images/bab/bab-9-hero.webp',
+    imageCaption: 'Rombongan kecil Aminah, Muhammad ﷺ, dan Ummu Aiman di tengah perjalanan pulang dari Yatsrib — Aminah jatuh sakit di Abwa\', dan anak yang belum genap tujuh tahun itu kehilangan ibunya di tengah jalan.',
     story: `Aminah ingin mengunjungi makam suaminya.
 
 Di Yatsrib, kota tempat Abdullah wafat dan dikuburkan.¹
@@ -2731,6 +2741,7 @@ Sebagaimana kelak akan disebutkan: bukankah Allah mendapatimu sebagai seorang ya
     yearNum: 576,
     description: 'Muhammad ﷺ di asuh kakeknya Abdul Muthalib.',
     image: '/images/bab/bab-10-hero.webp',
+    imageCaption: 'Alas duduk di dekat Ka\'bah — tempat Abdul Muthalib biasa duduk, di mana Muhammad ﷺ selalu datang duduk di sisi kakeknya, sementara anak-anak pamannya berdiri menunggu di sekitarnya.',
     story: `Rumah [[Abdul Muthalib|character:abdul-muthalib]] selalu ramai.
 
 Anak-anak dan cucu-cucunya datang dan pergi.
@@ -2880,6 +2891,7 @@ Tapi penjagaan Allah ﷻ tidak pernah berganti.`,
     yearNum: 578,
     description: 'Muhammad ﷺ di bawah asuhan Abu Thalib.',
     image: '/images/bab/bab-11-hero.webp',
+    imageCaption: 'Rumah sederhana Abu Thalib di malam pertama kedatangan Muhammad ﷺ — suasana sempit tapi hangat, anak-anak Abu Thalib tertidur berdesakan, dan seorang anak yatim piatu menemukan tempat baru yang sejak malam itu tidak pernah lagi kosong.',
     story: `Untuk kedua kalinya, Muhammad ﷺ berdiri di depan sebuah kuburan.
 
 Pertama, ibunya.
