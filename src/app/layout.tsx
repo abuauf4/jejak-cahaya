@@ -25,6 +25,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jejakcahaya.my.id"),
   title: "Jejak Cahaya — Platform Pengetahuan Islam",
   description:
     "Platform pengetahuan Islam. Menelusuri jejak kehidupan Rasulullah SAW melalui perjalanan yang mengalir — dari dunia sebelum Islam hingga cahaya yang menyeluruh.",
