@@ -2,6 +2,9 @@
 // JEJAK CAHAYA™ — Hero Image Caption Toggle
 // Toggle kecil di bawah hero illustration untuk expand/collapse
 // keterangan ilustrasi. Default collapse biar gak ganggu reading flow.
+//
+// Color styling pakai Tailwind classes (guaranteed ke-keep di CSS output,
+// dark: variant handle dark mode automatically via darkMode: "class").
 // ══════════════════════════════════════════════════════
 
 'use client';
@@ -20,7 +23,7 @@ export default function HeroCaptionToggle({ caption }: HeroCaptionToggleProps) {
     <div className="hero-caption-wrapper">
       <button
         type="button"
-        className="hero-caption-toggle"
+        className="hero-caption-toggle text-ink-light hover:text-gold dark:text-sand dark:hover:text-lantern-mid font-medium"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-controls="hero-caption-content"
@@ -68,8 +71,11 @@ export default function HeroCaptionToggle({ caption }: HeroCaptionToggleProps) {
         id="hero-caption-content"
         className={`hero-caption-content ${isOpen ? 'hero-caption-content--open' : ''}`}
       >
-        <p className="hero-caption-text">
-          <span className="hero-caption-label">Ilustrasi gambar:</span> {caption}
+        <p className="hero-caption-text text-ink-soft dark:text-sand bg-gold-soft/10 dark:bg-lantern-mid/5 border-l-2 border-gold-soft/60 dark:border-lantern-mid/50">
+          <span className="hero-caption-label text-gold dark:text-lantern-mid font-semibold uppercase tracking-wide">
+            Ilustrasi gambar:
+          </span>{' '}
+          {caption}
         </p>
       </div>
     </div>
