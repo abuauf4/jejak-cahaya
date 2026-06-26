@@ -237,6 +237,23 @@ Ummu Aiman kemudian menikah dengan Zaid bin Haritsah dan melahirkan Usamah bin Z
     eventIds: ["wafat-aminah"],
     references: ["Sirah Ibnu Hisyam", "Shahih Muslim", "Al-Isti'ab fi Ma'rifat al-Ashhab"],
   },
+  {
+    id: "abu-thalib",
+    name: "Abu Thalib bin Abdul Muthalib",
+    title: "Paman Pelindung — Penjaga Dakwah di Makkah",
+    shortBio: "Paman Rasulullah ﷺ yang mengasuhnya setelah wafatnya Abdul Muthalib, dan menjadi pelindung setia dakwah Islam selama puluhan tahun di Makkah.",
+    fullBio: `Abu Thalib bin Abdul Muthalib adalah paman Rasulullah ﷺ yang menerima amanah mengasuh beliau setelah wafatnya Abdul Muthalib pada 578 M. Ia bukan putra tertua Abdul Muthalib — putra tertua adalah Harits, tetapi Harits tidak memiliki kemampuan untuk menanggung beban itu. Abbas memiliki harta namun dikenal kikir. Abu Thalib, meskipun paling sederhana hartanya di antara saudara-saudaranya, dipilih karena kehalusan perasaannya dan kesetiaannya.
+
+Selama lebih dari empat dekade, Abu Thalib menjadi pelindung Rasulullah ﷺ — sejak masa kecil hingga awal kenabian. Ia membawa Muhammad ﷺ dalam perjalanan dagang ke Syam ketika beliau masih remaja, di mana peristiwa pertemuan dengan pendeta Bahira terjadi.
+
+Ketika Rasulullah ﷺ menerima wahyu dan mulai berdakwah, Abu Thalib tetap membelanya meskipun ia sendiri tidak memeluk Islam. Ia menolak tuntutan Quraisy untuk menyerahkan Muhammad ﷺ, dan ikut mengalami boikot di Shi'b Abi Thalib bersama keluarga Bani Hasyim.
+
+Abu Thalib wafat pada tahun ke-10 kenabian (619 M), sekitar tiga tahun setelah wafatnya Khadijah. Tahun itu disebut 'Am al-Huzn — Tahun Kesedihan — bagi Rasulullah ﷺ. Meskipun wafat dalam keadaan tidak memeluk Islam menurut riwayat mayoritas, jasanya melindungi dakwah Islam di masa-masa paling kritis tidak pernah dilupakan.`,
+    role: "Paman Pengasuh, Pelindung Dakwah Rasulullah ﷺ",
+    period: "549–619 M",
+    eventIds: ["wafat-abdul-muthalib", "perjalanan-bahira", "dakwah-makkah", "boikot-shib", "tahun-kesedihan"],
+    references: ["Sirah Ibnu Hisyam", "Shahih Bukhari", "Tarikh Ath-Thabari"],
+  },
 ];
 
 export function getCharacterById(id: string): Character | undefined {

@@ -378,3 +378,35 @@ Stage Summary:
 - download/bab-9-perpisahan-dengan-sang-ibu.md (backup)
 - Parser output verified: 1 opening + 6 section dividers + 36 text + 5 reflection, closing 107 char → auto-gold
 - TS errors: 0
+
+---
+Task ID: 13
+Agent: main
+Task: Insert naskah Bab 10 — Di Bawah Asuhan Abdul Muthalib
+
+Work Log:
+- User upload file bab-10-di-bawah-asuhan-abdul-muthalib-final.md via /home/z/my-project/upload/
+- Baca naskah: format markdown dgn blockquote opening + italic reflection + 7 references + 4 catatan editor
+- Cek entity IDs: abdul-muthalib ✓, kabah ✓, makkah ✓, abu-thalib ✗ (belum ada)
+- Tambah character baru: Abu Thalib bin Abdul Muthalib di src/data/characters.ts — paman pengasuh, pelindung dakwah Rasulullah ﷺ
+- Konversi naskah ke format renderer:
+  * Strip blockquote 'Rumah Abdul Muthalib selalu ramai.' → opening
+  * Strip italic asterisks dari opening + reflection
+  * Reflection '⟩' di-merge ke baris pertama (5 paragraf)
+  * Marker ✦ ✦ ✦ dipertahankan (8 section dividers)
+- Title: 'Di Bawah Asuhan Abdul Muthalib' (tetap)
+- Subtitle: 'Kakek yang menyayangi lebih dari anaknya sendiri' → 'Dua Tahun di Bawah Sayap Sang Kakek'
+- Update characterIds: ['abdul-muthalib'] → ['abdul-muthalib', 'abu-thalib']
+- Tambah entity links di first-mention: Abdul Muthalib, Ka'bah, Abu Thalib, Makkah
+- Harits & Abbas disebut kontekstual — tidak diberi link (bukan tokoh utama)
+- Isi references (7 entries) dan editorNotes (4 entries) dari footer naskah
+- Tulis backup markdown: download/bab-10-di-bawah-asuhan-abdul-muthalib.md
+- Pakai Python script (scripts/replace-bab-10.py) untuk surgical replacement
+
+Stage Summary:
+- Bab 10 LOCKED dengan naskah final dari user
+- content.ts: bab-10 object fully replaced (subtitle, story 3.5K chars, 7 references, 4 editorNotes, 2 characterIds)
+- characters.ts: tambah Abu Thalib bin Abdul Muthalib — paman pengasuh, pelindung dakwah
+- download/bab-10-di-bawah-asuhan-abdul-muthalib.md (backup)
+- Parser output verified: 1 opening + 8 section dividers + 46 text + 5 reflection, closing 45 char → auto-gold
+- TS errors: 0
