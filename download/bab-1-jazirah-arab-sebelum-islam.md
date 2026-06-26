@@ -64,7 +64,7 @@ Dari kejauhan tampak titik-titik kecil bergerak di atas gurun.
 
 Sedikit demi sedikit bentuknya menjadi jelas.
 
-Unta.
+Ya, itu unta.
 
 Puluhan ekor.
 
@@ -400,7 +400,7 @@ Tidak ada yang tampak luar biasa.
 
 Namun sering kali, perubahan terbesar datang ketika tidak ada seorang pun yang menduganya.
 
-*Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk menyala.*
+*Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk bersinar.*
 
 Jazirah Arab bukan sekadar hamparan gurun.
 
