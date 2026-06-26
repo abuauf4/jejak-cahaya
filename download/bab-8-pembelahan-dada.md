@@ -121,11 +121,11 @@ Dan puluhan tahun kemudian, orang-orang masih melihatnya.
 
 ## Referensi
 
-¹ Muslim bin Hajjaj, *Shahih Muslim*, Kitab Al-Iman, Bab: Itsbat Nubuwwah Nabiyyina Muhammad ﷺ, Hadits riwayat Anas bin Malik tentang peristiwa Syaqq ash-Shadr (no. 162).
+¹ Muslim bin Hajjaj, Shahih Muslim, Kitab Al-Iman, Bab: Itsbat Nubuwwah Nabiyyina Muhammad ﷺ, Hadits riwayat Anas bin Malik tentang peristiwa Syaqq ash-Shadr (no. 162).
 
 ² Identitas Jibril ﷺ sebagai pelaku tunggal sebagaimana disebutkan secara eksplisit dalam matan hadits Anas bin Malik riwayat Muslim — berbeda dari sebagian riwayat sirah yang menyebut "dua orang berpakaian putih" dari sudut pandang saudara susuan Nabi ﷺ. Lihat Catatan Editor.
 
-³ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Istirdha' an-Nabi fi Bani Sa'd, Hal. 168–170, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
+³ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Istirdha' an-Nabi fi Bani Sa'd, Hal. 168–170, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
 ---
 

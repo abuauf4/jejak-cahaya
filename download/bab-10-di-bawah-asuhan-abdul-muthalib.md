@@ -129,15 +129,15 @@ Tapi penjagaan Allah ﷻ tidak pernah berganti.
 
 ## Referensi
 
-¹ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Kafalah Abdul Muthalib, Hal. 178, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
+¹ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Kafalah Abdul Muthalib, Hal. 178, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
-² Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, riwayat tentang alas duduk Abdul Muthalib di dekat Ka'bah, Hal. 178–179.
+² Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, riwayat tentang alas duduk Abdul Muthalib di dekat Ka'bah, Hal. 178–179.
 
 ³ Mengenai usia Abdul Muthalib saat wafat, riwayat berbeda-beda. Lihat Catatan Editor.
 
 ⁴ Chanelmuslim.com, "Kisah Wafatnya Abdul Muthalib", mengutip pertimbangan Abdul Muthalib dalam memilih pengasuh Muhammad ﷺ di antara putra-putranya.
 
-⁵ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Wafat Abdul Muthalib wa Kafalah Abi Thalib, Hal. 179–180, Dar al-Ma'rifah, Beirut. Redaksi pertemuan wasiat disampaikan secara naratif; dialog literal antara Abdul Muthalib dan Abu Thalib yang populer beredar berasal dari riwayat turunan yang lebih lemah sanadnya (lihat Catatan Editor).
+⁵ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Wafat Abdul Muthalib wa Kafalah Abi Thalib, Hal. 179–180, Dar al-Ma'rifah, Beirut. Redaksi pertemuan wasiat disampaikan secara naratif; dialog literal antara Abdul Muthalib dan Abu Thalib yang populer beredar berasal dari riwayat turunan yang lebih lemah sanadnya (lihat Catatan Editor).
 
 ⁶ Wikishia, "Abdul Mutthalib", riwayat lokasi pemakaman di Hujun, di sisi makam Qushay bin Kilab.
 

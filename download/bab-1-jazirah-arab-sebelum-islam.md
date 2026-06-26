@@ -1,6 +1,7 @@
 # Bab 1
 ## Jazirah Arab Sebelum Islam
 *Sebelum Cahaya Menyinari Dunia*
+**Tahun:** Sebelum 570 M
 
 ---
 
@@ -400,7 +401,7 @@ Tidak ada yang tampak luar biasa.
 
 Namun sering kali, perubahan terbesar datang ketika tidak ada seorang pun yang menduganya.
 
-*Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk bersinar.*
+⟩ Di balik setiap kegelapan, selalu ada sesuatu yang menunggu untuk bersinar.
 
 Jazirah Arab bukan sekadar hamparan gurun.
 
@@ -408,7 +409,7 @@ Bukan sekadar jalur perdagangan.
 
 Bukan sekadar tempat berbagai suku mempertahankan kehormatan mereka.
 
-Tanah ini sedang dipersiapkan.
+Tanah ini sedang Allah ﷻ siapkan.
 
 Seperti sebuah panggung yang menunggu tirainya dibuka.
 
@@ -436,14 +437,14 @@ Kota itu bernama Makkah.
 
 ---
 
-**Referensi:**
+## Referensi
 
-¹ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr asl al-'Arab wa amr 'Amr ibn 'Amir wa Amr al-Fil, Hal. 1–70, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
+¹ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr asl al-'Arab wa amr 'Amr ibn 'Amir wa Amr al-Fil, Hal. 1–70, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
-² Ibnu Ishaq, *Sirah Rasulullah*, riwayat Ibnu Hisyam, dalam: *As-Sirah An-Nabawiyah*, Jilid 1, Hal. 1–70, Dar al-Ma'rifah, Beirut
+² Ibnu Ishaq, Sirah Rasulullah, riwayat Ibnu Hisyam, dalam: As-Sirah An-Nabawiyah, Jilid 1, Hal. 1–70, Dar al-Ma'rifah, Beirut
 
-³ Al-Baladzuri, *Futuh al-Buldan*, Hal. 67 (perdagangan pra-Islam), Dar al-Kutub al-'Ilmiyyah, Beirut, 1419 H, tahqiq Radwan Muhammad Radwan
+³ Al-Baladzuri, Futuh al-Buldan, Hal. 67 (perdagangan pra-Islam), Dar al-Kutub al-'Ilmiyyah, Beirut, 1419 H, tahqiq Radwan Muhammad Radwan
 
-⁴ Al-Mas'udi, *Muruj adz-Dzahab wa Ma'adin al-Jawahir*, Jilid 2, Bab: Dhikr Makkah wa akhbariha wa bina' al-Bayt, Hal. 275–310, Dar al-Hijrah, Qom, 1409 H, tahqiq As'ad Daghir
+⁴ Al-Mas'udi, Muruj adz-Dzahab wa Ma'adin al-Jawahir, Jilid 2, Bab: Dhikr Makkah wa akhbariha wa bina' al-Bayt, Hal. 275–310, Dar al-Hijrah, Qom, 1409 H, tahqiq As'ad Daghir
 
-⁵ Yaqut al-Hamawi, *Mu'jam al-Buldan*, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M
+⁵ Yaqut al-Hamawi, Mu'jam al-Buldan, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M

@@ -1,8 +1,7 @@
-# Bab 5: Tahun Gajah
-
-**Subtitle:** Pasukan yang dihancurkan dari langit
+# Bab 5
+## Tahun Gajah
+*Pasukan yang Dihancurkan dari Langit*
 **Tahun:** 570 M
-**Fase:** 0 — Dunia Sebelum Islam
 
 ---
 
@@ -28,13 +27,13 @@ Namun bangunan itu membuatnya tidak bisa tidur.
 
 Namanya Abrahah.
 
-Penguasa Yaman atas nama Kerajaan Aksum.²³⁵
+Penguasa Yaman atas nama Kerajaan Aksum.²
 
 Ia bukan orang Arab.
 
 Ia datang dari seberang Laut Merah, membawa kekuasaan negara asing ke tanah yang selama ini dikenal karena kemerdekaannya.
 
-Abrahah membangun sebuah gereja besar di Shan'ā.²⁴⁵
+Abrahah membangun sebuah gereja besar di Shan'ā.²
 
 Al-Qullays.
 
@@ -48,7 +47,7 @@ Dihiasi emas dan perak.
 
 Tujuannya satu.
 
-Ia ingin agar orang-orang Arab berhenti berziarah ke Ka'bah.²³
+Ia ingin agar orang-orang Arab berhenti berziarah ke Ka'bah.²
 
 Ia ingin agar mereka datang ke gerejanya.
 
@@ -92,7 +91,7 @@ Bukan marah biasa.
 
 Marah yang menggerakkan pasukan.
 
-Ia mengumpulkan tentara.²³⁴⁵
+Ia mengumpulkan tentara.²
 
 Pasukan besar.
 
@@ -104,7 +103,7 @@ Dan seekor gajah.
 
 Bukan gajah biasa.
 
-Mahmud.²³⁵⁶
+Mahmud.²
 
 Gajah perang raksasa yang tidak pernah dilihat orang-orang Arab sebelumnya.
 
@@ -160,7 +159,7 @@ Mereka pedagang.
 
 Mereka tidak memiliki pasukan perang yang bisa menghadapi kerajaan.
 
-Sepanjang jalan, suku-suku Arab yang mencoba menghalangi langsung dikalahkan.²³
+Sepanjang jalan, suku-suku Arab yang mencoba menghalangi langsung dikalahkan.²
 
 Tidak ada yang bisa berbuat banyak.
 
@@ -172,7 +171,7 @@ Seorang utusan dari Abrahah mendahului pasukan.
 
 Ia menyampaikan pesan.
 
-Abrahah tidak datang untuk memerangi penduduk.²³
+Abrahah tidak datang untuk memerangi penduduk.²
 
 Ia hanya datang untuk menghancurkan Ka'bah.
 
@@ -182,7 +181,7 @@ Jika mereka melawan, mereka akan dihancurkan.
 
 ✦ ✦ ✦
 
-Utusan itu diterima oleh Abdul Muthalib.²³⁶
+Utusan itu diterima oleh Abdul Muthalib.²
 
 Sang kepala suku Quraisy.
 
@@ -202,9 +201,9 @@ Tapi yang terjadi berbeda.
 
 Abdul Muthalib berdiri tegak.
 
-Dan mengatakan sesuatu yang menjadi catatan sejarah.
+Dan mengatakan sesuatu yang akan terus diingat oleh banyak orang setelahnya.
 
-Ia berkata bahwa Ka'bah memiliki Pemilik.²³
+Ia berkata bahwa Ka'bah memiliki Pemilik.²
 
 Dan Pemiliknya akan melindunginya.
 
@@ -216,7 +215,7 @@ Ia tidak mengumpulkan pasukan.
 
 Ia tidak membuat benteng.
 
-Ia mengajak penduduk Makkah meninggalkan kota.²³
+Ia mengajak penduduk Makkah meninggalkan kota.²
 
 Mereka mengungsi ke pegunungan di sekeliling lembah.
 
@@ -260,7 +259,7 @@ Tidak peduli seberapa keras dipukul.
 
 Tidak peduli seberapa banyak ditusuk.
 
-Mahmud menolak berjalan menuju Ka'bah.²³⁵
+Mahmud menolak berjalan menuju Ka'bah.²
 
 Namun ketika mereka mengarahkannya ke utara, ke selatan, ke timur — gajah itu berjalan.
 
@@ -280,7 +279,7 @@ Bukan awan biasa.
 
 Bukan burung biasa.
 
-Sekawanan burung.¹²³⁴
+Sekawanan burung.¹
 
 Terbang berkelompok.
 
@@ -307,7 +306,7 @@ Al-Qur'an mengabadikan peristiwa itu:
 
 ✦ ✦ ✦
 
-Pasukan itu hancur.¹²³⁴
+Pasukan itu hancur.¹
 
 Bukan karena pedang.
 
@@ -349,7 +348,7 @@ Tubuhnya berdarah.
 
 Kulitnya terkelupas seperti yang dialami pasukannya.
 
-Ia meninggal dalam perjalanan.²³⁴
+Ia meninggal dalam perjalanan.²
 
 Seorang raja yang berangkat dengan pasukan terbesar.
 
@@ -359,9 +358,7 @@ Gajahnya mati.
 
 Pasukannya musnah.
 
-Dan gereja Al-Qullays yang ia bangun dengan segala kemegahannya?
-
-Namun Al-Qullays tidak pernah berhasil menggantikan kedudukan Ka'bah di hati orang-orang Arab.
+Dan gereja Al-Qullays yang ia bangun dengan segala kemegahannya — tidak pernah menggantikan kedudukan Ka'bah.
 
 Seolah bangunan itu tidak pernah ada.
 
@@ -389,7 +386,7 @@ Orang-orang Arab di seluruh Jazirah menyaksikan peristiwa itu.
 
 Mereka menyebut tahun itu dengan nama baru.
 
-Tahun Gajah.²³⁶
+Tahun Gajah.²
 
 Tahun ketika pasukan terbesar yang pernah mereka lihat hancur dalam satu hari.
 
@@ -431,7 +428,7 @@ Bahwa kekuasaan sejati bukan di tangan raja.
 
 Dan bahwa di balik peristiwa yang menakjubkan itu, sesuatu yang lebih besar sedang dipersiapkan.
 
-Sesuatu yang akan dimulai dari tangisan seorang bayi.
+Sesuatu yang akan dimulai dari kelahiran seorang bayi.
 
 ---
 
@@ -441,10 +438,12 @@ Sesuatu yang akan dimulai dari tangisan seorang bayi.
 
 ² Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Amr al-Fil, Hal. 22-42, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
-³ Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 2, Hal. 137-148, Dar al-Kutub al-'Ilmiyyah, Beirut
+---
 
-⁴ Ibnu Katsir, Al-Bidayah wa an-Nihayah, Jilid 2, Bab: Dhikr Amr Abrahah ash-Shahib al-Fil, Hal. 253-267, Dar al-Fikr, Beirut
+## Catatan Editor
 
-⁵ Al-Azraqi, Akhbar Makkah, Juz' 1, Bab: Dhikr Amr al-Fil wa ma Kana min Amr Abrahah, Hal. 90-110, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
+*Tahun peristiwa Gajah umumnya disebut Tahun Gajah (±570 M). Sebagian ahli sejarah memberi rentang 555–571 M karena perbedaan metode perhitungan kalender.*
 
-⁶ Ibnu Sa'd, Ath-Thabaqat al-Kubra, Jilid 1, Hal. 54-58, Dar Shadir, Beirut
+*Jumlah pasukan Abrahah disebut berbeda-beda dalam riwayat. Narasi ini menggunakan deskripsi umum "pasukan besar" untuk menghindari angka yang tidak pasti.*
+
+*Ibnu Hisyam meriwayatkan Abdul Muthalib sempat diundang ke kemah Abrahah. Sebagian riwayat lain menyebut pertemuan ini lebih singkat. Narasi mempertahankan inti yang disepakati.*

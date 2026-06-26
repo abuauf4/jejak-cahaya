@@ -1,7 +1,7 @@
 # Bab 6
 ## Nama yang pertama kali disebut
 *MUHAMMAD*
-**Tahun:** ±570 M
+**Tahun:** 570 M
 
 ---
 
@@ -197,17 +197,17 @@ Seperti fajar yang tidak pernah meminta izin sebelum menerangi.
 
 ## Referensi
 
-¹ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Maulid an-Nabi wa Radha'uhu, Hal. 158–168, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
+¹ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Maulid an-Nabi wa Radha'uhu, Hal. 158–168, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
-² Ibnu Sa'd, *Ath-Thabaqat al-Kubra*, Jilid 1, Bab: Dhikr Wafat Abdillah Abi an-Nabi ﷺ, Hal. 96–100, Dar Shadir, Beirut.
+² Ibnu Sa'd, Ath-Thabaqat al-Kubra, Jilid 1, Bab: Dhikr Wafat Abdillah Abi an-Nabi ﷺ, Hal. 96–100, Dar Shadir, Beirut.
 
-³ Ahmad bin Umar al-Anshari, *Itsbatu Nubuwati Muhammad*, riwayat tentang ketenangan Aminah selama kehamilan dan proses melahirkan.
+³ Ahmad bin Umar al-Anshari, Itsbatu Nubuwati Muhammad, riwayat tentang ketenangan Aminah selama kehamilan dan proses melahirkan.
 
 ⁴ HR. Ahmad, riwayat dari Aminah binti Wahb tentang cahaya yang menjangkau istana-istana di Syam, juga diriwayatkan Ibnu Sa'd dengan jalur serupa dari Al-Irbadh bin Sariyah.
 
-⁵ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Hal. 183, riwayat Ibnu Ishaq dari Ibnu Abbas tentang hari dan tanggal kelahiran.
+⁵ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Hal. 183, riwayat Ibnu Ishaq dari Ibnu Abbas tentang hari dan tanggal kelahiran.
 
-⁶ Ath-Thabari, *Tarikh ar-Rusul wa al-Muluk*, Jilid 2, Bab: Mawlid Muhammad ﷺ wa Tasmiyatuhu, Hal. 155–163, Dar al-Kutub al-'Ilmiyyah, Beirut.
+⁶ Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 2, Bab: Mawlid Muhammad ﷺ wa Tasmiyatuhu, Hal. 155–163, Dar al-Kutub al-'Ilmiyyah, Beirut.
 
 ---
 

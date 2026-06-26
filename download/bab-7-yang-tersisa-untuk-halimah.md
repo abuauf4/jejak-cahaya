@@ -213,11 +213,11 @@ Sedangkan Allah ﷻ memberi dengan apa yang tidak terlihat.
 
 ## Referensi
 
-¹ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Istirdha' an-Nabi fi Bani Sa'd, Hal. 162–166, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk. (riwayat penuturan Halimah, dinukil dari Ibnu Ishaq)
+¹ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Istirdha' an-Nabi fi Bani Sa'd, Hal. 162–166, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk. (riwayat penuturan Halimah, dinukil dari Ibnu Ishaq)
 
-² Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Hal. 163–164 (riwayat keberkahan di kampung Bani Sa'd), Dar al-Ma'rifah, Beirut.
+² Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Hal. 163–164 (riwayat keberkahan di kampung Bani Sa'd), Dar al-Ma'rifah, Beirut.
 
-³ Ibnu Katsir, *Al-Bidayah wan Nihayah*, Jilid 2, Bab: Radha'uhu wa Nasy'atuhu, tentang tradisi penyusuan anak Quraisy ke pedalaman untuk kefasihan bahasa.
+³ Ibnu Katsir, Al-Bidayah wan Nihayah, Jilid 2, Bab: Radha'uhu wa Nasy'atuhu, tentang tradisi penyusuan anak Quraisy ke pedalaman untuk kefasihan bahasa.
 
 ---
 

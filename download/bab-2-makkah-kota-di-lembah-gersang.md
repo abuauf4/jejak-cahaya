@@ -1,6 +1,7 @@
 # Bab 2
 ## Makkah: Kota di Lembah Gersang
 *Lembah Gersang yang Menyimpan Sejarah Besar*
+**Tahun:** Sebelum 570 M
 
 ---
 
@@ -240,7 +241,7 @@ Sebuah lembah yang seharusnya mati.
 
 Namun selalu ramai.
 
-*Air terus mengalir dari Zamzam.*
+⟩ Air terus mengalir dari Zamzam.
 
 Kafilah terus berdatangan.
 
@@ -254,16 +255,16 @@ Belum ada yang mengetahui apa yang sedang dipersiapkan Allah ﷻ dari kota kecil
 
 ---
 
-**Referensi:**
+## Referensi
 
-¹ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr asl al-'Arab wa amr 'Amr ibn 'Amir, Hal. 1–70, Dar al-Ma'rifah, Beirut
+¹ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr asl al-'Arab wa amr 'Amr ibn 'Amir, Hal. 1–70, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
-² Al-Azraqi, *Akhbar Makkah wa-ma Ja'a fiha min al-Athar*, Juz' 1, Bab: Dhikr Bina' Quraisy al-Ka'bah fi al-Jahiliyyah, Hal. 157–174, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
+² Al-Azraqi, Akhbar Makkah wa-ma Ja'a fiha min al-Athar, Juz' 1, Bab: Dhikr Bina' Quraisy al-Ka'bah fi al-Jahiliyyah, Hal. 157–174, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
 
-³ Al-Azraqi, *Akhbar Makkah wa-ma Ja'a fiha min al-Athar*, Juz' 2, Bab: Ma Ja'a fi Ikhraj Jibril Zamzam li-Umm Isma'il, Hal. 39–61, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
+³ Al-Azraqi, Akhbar Makkah wa-ma Ja'a fiha min al-Athar, Juz' 2, Bab: Ma Ja'a fi Ikhraj Jibril Zamzam li-Umm Isma'il, Hal. 39–61, Dar al-Andalus, Beirut, 1403 H / 1983 M, tahqiq Rushdi as-Salih Malhas
 
-⁴ Al-Fasi, *Shifa' al-Gharam bi-Akhbar al-Balad al-Haram*, Jilid 1, al-Bab al-Awwal: fi Dhikr Asma' al-Madinah wa-Awwal Man Sakaniha, Dar al-Kitab al-'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri
+⁴ Al-Fasi, Shifa' al-Gharam bi-Akhbar al-Balad al-Haram, Jilid 1, al-Bab al-Awwal: fi Dhikr Asma' al-Madinah wa-Awwal Man Sakaniha, Dar al-Kitab al-'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri
 
-⁵ Al-Fasi, *Shifa' al-Gharam bi-Akhbar al-Balad al-Haram*, Jilid 2, al-Bab al-'Ishrun: fi Dhikr Hafr Bi'r Zamzam wa-'Ilajiha, Dar al-Kitab al-'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri
+⁵ Al-Fasi, Shifa' al-Gharam bi-Akhbar al-Balad al-Haram, Jilid 2, al-Bab al-'Ishrun: fi Dhikr Hafr Bi'r Zamzam wa-'Ilajiha, Dar al-Kitab al-'Arabi, Beirut, 1405 H / 1985 M, tahqiq Umar Abd as-Salam Tadmuri
 
-⁶ Yaqut al-Hamawi, *Mu'jam al-Buldan*, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M
+⁶ Yaqut al-Hamawi, Mu'jam al-Buldan, Jilid 5, Entri: Makkah, Hal. 286–297, Dar Shadir, Beirut, 1397 H / 1977 M

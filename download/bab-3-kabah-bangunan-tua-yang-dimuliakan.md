@@ -1,6 +1,7 @@
 # Bab 3
 ## Ka'bah: Bangunan Tua yang Dimuliakan
 *Dari tangan Nabi Ibrahim عليه السلام ke tangan Quraisy*
+**Tahun:** Zaman Dahulu
 
 ---
 
@@ -120,8 +121,8 @@ Dan memohon.
 
 Allah ﷻ mengabadikan sebagian doanya dalam Al-Qur'an:¹
 
-> *"Ya Tuhanku, jadikanlah negeri ini negeri yang aman dan jauhkanlah aku beserta anak cucuku daripada menyembah berhala."*
-> — QS Ibrahim: 35
+» "Ya Tuhanku, jadikanlah negeri ini negeri yang aman dan jauhkanlah aku beserta anak cucuku daripada menyembah berhala."
+— QS Ibrahim: 35
 
 Doa itu terdengar.
 
@@ -223,7 +224,7 @@ Lupa bahwa leluhur mereka berdoa bukan kepada patung.
 
 Lupa bahwa di balik setiap batu Ka'bah, ada sejarah yang lebih tua daripada semua berhala yang mereka letakkan di dalamnya.
 
-*Ka'bah menunggu.*
+⟩ Ka'bah menunggu.
 
 Tidak dengan suara.
 
@@ -241,7 +242,7 @@ Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memin
 
 ---
 
-**Referensi:**
+## Referensi
 
 ¹ QS Ibrahim: 35-41
 
@@ -249,8 +250,8 @@ Menunggu seseorang yang akan mengembalikan rumah ini kepada Allah ﷻ yang memin
 
 ³ QS Al-Hajj: 26-30
 
-⁴ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr Bina' Ibrahim al-Bayt, Hal. 42-55, Dar al-Ma'rifah, Beirut
+⁴ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Bina' Ibrahim al-Bayt, Hal. 42-55, Dar al-Ma'rifah, Beirut
 
-⁵ Al-Azraqi, *Akhbar Makkah*, Juz' 1, Bab: Dhikr Bina' Ibrahim al-Ka'bah, Hal. 30-45, Dar al-Andalus, Beirut
+⁵ Al-Azraqi, Akhbar Makkah, Juz' 1, Bab: Dhikr Bina' Ibrahim al-Ka'bah, Hal. 30-45, Dar al-Andalus, Beirut
 
-⁶ Ath-Thabari, *Tarikh ar-Rusul wa al-Muluk*, Jilid 1, Hal. 267-276, Dar al-Kutub al-'Ilmiyyah, Beirut
+⁶ Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 1, Hal. 267-276, Dar al-Kutub al-'Ilmiyyah, Beirut

@@ -1,6 +1,7 @@
 # Bab 4
 ## Suku Quraisy
 *Penjaga Ka'bah dan penguasa Makkah*
+**Tahun:** Sebelum 570 M
 
 ---
 
@@ -176,8 +177,8 @@ Keuntungan yang dulunya tipis kini menjadi berlimpah.
 
 Al-Qur'an sendiri menyebut nikmat ini:¹
 
-> *"Karena persaudaraan Quraisy. Persaudaraan mereka dalam perjalanan musim dingin dan musim panas. Maka hendaklah mereka menyembah Tuhan rumah ini."*
-> — QS Quraisy: 1-3
+» "Karena persaudaraan Quraisy. Persaudaraan mereka dalam perjalanan musim dingin dan musim panas. Maka hendaklah mereka menyembah Tuhan rumah ini."
+— QS Quraisy: 1-3
 
 Allah ﷻ menyebut dua perjalanan itu bukan tanpa alasan.
 
@@ -261,7 +262,7 @@ Dan di dalam rumahnya, sejarah sedang menunggu.
 
 ✦ ✦ ✦
 
-*Kekuasaan Quraisy seperti malam yang sunyi.*
+⟩ Kekuasaan Quraisy seperti malam yang sunyi.
 
 Dari luar, semuanya tenang.
 
@@ -283,14 +284,14 @@ Tidak ada yang menyangka bahwa perubahan itu justru akan lahir dari salah satu r
 
 ---
 
-**Referensi:**
+## Referensi
 
 ¹ QS Quraisy: 1-4
 
-² Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Dhikr Qusay bin Kilab wa Fadl Quraysy, Hal. 55-70, Dar al-Ma'rifah, Beirut
+² Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Dhikr Qusay bin Kilab wa Fadl Quraysy, Hal. 55-70, Dar al-Ma'rifah, Beirut
 
-³ Ath-Thabari, *Tarikh ar-Rusul wa al-Muluk*, Jilid 2, Hal. 210-230, Dar al-Kutub al-'Ilmiyyah, Beirut
+³ Ath-Thabari, Tarikh ar-Rusul wa al-Muluk, Jilid 2, Hal. 210-230, Dar al-Kutub al-'Ilmiyyah, Beirut
 
-⁴ Al-Azraqi, *Akhbar Makkah*, Juz' 1, Bab: Dhikr Qusay wa Bina'ih Dar an-Nadwah, Hal. 68-85, Dar al-Andalus, Beirut
+⁴ Al-Azraqi, Akhbar Makkah, Juz' 1, Bab: Dhikr Qusay wa Bina'ih Dar an-Nadwah, Hal. 68-85, Dar al-Andalus, Beirut
 
-⁵ Ibnu Sa'd, *Ath-Thabaqat al-Kubra*, Jilid 1, Hal. 40-52, Dar Shadir, Beirut
+⁵ Ibnu Sa'd, Ath-Thabaqat al-Kubra, Jilid 1, Hal. 40-52, Dar Shadir, Beirut

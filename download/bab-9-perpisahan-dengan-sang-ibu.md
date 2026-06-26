@@ -97,7 +97,7 @@ Dan kehilangan ibunya sebelum genap tujuh tahun.
 
 Dua kehilangan yang akan membentuk seluruh jalan hidupnya.
 
-Allah ﷺ tidak meninggalkannya.
+Allah ﷻ tidak meninggalkannya.
 
 Sebagaimana kelak akan disebutkan: bukankah Allah mendapatimu sebagai seorang yatim, lalu Dia melindungimu?
 
@@ -105,7 +105,7 @@ Sebagaimana kelak akan disebutkan: bukankah Allah mendapatimu sebagai seorang ya
 
 ## Referensi
 
-¹ Ibnu Hisyam, *As-Sirah An-Nabawiyah*, Jilid 1, Bab: Wafat Aminah, Hal. 175–177, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
+¹ Ibnu Hisyam, As-Sirah An-Nabawiyah, Jilid 1, Bab: Wafat Aminah, Hal. 175–177, Dar al-Ma'rifah, Beirut, tahqiq Musthafa as-Saqqa dkk.
 
 ² Durasi tinggal di Yatsrib sebulan disebutkan dalam beberapa riwayat turunan sirah, termasuk dalam Ensiklopedia Islam dan kutipan dari K.H. Moenawar Chalil, Kelengkapan Tarikh Nabi Muhammad. Lihat Catatan Editor.
 
