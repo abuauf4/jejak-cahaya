@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: BabPageProps): Promise<Metada
   const babNum = event.id.replace('bab-', '');
 
   return {
-    title: `${event.title} — Jejak Cahaya`,
+    title: event.title,
     description,
     alternates: {
       canonical: canonicalUrl,

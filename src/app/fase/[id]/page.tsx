@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: FasePageProps): Promise<Metad
   const description = `${journey.subtitle}. ${journey.description} Koleksi sirah nabawiyah dengan ${journey.eventIds.length} bab.`;
 
   return {
-    title: `${journey.title} — Jejak Cahaya`,
+    title: journey.title,
     description,
     alternates: {
       canonical: canonicalUrl,

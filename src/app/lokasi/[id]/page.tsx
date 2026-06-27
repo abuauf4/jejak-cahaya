@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: LokasiDetailProps): Promise<M
   const description = `${location.description} ${location.significance}. Lokasi dalam sirah nabawiyah di Jejak Cahaya.`;
 
   return {
-    title: `${location.name} — Jejak Cahaya`,
+    title: location.name,
     description,
     alternates: {
       canonical: canonicalUrl,

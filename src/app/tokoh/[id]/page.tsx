@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: TokohDetailProps): Promise<Me
   const description = `${character.shortBio} ${character.role}. Kisah tokoh dalam sirah nabawiyah di Jejak Cahaya.`;
 
   return {
-    title: `${character.name} — Jejak Cahaya`,
+    title: character.name,
     description,
     alternates: {
       canonical: canonicalUrl,
