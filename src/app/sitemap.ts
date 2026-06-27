@@ -17,35 +17,38 @@ import {
 
 const BASE_URL = 'https://jejakcahaya.my.id';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+// Date-only format (W3C Datetime) — paling reliable buat Google
+// Hindari timestamp dengan millisecond precision yang bisa bikin
+// some validators strict reject.
+const TODAY = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   // ── Homepage (priority 1.0, weekly refresh) ──
   entries.push({
-    url: BASE_URL,
-    lastModified: now,
+    url: `${BASE_URL}/`,
+    lastModified: TODAY,
     changeFrequency: 'weekly',
-    priority: 1.0,
+    priority: 1,
   });
 
   // ── Static pages ──
   entries.push({
     url: `${BASE_URL}/cari`,
-    lastModified: now,
+    lastModified: TODAY,
     changeFrequency: 'monthly',
     priority: 0.5,
   });
   entries.push({
     url: `${BASE_URL}/tokoh`,
-    lastModified: now,
+    lastModified: TODAY,
     changeFrequency: 'monthly',
     priority: 0.7,
   });
   entries.push({
     url: `${BASE_URL}/lokasi`,
-    lastModified: now,
+    lastModified: TODAY,
     changeFrequency: 'monthly',
     priority: 0.7,
   });
@@ -54,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   journeys.forEach((journey) => {
     entries.push({
       url: `${BASE_URL}/fase/${journey.id.replace('fase-', '')}`,
-      lastModified: now,
+      lastModified: TODAY,
       changeFrequency: 'monthly',
       priority: 0.7,
     });
@@ -64,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   events.forEach((event) => {
     entries.push({
       url: `${BASE_URL}/bab/${event.id.replace('bab-', '')}`,
-      lastModified: now,
+      lastModified: TODAY,
       changeFrequency: 'monthly',
       priority: 0.9,
     });
@@ -74,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   locations.forEach((location) => {
     entries.push({
       url: `${BASE_URL}/lokasi/${location.id}`,
-      lastModified: now,
+      lastModified: TODAY,
       changeFrequency: 'monthly',
       priority: 0.6,
     });
@@ -84,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   characters.forEach((character) => {
     entries.push({
       url: `${BASE_URL}/tokoh/${character.id}`,
-      lastModified: now,
+      lastModified: TODAY,
       changeFrequency: 'monthly',
       priority: 0.6,
     });
