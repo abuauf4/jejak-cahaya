@@ -315,7 +315,7 @@ export default function StoryContent({
               <>
                 <span className="text-ink/20 dark:text-sand/20">·</span>
                 <Link
-                  href={`/lokasi`}
+                  href={`/lokasi/${location.id}`}
                   className="transition-colors duration-200 hover:underline text-ink-soft dark:text-sand hover:text-ink dark:hover:text-cream"
                 >
                   {location.name}
@@ -448,7 +448,7 @@ export default function StoryContent({
                   {characters.map((char) => (
                     <Link
                       key={char.id}
-                      href="/tokoh"
+                      href={`/tokoh/${char.id}`}
                       className="group flex items-center gap-1.5 text-[15px] transition-colors duration-200 text-ink-soft dark:text-sand hover:text-gold dark:hover:text-lantern-mid"
                     >
                       {char.name}
@@ -466,7 +466,7 @@ export default function StoryContent({
                 </span>
                 <div className="mt-3">
                   <Link
-                    href="/lokasi"
+                    href={`/lokasi/${location.id}`}
                     className="group flex items-center gap-1.5 text-[15px] transition-colors duration-200 text-ink-soft dark:text-sand hover:text-gold dark:hover:text-lantern-mid"
                   >
                     {location.name}
